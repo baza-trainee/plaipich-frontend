@@ -1,0 +1,2 @@
+'*.{ts,tsx,json,md,html}': npm run prettify
+src/**/*.{ts,tsx}: npm run lint
