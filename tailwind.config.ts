@@ -59,6 +59,7 @@ const config: Config = {
         700: "#49494A",
         800: "#3C3C3E",
         900: "#323234",
+        1000: "#252525",
       },
     },
     lineHeight: {
@@ -67,6 +68,8 @@ const config: Config = {
       2: "1.2",
       3: "1.3",
       4: "1.4",
+		5: "1.5",
+		6: "1.6"
     },
     borderRadius: {
       medium: "3.125rem", // 50px
@@ -81,5 +84,5 @@ const config: Config = {
     },
   },
   plugins: [],
-};
+}
 export default config;

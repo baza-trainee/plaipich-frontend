@@ -1,20 +1,20 @@
 import React from "react"
 
 interface ButtonProps {
-  children: any
-  onClick: () => void
+  children: React.ReactNode
+  onClick?: () => void
   disabled?: boolean
   type: "primary" | "secondary" | "transparent" | "orange"
 }
 
-const ReusableButton: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   children = "Button",
   onClick,
   disabled = false,
   type = "primary",
 }) => {
   const base: string =
-    "inline-flex text-md font-sans leading-6 font-semibold justify-center items-center rounded-large gap-2 disabled:cursor-not-allowed transition px-6 py-[1.125rem] duration-300 border border-solid capitalize"
+    "inline-flex text-md font-sans leading-6 font-semibold justify-center items-center rounded-large gap-2 disabled:cursor-not-allowed transition px-6 py-4 duration-300 border border-solid capitalize"
   const styles: Record<string, string> = {
     primary:
       base +
@@ -37,4 +37,4 @@ const ReusableButton: React.FC<ButtonProps> = ({
   )
 }
 
-export default ReusableButton
+export default Button
