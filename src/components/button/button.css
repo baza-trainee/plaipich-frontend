@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button, base {
+  @apply inline-flex text-md font-sans leading-6 font-semibold justify-center items-center rounded-large gap-2 transition px-6 py-4 duration-300 border border-solid capitalize;
+}
+
+button:disabled {
+  @apply cursor-not-allowed;
+}
+
+button:disabled,
+.btn-primary:disabled {
+  @apply bg-gray-300 text-white;
+}
+
+base,
+.btn-primary {
+  @apply text-white bg-dark-blue hover:bg-light-blue hover:text-black border-dark-blue hover:border-black  active:text-white active:bg-dark-blue active:border-dark-blue;
+}
+
+button:disabled,
+.btn-secondary:disabled {
+  @apply bg-gray-300 text-white;
+}
+
+base,
+.btn-secondary {
+  @apply text-black  bg-transparent border-black active:text-white active:bg-black;
+}
+
+button:disabled,
+.btn-transparent:disabled {
+  @apply bg-gray-300 text-white;
+}
+
+base,
+.btn-transparent {
+  @apply text-black bg-transparent border-transparent hover:bg-gray-100 hover:border-gray-100 active:border-transparent active:bg-transparent;
+}
+
+button:disabled,
+.btn-orange:disabled {
+  @apply bg-gray-300 text-gray-300 border-gray-300;
+}
+
+base,
+.btn-orange {
+  @apply text-white bg-orange hover:bg-dark-orange border-orange hover:border-dark-orange active:text-white active:bg-orange active:border-orange;
+}
