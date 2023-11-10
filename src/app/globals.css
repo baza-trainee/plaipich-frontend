@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button {
+  @layer text-inherit;
+}
+
+p {
+  @apply text-lg leading-4 font-normal;
+}
+
+h1,
+.h1 {
+  @apply font-bold text-4xl leading-4;
+}
+
+h2,
+.h2 {
+  @apply font-bold text-3xl leading-2 uppercase;
+}
+
+h3,
+.h3 {
+  @apply font-medium text-3xl leading-2 uppercase;
+}
+
+h4,
+.h4 {
+  @apply font-bold text-3xl leading-2;
+}
+
+h5,
+.h5 {
+  @apply font-semibold text-2xl leading-2;
+}
+
+h6,
+.h6 {
+  @apply font-bold text-xl leading-2 uppercase;
+}
+
+.h7 {
+  @apply font-normal text-xl leading-2 uppercase;
+}
+
+.h8 {
+  @apply font-normal text-xl leading-2;
+}
+
+.h9 {
+  @apply font-bold text-lg leading-2;
+}
+
+.h10 {
+  @apply font-semibold text-lg leading-2;
+}
+
+
