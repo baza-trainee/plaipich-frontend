@@ -1,11 +1,12 @@
+import './link.css';
+
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import React from "react";
 
 const styles = {
-    link: "link hover:underline",
-    text: " link",
-    button: "button hover:bg-black hover:text-white",
-    error: "link text-red-500",
+    link: "link",
+    linkButtonPrimary : "link-button-primary",
+    linkButtonSecondary : "link-button-secondary",
 };
 
 type appearances = keyof typeof styles;
@@ -23,7 +24,8 @@ export const Link: React.FC<LinkProps> = ({
     ...rest
 }: LinkProps) => {
     return (
-        <NextLink {...rest} className={`${styles[appearance]} ${className}`}>
+        <NextLink {...rest}
+            className={`${styles[appearance]} ${className}`}>
             {children}
         </NextLink>
     );

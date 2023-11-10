@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link-text {
+    @apply hover:underline font-semibold;
+}
+
+.link-button-primary,
+.link-button-secondary {
+  @apply px-6 py-4 rounded-large font-semibold text-md leading-2 border;
+}
+
+.link-button-primary {
+  @apply bg-dark-blue text-white border-black
+        hover:bg-light-blue hover:text-black 
+        active:bg-dark-blue active:text-white
+        disabled:bg-gray-300 disabled:text-white
+  ;
+}
+
+.link-button-secondary {
+  @apply border bg-transparent text-dark-blue
+  active:text-white active:bg-black;
+}
