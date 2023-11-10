@@ -5,16 +5,15 @@ export default function New() {
     return (
         <section >
             <h2>* Новини</h2>
-            {newsData.map((news) => (
-                <NewsCard
-                    key={news.id}
-                    title={news.title}
-                    content={news.content}
-                    date={news.date}
-                    imageUrl={news.imageUrl}
-                    className='px-4 my-10'
-                />
-            ))}
+            <div className='lg:grid lg:grid-cols-3 gap-8'>
+                {newsData.map((news) => (
+                    <NewsCard
+                        key={news.id}
+                        newsItem={news}
+                        className='lg:p-0 lg:m-0 px-4 my-10'
+                    />
+                ))}
+            </div>
         </section>
     );
 }

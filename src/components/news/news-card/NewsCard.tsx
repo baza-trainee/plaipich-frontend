@@ -1,7 +1,14 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { NewsItem } from '@/components/news/news-data/newsData';
+export interface NewsItem {
+    id: number;
+    tag: string;
+    title: string;
+    content: string;
+    date: string;
+    imageUrl: string;
+}
 
 interface NewsCardProps {
     newsItem: NewsItem;
@@ -9,7 +16,7 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
-    const {tags, title, content, date, imageUrl} = newsItem;
+    const { tag, title, content, date, imageUrl } = newsItem;
     return (
         <article className={`flex flex-col ${className ?? ''}`}>
             <Image
@@ -18,9 +25,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                 width={1280}
                 height={853} />
             <hr />
-            <div
-                className='rouned-full'>
-                {tags}
+            <div className='flex'>
+                <div className='border py-2 px-4 rounded-large bg-orange'>{tag}</div>
             </div>
             <h3>{title}</h3>
             <p>{content}</p>
