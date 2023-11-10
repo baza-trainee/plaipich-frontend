@@ -59,7 +59,7 @@ const config: Config = {
         700: "#49494A",
         800: "#3C3C3E",
         900: "#323234",
-        1000: "#252525",
+        950: "#252525",
       },
     },
     lineHeight: {
@@ -79,6 +79,14 @@ const config: Config = {
       borderRadius: {
         medium: "3.125rem", // 50px
         large: "4.5rem", // 72px
+      },
+      fontSize: {
+        "small-md": "1.125rem", // 18px
+        "small-lg": "1.375rem", // 22px
+        "small-xl": "1.625rem", // 26px
+        "small-2xl": "1.875rem", // 30px
+        "small-3xl": "2.25rem", // 36px
+        "small-4xl": "3rem", // 48px
       },
       spacing: {
         4.5: "1.125rem", // 18px
