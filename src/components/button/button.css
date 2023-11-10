@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 button {
-  @apply inline-flex leading-6 px-6 py-4 justify-center items-center rounded-large gap-2 
+  @apply inline-flex px-6 py-[18px] justify-center items-center rounded-large gap-2 
   transition  duration-300 border border-solid capitalize
   disabled:cursor-not-allowed;
 }
 
 .btn-text {
-  @apply text-md font-sans leading-6 font-semibold
+  @apply text-md font-sans leading-2 font-semibold tracking-normal;
 }
 
 .btn-primary {
