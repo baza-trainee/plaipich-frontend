@@ -1,4 +1,4 @@
-import Footer from '@/components/Footer/footer';
+import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import Section1 from '@/components/section1/section1';
 

@@ -1,3 +1,5 @@
+import './button.css';
+
 import React from "react"
 
 interface ButtonProps {
@@ -5,12 +7,7 @@ interface ButtonProps {
   onClick?: () => void
   disabled?: boolean
   type: "submit" | "button"
-  className:
-    | "btn-primary"
-    | "btn-secondary"
-    | "btn-transparent"
-    | "btn-orange"
-    | string
+  className: string
 }
 
 const Button: React.FC<ButtonProps> = ({
