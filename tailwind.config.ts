@@ -68,21 +68,31 @@ const config: Config = {
       2: "1.2",
       3: "1.3",
       4: "1.4",
-		5: "1.5",
-		6: "1.6"
+      5: "1.5",
+      6: "1.6",
     },
-    borderRadius: {
-      medium: "3.125rem", // 50px
-      large: "4.5rem", // 72px
-    },
-  },
-  extend: {
-    backgroundImage: {
-      "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-      "gradient-conic":
-        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      borderRadius: {
+        medium: "3.125rem", // 50px
+        large: "4.5rem", // 72px
+      },
+      spacing: {
+        4.5: "1.125rem", // 18px
+        5.5: "1.375rem", // 22px
+        6.5: "1.625rem", // 26px
+        7.5: "1.875rem", // 30px
+        8.5: "2.125rem", // 34px
+        9.5: "2.375rem", // 38px
+        10.5: "2.625rem", // 42px
+        11.5: "2.875rem", // 46px
+        12.5: "3.125rem", // 50px
+      },
     },
   },
   plugins: [],
-}
+};
 export default config;
