@@ -1,4 +1,4 @@
-export { Button } from './button/Button';
+export { Button } from './button/button';
 export { Slider } from './carousel/carousel';
 export { Contacts } from './contacts/contacts';
 export { Footer } from './footer/footer';
