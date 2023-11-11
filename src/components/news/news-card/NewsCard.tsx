@@ -24,15 +24,15 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                 alt={title}
                 width={1280}
                 height={853} />
-            <hr />
-            <div className='flex'>
+            <hr className='mt-7 mb-5'/>
+            <div className='flex mb-5'>
                 <div className='border py-2 px-4 rounded-large bg-orange'>{tag}</div>
             </div>
             <h3>{title}</h3>
-            <p>{content}</p>
-            <div>{date}</div>
+            <p className='py-3 '>{content}</p>
+            <div className='text-gray-500' >{date}</div>
 
-            <hr />
+            <hr className='mt-5'/>
         </article>
     );
 };
