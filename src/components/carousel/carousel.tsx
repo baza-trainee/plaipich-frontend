@@ -7,7 +7,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import logo from "../../../public/logo.svg";
-import { Link } from "../link/Link";
+import { Link } from "../link/link";
 
 export const Slider = () => {
   const carouselList = [1, 2, 3];
