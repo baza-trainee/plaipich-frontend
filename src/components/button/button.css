@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-button {
+button, .btn {
   @apply inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 
   transition  duration-300 border border-solid capitalize
   disabled:cursor-not-allowed;

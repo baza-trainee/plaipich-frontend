@@ -1,9 +1,11 @@
-import { Footer } from '@/components';
+import { Slider } from "@/components";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-6">
-      <Footer />
+    <main className="w-full">
+      <Slider />
     </main>
   );
 }
+
+export default Home;
