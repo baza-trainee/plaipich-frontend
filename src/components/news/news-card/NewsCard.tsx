@@ -15,6 +15,15 @@ interface NewsCardProps {
     className?: string;
 }
 
+function SetTegColor(tag: string) {
+    const tags: Record<string, string> ={
+        'Фестивалі': 'bg-pink-pearl',
+        'Проекти': 'bg-yellow-green',
+        'Конкурси': 'bg-volt',
+    }
+    return tags[tag] ?? "bg-transparent";
+}
+
 const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
     const { tag, title, content, date, imageUrl } = newsItem;
     return (
@@ -24,16 +33,16 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                 alt={title}
                 width={853}
                 height={853}
-                />
-            <hr className='border-black dark:border-white mt-7 mb-5'/>
+            />
+            <hr className='border-black dark:border-white mt-7 mb-5' />
             <div className='flex mb-5'>
-                <div className='border border-black py-2 px-4 rounded-large bg-orange'>{tag}</div>
+                <div className={`border border-black py-2 px-4 rounded-large ${SetTegColor(tag)}`}>{tag}</div>
             </div>
             <h3>{title}</h3>
             <p className='py-3 '>{content}</p>
             <div className='text-gray-500' >{date}</div>
 
-            <hr className='border-black dark:border-white mt-5'/>
+            <hr className='border-black dark:border-white mt-5' />
         </article>
     );
 };
