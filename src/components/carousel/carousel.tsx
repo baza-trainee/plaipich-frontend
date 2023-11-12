@@ -1,6 +1,7 @@
 "use client";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./carousel.css";
 
 import Image from "next/image";
 import React from "react";
@@ -14,10 +15,10 @@ export const Slider = () => {
 
   return (
     <section className="w-full py-2" id="projects-slider">
-      <Carousel showThumbs={false} showStatus={false}>
+      <Carousel showThumbs={false} showStatus={false} showArrows={false} autoPlay infiniteLoop interval={7000}>
         {carouselList.map((item) => (
           <div className="w-full pb-[50px] md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10" key={item}>
-            <div className="bg-black w-full h-[350px] mb-5 md:w-[45%] md:h-[700px]">
+            <div className="bg-black w-full h-[350px] mb-5 md:w-1/2 md:h-[700px]">
               <Image src={logo} alt={"logo"} objectFit="contain" />
             </div>
             <div className="flex flex-col justify-center content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
