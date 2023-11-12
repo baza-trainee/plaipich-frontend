@@ -1,8 +1,8 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+import { PiMoon, PiSun } from "react-icons/pi";
 
 const ThemeButton = () => {
   const [mounted, setMounted] = useState(false);
@@ -11,22 +11,27 @@ const ThemeButton = () => {
   // Avoid hydration mismatches by delaying rendering the UI
   useEffect(() => {
     setMounted(true);
+    return () => setMounted(false);
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <span className="bg-transparent flex justify-center items-center w-10 h-10">
+        <span className="rounded-full bg-gray-600 animate-bounce w-7 h-7"></span>
+      </span>
+    );
   }
 
   return (
     <button
       aria-label="Toggle Dark Mode"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="text-black dark:text-white border-none"
+      className="text-white dark:text-white inline-block border-none px-1 py-0.5 w-10 h-10"
     >
       {resolvedTheme === "dark" ? (
-        <Icon icon="ph:sun-bold" width="24" height="24" />
+        <PiSun className="text-white dark:text-white" fontSize={32} />
       ) : (
-        <Icon icon="ph:moon-bold" width="24" height="24" />
+        <PiMoon className="text-white dark:text-white" fontSize={32} />
       )}
     </button>
   );

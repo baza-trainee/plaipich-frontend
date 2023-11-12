@@ -40,11 +40,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="light">
+    <html lang="en">
       <body className={`${fixel.variable} font-sans`}>
-        <Header />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
