@@ -63,6 +63,12 @@ const config: Config = {
         950: "#252525",
       },
     },
+    transitionDuration: {
+      DEFAULT: "300ms",
+    },
+    transitionTimingFunction: {
+      DEFAULT: "ease",
+    },
     lineHeight: {
       auto: "1",
       1: "1.1",
