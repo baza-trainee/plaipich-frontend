@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
-import { Header } from "@/components";
+import { Footer,Header } from "@/components";
 
 const fixel = localFont({
   src: [
@@ -47,6 +47,7 @@ export default function RootLayout({
       <body className={`${fixel.variable} font-sans`}>
         <Header />
         {children}
+        <Footer/>
       </body>
     </html>
   );
