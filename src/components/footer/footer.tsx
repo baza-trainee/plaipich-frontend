@@ -1,8 +1,9 @@
+import Image from 'next/image';
+
 export const Footer = () => {
   return (
-    <footer>
-      <hr />
-      <div>Logo</div>
+    <footer className='bg-black text-white'>      
+      <Image src='/footer.png' alt='Логотип ГО Play Pich' width={265} height={110}/>
       <ul>
         <li>Про нас</li>
         <li>Новини</li>
