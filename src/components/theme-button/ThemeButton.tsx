@@ -15,11 +15,7 @@ const ThemeButton = () => {
   }, []);
 
   if (!mounted) {
-    return (
-      <span className="bg-transparent flex justify-center items-center w-10 h-10">
-        <span className="rounded-full bg-gray-600 animate-bounce w-7 h-7"></span>
-      </span>
-    );
+    return <span className="bg-transparent flex justify-center items-center w-10 h-10" />;
   }
 
   return (
