@@ -26,7 +26,7 @@ export const Link: React.FC<LinkProps> = ({
 }: LinkProps) => {
     return (
         <NextLink {...rest}
-            className={`${styles[appearance]} ${className}`}>
+            className={`${styles[appearance]} ${className} transition-all`}>
             {children}
         </NextLink>
     );

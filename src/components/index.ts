@@ -1,4 +1,5 @@
 export { AboutMain } from './about-main/about-main';
+export { Button } from './button/Button';
 export { Slider } from './carousel/carousel';
 export { Contacts } from './contacts/contacts';
 export { Footer } from './footer/footer';

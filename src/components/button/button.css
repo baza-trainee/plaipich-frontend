@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 button {
-  @apply inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 
-  transition  duration-300 border border-solid capitalize
+  @apply inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize
   disabled:cursor-not-allowed;
 }
 
@@ -24,11 +23,15 @@ button {
 
 .btn-secondary {
   @apply text-black bg-transparent border-black 
-  active:text-white active:bg-black;
+  active:text-white active:bg-black
+  dark:text-white dark:border-white 
+  dark:hover:text-black dark:hover:bg-white 
+  dark:active:text-black dark:active:bg-white;
 }
 
 .btn-secondary:disabled {
-  @apply bg-gray-300 text-white border-transparent;
+  @apply bg-gray-300 text-white border-transparent
+  dark:border-gray-300 dark:text-gray-300;
 }
 
 .btn-transparent {

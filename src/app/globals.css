@@ -74,3 +74,9 @@ h6,
 *::-webkit-scrollbar-thumb {
   @apply bg-orange rounded;
 }
+
+*.transition-all {
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-duration: 3000ms;
+}
