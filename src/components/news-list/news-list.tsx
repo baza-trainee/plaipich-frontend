@@ -2,7 +2,7 @@
 
 import NewsCard from './news-card/news-card';
 import newsData from "./news-data/news-data";
-import Spiral from './spiral'
+import { Spiral } from './spiral'
 
 export const NewsList = () => {
     return (
