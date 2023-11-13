@@ -1,4 +1,4 @@
-import { NewsItem } from '@/components/news/news-card/NewsCard';
+import { NewsItem } from "@/components/news-list/news-card/news-card";
 
 const newsData: NewsItem[] = [
   {

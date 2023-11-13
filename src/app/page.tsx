@@ -1,12 +1,13 @@
-import { Footer } from "@/components";
-import News from "@/components/news/News";
+import { AboutMain, Carousel, Contacts,JoinUs, NewsList } from '@/components';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <News />
-
-      <Footer />
+      <Carousel />
+      <AboutMain />
+      <NewsList />
+      <JoinUs />
+      <Contacts/>
     </main>
   );
 }
