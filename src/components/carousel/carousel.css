@@ -1,23 +1,7 @@
 #projects-slider .carousel .control-next.control-arrow {
-  @apply absolute top-auto bottom-[25px] right-1/4 bg-orange;
+  @apply absolute top-auto bottom-2.5 right-0 md:right-1/3 opacity-0 w-[45%] md:w-[15%];
 }
-
-/* #projects-slider .carousel .control-next.control-arrow::before{
-    content: '';
-    background-color: black;
-    width: 10px;
-    height: 10px;
-
-} */
 
 #projects-slider .carousel .control-prev.control-arrow {
-  @apply absolute top-auto bottom-[25px] left-1/4 bg-orange;
+  @apply absolute top-auto bottom-2.5 left-0 md:left-1/3 opacity-0 w-[45%] md:w-[15%];
 }
-
-/* #projects-slider .carousel .control-prev.control-arrow::before {
-    content: '';
-    background-color: black;
-    width: 10px;
-    height: 10px;
-
-} */

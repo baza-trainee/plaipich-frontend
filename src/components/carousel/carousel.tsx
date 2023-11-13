@@ -7,6 +7,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
+import left from "../../../public/button-arrows/left.svg";
+import right from "../../../public/button-arrows/right.svg";
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
 
@@ -14,12 +16,16 @@ export const Slider = () => {
   const [slide, setSlide] = useState(1);
   const carouselList = [1, 2, 3, 4, 5];
 
-  const onChange = (page: number) => {
-    setSlide((prev: number) => prev + page);
+  const onChange = (page:number) => {
+    if (page === 0) {
+      setSlide(1);
+    } else {
+      setSlide(1 + page);
+    }
   };
 
   return (
-    <section className="relative w-full py-2" id="projects-slider">
+    <section className="relative w-full py-2 bg-white" id="projects-slider">
       <Carousel
         showThumbs={false}
         showIndicators={false}
@@ -31,10 +37,10 @@ export const Slider = () => {
       >
         {carouselList.map((item) => (
           <div
-            className="w-full pb-[50px] md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
+            className="w-full pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
             key={item}
           >
-            <div className="bg-black w-full h-[350px] mb-5 md:w-1/2 md:h-[650px]">
+            <div className="w-full h-[350px] mb-5 md:w-1/2 md:h-[650px]">
               <Image
                 src={hiro}
                 alt={"logo"}
@@ -72,9 +78,29 @@ export const Slider = () => {
           </div>
         ))}
       </Carousel>
-      <p className="absolute bottom-[25px] right-1/2 text-black">
-        {slide}/{carouselList.length}
-      </p>
+      <div className="absolute bottom-2.5 right-1/3 w-1/3 text-dark-blue flex justify-center items-center">
+        <button className="w-20 border-none">
+          <Image
+            src={left}
+            alt={"prev"}
+            width={0}
+            height={0}
+            className="w-full object-contain"
+          />
+        </button>
+        <p className="font-semibold text-center w-20">
+          {slide} / {carouselList.length}
+        </p>
+        <button className="w-20 border-none">
+          <Image
+            src={right}
+            alt={"next"}
+            width={0}
+            height={0}
+            className="w-full object-contain"
+          />
+        </button>
+      </div>
     </section>
   );
 };
