@@ -1,7 +1,23 @@
-.carousel .control-dots li.dot{
-@apply bg-black border-black h-5 w-5 dark:bg-white;
+#projects-slider .carousel .control-next.control-arrow {
+  @apply absolute top-auto bottom-[25px] right-1/4 bg-orange;
 }
 
-.carousel .control-dots li.dot.selected{
-@apply bg-orange dark:bg-pink-pearl;
+/* #projects-slider .carousel .control-next.control-arrow::before{
+    content: '';
+    background-color: black;
+    width: 10px;
+    height: 10px;
+
+} */
+
+#projects-slider .carousel .control-prev.control-arrow {
+  @apply absolute top-auto bottom-[25px] left-1/4 bg-orange;
 }
+
+/* #projects-slider .carousel .control-prev.control-arrow::before {
+    content: '';
+    background-color: black;
+    width: 10px;
+    height: 10px;
+
+} */

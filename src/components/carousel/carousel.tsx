@@ -4,24 +4,30 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./carousel.css";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
 
 export const Slider = () => {
-  const carouselList = [1, 2, 3];
+  const [slide, setSlide] = useState(1);
+  const carouselList = [1, 2, 3, 4, 5];
+
+  const onChange = (page: number) => {
+    setSlide((prev: number) => prev + page);
+  };
 
   return (
-    <section className="w-full py-2" id="projects-slider">
+    <section className="relative w-full py-2" id="projects-slider">
       <Carousel
         showThumbs={false}
+        showIndicators={false}
         showStatus={false}
-        showArrows={false}
         autoPlay
         infiniteLoop
         interval={7000}
+        onChange={onChange}
       >
         {carouselList.map((item) => (
           <div
@@ -35,6 +41,7 @@ export const Slider = () => {
                 width={0}
                 height={0}
                 className="w-full h-full object-cover"
+                priority
               />
             </div>
             <div className="flex flex-col justify-center content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
@@ -65,6 +72,9 @@ export const Slider = () => {
           </div>
         ))}
       </Carousel>
+      <p className="absolute bottom-[25px] right-1/2 text-black">
+        {slide}/{carouselList.length}
+      </p>
     </section>
   );
 };
