@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { PiMoon, PiSun } from "react-icons/pi";
 
-const ThemeButton = () => {
+export const ThemeButton = () => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -32,5 +32,3 @@ const ThemeButton = () => {
     </button>
   );
 };
-
-export default ThemeButton;
