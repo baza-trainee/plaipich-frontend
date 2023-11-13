@@ -8,9 +8,10 @@ export const Footer = () => {
         <div className="lg:flex gap-[160px]">
           <Image
             src="/footer.png"
-            alt="Логотип ГО Play Pich"
+            alt="Логотип ГО Plai Pich"
             width={700}
             height={290}
+            priority
             className="w-[265px] h-[110px] lg:w-[337px] lg:h-[140px] mb-[36px] lg:mb-0 mx-auto lg:ml-0"
           />
           <ul className="lg:flex flex-wrap lg:w-[340px] text-center lg:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">

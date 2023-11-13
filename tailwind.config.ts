@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       lg: "1440px",
@@ -61,6 +62,12 @@ const config: Config = {
         900: "#323234",
         950: "#252525",
       },
+    },
+    transitionDuration: {
+      DEFAULT: "300ms",
+    },
+    transitionTimingFunction: {
+      DEFAULT: "ease",
     },
     lineHeight: {
       auto: "1",
