@@ -21,7 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={className}
+      className={`${className} transition-all`}
       type={type}>
       {children}
     </button>

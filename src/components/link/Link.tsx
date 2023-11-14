@@ -6,7 +6,8 @@ import React from "react";
 const styles = {
     link: "link",
     linkButtonPrimary : "link-button-primary",
-    linkButtonSecondary : "link-button-secondary",
+    linkButtonSecondary: "link-button-secondary",
+    linkButtonOrange: "link-button-orange"
 };
 
 type appearances = keyof typeof styles;
@@ -25,7 +26,7 @@ export const Link: React.FC<LinkProps> = ({
 }: LinkProps) => {
     return (
         <NextLink {...rest}
-            className={`${styles[appearance]} ${className}`}>
+            className={`${styles[appearance]} ${className} transition-all`}>
             {children}
         </NextLink>
     );

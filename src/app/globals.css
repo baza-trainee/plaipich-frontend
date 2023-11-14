@@ -24,35 +24,35 @@ h1,
 
 h2,
 .h2 {
-  @apply font-bold lg:text-3xl text-xl lg:leading-2 leading-3 uppercase;
+  @apply font-bold md:text-3xl text-xl md:leading-2 leading-3 uppercase;
 }
 
 h3,
 .h3 {
-  @apply font-medium text-xl lg:text-3xl lg:leading-2 leading-3 uppercase;
+  @apply font-medium text-xl md:text-3xl md:leading-2 leading-3 uppercase;
 }
 
 h4,
 .h4 {
-  @apply font-bold lg:text-3xl text-xl leading-2;
+  @apply font-bold md:text-3xl text-xl leading-2;
 }
 
 h5,
 .h5 {
-  @apply font-semibold lg:text-2xl text-xl leading-2;
+  @apply font-semibold md:text-2xl text-xl leading-2;
 }
 
 h6,
 .h6 {
-  @apply font-bold lg:text-xl text-lg leading-3 lg:leading-2 uppercase;
+  @apply font-bold md:text-xl text-lg leading-3 md:leading-2 uppercase;
 }
 
 .h7 {
-  @apply font-normal text-lg lg:text-xl leading-3 lg:leading-2 uppercase;
+  @apply font-normal text-lg md:text-xl leading-3 md:leading-2 uppercase;
 }
 
 .h8 {
-  @apply font-normal text-lg lg:text-xl leading-2;
+  @apply font-normal text-lg md:text-xl leading-2;
 }
 
 .h9 {
@@ -63,4 +63,20 @@ h6,
   @apply font-semibold text-lg leading-2;
 }
 
+*::-webkit-scrollbar {
+  @apply w-2 h-0;
+}
 
+*::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-orange rounded;
+}
+
+*.transition-all {
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-duration: 3000ms;
+}

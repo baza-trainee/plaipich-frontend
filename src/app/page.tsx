@@ -1,9 +1,13 @@
-import { Slider } from "@/components";
+import { AboutMain, Contacts,JoinUs, NewsList,Slider } from '@/components';
 
 const Home = () => {
   return (
-    <main className="w-full flex flex-col justify-center items-center">
+    <main className="flex min-h-screen flex-col items-center justify-between">
       <Slider />
+      <AboutMain />
+      <NewsList />
+      <JoinUs />
+      <Contacts/>
     </main>
   );
 }
