@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 button {
-  @apply inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize
+  @apply transition-all inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize
   disabled:cursor-not-allowed;
 }
 
