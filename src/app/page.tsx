@@ -1,9 +1,9 @@
-import { AboutMain, Carousel, Contacts,JoinUs, NewsList } from '@/components';
+import { AboutMain, Contacts,JoinUs, NewsList,Slider } from '@/components';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Carousel />
+      <Slider />
       <AboutMain />
       <NewsList />
       <JoinUs />

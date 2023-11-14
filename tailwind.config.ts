@@ -64,7 +64,7 @@ const config: Config = {
       },
     },
     transitionDuration: {
-      DEFAULT: "300ms",
+      DEFAULT: "500ms",
     },
     transitionTimingFunction: {
       DEFAULT: "ease",
