@@ -6,7 +6,8 @@ import React from "react";
 const styles = {
     link: "link",
     linkButtonPrimary : "link-button-primary",
-    linkButtonSecondary : "link-button-secondary",
+    linkButtonSecondary: "link-button-secondary",
+    linkButtonOrange: "link-button-orange"
 };
 
 type appearances = keyof typeof styles;
