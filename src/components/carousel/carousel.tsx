@@ -35,7 +35,7 @@ export const Slider = () => {
       >
         {carouselList.map((item) => (
           <div
-            className="w-full pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
+            className="w-full max-w-[1440px] m-auto pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
             key={item}
           >
             <div className="w-full h-[350px] mb-5 md:w-1/2 md:h-[650px]">
