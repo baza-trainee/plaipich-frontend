@@ -1,12 +1,19 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import Icon from 'public/footer.svg';
 
 export const Footer = () => {
   return (
     <footer className="bg-black text-white">
       <div className="w-[320px] mx-auto lg:w-[1440px] py-[19px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
         <div className="lg:flex gap-[160px]">
-          <Icon className="w-[265px] h-[110px] lg:w-[337px] lg:h-[140px] mb-[36px] lg:mb-0 mx-auto lg:ml-0" />
+          <Image
+            src="/footer.svg"
+            alt="Логотип ГО Plai Pich"
+            width={674}
+            height={280}
+            priority
+            className="w-[265px] h-[110px] lg:w-[337px] lg:h-[140px] mb-[36px] lg:mb-0 mx-auto lg:ml-0"
+          />
           <nav>
             <ul className="lg:flex flex-wrap lg:w-[340px] text-center lg:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
               <li className="lg:mr-[160px] mb-[24px] lg:mb-[30px]">
