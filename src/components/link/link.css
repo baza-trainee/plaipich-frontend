@@ -9,7 +9,7 @@
 .link-button-primary,
 .link-button-secondary,
 .link-button-orange {
-  @apply px-6 py-4 text-base font-semibold leading-2 rounded-large border
+  @apply transition-all px-6 py-4 text-base font-semibold leading-2 rounded-large border
         lg:py-4.5 lg:text-md;
         
 }
