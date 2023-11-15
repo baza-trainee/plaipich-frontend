@@ -4,7 +4,7 @@ import { Spiral } from './spiral'
 
 export const NewsList = () => {
     return (
-        <section className='lg:p-16 p-4 dark:bg-black'>
+        <section className='lg:p-16 p-4'>
             <h2 className='flex items-center align-baseline'>
                 <Spiral/>Новини</h2>
             <div className='grid grid-cols-1 

@@ -23,7 +23,7 @@ export const Slider = () => {
   };
 
   return (
-    <section className="relative w-full py-2 bg-white dark:bg-black" id="projects-slider">
+    <section className="relative w-full py-2" id="projects-slider">
       <Carousel
         showThumbs={false}
         showIndicators={false}
