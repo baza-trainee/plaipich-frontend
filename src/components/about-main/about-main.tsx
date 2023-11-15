@@ -6,7 +6,7 @@ import { Link } from "@/components/link/Link";
 export const AboutMain = () => {
   return (
     <section className="py-[72px] text-black bg-pink-pearl w-full">
-      <div className="container flex justify-normal flex-col">
+      <div className="w-full mx-auto max-w-[1440px] px-4 flex justify-normal flex-col">
         <div className="flex lg:flex-row flex-col justify-between items-center pb-14">
           <h2 className="h1 mr-5 md:mb-0 mb-10 md:self-auto self-start">Привіт!</h2>
           <p className="text-small-md sm:text-left md:max-w-[950px] text-justify md:text-lg">
