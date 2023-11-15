@@ -29,7 +29,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
     return (
         <article className={`flex flex-col justify-between ${className ?? ''}`}>
             {/* треба замінити h-[416px] */}
-            <div className='bg-orange h-[416px] relative'>
+            <div className='h-[416px] relative'>
                 <Image
                     src={imageUrl}
                     alt={title}
@@ -39,16 +39,16 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                     className='h-full w-auto object-cover'
                 />
             </div>
-            <hr className='border-black dark:border-white mt-7 mb-5' />
+            <hr className='border-white mt-7 mb-5' />
             <div>
                 <div className='flex mb-5'>
-                    <span className={`border border-black py-2 px-4 rounded-large ${SetTegColor(tag)} dark:text-white`}>{tag}</span>
+                    <span className={`py-2 px-4 rounded-large ${SetTegColor(tag)}`}>{tag}</span>
                 </div>
-                <h3 className='normal-case trunkate lg:line-clamp-2'>{title}</h3>
-                <p className='py-3 '>{content}</p>
-                <div className='text-gray-500' >{date}</div>
+                <h3 className='h2 normal-case trunkate lg:line-clamp-2'>{title}</h3>
+                <p className='py-3 lg:text-md'>{content}</p>
+                <p className='text-gray-500 pb-[13px] lg:text-md' >{date}</p>
             </div>
-            <hr className='border-black dark:border-white mt-5' />
+            <hr className='border-white mt-5' />
         </article>
     );
 };
