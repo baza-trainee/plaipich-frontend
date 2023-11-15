@@ -1,3 +1,5 @@
+import { Button } from '..';
+import { ThemeButton } from '../theme-button/theme-button';
 import NewsCard from './news-card/news-card';
 import newsData from "./news-data/news-data";
 import { Spiral } from './spiral'
@@ -5,6 +7,9 @@ import { Spiral } from './spiral'
 export const NewsList = () => {
     return (
         <section className='lg:p-16 p-4 dark:bg-black'>
+            <div className='bg-black'>
+                <ThemeButton></ThemeButton>
+            </div>
             <h2 className='flex items-center align-baseline'>
                 <Spiral/>Новини</h2>
             <div className='grid grid-cols-1 
@@ -16,6 +21,9 @@ export const NewsList = () => {
                         className='lg:m-0 mb-10'
                     />
                 ))}
+            </div>
+            <div className='flex justify-center'>
+                <Button className='link-button-primary' type={'button'}>Більше новин</Button>
             </div>
         </section>
     );

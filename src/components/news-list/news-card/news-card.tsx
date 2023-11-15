@@ -42,7 +42,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
             <hr className='border-black dark:border-white mt-7 mb-5' />
             <div>
                 <div className='flex mb-5'>
-                    <div className={`border border-black py-2 px-4 rounded-large ${SetTegColor(tag)}`}>{tag}</div>
+                    <span className={`border border-black py-2 px-4 rounded-large ${SetTegColor(tag)} dark:text-white`}>{tag}</span>
                 </div>
                 <h3 className='normal-case trunkate lg:line-clamp-2'>{title}</h3>
                 <p className='py-3 '>{content}</p>
