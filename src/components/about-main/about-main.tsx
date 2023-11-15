@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-import { Link } from "@/components/link/Link";
+import { Link } from "@/components/link/link";
 
 export const AboutMain = () => {
   return (

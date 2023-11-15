@@ -76,7 +76,7 @@ export const Slider = () => {
           </div>
         ))}
       </Carousel>
-      <div className="absolute bottom-2.5 right-1/3 w-1/3 text-dark-blue dark:text-amber flex justify-center items-center">
+      <div className="hidden md:flex absolute bottom-2.5 right-1/3 w-1/3 text-dark-blue dark:text-amber justify-center items-center">
         <button className="border-none fill-dark-blue dark:fill-gray-200">
           <svg
             width="77"
