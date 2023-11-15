@@ -15,7 +15,7 @@ interface NewsCardProps {
     className?: string;
 }
 
-function SetTegColor(tag: string) {
+function SetTagColor(tag: string) {
     const tagsColors: Record<string, string> = {
         'Фестивалі': 'bg-pink-pearl',
         'Проекти': 'bg-yellow-green',
@@ -28,13 +28,11 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
     const { tag, title, content, date, imageUrl } = newsItem;
     return (
         <article className={`flex flex-col justify-between ${className ?? ''}`}>
-            {/* треба замінити h-[416px] */}
+            {/* fix: need change h-[416px] */}
             <div className='h-[416px] relative'>
                 <Image
                     src={imageUrl}
                     alt={title}
-                    // width={416}
-                    // height={416}
                     fill
                     className='h-full w-auto object-cover'
                 />
@@ -42,9 +40,9 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
             <hr className='border-white mt-7 mb-5' />
             <div>
                 <div className='flex mb-5'>
-                    <span className={`py-2 px-4 rounded-large ${SetTegColor(tag)}`}>{tag}</span>
+                    <span className={`text-black py-2 px-4 rounded-large ${SetTagColor(tag)}`}>{tag}</span>
                 </div>
-                <h3 className='h2 normal-case trunkate lg:line-clamp-2'>{title}</h3>
+                <h3 className='h2 normal-case lg:line-clamp-2'>{title}</h3>
                 <p className='py-3 lg:text-md'>{content}</p>
                 <p className='text-gray-500 pb-[13px] lg:text-md' >{date}</p>
             </div>
