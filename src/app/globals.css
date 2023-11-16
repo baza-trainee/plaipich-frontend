@@ -18,13 +18,13 @@ p {
 }
 
 h1,
-.h1 {
-  @apply font-bold  text-small-3xl md:text-4xl leading-2 md:leading-4;
+*.h1 {
+  @apply font-bold  text-small-3xl lg:text-4xl leading-2 lg:leading-4;
 }
 
 h2,
 .h2 {
-  @apply font-bold md:text-3xl text-xl md:leading-2 leading-3 uppercase;
+  @apply font-bold lg:text-3xl text-xl lg:leading-2 leading-3 uppercase;
 }
 
 h3,
