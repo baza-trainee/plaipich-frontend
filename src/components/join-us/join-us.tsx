@@ -6,8 +6,8 @@ import React from "react"
 export const JoinUs = () => {
   return (
     <div className="w-full mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem]">
-      <div className="mb-8 ">
-        <h2 className="h1 md:text-4xl pb-[1.375rem] text-3xl">
+      <div className="mb-8">
+        <h2 className="h1 pb-[1.375rem]">
           Бажаєте із нами працювати?
         </h2>
         <p className="md:text-xl leading-4 text-lg">
@@ -21,12 +21,12 @@ export const JoinUs = () => {
             Я - партнер
           </Link>
         </li>
-        <li className="w-full box-border shrink-0 md:shrink md:w-auto  text-center">
+        <li className="w-full box-border shrink-0 md:shrink md:w-auto text-center">
           <Link href="/" className="linkBaseStyles">
             Я - учасник
           </Link>
         </li>
-        <li className="w-full box-border shrink-0 md:shrink md:w-auto  text-center">
+        <li className="w-full box-border shrink-0 md:shrink md:w-auto text-center">
           <Link href="/" className="linkBaseStyles">
             Я - митець
           </Link>
