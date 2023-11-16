@@ -36,7 +36,7 @@ const config: Config = {
     },
     colors: {
       transparent: "transparent",
-      black: "#0B0B0B",
+      black: "#090909",
       white: "#FFFFFF",
       red: "#C12725",
       orange: "#F06C00",
