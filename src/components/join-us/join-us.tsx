@@ -5,8 +5,9 @@ import React from "react"
 
 export const JoinUs = () => {
   return (
-    <div className="w-full mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem] bg-white text-black">
-      <div className="mb-8 ">
+    <div className="w-full bg-white text-black">
+      <div className="w-full mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem]">
+              <div className="mb-8 ">
         <h2 className="h1 md:text-4xl pb-[1.375rem] text-3xl">
           Бажаєте із нами працювати?
         </h2>
@@ -32,6 +33,8 @@ export const JoinUs = () => {
           </Link>
         </li>
       </ul>
+
+      </div>
     </div>
   )
 }
