@@ -35,6 +35,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                     alt={title}
                     fill
                     className='h-full w-auto object-cover'
+                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 />
             </div>
             <hr className='border-white mt-7 mb-5' />
