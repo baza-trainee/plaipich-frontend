@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${fixel.variable} font-sans`}>
+      <body className={`${fixel.variable} font-sans bg-black text-white`}>
         {/* <Providers> */}
           <Header />
           {children}

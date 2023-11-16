@@ -49,10 +49,10 @@ export const Slider = () => {
               />
             </div>
             <div className="flex flex-col justify-center content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
-              <h1 className="h1 w-full text-left text-orange dark:text-pink-pearl">
+              <h1 className="h1 w-full text-left text-pink-pearl">
                 BOOST FOR CULTURE
               </h1>
-              <p className="text-left w-full text-black text-base md:text-lg font-sans font-regular mb-5 dark:text-white">
+              <p className="text-left w-full text-base md:text-lg font-sans font-regular mb-5">
                 Проект, який дає змогу вчитися на реальних кейсах, отримувати
                 досвід від експертів, розвивати себе, свою мистецьку спільноту
                 та навіть запустити власний культурний продукт, експереминтуючи

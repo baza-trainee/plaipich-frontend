@@ -5,7 +5,7 @@ import footerLogo from "../../../public/footer.svg";
 
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer>
       <div className="w-[320px] mx-auto lg:w-[1440px] py-[19px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
         <div className="lg:flex gap-[160px]">
           <Image
