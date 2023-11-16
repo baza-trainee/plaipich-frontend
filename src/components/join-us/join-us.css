@@ -1,0 +1,3 @@
+.linkBaseStyles {
+  @apply transition-all block px-6 py-4.5 rounded-large gap-2 border border-solid disabled:cursor-not-allowed bg-black text-white border-black hover:bg-transparent hover:text-black hover:border-black active:bg-black active:text-white active:border-black md:text-md text-lg font-sans leading-2 font-semibold tracking-normal
+}

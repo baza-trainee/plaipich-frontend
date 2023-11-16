@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react"
 
 export const Contacts = () => {
-  return (
-    <div>Contacts</div>
-  )
+  return <div>Contacts</div>
 }
