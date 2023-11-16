@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import footerLogo from '../../../public/footer.svg';
+import footerLogo from "../../../public/footer.svg";
 
 export const Footer = () => {
   return (
