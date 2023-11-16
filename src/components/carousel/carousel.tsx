@@ -23,7 +23,7 @@ export const Slider = () => {
   };
 
   return (
-    <section className="relative w-full py-2" id="projects-slider">
+    <section className="relative w-full py-2 md:py-10" id="projects-slider">
       <Carousel
         showThumbs={false}
         showIndicators={false}
@@ -76,8 +76,8 @@ export const Slider = () => {
           </div>
         ))}
       </Carousel>
-      <div className="hidden md:flex absolute bottom-2.5 right-1/3 w-1/3 text-dark-blue dark:text-amber justify-center items-center">
-        <button className="border-none fill-dark-blue dark:fill-gray-200">
+      <div className="hidden md:flex absolute bottom-[45px] right-1/3 w-1/3 text-amber justify-center items-center">
+        <button className="border-none fill-gray-200">
           <svg
             width="77"
             height="16"
@@ -94,7 +94,7 @@ export const Slider = () => {
         <p className="text-md text-center w-20">
           {slide} / {carouselList.length}
         </p>
-        <button className="w-20 border-none fill-dark-blue dark:fill-gray-200">
+        <button className="w-20 border-none fill-gray-200">
           <svg
             width="77"
             height="16"
