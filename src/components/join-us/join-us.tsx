@@ -22,12 +22,12 @@ export const JoinUs = () => {
             Я - партнер
           </Link>
         </li>
-        <li className="w-full box-border shrink-0 md:shrink md:w-auto  text-center">
+        <li className="w-full box-border shrink-0 md:shrink md:w-auto text-center">
           <Link href="/" className="linkBaseStyles">
             Я - учасник
           </Link>
         </li>
-        <li className="w-full box-border shrink-0 md:shrink md:w-auto  text-center">
+        <li className="w-full box-border shrink-0 md:shrink md:w-auto text-center">
           <Link href="/" className="linkBaseStyles">
             Я - митець
           </Link>
