@@ -14,8 +14,8 @@ import plaipichEvent from "../../../public/images/contacts/plaipich-event.png"
 
 export const Contacts = () => {
   return (
-    <div className="mx-auto w-full max-w-[1440px] px-4 md:py-[3.313] ">
-      <div className="bg-black flex md:flex-row flex-col items-center justify-between md:py-14 md:px-16 ">
+    <section className="w-full md:px-4 md:py-[3.313] bg-black md:border-b border-white">
+      <div className="flex mx-auto md:flex-row max-w-[1440px] flex-col items-center justify-between md:py-14 md:px-16 ">
         <div className="flex flex-col gap-6 text-white py-10 px-4 md:px-0 md:pr-7">
           <h2 className="h1">Контакти</h2>
           <a className="text-sm md:text-md" href="mailto:plaipich@gmail.com">
@@ -53,6 +53,6 @@ export const Contacts = () => {
           <Image src={plaipichEvent} alt="plaipich-event" />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

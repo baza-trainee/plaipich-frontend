@@ -5,7 +5,7 @@ import React from "react"
 
 export const JoinUs = () => {
   return (
-    <div className="w-full mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem]">
+    <section className="w-full mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem]">
       <div className="mb-8">
         <h2 className="h1 pb-[1.375rem]">
           Бажаєте із нами працювати?
@@ -32,6 +32,6 @@ export const JoinUs = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </section>
   )
 }
