@@ -14,53 +14,97 @@ button {
 }
 
 p {
-  @apply md:text-lg md:leading-4 text-md leading-3 font-normal;
+  @apply lg:text-lg lg:leading-4 text-md leading-3 font-normal;
 }
 
 h1,
-*.h1 {
-  @apply font-bold  text-small-3xl lg:text-4xl leading-2 lg:leading-4;
+.h1 {
+  @apply font-bold text-small-3xl lg:text-4xl leading-2 lg:leading-4;
 }
 
 h2,
 .h2 {
-  @apply font-bold lg:text-3xl text-xl lg:leading-2 leading-3 uppercase;
+  @apply font-semibold lg:text-small-4xl text-2xl leading-2 uppercase;
 }
 
 h3,
 .h3 {
-  @apply font-medium text-xl md:text-3xl md:leading-2 leading-3 uppercase;
+  @apply font-medium text-xl lg:text-3xl lg:leading-2 leading-3 uppercase;
 }
 
 h4,
 .h4 {
-  @apply font-bold md:text-3xl text-xl leading-2;
+  @apply font-bold lg:text-3xl text-xl leading-2;
 }
 
 h5,
 .h5 {
-  @apply font-semibold md:text-2xl text-xl leading-2;
+  @apply font-semibold lg:text-2xl text-xl leading-2;
 }
 
 h6,
 .h6 {
-  @apply font-bold md:text-xl text-lg leading-3 md:leading-2 uppercase;
+  @apply font-medium lg:text-3xl text-xl leading-2 uppercase;
 }
 
 .h7 {
-  @apply font-normal text-lg md:text-xl leading-3 md:leading-2 uppercase;
+  @apply font-normal text-lg lg:text-xl leading-3 lg:leading-2 uppercase;
 }
 
 .h8 {
-  @apply font-normal text-lg md:text-xl leading-2;
+  @apply font-normal text-lg lg:text-2xl leading-2 lg:leading-auto;
 }
 
 .h9 {
-  @apply font-bold text-lg leading-2;
+  @apply lg:font-light font-medium text-lg lg:text-2xl lg:leading-2 leading-3;
 }
 
 .h10 {
+  @apply lg:font-bold font-normal text-lg lg:text-xl leading-2 lg:uppercase;
+}
+
+.h11 {
+  @apply font-bold lg:font-semibold lg:text-xl text-lg leading-2;
+}
+
+.h12 {
+  @apply font-semibold lg:font-normal lg:text-xl text-lg leading-2 uppercase;
+}
+
+.h13 {
+  @apply font-normal text-xl leading-2;
+}
+
+.h14 {
+  @apply font-bold text-lg leading-2;
+}
+
+.h15 {
   @apply font-semibold text-lg leading-2;
+}
+
+.text-1 {
+  @apply font-normal lg:text-xl text-md leading-2 lg:leading-4;
+}
+
+.text-2 {
+  @apply font-normal text-small-md lg:text-lg leading-2 lg:leading-4;
+}
+
+.text-3 {
+  @apply lg:font-semibold font-normal text-base lg:text-lg leading-2;
+}
+
+.text-4 {
+  @apply lg:font-normal font-semibold text-small-md lg:text-md leading-2 lg:leading-3;
+}
+
+.text-5 {
+  @apply font-medium  lg:text-md leading-2 text-base lg:leading-4;
+}
+
+.text-6 {
+  @apply font-medium leading-2 text-base;
 }
 
 *::-webkit-scrollbar {
