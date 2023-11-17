@@ -1,4 +1,4 @@
-import { AboutMain, Contacts,JoinUs, NewsList,Slider } from '@/components';
+import { AboutMain, Contacts, JoinUs, NewsList, Slider } from '@/components';
 
 const Home = () => {
   return (

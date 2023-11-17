@@ -1,0 +1,48 @@
+  [{
+    "category": "Фестивалі",
+    "title": "Фестиваль Ticket to the sun",
+    "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "date": "17 жовтня",
+    "bigImage": "/images/news-pic-1.jpg"
+  },
+  {
+    "category": "Проекти",
+    "title": "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
+    "description":
+      "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
+    "date": "6 жовтня",
+    "bigImage": "/images/news-pic-2.jpg"
+  },
+  {
+    "category": "Конкурси",
+    "title": "Розіграш унікального кулона “Фенікс/Тризуб",
+    "description":
+      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
+    "date": "2 жовтня",
+    "bigImage": "/images/news-pic-3.jpg"
+  },
+  {
+    "category": "Фестивалі",
+    "title": "Фестиваль Ticket to the sun",
+    "description":
+      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "date": "17 жовтня",
+    "bigImage": "/images/news-pic-1.jpg"
+  },
+  {
+    "category": "Проекти",
+    "title": "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
+    "description":
+      "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
+    "date": "6 жовтня",
+    "bigImage": "/images/news-pic-2.jpg"
+  },
+  {
+    "category": "Конкурси",
+    "title": "Розіграш унікального кулона “Фенікс/Тризуб",
+    "description":
+      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
+    "date": "2 жовтня",
+    "bigImage": "/images/news-pic-3.jpg"
+  }]
+

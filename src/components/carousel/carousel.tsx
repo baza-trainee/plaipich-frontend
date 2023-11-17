@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import hiro from "../../../public/hiro.png";
-import { Link } from "../link/Link";
+import { Link } from "../link/link";
 
 export const Slider = () => {
   const [slide, setSlide] = useState(1);
