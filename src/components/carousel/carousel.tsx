@@ -7,7 +7,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
-import NAVIGATION from "@/commons/constatnts";
+import NAVIGATION from "@/commons/constants";
 
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
