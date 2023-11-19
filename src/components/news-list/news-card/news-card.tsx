@@ -36,7 +36,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                     src={bigImage}
                     alt={title}
                     fill
-                    className='h-full w-auto object-cover'
+                    className='h-full w-auto object-cover filter hover:contrast-200 hover:scale-110 transition-all'
                 />
             </div>
             <hr className='border-white mt-7 mb-5' />
