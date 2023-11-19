@@ -8,7 +8,7 @@ button {
 }
 
 .btn-text {
-  @apply text-md font-sans leading-2 font-semibold tracking-normal;
+  @apply text-base lg:text-md font-sans leading-2 font-semibold tracking-normal;
 }
 
 .btn-primary {
