@@ -8,7 +8,6 @@ import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import NAVIGATION from "@/commons/constants";
-import { textSlice } from "@/utils/text-slice";
 
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
@@ -57,8 +56,8 @@ export const Slider = () => {
               <h1 className="h1 w-full text-left text-pink-pearl">
                 BOOST FOR CULTURE
               </h1>
-              <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5">
-                {textSlice(text, 200)}
+              <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5 line-clamp-4">
+                {text}
               </p>
               <Link
                 href={`${NAVIGATION.project}id=${item}`}
