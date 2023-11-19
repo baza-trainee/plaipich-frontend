@@ -23,7 +23,7 @@ export const Slider = () => {
   };
 
   return (
-    <section className="relative w-full py-2 bg-black" id="projects-slider">
+    <section className="relative w-full pb-5 md:py-10" id="projects-slider">
       <Carousel
         showThumbs={false}
         showIndicators={false}
@@ -38,7 +38,7 @@ export const Slider = () => {
             className="w-full max-w-[1440px] m-auto pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
             key={item}
           >
-            <div className="w-full h-[350px] mb-5 md:w-1/2 md:h-[650px]">
+            <div className="w-full h-[350px] mb-5 md:mb-0 md:w-1/2 md:h-[420px] lg:h-[650px]">
               <Image
                 src={hiro}
                 alt={"logo"}
@@ -48,11 +48,11 @@ export const Slider = () => {
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
+            <div className="flex flex-col justify-center md:justify-start content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
               <h1 className="h1 w-full text-left text-pink-pearl">
                 BOOST FOR CULTURE
               </h1>
-              <p className="text-left w-full text-base md:text-lg font-sans font-regular mb-5 text-white">
+              <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5">
                 Проект, який дає змогу вчитися на реальних кейсах, отримувати
                 досвід від експертів, розвивати себе, свою мистецьку спільноту
                 та навіть запустити власний культурний продукт, експереминтуючи
@@ -61,14 +61,14 @@ export const Slider = () => {
               <Link
                 href={"/"}
                 appearance="linkButtonPrimary"
-                className="w-full mb-3 md:mb-0 md:mr-3 md:w-[48%]"
+                className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-2/3 lg:mb-0 md:mr-3 lg:w-[48%]"
               >
                 <p className="btn-text">Дізнатися більше</p>
               </Link>
               <Link
                 href={"/"}
                 appearance="linkButtonSecondary"
-                className="w-full md:w-[48%]"
+                className="w-full max-w-[300px] mx-auto md:mx-0 md:w-2/3 lg:w-[48%]"
               >
                 <p className="btn-text">Всі проєкти</p>
               </Link>
@@ -76,7 +76,7 @@ export const Slider = () => {
           </div>
         ))}
       </Carousel>
-      <div className="hidden md:flex absolute bottom-2.5 right-1/3 w-1/3 justify-center items-center">
+      <div className="flex absolute bottom-5 md:bottom-10 right-0  md:right-1/3 w-full md:w-1/3 justify-center items-center">
         <button className="border-none fill-gray-200">
           <svg
             width="77"
@@ -91,7 +91,7 @@ export const Slider = () => {
             />
           </svg>
         </button>
-        <p className="text-md text-center w-20 text-amber">
+        <p className="text-md text-center w-[70px] text-amber">
           {slide} / {carouselList.length}
         </p>
         <button className="w-20 border-none fill-gray-200">
