@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import NAVIGATION from "@/commons/constants";
+import { textSlice } from "@/utils/text-slice";
 
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
@@ -15,6 +16,9 @@ import { Link } from "../link/link";
 export const Slider = () => {
   const [slide, setSlide] = useState(1);
   const carouselList = [1, 2, 3, 4, 5];
+  const text =
+    "Проект, який дає змогу вчитися на реальних кейсах, отримувати досвід від експертів, розвивати себе, свою мистецьку спільноту та навіть запустити власний культурний продукт, експереминтуючи в напрямках";
+  console.log(text.length);
 
   const onChange = (page: number) => {
     if (page === 0) {
@@ -55,10 +59,7 @@ export const Slider = () => {
                 BOOST FOR CULTURE
               </h1>
               <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5">
-                Проект, який дає змогу вчитися на реальних кейсах, отримувати
-                досвід від експертів, розвивати себе, свою мистецьку спільноту
-                та навіть запустити власний культурний продукт, експереминтуючи
-                в напрямках
+                {textSlice(text, 200)}
               </p>
               <Link
                 href={`${NAVIGATION.project}id=${item}`}
