@@ -7,6 +7,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
+import NAVIGATION from "@/commons/constatnts";
+
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
 
@@ -59,14 +61,14 @@ export const Slider = () => {
                 в напрямках
               </p>
               <Link
-                href={"/"}
+                href={`${NAVIGATION.project}id=${item}`}
                 appearance="linkButtonPrimary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-2/3 lg:mb-0 md:mr-3 lg:w-[48%]"
               >
                 <p className="btn-text">Дізнатися більше</p>
               </Link>
               <Link
-                href={"/"}
+                href={NAVIGATION.projects}
                 appearance="linkButtonSecondary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 md:w-2/3 lg:w-[48%]"
               >
