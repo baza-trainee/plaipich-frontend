@@ -1,7 +1,8 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-import { Link } from "@/components";
+import NAVIGATION from "@/commons/constants";
+import { Link } from "@/components/link/link";
 
 export const AboutMain = () => {
   return (
@@ -17,7 +18,7 @@ export const AboutMain = () => {
 
         <Link
           className="link-text self-end px-6 py-4.5 hover:no-underline transition-colors border border-transparent focus:border-black focus:outline-none hover:text-pink-pearl active:text-white rounded-large hover:bg-black"
-          href={"/about-us"}
+          href={NAVIGATION.about}
         >
           Більше про нас <FaArrowRightLong className="inline-block ml-2 align-middle" />
         </Link>
