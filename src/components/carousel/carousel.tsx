@@ -95,7 +95,7 @@ export const Slider = () => {
         <p className="text-md text-center w-[70px] text-amber">
           {slide} / {carouselList.length}
         </p>
-        <button className="hidden md:flex border-none fill-gray-200">
+        <button className="border-none fill-gray-200">
           <svg
             width="77"
             height="16"
