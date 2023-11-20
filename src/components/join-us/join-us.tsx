@@ -5,8 +5,9 @@ import React from "react"
 
 export const JoinUs = () => {
   return (
-    <section className="w-full mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem]">
-      <div className="mb-8">
+    <section className="w-full bg-white text-black">
+      <div className="mx-auto max-w-[1440px] px-4 md:py-20 py-[3.75rem]">
+             <div className="mb-8">
         <h2 className="h1 pb-[1.375rem]">
           Бажаєте із нами працювати?
         </h2>
@@ -32,6 +33,8 @@ export const JoinUs = () => {
           </Link>
         </li>
       </ul>
+ 
+      </div>
     </section>
   )
 }

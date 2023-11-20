@@ -53,7 +53,7 @@ export const NewsList = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Button className="link-button-primary" type={"button"}>
+        <Button className="btn-primary" type={"button"}>
           Більше новин
         </Button>
       </div>

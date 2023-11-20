@@ -14,7 +14,7 @@ export const BurgerMenu = () => {
     }
     
     return (           
-            <nav className="relative  lg:hidden">
+            <nav className="relative z-10  lg:hidden">
                 <button className="lg:hidden border-none p-0" onClick={toggleMenu}> 
                 {isOpen ?  <TbX size="40px" color="white" /> : <TbAlignRight size="40px" color="white" /> }    
                                                     
@@ -22,7 +22,7 @@ export const BurgerMenu = () => {
 
                 <div className={`${isOpen ? "burger-menu relative opacity-1 translate-y-0" : "hidden"}`}>
                     <div className="burger-backdrop fixed inse bg-gray-500 opacity-25"></div>
-                    <div className="translate-y-0 absolute top-[3px] right-0 md:left-0  w-80 px-5 pt-14 pb-8 bg-black text-center">
+                    <div className="border-white border-2 translate-y-0 absolute top-[3px] right-0 md:left-0  w-80 px-5 pt-14 pb-8 bg-black text-center">
                     
                     <form className="mb-[68px]">   
                             
@@ -43,9 +43,9 @@ export const BurgerMenu = () => {
                         
                         </ul>
                     <Link href={"/"} appearance="linkButtonOrange"
-                        className=" w-48 px-6 py-4 mb-14 md:hidden"
+                        className="md:hidden"
                     >
-                        <p className="">Підтримати</p>
+                        <p className="btn-text">Підтримати</p>
                     </Link> 
                     <LanguageSwitcher/>
 

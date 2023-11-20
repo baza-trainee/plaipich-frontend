@@ -11,7 +11,7 @@ export const LanguageSwitcher = () => {
 
   return (
     <div>      
-      <button className='py-[8px] px-[35px] hover:text-lg border-none' onClick={toggleLanguage}>{currentLanguage === 'en' ? 'EN' : 'UA'}</button>
+      <button className='py-[8px] px-[35px] scale-100 transition-all hover:scale-125 border-none' onClick={toggleLanguage}>{currentLanguage === 'en' ? 'EN' : 'UA'}</button>
     </div>
   );
 };
