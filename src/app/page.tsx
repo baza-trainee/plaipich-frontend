@@ -7,7 +7,7 @@ export default function Home() {
       <AboutMain />
       <NewsList />
       <JoinUs />
-      <Contacts/>
+      <Contacts />
     </main>
-  );
+  )
 }
