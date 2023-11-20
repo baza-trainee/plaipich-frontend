@@ -14,14 +14,18 @@ import plaipichEvent from "../../../public/images/contacts/plaipich-event.png"
 
 export const Contacts = () => {
   return (
-    <section className="w-full md:px-4 md:py-[3.313] bg-black md:border-b border-white">
-      <div className="flex mx-auto md:flex-row max-w-[1440px] flex-col items-center justify-between md:py-14 md:px-16 ">
-        <div className="flex flex-col gap-6 text-white py-10 px-4 md:px-0 md:pr-7">
-          <h2 className="h1">Контакти</h2>
-          <a className="text-sm md:text-md" href="mailto:plaipich@gmail.com">
+    <section className="w-full md:py-[3.313] bg-black md:border-b border-white">
+      <div className="flex mx-auto md:flex-row max-w-[1440px] flex-col items-center justify-between lg:py-[3.313rem] lg:px-[3.875rem] md:p-8">
+        <div className="flex flex-col gap-6 text-white py-[5.125rem] px-4 md:px-0 md:py-0 md:pr-14">
+          <h2 className="h3 lg:font-bold  lg:md:text-4xl lg:leading-4">
+            Контакти
+          </h2>
+          <a
+            className="text-md md:text-xl leading-2"
+            href="mailto:plaipich@gmail.com">
             plaipich@gmail.com
           </a>
-          <ul className="flex gap-6 md:gap-12 items-center">
+          <ul className="flex gap-[1.375rem] lg:gap-12 items-center">
             <li>
               <a href="/" className="circle bg-orange">
                 <FaTiktok size="20px" color="black" />
