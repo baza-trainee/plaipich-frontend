@@ -43,7 +43,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
                 <div className='flex mb-5'>
                     <span className={`text-black py-2 px-4 rounded-large ${SetTagColor(tag)}`}>{tag}</span>
                 </div>
-                <h3 className='h2 normal-case lg:line-clamp-2'>{title}</h3>
+                <h3 className='h2 normal-case lg:line-clamp-2 md:line-clamp-1'>{title}</h3>
                 <p className='py-3 lg:text-md'>{content}</p>
                 <p className='text-gray-500 pb-[13px] lg:text-md' >{date}</p>
             </div>
