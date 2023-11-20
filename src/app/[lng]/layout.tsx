@@ -1,10 +1,18 @@
 import "./globals.css";
 
+import { dir } from "i18next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
 import { Footer, Header } from "@/components";
+
+// import { useTranslation } from '../i18n'
+import { languages } from "../i18n/settings";
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 const fixel = localFont({
   src: [
@@ -37,13 +45,23 @@ export const metadata: Metadata = {
   description: "Web-site for PLAI",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: {
+    lng: string;
+  };
+  }) {
+  // const { t } = await useTranslation(params.lng)
+
   return (
-    <html lang="en">
+    <html lang={params.lng} dir={dir(params.lng)}>
       <body className={`${fixel.variable} font-sans bg-black text-white`}>
-          <Header />
-          {children}
-          <Footer />
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
