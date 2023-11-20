@@ -2,7 +2,7 @@ export  const Header = () => {
     return (
         <header>
             <hr />
-            <div className="text-xl">Header</div>
+            <div className="text-xl">Хедер</div>
             <hr />
         </header>
     )

@@ -7,7 +7,6 @@ import React from "react";
 
 import { Footer, Header } from "@/components";
 
-// import { useTranslation } from '../i18n'
 import { languages } from "../i18n/settings";
 
 export async function generateStaticParams() {
@@ -54,14 +53,12 @@ export default async function RootLayout({
     lng: string;
   };
   }) {
-  // const { t } = await useTranslation(params.lng)
-
   return (
     <html lang={params.lng} dir={dir(params.lng)}>
       <body className={`${fixel.variable} font-sans bg-black text-white`}>
         <Header />
         {children}
-        <Footer />
+        <Footer lng={params.lng}/>
       </body>
     </html>
   );
