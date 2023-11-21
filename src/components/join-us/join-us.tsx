@@ -4,16 +4,18 @@ import Link from "next/link"
 import React from "react"
 
 interface JoinUsProps {
-  backgroundColor?: string;
+  backgroundColor: string
 }
 
-export const JoinUs: React.FC<JoinUsProps> = ({ backgroundColor }) => {
-
-	const sectionStyles = `w-full ${backgroundColor ? `bg-${backgroundColor}` : ""}`
+export const JoinUs: React.FC<JoinUsProps> = ({
+  backgroundColor
+}) => {
+	console.log(backgroundColor);
+  const sectionStyles = `w-full text-black bg-${backgroundColor}`
 
   return (
     <section className={sectionStyles}>
-      <div className='max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[3.875rem] lg:py-20 py-[3.75rem]'>
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[3.875rem] lg:py-20 py-[3.75rem]">
         <div className="mb-8">
           <h2 className="h1 pb-[1.375rem] uppercase md:normal-case">
             Бажаєте із нами працювати?

@@ -31,14 +31,6 @@ button {
   @apply border-gray-300 text-gray-300;
 }
 
-.btn-secondary-dark-bg {
-  @apply text-black bg-transparent border-black 
-  active:text-white active:bg-black
-  dark:text-white dark:border-white 
-  dark:hover:text-black dark:hover:bg-white 
-  dark:active:text-black dark:active:bg-white;
-}
-
 .btn-transparent {
   @apply text-black bg-transparent border-transparent 
   hover:bg-gray-100 hover:border-gray-100 
