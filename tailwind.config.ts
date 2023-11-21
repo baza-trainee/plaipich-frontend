@@ -15,10 +15,10 @@ const config: Config = {
     },
     container: {
       center: true,
-      screens: {
-        lg: "1316px",
-        md: "704px",
-        sm: "288px",
+      padding: {
+        lg: "3.875rem", // 62px
+        md: "2rem", // 32px
+        sm: "1rem", // 16px
       },
     },
     fontFamily: {
@@ -33,10 +33,16 @@ const config: Config = {
       "2xl": "2rem", // 32px
       "3xl": "2.5rem", // 40px
       "4xl": "4rem", // 64px
+      "small-md": "1.125rem", // 18px
+      "small-lg": "1.375rem", // 22px
+      "small-xl": "1.625rem", // 26px
+      "small-2xl": "1.875rem", // 30px
+      "small-3xl": "2.25rem", // 36px
+      "small-4xl": "3rem", // 48px
     },
     colors: {
       transparent: "transparent",
-      black: "#0B0B0B",
+      black: "#090909",
       white: "#FFFFFF",
       red: "#C12725",
       orange: "#F06C00",
@@ -87,13 +93,10 @@ const config: Config = {
         medium: "3.125rem", // 50px
         large: "4.5rem", // 72px
       },
-      fontSize: {
-        "small-md": "1.125rem", // 18px
-        "small-lg": "1.375rem", // 22px
-        "small-xl": "1.625rem", // 26px
-        "small-2xl": "1.875rem", // 30px
-        "small-3xl": "2.25rem", // 36px
-        "small-4xl": "3rem", // 48px
+      maxWidth: {
+        desktop: "1440px",
+        tablet: "768px",
+        mobile: "320px",
       },
       spacing: {
         4.5: "1.125rem", // 18px
