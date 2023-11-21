@@ -1,7 +1,16 @@
-import React from 'react'
+import React from "react";
 
-export const NewsList = () => {
+export const NewsList = ({
+  title,
+  btnText,
+}: {
+  title: string;
+  btnText: string;
+}) => {
   return (
-    <div>NewsList</div>
-  )
-}
+    <div>
+      <h2>{title}</h2>
+      <button>{btnText}</button>
+    </div>
+  );
+};

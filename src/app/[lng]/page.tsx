@@ -1,17 +1,21 @@
 import { AboutMain, Contacts, JoinUs, NewsList, Slider } from "@/components";
 
-const Home = ({
+import { useTranslation } from "../i18n";
+
+const Home = async ({
   params,
 }: {
   params: {
     lng: "en" | "uk";
   };
 }) => {
+  const { t } = await useTranslation(params.lng);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Slider />
+      <Slider btnOneProject={ t("btn-learn-more")} btnAllProjects={ t("btn-all-projects")} />
       <AboutMain lng={params.lng} />
-      <NewsList />
+      <NewsList title={t("title-news")} btnText={t("btn-more-news")} />
       <JoinUs backgroundColor="white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>

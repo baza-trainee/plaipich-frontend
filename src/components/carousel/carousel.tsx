@@ -12,7 +12,13 @@ import NAVIGATION from "@/commons/constants";
 import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
 
-export const Slider = () => {
+export const Slider = ({
+  btnOneProject,
+  btnAllProjects,
+}: {
+  btnOneProject: string;
+  btnAllProjects: string;
+}) => {
   const [slide, setSlide] = useState(1);
   const carouselList = [1, 2, 3, 4, 5];
   const text =
@@ -64,14 +70,14 @@ export const Slider = () => {
                 appearance="linkButtonPrimary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-2/3 lg:mb-0 md:mr-3 lg:w-[48%]"
               >
-                <p className="btn-text">Дізнатися більше</p>
+                <p className="btn-text">{ btnOneProject }</p>
               </Link>
               <Link
                 href={NAVIGATION.projects}
                 appearance="linkButtonSecondary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 md:w-2/3 lg:w-[48%]"
               >
-                <p className="btn-text">Всі проєкти</p>
+                <p className="btn-text">{ btnAllProjects }</p>
               </Link>
             </div>
           </div>
