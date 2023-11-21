@@ -10,15 +10,19 @@ import {
   FaYoutube,
 } from "react-icons/fa"
 
+import { useTranslation } from '@/app/i18n'
+
 import plaipichEvent from "../../../public/images/contacts/plaipich-event.png"
 
-export const Contacts = () => {
+export const Contacts = async ({ lng }: { lng: string }) => {
+    const { t } = await useTranslation(lng, 'contacts')
+
   return (
     <section className="w-full md:py-[3.313] bg-black md:border-b border-white">
       <div className="flex mx-auto md:flex-row max-w-[1440px] flex-col items-center justify-between lg:py-[3.313rem] lg:px-[3.875rem] md:p-8">
         <div className="flex flex-col gap-6 text-white py-[5.125rem] px-4 md:px-0 md:py-0 md:pr-14">
           <h2 className="h3 lg:font-bold  lg:md:text-4xl lg:leading-4">
-            Контакти
+            {t('title')}
           </h2>
           <a
             className="text-md md:text-xl leading-2"
