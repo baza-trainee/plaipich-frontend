@@ -6,10 +6,10 @@ const Home = () => {
       <Slider />
       <AboutMain />
       <NewsList />
-      <JoinUs />
-      <Contacts/>
+      <JoinUs backgroundColor='white'/>
+      <Contacts />
     </main>
-  );
+  )
 }
 
 export default Home;
