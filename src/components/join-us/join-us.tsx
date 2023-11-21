@@ -10,7 +10,10 @@ interface JoinUsProps {
   lng: "en" | "uk";
 }
 
-export const JoinUs: React.FC<JoinUsProps> = async ({ backgroundColor, lng }) => {
+export const JoinUs: React.FC<JoinUsProps> = async ({
+  backgroundColor,
+  lng,
+}) => {
   const { t } = await useTranslation(lng, "join-us-main");
   return (
     <section className={`w-full text-black bg-` + backgroundColor}>

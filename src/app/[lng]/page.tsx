@@ -10,7 +10,7 @@ const Home = ({
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Slider />
-      <AboutMain />
+      <AboutMain lng={params.lng} />
       <NewsList />
       <JoinUs backgroundColor="white" lng={params.lng} />
       <Contacts lng={params.lng} />
