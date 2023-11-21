@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+
+import { ReportsAbout } from "@/components/reports-about/reports-about";
 
 const About = () => {
   return (
-    <div>About</div>
-  )
-}
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <ReportsAbout />
+    </main>
+  );
+};
 
-export default About
+export default About;
