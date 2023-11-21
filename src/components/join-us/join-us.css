@@ -3,6 +3,6 @@
 }
 
 .listItemStyles {
-	 @apply w-full box-border shrink-0 md:shrink md:w-[40%] lg:w-[12.5rem] text-center
+	 @apply w-full box-border shrink-0 md:shrink md:w-[40%] lg:max-w-[20rem] text-center
 }
          

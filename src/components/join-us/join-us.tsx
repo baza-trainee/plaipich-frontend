@@ -1,48 +1,47 @@
-import "./join-us.css"
+import "./join-us.css";
 
-import Link from "next/link"
-import React from "react"
+import Link from "next/link";
+import React from "react";
+
+import { useTranslation } from "@/app/i18n";
 
 interface JoinUsProps {
-  backgroundColor: string
+  backgroundColor: string;
+  lng: "en" | "uk";
 }
 
-export const JoinUs: React.FC<JoinUsProps> = ({
-  backgroundColor
+export const JoinUs: React.FC<JoinUsProps> = async ({
+  backgroundColor,
+  lng,
 }) => {
-	console.log(backgroundColor);
-  const sectionStyles = `w-full text-black bg-${backgroundColor}`
-
+  const { t } = await useTranslation(lng, "join-us-main");
   return (
-    <section className={sectionStyles}>
+    <section className={`w-full text-black bg-` + backgroundColor}>
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[3.875rem] lg:py-20 py-[3.75rem]">
         <div className="mb-8">
           <h2 className="h1 pb-[1.375rem] uppercase md:normal-case">
-            Бажаєте із нами працювати?
+            {t("title")}
           </h2>
-          <p className="text-md md:text-xl leading-4">
-            Ми відкриті до ваших ідей, колаб, ініціатив, аби спільно створювати
-            нові сенси та взаємодіі у місті та за його межами.
-          </p>
+          <p className="text-md md:text-xl leading-4">{t("text")}</p>
         </div>
         <ul className="flex items-center gap-6 flex-col lg:flex-row justify-center lg:justify-start">
           <li className="listItemStyles">
             <Link href="/" className="linkBaseStyles ">
-              Я - партнер
+              {t("partner")}
             </Link>
           </li>
           <li className="listItemStyles">
             <Link href="/" className="linkBaseStyles">
-              Я - учасник
+              {t("member")}
             </Link>
           </li>
           <li className="listItemStyles">
             <Link href="/" className="linkBaseStyles">
-              Я - митець
+              {t("artist")}
             </Link>
           </li>
         </ul>
       </div>
     </section>
-  )
-}
+  );
+};
