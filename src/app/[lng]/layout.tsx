@@ -1,12 +1,12 @@
 import "./globals.css";
 
 import { dir } from "i18next";
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
 import { Footer, Header } from "@/components";
 
+import { useTranslation } from '../i18n'
 import { languages } from "../i18n/settings";
 
 export async function generateStaticParams() {
@@ -39,11 +39,6 @@ const fixel = localFont({
   variable: "--font-fixel",
 });
 
-export const metadata: Metadata = {
-  title: "Plai",
-  description: "Web-site for PLAI",
-};
-
 export default async function RootLayout({
   children,
   params,
@@ -53,8 +48,17 @@ export default async function RootLayout({
     lng: string;
   };
   }) {
+    const { t } = await useTranslation(params.lng)
+
   return (
     <html lang={params.lng} dir={dir(params.lng)}>
+      <head>
+        <title>{ t('title')}</title>
+        <meta name="description" content={ t('description')} />
+        <link rel="alternate" hrefLang="uk" href="http://localhost:3000/uk" />
+        <link rel="alternate" hrefLang="en" href="http://localhost:3000/en" />
+        <link rel="alternate" hrefLang="x-default" href="http://localhost:3000/uk" />
+      </head>
       <body className={`${fixel.variable} font-sans bg-black text-white`}>
         <Header />
         {children}
