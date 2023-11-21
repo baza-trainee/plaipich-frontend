@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n'
 import NAVIGATION from '@/commons/constants';
 
+import footerSvg from '../../../public/footer.png';
+
 export const Footer = async ({ lng }: { lng: string }) => {
   const { t } = await useTranslation(lng, 'footer')
   return (
@@ -11,7 +13,7 @@ export const Footer = async ({ lng }: { lng: string }) => {
       <div className="w-[320px] mx-auto lg:w-[1440px] py-[19px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
         <div className="lg:flex gap-[160px]">
           <Image
-            src="/footer.svg"
+            src={footerSvg}
             alt="Логотип ГО Plai Pich"
             width={674}
             height={280}
