@@ -1,0 +1,8 @@
+.linkBaseStyles {
+  @apply transition-all block text-center px-6 py-4.5 rounded-large gap-2 border border-solid disabled:cursor-not-allowed bg-black text-white border-black hover:bg-transparent hover:text-black hover:border-black active:bg-black active:text-white active:border-black text-md md:text-lg font-sans leading-2 font-semibold tracking-normal
+}
+
+.listItemStyles {
+	 @apply w-full box-border shrink-0 md:shrink md:w-[40%] lg:w-[12.5rem] text-center
+}
+         
