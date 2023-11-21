@@ -14,7 +14,7 @@ const About = ({
       <Mission/>
       <Team />
       <Reports />
-      <JoinUs backgroundColor="white" lng={params.lng} />
+      <JoinUs backgroundColor="light-blue" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>
   );
