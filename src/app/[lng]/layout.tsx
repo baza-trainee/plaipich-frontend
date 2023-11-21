@@ -54,13 +54,14 @@ export default async function RootLayout({
     <html lang={params.lng} dir={dir(params.lng)}>
       <head>
         <title>{ t('title')}</title>
-        <meta name="description" content={ t('description')} />
+        <meta name="description" content={t('description')} />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
         <link rel="alternate" hrefLang="uk" href="http://localhost:3000/uk" />
         <link rel="alternate" hrefLang="en" href="http://localhost:3000/en" />
         <link rel="alternate" hrefLang="x-default" href="http://localhost:3000/uk" />
       </head>
       <body className={`${fixel.variable} font-sans bg-black text-white`}>
-        <Header />
+        <Header lng={params.lng}/>
         {children}
         <Footer lng={params.lng}/>
       </body>
