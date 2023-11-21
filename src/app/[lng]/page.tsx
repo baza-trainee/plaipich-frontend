@@ -9,7 +9,6 @@ const Home = () => {
       <JoinUs backgroundColor='white'/>
       <Contacts />
     </main>
-  )
+  );
 }
-
-export default Home;
+export default Home

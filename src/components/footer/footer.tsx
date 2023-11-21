@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { useTranslation } from '@/app/i18n'
+
 import footerLogo from "../../../public/footer.svg";
 
-export const Footer = () => {
+export const Footer = async ({ lng }: { lng: string }) => {
+  const { t } = await useTranslation(lng, 'footer')
   return (
     <footer>
       <div className="w-[320px] mx-auto lg:w-[1440px] py-[19px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
@@ -19,7 +22,7 @@ export const Footer = () => {
           <nav>
             <ul className="lg:flex flex-wrap lg:w-[340px] text-center lg:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
               <li className="lg:mr-[160px] mb-[24px] lg:mb-[30px]">
-                <Link href="#">Про нас</Link>
+                <Link href="#">{t('nav-about-us')}</Link>
               </li>
               <li className="mb-[24px] lg:mb-[30px] lg:mr-[9px]">
                 <Link href="#">Новини</Link>

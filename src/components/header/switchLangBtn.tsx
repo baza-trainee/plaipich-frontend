@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 
-export const LanguageSwitcher = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('ua');
+export const LanguageSwitcher = ({lng}:{lng:string}) => {
+  const [currentLanguage, setCurrentLanguage] = useState(lng);
 
   const toggleLanguage = () => {
     const newLanguage = currentLanguage === 'en' ? 'uk' : 'en';
