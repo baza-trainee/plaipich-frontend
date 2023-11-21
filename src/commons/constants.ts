@@ -1,7 +1,7 @@
 const NAVIGATION = {
     main: '/',
     about: '/about-us',
-    blog: '/blog',
+    news: '/news',
     project: '/project?',
     projects: '/projects',
     support: '/support-us'

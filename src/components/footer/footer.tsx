@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n'
+import NAVIGATION from '@/commons/constants';
 
 export const Footer = async ({ lng }: { lng: string }) => {
   const { t } = await useTranslation(lng, 'footer')
@@ -20,13 +21,13 @@ export const Footer = async ({ lng }: { lng: string }) => {
           <nav>
             <ul className="lg:flex flex-wrap lg:w-[340px] text-center lg:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
               <li className="lg:mr-[160px] mb-[24px] lg:mb-[30px]">
-                <Link href="#">{t('nav-about-us')}</Link>
+                <Link href={NAVIGATION.about}>{t('nav-about-us')}</Link>
               </li>
               <li className="mb-[24px] lg:mb-[30px] lg:mr-[9px]">
-                <Link href="#">Новини</Link>
+                <Link href={NAVIGATION.news}>Новини</Link>
               </li>
               <li className="lg:mr-[160px] mb-[24px] lg:mb-[30px]">
-                <Link href="#">Проекти</Link>
+                <Link href={NAVIGATION.projects}>Проекти</Link>
               </li>
               <li className="mb-[24px] lg:mb-[30px]">
                 <Link href="#">Звітність</Link>
