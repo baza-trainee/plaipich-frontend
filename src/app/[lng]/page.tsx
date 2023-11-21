@@ -6,8 +6,8 @@ export default function Home() {
       <Slider />
       <AboutMain />
       <NewsList />
-      <JoinUs />
-      <Contacts/>
+      <JoinUs backgroundColor="white" />
+      <Contacts />
     </main>
-  );
+  )
 }
