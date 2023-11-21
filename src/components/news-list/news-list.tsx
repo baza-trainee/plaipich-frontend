@@ -1,6 +1,8 @@
 import React from "react";
 
-import { Button } from "..";
+import NAVIGATION from "@/commons/constants";
+
+import { Link } from "../link/link";
 import NewsCard from "./news-card/news-card";
 import newsData from "./news-data/news-data";
 import { Spiral } from "./spiral";
@@ -32,9 +34,9 @@ export const NewsList = ({
         ))}
       </div>
       <div className="flex justify-center">
-        <Button className="btn-primary" type={"button"}>
-          {btnText}
-        </Button>
+        <Link appearance="linkButtonPrimary" href={NAVIGATION.news}>
+          <p className="btn-text">{btnText}</p>
+        </Link>
       </div>
     </section>
   );
