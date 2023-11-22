@@ -3,7 +3,7 @@
     "title": "Фестиваль Ticket to the sun",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
     "date": "17 жовтня",
-    "bigImage": "/images/news-pic-1.jpg"
+    "mainImage": "/images/news-pic-1.jpg"
   },
   {
     "category": "Проекти",
@@ -11,7 +11,7 @@
     "description":
       "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
     "date": "6 жовтня",
-    "bigImage": "/images/news-pic-2.jpg"
+    "mainImage": "/images/news-pic-2.jpg"
   },
   {
     "category": "Конкурси",
@@ -19,7 +19,7 @@
     "description":
       "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
     "date": "2 жовтня",
-    "bigImage": "/images/news-pic-3.jpg"
+    "mainImage": "/images/news-pic-3.jpg"
   },
   {
     "category": "Фестивалі",
@@ -27,7 +27,7 @@
     "description":
       "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
     "date": "17 жовтня",
-    "bigImage": "/images/news-pic-1.jpg"
+    "mainImage": "/images/news-pic-1.jpg"
   },
   {
     "category": "Проекти",
@@ -35,7 +35,7 @@
     "description":
       "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
     "date": "6 жовтня",
-    "bigImage": "/images/news-pic-2.jpg"
+    "mainImage": "/images/news-pic-2.jpg"
   },
   {
     "category": "Конкурси",
@@ -43,6 +43,6 @@
     "description":
       "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
     "date": "2 жовтня",
-    "bigImage": "/images/news-pic-3.jpg"
+    "mainImage": "/images/news-pic-3.jpg"
   }]
 

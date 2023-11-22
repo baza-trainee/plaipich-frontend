@@ -16,7 +16,7 @@ export const NewsList = () => {
           description: string;
           date: string;
           images: string[];
-          bigImage: string;
+          mainImage: string;
         }[]
       | []
     ),
@@ -25,9 +25,10 @@ export const NewsList = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      const response = await fetch("/api/news");
-      const data = await response.json();
-      setList([...data]);
+      const response = await fetch("http://localhost:4500/api/news");
+
+      const { data } = await response.json();
+      setList([...data.news]);
     };
 
     getNews();
