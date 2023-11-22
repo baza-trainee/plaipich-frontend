@@ -13,9 +13,9 @@ const Home = async ({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Slider btnOneProject={ t("btn-learn-more")} btnAllProjects={ t("btn-all-projects")} />
+      <Slider textHero={t("text-hero")} btnOneProject={t("btn-learn-more")} btnAllProjects={t("btn-all-projects")} />
       <AboutMain lng={params.lng} />
-      <NewsList title={t("title-news")} btnText={t("btn-more-news")} />
+      <NewsList title={t("title-news")} btnText={t("btn-more-news")} lng={params.lng} />
       <JoinUs backgroundColor="white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>

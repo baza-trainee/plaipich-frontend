@@ -1,3 +1,12 @@
 {
-    "nav-about-us": "Про нас"
-  }
+  "nav-about-us": "Про нас",
+  "nav-news": "Новини",
+  "nav-projects": "Проекти",
+  "nav-contacts": "Контакти",
+  "nav-reports": "Звітність",
+  "nav-privacy-policy": "Політика конфіденційності",
+  "nav-website-tos": "Правила користування сайтом",
+  "footer-copyright-text": "Розробка Baza Trainee Ukraine 2023 &copy; Усі права захищені",
+  "logo-url": "/images/footer.svg",
+  "logo-alt": "Логотип ГО Plai Pich"
+}

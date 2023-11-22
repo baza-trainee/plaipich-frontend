@@ -4,56 +4,74 @@ const newsData: NewsItem[] = [
   {
     id: 1,
     tag: "Фестивалі",
+    type: "FST",
     title: "Фестиваль Ticket to the sun",
-    content:
-      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    content: "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
     date: "17 жовтня",
-    imageUrl: "/images/news-pic-1.jpg",
+    image: {
+      url: "/images/news-pic-1.jpg",
+      alt: "Фестиваль Ticket to the sun",
+    },
   },
   {
     id: 2,
     tag: "Проекти",
+    type: "PJT",
     title: "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
-    content:
-      "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
+    content: "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
     date: "6 жовтня",
-    imageUrl: "/images/news-pic-2.jpg",
+    image: {
+      url: "/images/news-pic-2.jpg",
+      alt: "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
+    },
   },
   {
     id: 3,
     tag: "Конкурси",
-    title: `Розіграш унікального кулона “Фенікс/Тризуб"`,
-    content:
-      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
+    type: "CNST",
+    title: "Розіграш унікального кулона &ldquo;Фенікс/Тризуб&rdquo;",
+    content: "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
     date: "2 жовтня",
-    imageUrl: "/images/news-pic-3.jpg",
+    image: {
+      url: "/images/news-pic-3.jpg",
+      alt: "Розіграш унікальної прикраси з легендарного фестивалю Burning Man",
+    },
   },
   {
-    id: 11,
+    id: 4,
     tag: "Фестивалі",
+    type: "FST",
     title: "Фестиваль Ticket to the sun",
-    content:
-      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    content: "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
     date: "17 жовтня",
-    imageUrl: "/images/news-pic-1.jpg",
+    image: {
+      url: "/images/news-pic-1.jpg",
+      alt: "Фестиваль Ticket to the sun",
+    },
   },
   {
-    id: 12,
+    id: 5,
     tag: "Проекти",
+    type: "PJT",
     title: "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
-    content:
-      "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
+    content: "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
     date: "6 жовтня",
-    imageUrl: "/images/news-pic-2.jpg",
+    image: {
+      url: "/images/news-pic-2.jpg",
+      alt: "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
+    },
   },
   {
-    id: 13,
+    id: 6,
     tag: "Конкурси",
-    title: `Розіграш унікального кулона “Фенікс/Тризуб"`,
-    content:
-      "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
+    type: "CNST",
+    title: "Розіграш унікального кулона &ldquo;Фенікс/Тризуб&rdquo;",
+    content: "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
     date: "2 жовтня",
-    imageUrl: "/images/news-pic-3.jpg",
+    image: {
+      url: "/images/news-pic-3.jpg",
+      alt: "Розіграш унікальної прикраси з легендарного фестивалю Burning Man",
+    },
   },
 ];
 

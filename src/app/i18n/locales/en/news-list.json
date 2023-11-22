@@ -1,0 +1,76 @@
+{
+	"news-data": [
+		{
+			"id": 1,
+			"tag": "Festivals",
+			"type": "FST",
+			"title": "Ticket to the Sun Festival",
+			"content": "Drawing of a unique decoration from the legendary Burning Man festival for ",
+			"date": "October 17",
+			"image": {
+				"url": "/images/news-pic-1.jpg",
+				"alt": "Ticket to the Sun Festival"
+			}
+		},
+		{
+			"id": 2,
+			"tag": "Projects",
+			"type": "PJT",
+			"title": "#Boost_4_culture. Presentation of a new project at Monтаж",
+			"content": "A unique event took place this week in our favorite space, Monтаж, where ",
+			"date": "October 6",
+			"image": {
+				"url": "/images/news-pic-2.jpg",
+				"alt": "#Boost_4_culture. Presentation of a new project at Monтаж"
+			}
+		},
+		{
+			"id": 3,
+			"tag": "Contests",
+			"type": "CNST",
+			"title": "Drawing of a unique pendant &ldquo;Phoenix/Trident&rdquo;",
+			"content": "Drawing of a unique decoration from the legendary Burning Man festival for",
+			"date": "October 2",
+			"image": {
+				"url": "/images/news-pic-3.jpg",
+				"alt": "Drawing of a unique decoration from the legendary Burning Man festival"
+			}
+		},
+		{
+			"id": 4,
+			"tag": "Festivals",
+			"type": "FST",
+			"title": "Ticket to the Sun Festival",
+			"content": "Drawing of a unique decoration from the legendary Burning Man festival for ",
+			"date": "October 17",
+			"image": {
+				"url": "/images/news-pic-1.jpg",
+				"alt": "Ticket to the Sun Festival"
+			}
+		},
+		{
+			"id": 5,
+			"tag": "Projects",
+			"type": "PJT",
+			"title": "#Boost_4_culture. Presentation of a new project at Monтаж",
+			"content": "A unique event took place this week in our favorite space, Monтаж, where ",
+			"date": "October 6",
+			"image": {
+				"url": "/images/news-pic-2.jpg",
+				"alt": "#Boost_4_culture. Presentation of a new project at Monтаж"
+			}
+		},
+		{
+			"id": 6,
+			"tag": "Contests",
+			"type": "CNST",
+			"title": "Drawing of a unique pendant &ldquo;Phoenix/Trident&rdquo;",
+			"content": "Drawing of a unique decoration from the legendary Burning Man festival for",
+			"date": "October 2",
+			"image": {
+				"url": "/images/news-pic-3.jpg",
+				"alt": "Drawing of a unique decoration from the legendary Burning Man festival"
+			}
+		}
+	]
+}
