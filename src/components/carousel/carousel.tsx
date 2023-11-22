@@ -4,19 +4,46 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./carousel.css";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import NAVIGATION from "@/commons/constants";
 
-import hiro from "../../../public/hiro.png";
+// import hiro from "../../../public/hiro.png";
 import { Link } from "../link/link";
 
 export const Slider = () => {
-  const [slide, setSlide] = useState(1);
-  const carouselList = [1, 2, 3, 4, 5];
-  const text =
-    "Проект, який дає змогу вчитися на реальних кейсах, отримувати досвід від експертів, розвивати себе, свою мистецьку спільноту та навіть запустити власний культурний продукт, експереминтуючи в напрямках";
+  const [slide, setSlide] = useState(0);
+  const [projects, setProjects]: [
+    (
+      | {
+          _id: string;
+          title: string;
+          description: string;
+          status: string;
+          poster: string;
+          videos: string[];
+          photos: string[];
+          locationsCount: number;
+          partnersCount: number;
+          events: string[];
+        }[]
+      | []
+    ),
+    any,
+  ] = useState([]);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      const response = await fetch("http://localhost:4500/api/projects");
+
+      const { data } = await response.json();
+      setProjects([...data.projects]);
+      setSlide(data.projects.length)
+    };
+
+    getProjects();
+  }, []);
 
   const onChange = (page: number) => {
     if (page === 0) {
@@ -32,35 +59,37 @@ export const Slider = () => {
         showThumbs={false}
         showIndicators={false}
         showStatus={false}
+        selectedItem={projects.length - 1}
         autoPlay
         infiniteLoop
         interval={7000}
         onChange={onChange}
       >
-        {carouselList.map((item) => (
+        {projects.map((item) => (
           <div
             className="w-full max-w-[1440px] m-auto pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
-            key={item}
+            key={item._id}
           >
             <div className="w-full h-[350px] mb-5 md:mb-0 md:w-1/2 md:h-[420px] lg:h-[650px]">
               <Image
-                src={hiro}
-                alt={"logo"}
-                width={0}
-                height={0}
+                src={item.poster}
+                alt={item.title}
+                width={700}
+                height={700}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="w-full h-full object-cover"
                 priority
               />
             </div>
             <div className="flex flex-col justify-center md:justify-start content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
               <h1 className="h1 w-full text-left text-pink-pearl">
-                BOOST FOR CULTURE
+                {item.title}
               </h1>
               <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5 line-clamp-4">
-                {text}
+                {item.description}
               </p>
               <Link
-                href={`${NAVIGATION.project}id=${item}`}
+                href={`${NAVIGATION.project}id=${item._id}`}
                 appearance="linkButtonPrimary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-2/3 lg:mb-0 md:mr-3 lg:w-[48%]"
               >
@@ -93,7 +122,7 @@ export const Slider = () => {
           </svg>
         </button>
         <p className="text-md text-center w-[70px] text-amber">
-          {slide} / {carouselList.length}
+          {slide} / {projects.length}
         </p>
         <button className="border-none fill-gray-200">
           <svg

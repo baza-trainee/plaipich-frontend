@@ -4,7 +4,12 @@ const NAVIGATION = {
     blog: '/blog',
     project: '/project?',
     projects: '/projects',
-    support: '/support-us'
+    support: '/support-us',
+    facebook: 'https://www.facebook.com/pich.livestudio/',
+    tiktok: '',
+    instagram: 'https://www.instagram.com/plai.pich/',
+    telegram: '',
+    youtube: 'https://www.youtube.com/@plaiUA'
 }
 
 export default NAVIGATION;

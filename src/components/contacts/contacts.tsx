@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa"
 
 import { useTranslation } from '@/app/i18n'
+import NAVIGATION from "@/commons/constants"
 
 import plaipichEvent from "../../../public/images/contacts/plaipich-event.png"
 
@@ -31,27 +32,27 @@ export const Contacts = async ({ lng }: { lng: string }) => {
           </a>
           <ul className="flex gap-[1.375rem] lg:gap-12 items-center">
             <li>
-              <a href="/" className="circle bg-orange">
+              <a href={NAVIGATION.tiktok} className="circle bg-orange">
                 <FaTiktok size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-water">
+              <a href={NAVIGATION.instagram} className="circle bg-water">
                 <FaInstagram size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-pink-pearl">
+              <a href={NAVIGATION.facebook} className="circle bg-pink-pearl">
                 <FaFacebookF size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-light-blue">
+              <a href={NAVIGATION.telegram} className="circle bg-light-blue">
                 <FaTelegramPlane size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-menthol">
+              <a href={NAVIGATION.youtube} className="circle bg-menthol">
                 <FaYoutube size="20px" color="black" />
               </a>
             </li>
