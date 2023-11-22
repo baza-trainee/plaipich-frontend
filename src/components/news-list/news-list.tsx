@@ -1,12 +1,20 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Button } from "../button/button";
+import NAVIGATION from "@/commons/constants";
+
+import { Link } from "../link/link";
 import NewsCard from "./news-card/news-card";
 import { Spiral } from "./spiral";
 
-export const NewsList = () => {
+export const NewsList = ({
+  title,
+  btnText,
+}: {
+  title: string;
+  btnText: string;
+  }) => {
   const [newsList, setList]: [
     (
       | {
@@ -33,12 +41,12 @@ export const NewsList = () => {
 
     getNews();
   }, []);
-
+  
   return (
     <section className="lg:p-16 md:px-8 md:py-16 p-7">
       <div className="flex content-center justify-center">
         <Spiral />
-        <h2 className="lg:h1 h2">Новини</h2>
+        <h2 className="lg:h1 h2">{title}</h2>
       </div>
       <div
         className="grid grid-cols-1 
@@ -54,9 +62,9 @@ export const NewsList = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Button className="btn-primary" type={"button"}>
-          Більше новин
-        </Button>
+        <Link appearance="linkButtonPrimary" href={NAVIGATION.news}>
+          <p className="btn-text">{btnText}</p>
+        </Link>
       </div>
     </section>
   );

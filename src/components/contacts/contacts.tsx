@@ -1,14 +1,14 @@
-import "./contacts.css"
+import "./contacts.css";
 
-import Image from "next/image"
-import React from "react"
+import Image from "next/image";
+import React from "react";
 import {
   FaFacebookF,
   FaInstagram,
   FaTelegramPlane,
   FaTiktok,
   FaYoutube,
-} from "react-icons/fa"
+} from "react-icons/fa";
 
 import { useTranslation } from '@/app/i18n'
 import NAVIGATION from "@/commons/constants"
@@ -27,7 +27,8 @@ export const Contacts = async ({ lng }: { lng: string }) => {
           </h2>
           <a
             className="text-md md:text-xl leading-2"
-            href="mailto:plaipich@gmail.com">
+            href="mailto:plaipich@gmail.com"
+          >
             plaipich@gmail.com
           </a>
           <ul className="flex gap-[1.375rem] lg:gap-12 items-center">
@@ -63,5 +64,5 @@ export const Contacts = async ({ lng }: { lng: string }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
