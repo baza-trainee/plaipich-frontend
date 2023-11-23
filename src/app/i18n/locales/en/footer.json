@@ -1,12 +1,3 @@
 {
-  "nav-about-us": "About us",
-  "nav-news": "News",
-  "nav-projects": "Projects",
-  "nav-contacts": "Contacts",
-  "nav-reports": "Reports",
-  "nav-privacy-policy": "Privacy policy",
-  "nav-website-tos": "Website terms of service",
-  "footer-copyright-text": "Developed by Baza Trainee Ukraine 2023 &copy; All rights reserved",
-  "logo-url": "/images/footer.svg",
-  "logo-alt": "Logo PO Plai Pich"
-}
+    "nav-about-us": "About us"
+  }
