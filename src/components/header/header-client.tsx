@@ -37,7 +37,7 @@ export const HeaderClient = ({
         <form className={openSearch ? "flex bg-white" : "flex bg-black"}>
           <button
             type="submit"
-            className={openSearch ? "border-none py-[8px] px-[5px]" : "border-none py-[8px] px-[35px]"}
+            className={openSearch ? "border-none py-[8px] px-[8px]" : "border-none py-[8px] px-[35px]"}
             onClick={open}
           >
             <TbSearch size="24px" color={openSearch ? "black" : "white"} />
