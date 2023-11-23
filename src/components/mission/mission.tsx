@@ -1,7 +1,60 @@
-import React from 'react'
+import Image from "next/image";
+import React from "react";
+
+import playMissionImg from "../../../public/images/play-mission.jpg";
+import missionData from "./mission-data";
 
 export const Mission = () => {
   return (
-    <div>Mission</div>
-  )
-}
+    <section className="overflow-hidden">
+      <div
+        className="leading-3 font-bold mt-8 lg:mt-16 text-lg md:text-2xl lg:text-4xl 
+      lg:-mr-56 md:-mr-40 -mr-80 -ml-1"
+      >
+        <span className="text-gray-400">КУЛЬТУРА</span>{" "}
+        <span className="text-gray-100">ОБ’ЄДНАННЯ</span>{" "}
+        <span className="text-gray-400">МИСТЦЕТВО</span>
+        <span className="text-gray-100"> ВИСТАВКИ </span>
+        <span className="text-gray-100">ТВОРЧІСТЬ </span>
+        <span className="text-pink-pearl">МІСІЯ PLAI </span>
+        <span className="text-gray-100">РЕВІТАЛІЗАЦІЯ</span>
+        <span className="text-gray-400"> КІНО </span>
+        <span className="text-gray-100">МУЗИКА</span>
+      </div>
+      <div
+        className="px-4 py-8 md:p-8 lg:p-16
+      lg:gap-8 lg:grid lg:grid-rows-none lg:grid-cols-2 lg:row-start-2"
+      >
+        <div className="md:pb-8">
+          <h2 className="md:w-3/4 lg:h1 h2 normal-case">
+            Наша місія сформульована наступним чином
+          </h2>
+          <div>
+            {missionData.map((mission) => (
+              <div
+                key={mission.id}
+                className="border-t mt-6 md:grid md:grid-cols-[2fr,3fr]"
+              >
+                <div className="text-xl font-medium mt-4 md:m-0 md:flex md:items-center ">
+                  {mission.id}
+                </div>
+                <div>
+                  <h3 className="text-6 md:text-5 normal-case text-light-blue mt-2">
+                    {mission.title}
+                  </h3>
+                  <p className="mt-1 text-3 md:text-2 lg:text-4">{mission.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Image
+          src={playMissionImg}
+          alt="Our mission picture"
+          className="mx-auto lg:order-first md:block hidden"
+        />
+      </div>
+    </section>
+  );
+};
