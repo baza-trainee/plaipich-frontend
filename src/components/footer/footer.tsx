@@ -23,7 +23,7 @@ export const Footer = async ({ lng }: { lng: string }) => {
           <nav>
             <ul className="lg:flex flex-wrap lg:w-[340px] text-center lg:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
               <li className="lg:mr-[160px] mb-[24px] lg:mb-[30px]">
-                <Link href={NAVIGATION.about}>{t('nav-about-us')}</Link>
+                <Link href={`/${lng}${NAVIGATION.about}`}>{t('nav-about-us')}</Link>
               </li>
               <li className="mb-[24px] lg:mb-[30px] lg:mr-[9px]">
                 <Link href={NAVIGATION.news}>Новини</Link>

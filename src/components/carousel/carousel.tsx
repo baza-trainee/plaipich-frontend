@@ -37,7 +37,7 @@ export const Slider = ({
     ),
     any,
   ] = useState([]);
-
+  
   useEffect(() => {
     const getProjects = async () => {
       const response = await fetch("http://localhost:4500/api/projects");

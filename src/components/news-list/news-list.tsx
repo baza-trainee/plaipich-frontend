@@ -46,7 +46,7 @@ export const NewsList = ({
     <section className="lg:p-16 md:px-8 md:py-16 p-7">
       <div className="flex content-center justify-center">
         <Spiral />
-        <h2 className="lg:h1 h2">{title}</h2>
+        <h2 className="lg:h1 h2 upercase lg:normal-case">{title}</h2>
       </div>
       <div
         className="grid grid-cols-1 

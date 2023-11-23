@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import React from "react";
 
@@ -38,7 +36,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className }) => {
           src={mainImage}
           alt={title}
           fill
-          className="h-full w-auto object-cover filter hover:contrast-200 hover:scale-110 transition-all"
+          className="h-full w-auto object-cover filter hover:contrast-200 lg:hover:scale-110 transition-all"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>

@@ -16,7 +16,7 @@ export const JoinUs: React.FC<JoinUsProps> = async ({
 }) => {
   const { t } = await useTranslation(lng, "join-us-main");
   return (
-    <section className={`w-full text-black bg-` + backgroundColor}>
+    <section className={`w-full text-black ` + backgroundColor}>
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-[3.875rem] lg:py-20 py-[3.75rem]">
         <div className="mb-8">
           <h2 className="h1 pb-[1.375rem] uppercase md:normal-case">

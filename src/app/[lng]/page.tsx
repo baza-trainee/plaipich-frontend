@@ -16,7 +16,7 @@ const Home = async ({
       <Slider btnOneProject={ t("btn-learn-more")} btnAllProjects={ t("btn-all-projects")} />
       <AboutMain lng={params.lng} />
       <NewsList title={t("title-news")} btnText={t("btn-more-news")} />
-      <JoinUs backgroundColor="white" lng={params.lng} />
+      <JoinUs backgroundColor="bg-white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>
   );

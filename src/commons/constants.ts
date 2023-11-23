@@ -5,6 +5,7 @@ const NAVIGATION = {
     project: '/project?',
     projects: '/projects',
     support: '/support-us',
+    contacts: '#contacts',
     facebook: 'https://www.facebook.com/pich.livestudio/',
     tiktok: '',
     instagram: 'https://www.instagram.com/plai.pich/',
