@@ -6,25 +6,25 @@
       "content": {
         "title": "President of NGO 'Artistic Association 'Plai'",
         "cardText": "Cultural and project manager, civic activist, President of NGO 'Artistic Association 'Plai', founder of the art space 'Pich', director of festivals 'Air Fest', 'Ticket to the Sun'",
-        "imageUrl": "/public/about-us/our-team/OleksandraV.png"
+        "imageUrl": "OleksandraV"
       },
       "id": "01"
-    },
-    {
-      "name": "Oleksandr Shcherba",
-      "content": {
-        "title": "Vice President of NGO 'Artistic Association 'Plai'",
-        "cardText": "Actor, member of NGO 'Artistic Association 'Plai', co-founder and art director of the art space 'Pich', theatrical curator of festivals 'Air Fest', 'Ticket to the Sun'",
-        "imageUrl": "/public/about-us/our-team/OleksandrS.png"
-      },
-      "id": "02"
     },
     {
       "name": "Volodymyr Podolian",
       "content": {
         "title": "Vice President of NGO 'Artistic Association 'Plai'",
         "cardText": "Cultural and project manager, civic activist, Vice President of NGO 'Artistic Association 'Plai', co-founder of the art space 'Pich', program director of festivals 'Air Fest', 'Ticket to the Sun'",
-        "imageUrl": "/public/about-us/our-team/VolodymirP.png"
+        "imageUrl": "VolodymirP"
+      },
+      "id": "02"
+    },
+    {
+      "name": "Oleksandr Shcherba",
+      "content": {
+        "title": "Vice President of NGO 'Artistic Association 'Plai'",
+        "cardText": "Actor, member of NGO 'Artistic Association 'Plai', co-founder and art director of the art space 'Pich', theatrical curator of festivals 'Air Fest', 'Ticket to the Sun'",
+        "imageUrl": "OleksandrS"
       },
       "id": "03"
     }
