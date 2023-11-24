@@ -12,9 +12,11 @@ import NAVIGATION from "@/commons/constants";
 import { Link } from "../link/link";
 
 export const Slider = ({
+  lng,
   btnOneProject,
   btnAllProjects,
 }: {
+    lng: 'en' | 'uk';
   btnOneProject: string;
   btnAllProjects: string;
 }) => {
@@ -94,14 +96,14 @@ export const Slider = ({
                 {item.description}
               </p>
               <Link
-                href={`${NAVIGATION.project}id=${item._id}`}
+                href={`/${lng}${NAVIGATION.project}${item._id}`}
                 appearance="linkButtonPrimary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-2/3 lg:mb-0 md:mr-3 lg:w-[48%]"
               >
                 <p className="btn-text">{btnOneProject}</p>
               </Link>
               <Link
-                href={NAVIGATION.projects}
+                href={`/${lng}${NAVIGATION.projects}`}
                 appearance="linkButtonSecondary"
                 className="w-full max-w-[300px] mx-auto md:mx-0 md:w-2/3 lg:w-[48%]"
               >

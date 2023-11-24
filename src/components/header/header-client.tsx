@@ -43,7 +43,7 @@ export const HeaderClient = ({
             <TbSearch size="24px" color={openSearch ? "black" : "white"} />
           </button>
           {openSearch && (
-              <input className="w-[300px] h=[60px] " type="text" />
+              <input className="w-[350px] h=[60px] " type="text" />
           )}
         </form>
         {!openSearch && <LanguageSwitcher lng={lng} />}
