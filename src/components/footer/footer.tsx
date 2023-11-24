@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import footerLogo from "/public/footer.svg";
 import { useTranslation } from '@/app/i18n'
 import NAVIGATION from '@/commons/constants';
-
-import footerLogo from "../../../public/footer.svg";
 
 export const Footer = async ({ lng }: { lng: string }) => {
   const { t } = await useTranslation(lng, 'footer')

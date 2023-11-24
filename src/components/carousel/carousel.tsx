@@ -84,7 +84,7 @@ export const Slider = ({
                 width={700}
                 height={700}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 priority
               />
             </div>
