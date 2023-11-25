@@ -8,18 +8,18 @@ export const Mission = () => {
   return (
     <section className="overflow-hidden">
       <div
-        className="leading-3 font-bold mt-8 lg:mt-16 text-lg md:text-2xl lg:text-4xl 
+        className="uppercase leading-3 font-bold mt-8 lg:mt-16 text-lg md:text-2xl lg:text-4xl 
       lg:-mr-56 md:-mr-40 -mr-80 -ml-1"
       >
-        <span className="text-gray-400">КУЛЬТУРА</span>{" "}
-        <span className="text-gray-100">ОБ’ЄДНАННЯ</span>{" "}
-        <span className="text-gray-400">МИСТЦЕТВО</span>
-        <span className="text-gray-100"> ВИСТАВКИ </span>
-        <span className="text-gray-100">ТВОРЧІСТЬ </span>
-        <span className="text-pink-pearl">МІСІЯ PLAI </span>
-        <span className="text-gray-100">РЕВІТАЛІЗАЦІЯ</span>
-        <span className="text-gray-400"> КІНО </span>
-        <span className="text-gray-100">МУЗИКА</span>
+        <span className="text-gray-400">Культура</span>{" "}
+        <span className="text-gray-100">Об’єднанняЯ</span>{" "}
+        <span className="text-gray-400">Мистецтво</span>
+        <span className="text-gray-100"> Виставки </span>
+        <span className="text-gray-100">Творчість </span>
+        <span className="text-pink-pearl">Місія PLAI </span>
+        <span className="text-gray-100">Ревіталізація</span>
+        <span className="text-gray-400"> Кіно </span>
+        <span className="text-gray-100">Музика</span>
       </div>
       <div
         className="px-4 py-8 md:p-8 lg:p-16
