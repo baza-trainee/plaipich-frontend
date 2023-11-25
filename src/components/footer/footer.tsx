@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useTranslation } from '@/app/i18n'
+import { useTranslation } from '@/app/i18n';
 import NAVIGATION from '@/commons/constants';
 
-import footerSvg from '../../../public/footer.png';
+import footerSvg from '../../../public/footer.svg';
 
 export const Footer = async ({ lng }: { lng: string }) => {
-  const { t } = await useTranslation(lng, 'footer')
+  const { t } = await useTranslation(lng, 'footer');
   return (
     <footer className="bg-black text-white">
       <div className="w-[320px] mx-auto lg:w-[1440px] py-[19px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
@@ -26,30 +26,30 @@ export const Footer = async ({ lng }: { lng: string }) => {
                 <Link href={NAVIGATION.about}>{t('nav-about-us')}</Link>
               </li>
               <li className="mb-[24px] lg:mb-[30px] lg:mr-[9px]">
-                <Link href={NAVIGATION.news}>Новини</Link>
+                <Link href={NAVIGATION.news}>{t('nav-news')}</Link>
               </li>
               <li className="lg:mr-[160px] mb-[24px] lg:mb-[30px]">
-                <Link href={NAVIGATION.projects}>Проекти</Link>
+                <Link href={NAVIGATION.projects}>{t('nav-projects')}</Link>
               </li>
               <li className="mb-[24px] lg:mb-[30px]">
-                <Link href="#">Звітність</Link>
+                <Link href="#">{t('nav-reporting')}</Link>
               </li>
               <li className="mb-[24px] lg:mb-0">
-                <Link href="#">Контакти</Link>
+                <Link href="#">{t('nav-contacts')}</Link>
               </li>
             </ul>
           </nav>
           <ul className="text-center lg:text-start text-[18px] lg:text-md leading-3">
             <li className="underline mb-[24px] lg:mb-[22px]">
-              <Link href="#">Політика конфіденційності</Link>
+              <Link href="#">{t('privacy-policy')}</Link>
             </li>
             <li className="underline mb-[24px] lg:mb-0">
-              <Link href="#">Правила користування сайтом</Link>
+              <Link href="#">{t('terms-of-use')}</Link>
             </li>
           </ul>
         </div>
         <p className="lg:mx-[12px] mt-[52px] lg:mt-[26px] text-center lg:text-start text-base leading-3">
-          Розробка Baza Trainee Ukraine 2023 © Усі права захищені
+        {t('footer-baza-trainee')}
         </p>
       </div>
     </footer>
