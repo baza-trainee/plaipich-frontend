@@ -1,7 +1,6 @@
 "use client";
 
-import NextLink from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 import { TbAlignRight, TbSearch, TbX } from "react-icons/tb";
 
 import NAVIGATION from "@/commons/constants";
@@ -9,7 +8,13 @@ import NAVIGATION from "@/commons/constants";
 import { Link } from "../index";
 import { LanguageSwitcher } from "./switchLangBtn";
 
-export const BurgerMenu = ({ lng }: { lng: string }) => {
+export const BurgerMenu = ({
+  lng,
+  children,
+}: {
+  children: React.ReactNode;
+  lng: "en" | "uk";
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -17,19 +22,11 @@ export const BurgerMenu = ({ lng }: { lng: string }) => {
   };
 
   return (
-    <nav className="lg:hidden">
-      <button className="lg:hidden border-none p-0" onClick={toggleMenu}>
-        {isOpen ? (
-          <TbX size="40px" color="white" />
-        ) : (
-          <TbAlignRight size="40px" color="white" />
-        )}
-      </button>
-
+    <div className="lg:hidden">
       <div
         className={`${
           isOpen
-            ? "absolute left-0 top-[90px] md:top-[101px] w-full bg-black border-white border-2"
+            ? "absolute left-0 top-0 w-full min-h-[100vh] bg-black border-white border-2"
             : "hidden"
         }`}
       >
@@ -54,40 +51,27 @@ export const BurgerMenu = ({ lng }: { lng: string }) => {
               </div>
             </form>
           </div>
-
-          <ul className=" text-small-md mb-14">
-            <li className="py-2 px-[53px] h-10">
-              <NextLink className="hover:text-md transition-all" href={NAVIGATION.projects}>
-               Проєкти
-              </NextLink>
-            </li>
-            <li className="py-2 px-[53px] h-10">
-              <NextLink className="hover:text-md transition-all" href={NAVIGATION.about}>
-               Про нас
-              </NextLink>
-            </li>
-            <li className="py-2 px-[53px] h-10">
-              <NextLink className="hover:text-md transition-all" href={NAVIGATION.news}>
-                 Новини
-              </NextLink>
-            </li>
-            <li className="py-2 px-[53px] h-10">
-              <NextLink className="hover:text-md transition-all" href={NAVIGATION}>
-               Контакти
-              </NextLink>
-            </li>
-          </ul>
+          {children}
           <Link
-            href={"/"}
+            href={`/${lng}${NAVIGATION.support}`}
             appearance="linkButtonOrange"
             className=" w-48 px-6 py-4 mb-14 md:hidden flex justify-center items-center mx-auto"
           >
-            <p className="btn-text">Підтримати</p>
+            {lng === "uk" ? "Підтримати" : "Donate"}
           </Link>
-
           <LanguageSwitcher lng={lng} />
         </div>
       </div>
-    </nav>
+      <button
+        className={`lg:hidden border-none p-0 ${isOpen && "relative"}`}
+        onClick={toggleMenu}
+      >
+        {isOpen ? (
+          <TbX size="40px" color="white" />
+        ) : (
+          <TbAlignRight size="40px" color="white" />
+        )}
+      </button>
+    </div>
   );
 };

@@ -2,9 +2,16 @@ const NAVIGATION = {
     main: '/',
     about: '/about-us',
     news: '/news',
-    project: '/project?',
+    oneNew: '/new?id=',
+    project: '/project?id=',
     projects: '/projects',
-    support: '/support-us'
+    support: '/support-us',
+    contacts: '#contacts',
+    facebook: 'https://www.facebook.com/pich.livestudio/',
+    tiktok: '',
+    instagram: 'https://www.instagram.com/plai.pich/',
+    telegram: '',
+    youtube: 'https://www.youtube.com/@plaiUA'
 }
 
 export default NAVIGATION;
