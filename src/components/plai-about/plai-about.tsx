@@ -18,7 +18,9 @@ export const PlaiAbout = () => {
         />
       </div>
       <h1 className="hidden absolute top-0 left-0 text-orange">Про Plai</h1>
-      <p className="absolute text-6 top-0 left-0 pl-5 pt-10">Головна / <span className="text-light-blue">Про нас</span></p>
+      <p className="absolute text-6 top-0 left-0 pl-5 pt-10">
+        Головна / <span className="text-light-blue">Про нас</span>
+      </p>
       <nav className="absolute top-5 left-0 w-full h-[430px] flex flex-col justify-center">
         <ul className="flex flex-col gap-10 justify-center items-center">
           <li>
@@ -48,7 +50,47 @@ export const PlaiAbout = () => {
           </li>
         </ul>
       </nav>
-      <div className="mx-auto max-w-[1440px] px-4 lg:p-[3.875rem] flex flex-col items-center"></div>
+      <div className="mx-auto max-w-[1440px] px-4 lg:p-[3.875rem] flex flex-col items-center">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          molestias excepturi, est porro earum unde, praesentium repudiandae
+          esse sunt perspiciatis corrupti asperiores nam animi consequatur.
+          Magni sequi cumque error consequuntur.
+        </p>
+        <Image
+          src={bgPlai}
+          alt="Plai"
+          width={0}
+          height={0}
+          className="w-full h-[200px] object-center"
+        />
+                <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          molestias excepturi, est porro earum unde, praesentium repudiandae
+          esse sunt perspiciatis corrupti asperiores nam animi consequatur.
+          Magni sequi cumque error consequuntur.
+        </p>
+        <Image
+          src={bgPlai}
+          alt="Plai"
+          width={0}
+          height={0}
+          className="w-full h-[200px] object-center"
+        />
+                <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          molestias excepturi, est porro earum unde, praesentium repudiandae
+          esse sunt perspiciatis corrupti asperiores nam animi consequatur.
+          Magni sequi cumque error consequuntur.
+        </p>
+        <Image
+          src={bgPlai}
+          alt="Plai"
+          width={0}
+          height={0}
+          className="w-full h-[200px] object-center"
+        />
+      </div>
     </section>
   );
 };
