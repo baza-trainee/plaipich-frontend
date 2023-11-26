@@ -1,4 +1,8 @@
 {
-    "projects": "Projects",
-    "about": "About us"
+  "nav-about-us": "About us",
+  "nav-projects": "Projects",
+  "nav-news": "News",
+  "nav-contacts": "Contacts",
+  "support": "Support",
+  "play": "Art association"
 }

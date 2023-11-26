@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import NAVIGATION from "@/commons/constants";
@@ -15,6 +15,15 @@ export const HeaderClient = ({
   lng: "en" | "uk";
 }) => {
   const [openSearch, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const changeInput = (e: ChangeEvent) => {
+    const input = e.target as HTMLInputElement;
+    console.log(input.value);
+
+    setQuery(input.value);
+  };
+
   const open = (event: any) => {
     event.preventDefault();
     setOpen(true);
@@ -28,24 +37,41 @@ export const HeaderClient = ({
           appearance="linkButtonOrange"
           className="hidden md:flex "
         >
-          <p className="btn-text">{lng === "uk" ? "Підтримати" : "Donate"}</p>
+          {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
 
       <div className="hidden lg:flex items-center">
         {children}
-        <form className={openSearch ? "flex bg-white" : "flex bg-black"}>
-          <button
-            type="submit"
-            className={openSearch ? "border-none py-[8px] px-[8px]" : "border-none py-[8px] px-[35px]"}
-            onClick={open}
-          >
-            <TbSearch size="24px" color={openSearch ? "black" : "white"} />
-          </button>
-          {openSearch && (
-              <input className="w-[350px] h=[60px] " type="text" />
-          )}
-        </form>
+        <button
+          type="button"
+          className={openSearch ? "hidden" : "border-none py-[8px] px-[35px]"}
+          onClick={open}
+        >
+          <TbSearch size="24px" color="white" />
+        </button>
+        {openSearch && (
+          <div className="relative ml-[50px] w-[380px]">
+            <button
+              type="submit"
+              className="text-white absolute start-0 top-0 px-2 py-2 border-none"
+              onClick={()=>{setOpen(false)}}
+            >
+              <TbSearch size="24px" color="black" />
+            </button>
+
+            <input
+              type="text"
+              className="block w-full  ps-12 pe-2 text-md py-1  border rounded-lg text-gray-500"
+              placeholder={lng === "uk" ? "Пошук" : "Search"}
+              value={query}
+              name="query"
+              onChange={changeInput}
+              autoFocus={openSearch}
+              required
+            />
+          </div>
+        )}
         {!openSearch && <LanguageSwitcher lng={lng} />}
       </div>
     </>

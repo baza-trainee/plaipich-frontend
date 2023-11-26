@@ -1,4 +1,8 @@
 {
-    "projects": "Проекти",
-    "about": "Про нас"
+  "nav-about-us": "Про нас",
+  "nav-projects": "Проєкти",
+  "nav-news": "Новини",
+  "nav-contacts": "Контакти",
+  "support": "Підтримати",
+  "play": "Мистецьке об'єднання"
 }
