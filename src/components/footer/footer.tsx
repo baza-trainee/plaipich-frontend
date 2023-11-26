@@ -14,7 +14,7 @@ export const Footer = async ({ lng }: { lng: string }) => {
         <div className="lg:flex gap-[160px]">
           <Image
             src={footerSvg}
-            alt="Логотип ГО Plai Pich"
+            alt="Логотип ГО Plai"
             width={674}
             height={280}
             priority
