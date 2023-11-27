@@ -2,7 +2,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
-import {NAVIGATION} from "@/commons/constants";
+import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
 import { LanguageSwitcher } from "./switchLangBtn";
@@ -40,7 +40,6 @@ export const HeaderClient = ({
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
-
       <div className="hidden lg:flex items-center">
         {children}
         <button
@@ -55,7 +54,9 @@ export const HeaderClient = ({
             <button
               type="submit"
               className="text-white absolute start-0 top-0 px-2 py-2 border-none"
-              onClick={()=>{setOpen(false)}}
+              onClick={() => {
+                setOpen(false);
+              }}
             >
               <TbSearch size="24px" color="black" />
             </button>

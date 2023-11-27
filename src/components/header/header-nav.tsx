@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useTranslation } from "@/app/i18n";
-import {NAVIGATION} from "@/commons/constants";
+import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
 

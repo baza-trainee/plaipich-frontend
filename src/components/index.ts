@@ -11,6 +11,7 @@ export { NewsList } from "./news-list/news-list";
 export { NotFound } from "./not-found/not-found";
 export { Partners } from "./partners/partners";
 export { PlaiAbout } from "./plai-about/plai-about";
+export { Providers } from './providers';
 export { Reports } from "./reports/reports";
 export { ReportsAccordion } from "./reports-accordion/reports-accordion";
 export { Team } from "./team/team";
