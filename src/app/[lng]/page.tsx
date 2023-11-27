@@ -18,7 +18,11 @@ const Home = async ({
         btnAllProjects={t("btn-all-projects")}
       />
       <AboutMain lng={params.lng} />
-      <NewsList title={t("title-news")} btnText={t("btn-more-news")} lng={ params.lng } />
+      <NewsList
+        title={t("title-news")}
+        btnText={t("btn-more-news")}
+        lng={params.lng}
+      />
       <JoinUs backgroundColor="bg-white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>

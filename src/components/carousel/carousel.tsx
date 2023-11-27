@@ -44,7 +44,7 @@ export const Slider = ({
             interval={7000}
             onChange={onChange}
           >
-            {data.data.projects.map((item) => (
+            {data.projects.map((item) => (
               <div
                 className="w-full max-w-[1440px] m-auto pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
                 key={item._id}

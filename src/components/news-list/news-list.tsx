@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
@@ -11,11 +11,11 @@ import { Spiral } from "./spiral";
 export const NewsList = ({
   title,
   btnText,
-  lng
+  lng,
 }: {
   title: string;
-    btnText: string;
-    lng: 'en' | 'uk';
+  btnText: string;
+  lng: "en" | "uk";
 }) => {
   const { data, isLoading } = useNewsList(API_URL.NEWS);
 
@@ -32,7 +32,7 @@ export const NewsList = ({
             lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
             md:grid-cols-2 md:my-16 md:gap-x-4"
         >
-          {data.data.news.map((news) => (
+          {data.news.map((news) => (
             <NewsCard
               key={news._id}
               newsItem={news}
