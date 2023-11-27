@@ -6,6 +6,7 @@ export const NAVIGATION = {
   project: "/project?id=",
   projects: "/projects",
   support: "/support-us",
+  reports: "/about-us#reports",
   contacts: "#contacts",
   facebook: "https://www.facebook.com/pich.livestudio/",
   tiktok: "",

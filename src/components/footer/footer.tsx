@@ -33,10 +33,10 @@ export const Footer = async ({ lng }: { lng: string }) => {
                   <Link href={NAVIGATION.projects}>{t('nav-projects')}</Link>
                 </li>
                 <li className="mb-[24px] md:mb-[30px] md:w-[96px] hover:text-light-blue">
-                  <Link href="#">{t('nav-reporting')}</Link>
+                  <Link href={NAVIGATION.reports}>{t('nav-reporting')}</Link>
                 </li>
                 <li className="mb-[24px] md:mb-0 hover:text-light-blue">
-                  <Link href="#">{t('nav-contacts')}</Link>
+                  <Link href={NAVIGATION.contacts}>{t('nav-contacts')}</Link>
                 </li>
               </ul>
             </nav>
