@@ -10,3 +10,13 @@ export interface IProject {
   partnersCount: number;
   events: string[];
 }
+
+export interface INews {
+  _id: string;
+  title: string;
+  description: string;
+  date: Date;
+  category: "Politics"| "Technology"| "Entertainment"| "Sports";
+  mainPhoto: string;
+  photos: string[];
+}
