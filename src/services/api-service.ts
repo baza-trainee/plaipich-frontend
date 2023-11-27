@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/commons/constants';
+import { API_URL } from '@/commons/constants';
 
 export class APIService {
   baseURL: string;
@@ -89,4 +89,4 @@ export class APIService {
       });
 }
 
-export const apiService = new APIService(BASE_URL);
+export const apiService = new APIService(API_URL.BASE);
