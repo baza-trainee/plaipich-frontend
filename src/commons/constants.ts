@@ -1,4 +1,4 @@
-const NAVIGATION = {
+export const NAVIGATION = {
     main: '/',
     about: '/about-us',
     news: '/news',
@@ -14,4 +14,8 @@ const NAVIGATION = {
     youtube: 'https://www.youtube.com/@plaiUA'
 }
 
-export default NAVIGATION;
+export const BASE_URL = 'https://privatcontacts.onrender.com/api';
+
+export const QUERY_KEY = {
+    
+}

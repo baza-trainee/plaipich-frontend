@@ -2,7 +2,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
-import NAVIGATION from "@/commons/constants";
+import {NAVIGATION} from "@/commons/constants";
 
 import { Link } from "../link/link";
 import { LanguageSwitcher } from "./switchLangBtn";

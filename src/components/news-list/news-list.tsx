@@ -1,6 +1,6 @@
 import React from "react";
 
-import NAVIGATION from "@/commons/constants";
+import {NAVIGATION} from "@/commons/constants";
 
 import { Link } from "../link/link";
 import NewsCard from "./news-card/news-card";

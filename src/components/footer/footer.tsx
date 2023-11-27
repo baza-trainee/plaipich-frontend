@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
-import NAVIGATION from '@/commons/constants';
+import {NAVIGATION} from '@/commons/constants';
 
 import footerSvg from '../../../public/footer.svg';
 
