@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Contacts, JoinUs, Mission, Partners, PlaiAbout, Reports, Team } from "@/components";
+import { Contacts, JoinUs, Mission, OurTeam, Partners, PlaiAbout, Reports } from "@/components";
 
 const About = ({
   params,
@@ -13,10 +13,10 @@ const About = ({
     <main className="flex min-h-screen flex-col items-center justify-between">
       <PlaiAbout />
       <Mission />
-      <Team />
+      <OurTeam lng={params.lng}/>
       <Partners />
       <Reports lng={params.lng} />
-      <JoinUs backgroundColor="light-blue" lng={params.lng} />
+      <JoinUs backgroundColor="bg-light-blue" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>
   );

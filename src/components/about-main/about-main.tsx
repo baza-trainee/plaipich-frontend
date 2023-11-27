@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import { useTranslation } from "@/app/i18n";
-import NAVIGATION from "@/commons/constants";
+import {NAVIGATION} from "@/commons/constants";
 import { Link } from "@/components/link/link";
 
 export const AboutMain = async ({ lng }: { lng: "en" | "uk" }) => {

@@ -1,13 +1,21 @@
 "use client";
-import { ThemeProvider } from "next-themes";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: true,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: true,
+    }
+  }
+});
+
+export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider attribute="class" enableSystem={false}>
+    <QueryClientProvider client={queryClient}>
       {children}
-    </ThemeProvider>
+    </QueryClientProvider>
   );
 };
-
-export default Providers;

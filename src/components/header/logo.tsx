@@ -2,7 +2,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 
 import { useTranslation } from "@/app/i18n/index";
-import NAVIGATION from "@/commons/constants";
+import {NAVIGATION} from "@/commons/constants";
 
 import logoSvg from "./Vector.svg";
 
