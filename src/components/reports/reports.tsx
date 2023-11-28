@@ -2,7 +2,8 @@ import React from "react";
 
 import { useTranslation } from "@/app/i18n";
 import { Link } from "@/components/link/link";
-import { ReportsAccordion } from "@/components/reports-accordion/reports-accordion";
+
+import { ReportsAccordion } from "./reports-accordion/reports-accordion";
 
 interface AccordionItem {
   title: string;

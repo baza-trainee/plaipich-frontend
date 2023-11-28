@@ -2,8 +2,9 @@ import Image from "next/image";
 import React from "react";
 
 import { useTranslation } from "@/app/i18n";
-import { InfiniteLooper } from "@/components/infinite-looper/infinite-looper";
 import { partnersData } from "@/components/partners/partners-data";
+
+import { InfiniteLooper } from "./infinite-looper/infinite-looper";
 
 export const Partners = async ({ lng }: { lng: "en" | "uk" }) => {
   const { t } = await useTranslation(lng, "partners");
