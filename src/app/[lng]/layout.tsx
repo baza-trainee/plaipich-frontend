@@ -4,9 +4,9 @@ import { dir } from "i18next";
 import localFont from "next/font/local";
 import React from "react";
 
-import { Footer, Header } from "@/components";
+import { Footer, Header, Providers } from "@/components";
 
-import { useTranslation } from '../i18n'
+import { useTranslation } from "../i18n";
 import { languages } from "../i18n/settings";
 
 export async function generateStaticParams() {
@@ -45,26 +45,32 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
   params: {
-    lng: string;
+    lng: "en" | "uk";
   };
-  }) {
-    const { t } = await useTranslation(params.lng)
+}) {
+  const { t } = await useTranslation(params.lng);
 
   return (
     <html lang={params.lng} dir={dir(params.lng)}>
       <head>
-        <title>{ t('title')}</title>
-        <meta name="description" content={t('description')} />
+        <title>{t("title")}</title>
+        <meta name="description" content={t("description")} />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
         <link rel="alternate" hrefLang="uk" href="http://localhost:3000/uk" />
         <link rel="alternate" hrefLang="en" href="http://localhost:3000/en" />
-        <link rel="alternate" hrefLang="x-default" href="http://localhost:3000/uk" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="http://localhost:3000/uk"
+        />
       </head>
-      <body className={`${fixel.variable} font-sans bg-black text-white`}>
-        <Header lng={params.lng}/>
-        {children}
-        <Footer lng={params.lng}/>
-      </body>
+      <Providers>
+        <body className={`${fixel.variable} font-sans bg-black text-white`}>
+          <Header lng={params.lng} />
+          {children}
+          <Footer lng={params.lng} />
+        </body>
+      </Providers>
     </html>
   );
 }

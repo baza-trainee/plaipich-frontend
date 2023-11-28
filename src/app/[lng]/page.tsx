@@ -16,10 +16,13 @@ const Home = async ({
       <Slider
         btnOneProject={t("btn-learn-more")}
         btnAllProjects={t("btn-all-projects")}
-        lng={params.lng}
       />
       <AboutMain lng={params.lng} />
-      <NewsList title={t("title-news")} btnText={t("btn-more-news")} />
+      <NewsList
+        title={t("title-news")}
+        btnText={t("btn-more-news")}
+        lng={params.lng}
+      />
       <JoinUs backgroundColor="bg-white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>
