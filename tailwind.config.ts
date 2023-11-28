@@ -87,7 +87,8 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       borderRadius: {
         medium: "3.125rem", // 50px
@@ -108,6 +109,14 @@ const config: Config = {
         10.5: "2.625rem", // 42px
         11.5: "2.875rem", // 46px
         12.5: "3.125rem", // 50px
+      },
+      gridTemplateRows: {
+        lg: "100px 90px 110px 300px ",
+        md: `140px 50px 80px 140px 300px`,
+      },
+      gridTemplateColumns: {
+        lg: "530px 420px 300px",
+        md: "35% 10% 50%",
       },
     },
   },
