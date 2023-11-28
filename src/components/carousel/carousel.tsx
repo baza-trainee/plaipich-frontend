@@ -61,7 +61,7 @@ export const Slider = ({
                 </div>
                 <div className="flex flex-col justify-center md:justify-start content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
                   <h1 className="h1 w-full text-left text-pink-pearl">
-                    {item.title}
+                    {item.title.toUpperCase()}
                   </h1>
                   <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5 line-clamp-4">
                     {item.description}
