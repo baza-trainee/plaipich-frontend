@@ -13,8 +13,8 @@ const About = ({
     <main className="flex min-h-screen flex-col items-center justify-between">
       <PlaiAbout />
       <Mission />
-      <OurTeam lng={params.lng}/>
-      <Partners />
+      <OurTeam lng={params.lng} />
+      <Partners lng={params.lng} />
       <Reports lng={params.lng} />
       <JoinUs backgroundColor="bg-light-blue" lng={params.lng} />
       <Contacts lng={params.lng} />
