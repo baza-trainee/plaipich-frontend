@@ -24,12 +24,12 @@ h1,
 
 h2,
 .h2 {
-  @apply font-semibold lg:text-small-4xl text-2xl leading-2 uppercase;
+  @apply font-semibold lg:text-small-4xl text-2xl leading-2;
 }
 
 h3,
 .h3 {
-  @apply font-medium text-xl lg:text-3xl lg:leading-2 leading-3 uppercase;
+  @apply font-medium text-xl lg:text-3xl lg:leading-2 leading-3;
 }
 
 h4,
@@ -44,11 +44,11 @@ h5,
 
 h6,
 .h6 {
-  @apply font-medium lg:text-3xl text-xl leading-2 uppercase;
+  @apply font-medium lg:text-3xl text-xl leading-2;
 }
 
 .h7 {
-  @apply font-normal text-lg lg:text-xl leading-3 lg:leading-2 uppercase;
+  @apply font-normal text-lg lg:text-xl leading-3 lg:leading-2;
 }
 
 .h8 {
@@ -60,7 +60,7 @@ h6,
 }
 
 .h10 {
-  @apply lg:font-bold font-normal text-lg lg:text-xl leading-2 lg:uppercase;
+  @apply lg:font-bold font-normal text-lg lg:text-xl leading-2;
 }
 
 .h11 {
@@ -68,7 +68,7 @@ h6,
 }
 
 .h12 {
-  @apply font-semibold lg:font-normal lg:text-xl text-lg leading-2 uppercase;
+  @apply font-semibold lg:font-normal lg:text-xl text-lg leading-2;
 }
 
 .h13 {
@@ -100,7 +100,7 @@ h6,
 }
 
 .text-5 {
-  @apply font-medium  lg:text-md leading-2 text-base lg:leading-4;
+  @apply font-medium lg:text-md leading-2 text-base lg:leading-4;
 }
 
 .text-6 {
