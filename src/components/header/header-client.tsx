@@ -35,7 +35,7 @@ export const HeaderClient = ({
         <Link
           href={`/${lng}${NAVIGATION.support}`}
           appearance="linkButtonOrange"
-          className="hidden md:flex "
+          className="hidden w-[198px] md:w-[180px] lg:w-[194px] md:flex justify-center "
         >
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { TbAlignRight, TbSearch, TbX } from "react-icons/tb";
 
-import {NAVIGATION} from "@/commons/constants";
+import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../index";
 import { LanguageSwitcher } from "./switchLangBtn";
@@ -26,7 +26,7 @@ export const BurgerMenu = ({
       <div
         className={`${
           isOpen
-            ? "absolute left-0 top-0 w-full min-h-[100vh] bg-black border-white border-2"
+            ? "absolute left-0 top-[105px] w-full min-h-[100vh] bg-black"
             : "hidden"
         }`}
       >
