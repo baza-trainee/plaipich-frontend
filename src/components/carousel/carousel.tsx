@@ -31,7 +31,7 @@ export const Slider = ({
   };
 
   return (
-    <section className="relative w-full pb-5 md:py-10" id="projects-slider">
+    <section className="relative w-full" id="projects-slider">
       {isLoading && <div className="w-full h-[350px]">Loading...</div>}
       {!isLoading && data && (
         <>
@@ -45,11 +45,8 @@ export const Slider = ({
             onChange={onChange}
           >
             {data.projects.map((item) => (
-              <div
-                className="w-full max-w-[1440px] m-auto pb-12 md:flex md:justify-center md:px-4.5 md:flex-row-reverse md:gap-10"
-                key={item._id}
-              >
-                <div className="w-full h-[350px] mb-5 md:mb-0 md:w-1/2 md:h-[420px] lg:h-[650px]">
+              <div className="slide-box" key={item._id}>
+                <div className="image-box">
                   <Image
                     src={item.poster}
                     alt={"logo"}
@@ -63,20 +60,20 @@ export const Slider = ({
                   <h1 className="h1 w-full text-left text-pink-pearl">
                     {item.title.toUpperCase()}
                   </h1>
-                  <p className="text-left w-full text-base md:text-md lg:text-lg font-sans font-regular mb-5 line-clamp-4">
+                  <p className="text-left w-full text-base mb-8 md:mb-5 md:text-md lg:text-lg font-sans font-regular  line-clamp-4">
                     {item.description}
                   </p>
                   <Link
                     href={`${NAVIGATION.project}id=${item._id}`}
                     appearance="linkButtonPrimary"
-                    className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-2/3 lg:mb-0 md:mr-3 lg:w-[48%]"
+                    className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-[230px] lg:mb-0 md:mr-3 lg:w-[48%]"
                   >
                     <p className="btn-text">{btnOneProject}</p>
                   </Link>
                   <Link
                     href={NAVIGATION.projects}
                     appearance="linkButtonSecondary"
-                    className="w-full max-w-[300px] mx-auto md:mx-0 md:w-2/3 lg:w-[48%]"
+                    className="w-full max-w-[300px] mx-auto md:mx-0 md:w-[230px] lg:w-[48%]"
                   >
                     <p className="btn-text">{btnAllProjects}</p>
                   </Link>
@@ -84,7 +81,7 @@ export const Slider = ({
               </div>
             ))}
           </Carousel>
-          <div className="flex absolute bottom-5 right-0  md:right-1/3 w-full md:w-1/3 justify-center items-center">
+          <div className="control-box">
             <button className="border-none fill-gray-200">
               <svg
                 width="77"
@@ -99,7 +96,7 @@ export const Slider = ({
                 />
               </svg>
             </button>
-            <p className="text-md text-center w-[70px] text-amber">
+            <p className="text-base lg:text-md text-center w-[75px] text-amber">
               {slide} / {data.results}
             </p>
             <button className="border-none fill-gray-200">
