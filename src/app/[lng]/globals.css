@@ -60,7 +60,7 @@ h6,
 }
 
 .h10 {
-  @apply lg:font-bold font-normal text-lg lg:text-xl leading-2 ;
+  @apply lg:font-bold font-normal text-lg lg:text-xl leading-2;
 }
 
 .h11 {
@@ -100,7 +100,7 @@ h6,
 }
 
 .text-5 {
-  @apply font-medium  lg:text-md leading-2 text-base lg:leading-4;
+  @apply font-medium lg:text-md leading-2 text-base lg:leading-4;
 }
 
 .text-6 {
