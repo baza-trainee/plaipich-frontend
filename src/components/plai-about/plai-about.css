@@ -1,7 +1,13 @@
+.bg-plai{
+@apply w-full h-full object-center object-cover
+md:h-[900px] md:object-top md:translate-y-[-400px]
+lg:h-full lg:object-bottom lg:translate-y-0  
+}
+
 .grid-box {
-  @apply mx-auto max-w-[1440px] px-4 py-8 gap-4 flex flex-col items-center text-black
+  @apply mx-auto max-w-[1440px] px-4 py-8 gap-4 flex flex-col justify-between items-center text-black
     md:grid md:grid-cols-md md:grid-rows-md md:px-8 md:gap-8
-    lg:grid-rows-lg lg:grid-cols-lg lg:p-[3.875rem];
+    lg:grid-rows-lg lg:grid-cols-lg;
 }
 
 .text-first {
