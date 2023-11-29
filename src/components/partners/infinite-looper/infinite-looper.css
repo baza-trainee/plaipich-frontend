@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.looper {
+  @apply w-full overflow-hidden;
+}
+
+.looper__innerList {
+  @apply flex justify-center w-fit;
+}
+
+.looper__listInstance {
+  @apply flex md:gap-8 gap-4 md:pr-8 pr-4 w-max animate-none;
+}
+
+.looper__innerList[data-animate="true"] .looper__listInstance {
+  animation: slide linear infinite;
+}
