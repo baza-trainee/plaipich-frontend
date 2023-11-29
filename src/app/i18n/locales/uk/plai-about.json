@@ -1,5 +1,11 @@
 {
-  "navigation": ["Місія Plai", "Наша команда", "Партнери", "Звіти", "Контакти"],
+  "navigation": [
+    { "title": "Місія Plai", "link": "#mission" },
+    { "title": "Наша команда", "link": "#our-team" },
+    { "title": "Партнери", "link": "#partners" },
+    { "title": "Звіти", "link": "#reports" },
+    { "title": "Контакти", "link": "#contacts" }
+  ],
   "main": "Головна / ",
   "about": "Про нас",
   "title": "Про Plai",

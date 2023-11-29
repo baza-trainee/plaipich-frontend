@@ -1,5 +1,11 @@
 {
-  "navigation": ["Plai mission", "Our team", "Partners", "Reports", "Contacts"],
+  "navigation": [
+    { "title": "Plai mission", "link": "#mission" },
+    { "title": "Our team", "link": "#our-team" },
+    { "title": "Partners", "link": "#partners" },
+    { "title": "Reports", "link": "#reports" },
+    { "title": "Contacts", "link": "#contacts" }
+  ],
   "main": "Main / ",
   "about": "About us",
   "title": "About Plai",

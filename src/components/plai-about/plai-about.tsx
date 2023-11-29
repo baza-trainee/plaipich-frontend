@@ -15,7 +15,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
   const { t } = await useTranslation(lng, "plai-about");
   const navigation = t("navigation", {
     returnObjects: true,
-  }) as string[];
+  }) as { title: string; link: string }[];
 
   return (
     <section id="about" className="w-full relative bg-white">
@@ -38,15 +38,15 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         <nav className="w-full m-0 max-w-[1440px] mx-auto md:px-8 flex flex-col justify-center">
           <ul className="flex flex-col md:flex-row gap-4 lg:gap-6 justify-center md:justify-start items-center">
             {navigation.map((item, i) => (
-              <li key={item}>
+              <li key={item.title}>
                 <Link
-                  href={"#"}
+                  href={item.link}
                   appearance={
                     i === 0 ? "linkButtonPrimary" : "linkButtonSecondary"
                   }
                   className="flex py-3 lg:py-4"
                 >
-                  <p className="btn-text">{item}</p>
+                  <p className="btn-text">{item.title}</p>
                 </Link>
               </li>
             ))}
