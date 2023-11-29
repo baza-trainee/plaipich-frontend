@@ -56,8 +56,8 @@ export const Slider = ({
                     priority
                   />
                 </div>
-                <div className="flex flex-col justify-center md:justify-start content-center px-4 md:w-[45%] md:flex-row md:flex-wrap">
-                  <h1 className="h1 w-full text-left text-pink-pearl">
+                <div className="flex flex-col justify-center lg:justify-start content-center px-4 md:px-0 md:w-[45%] lg:flex-row lg:flex-wrap">
+                  <h1 className="h1 w-full mb-2 text-left text-pink-pearl">
                     {item.title.toUpperCase()}
                   </h1>
                   <p className="text-left w-full text-base mb-8 md:mb-5 md:text-md lg:text-lg font-sans font-regular  line-clamp-4">
