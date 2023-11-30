@@ -1,33 +1,32 @@
 import Image from "next/image";
 import React from "react";
 
+import { useTranslation } from "@/app/i18n";
+
 import playMissionImg from "../../../public/images/play-mission.jpg";
-import missionData from "./mission-data";
+// import missionData from "./mission-data";
 
-export const Mission = () => {
+interface MissionItem {
+    id: string;
+    title: string;
+    text: string;
+}
+
+export const Mission = async ({ lng }: { lng: "en" | "uk" }) => {
+    const { t } = await useTranslation(lng, "plai-mission");
+    const missionData=t("mission-data", {
+    returnObjects: true,
+    }) as MissionItem[]
+    
   return (
-    <section className="overflow-hidden max-w-[1440px]">
-      {/* <div className="uppercase leading-3 font-bold mt-8 lg:mt-16 text-lg md:text-2xl lg:text-4xl 
-      lg:-mr-56 md:-mr-40 -mr-80 -ml-1"></div> */}
-
-      <div className="uppercase leading-3 font-bold mt-8 lg:mt-16 text-lg md:text-2xl lg:text-4xl 
-      flex flex-wrap justify-between">
-          <span className="text-gray-400">Культура</span>{" "}
-          <span className="text-gray-100">Об’єднання</span>{" "}
-          <span className="text-gray-100 hidden md:block">Виставки</span>
-          <span className="text-gray-100 hidden md:block">Творчість</span>
-          <span className="text-gray-400">Кіно</span>
-          <span className="text-pink-pearl">Місія PLAI</span>
-          <span className="text-gray-400 hidden md:block">Мистецтво</span>
-          {/* <span className="text-gray-100">Ревіталізація</span> */}
-          <span className="text-gray-100 lg:hidden">Музика</span>
-      </div>
-      <div className="px-4 py-8 md:p-8 lg:p-16
-      lg:gap-8 lg:grid lg:grid-rows-none lg:grid-cols-2 lg:row-start-2">
-        <div className="md:pb-8">
-          <h2 className="md:w-3/4 lg:h1 h2 normal-case">
-            Наша місія сформульована наступним чином
-          </h2>
+    <section id="mission" className="py-8 md:py-16 md:pb-0 max-w-[1440px]">
+      <h2 className="h1 flex justify-center">{t("title")}</h2>
+      <div
+        className="px-4 py-8 md:p-8 lg:p-16
+      lg:gap-8 lg:grid lg:grid-rows-none lg:grid-cols-2 lg:row-start-2"
+      >
+        <div className="md:pb-8 lg:pb-0">
+          <h2 className="md:w-3/4 lg:h1 h2 normal-case">{t("h2")}</h2>
           <div>
             {missionData.map((mission) => (
               <div

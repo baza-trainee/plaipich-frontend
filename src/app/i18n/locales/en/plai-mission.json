@@ -1,0 +1,31 @@
+{
+  "title": "Plai mission",
+  "h2": "Our mission is formulated as follows",
+  "mission-data": [
+    {
+      "id": "01",
+      "title": "Supporting artists:",
+      "text": "We provide resources and platforms for their creativity and development."
+    },
+    {
+      "id": "02",
+      "title": "Promotion of art and cultural heritage:",
+      "text": "We raise awareness of the value of art and heritage among citizens, popularize works of art."
+    },
+    {
+      "id": "03",
+      "title": "Involvement of the public in supporting artists:",
+      "text": "We engage the public through charity events, sponsorships and cultural initiatives."
+    },
+    {
+      "id": "04",
+      "title": "Innovative and educational projects:",
+      "text": "We develop education and creative skills, implement innovative approaches."
+    },
+    {
+      "id": "05",
+      "title": "Cooperation and international exchange:",
+      "text": "We actively cooperate with artists and organizations at the national and international level to exchange ideas and projects."
+    }
+  ]
+}
