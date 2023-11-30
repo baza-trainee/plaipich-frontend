@@ -1,0 +1,15 @@
+{
+  "navigation": [
+    { "title": "Plai mission", "link": "#mission" },
+    { "title": "Our team", "link": "#our-team" },
+    { "title": "Partners", "link": "#partners" },
+    { "title": "Reports", "link": "#reports" },
+    { "title": "Contacts", "link": "#contacts" }
+  ],
+  "main": "Main / ",
+  "about": "About us",
+  "title": "About Plai",
+  "text-first": "a public organization whose highest goal is to promote the development of artists and artists, as well as to influence the formation of a responsible and cultural society through charitable activities and the implementation of various projects.",
+  "text-second": "We create conditions for bringing together artists and artists, giving them the opportunity to communicate, exchange ideas and jointly improve their art.",
+  "text-third": "We provide access to resources that help develop their creativity. We initiate and support various projects aimed at popularizing art, cultural heritage and creative development. These projects create opportunities for artists and artists to realize their ideas and present new experiences to society."
+}
