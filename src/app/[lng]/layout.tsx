@@ -4,7 +4,7 @@ import { dir } from "i18next";
 import localFont from "next/font/local";
 import React from "react";
 
-import { Footer, Header } from "@/components";
+import { Footer, Header, Providers } from "@/components";
 
 import { useTranslation } from "../i18n";
 import { languages } from "../i18n/settings";
@@ -64,11 +64,13 @@ export default async function RootLayout({
           href="http://localhost:3000/uk"
         />
       </head>
-      <body className={`${fixel.variable} font-sans bg-black text-white`}>
-        <Header lng={params.lng} />
-        {children}
-        <Footer lng={params.lng} />
-      </body>
+      <Providers>
+        <body className={`${fixel.variable} font-sans bg-black text-white`}>
+          <Header lng={params.lng} />
+          {children}
+          <Footer lng={params.lng} />
+        </body>
+      </Providers>
     </html>
   );
 }

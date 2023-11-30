@@ -12,5 +12,6 @@ export { NotFound } from "./not-found/not-found";
 export { OurTeam } from "./our-team/our-team";
 export { Partners } from "./partners/partners";
 export { PlaiAbout } from "./plai-about/plai-about";
+export { Providers } from "./providers";
 export { Reports } from "./reports/reports";
 export { ReportsAccordion } from "./reports/reports-accordion/reports-accordion";

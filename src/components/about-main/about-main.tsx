@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import { useTranslation } from "@/app/i18n";
-import NAVIGATION from "@/commons/constants";
+import {NAVIGATION} from "@/commons/constants";
 import { Link } from "@/components/link/link";
 
 export const AboutMain = async ({ lng }: { lng: "en" | "uk" }) => {
@@ -12,7 +12,7 @@ export const AboutMain = async ({ lng }: { lng: "en" | "uk" }) => {
     <section className="py-[72px] text-black bg-pink-pearl w-full">
       <div className="w-full mx-auto max-w-[1440px] px-4 flex justify-normal flex-col">
         <div className="flex lg:flex-row flex-col justify-between items-center pb-7 md:pb-10 lg:pb-14">
-          <h2 className="h1 mr-5 lg:mb-0 mb-10 lg:self-auto self-start">
+          <h2 className="h1 uppercase lg:normal-case mr-5 lg:mb-0 mb-10 lg:self-auto self-start">
             {t("greeting")}
           </h2>
           <p className="leading-2 md:max-w-[950px] self-start md:text-md lg:text-xl">

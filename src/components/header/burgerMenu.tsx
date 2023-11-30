@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { TbAlignRight, TbSearch, TbX } from "react-icons/tb";
 
-import NAVIGATION from "@/commons/constants";
+import {NAVIGATION} from "@/commons/constants";
 
 import { Link } from "../index";
 import { LanguageSwitcher } from "./switchLangBtn";
