@@ -11,6 +11,7 @@ import { API_URL, NAVIGATION } from "@/commons/constants";
 import { useProjectsList } from "@/hooks";
 
 import { Link } from "../link/link";
+import { Loader } from "../loader/loader";
 
 export const Slider = ({
   lng,
@@ -34,8 +35,8 @@ export const Slider = ({
 
   return (
     <section className="relative w-full" id="projects-slider">
-      {isLoading && <div className="w-full h-[350px]">
-        <p>Loading...</p>
+      {isLoading && <div className="w-full h-[100vh]">
+        <Loader/>
         <p>Lng - { lng }</p>
         </div>}
       {!isLoading && data && (

@@ -27,7 +27,7 @@ const Home = async ({
       <JoinUs backgroundColor="bg-white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>
-  )
+  );
 };
 
 export default Home;
