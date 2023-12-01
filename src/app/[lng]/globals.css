@@ -118,3 +118,7 @@ h6,
 *::-webkit-scrollbar-thumb {
   @apply bg-orange rounded;
 }
+
+.loader svg path {
+  @apply fill-black stroke-orange
+}
