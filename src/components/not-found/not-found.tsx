@@ -10,11 +10,15 @@ import { Link } from "../link/link"
 export const NotFound = async ({ lng }: { lng: "en" | "uk" }) => {
   const { t } = await useTranslation(lng, "not-found")
   return (
-    <section className="w-full" id="not-found">
-      <div className="max-w-[1440px] m-auto">
-        <div className="flex items-center justify-center flex-col py-10 md:py-20 gap-10 md:gap-[3.75rem] px-4 md:px-8">
+    <section
+      className="w-full border-solid border-b border-white "
+      id="not-found">
+      <div className="max-w-[1440px] m-auto ">
+        <div className="flex items-center justify-center flex-col py-10 md:py-20 gap-10 md:gap-[3.75rem] px-4 md:px-8 bg-gradient-radial from-white/5 to-black bg-[length:500px_500px] bg-no-repeat bg-center">
           <Image src={error404} alt={"error404"} />
-          <p className="text-[1.175rem] md:text-lg leading-2 md:leading-4">{t("text")}</p>
+          <p className="text-[1.175rem] md:text-lg leading-2 md:leading-4">
+            {t("text")}
+          </p>
           <Link href={NAVIGATION.main} appearance="linkButtonSecondary">
             <span className="flex flex-row gap-2 items-center leading-2">
               <HiArrowLongLeft size="24px" /> {t("link")}
