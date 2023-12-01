@@ -3,7 +3,6 @@ import {
   Contacts,
   JoinUs,
   NewsList,
-  NotFound,
   Slider,
 } from "@/components"
 
@@ -19,8 +18,7 @@ const Home = async ({
   const { t } = await useTranslation(params.lng)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <NotFound lng={params.lng} />
+    <main className="flex min-h-screen flex-col items-center justify-between">git 
       <Slider
         btnOneProject={t("btn-learn-more")}
         btnAllProjects={t("btn-all-projects")}
