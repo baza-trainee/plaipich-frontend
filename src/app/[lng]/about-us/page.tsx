@@ -11,8 +11,8 @@ const About = ({
 }) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <PlaiAbout />
-      <Mission />
+      <PlaiAbout lng={params.lng} />
+      <Mission lng={params.lng} />
       <OurTeam lng={params.lng} />
       <Partners lng={params.lng} />
       <Reports lng={params.lng} />
