@@ -10,7 +10,7 @@ interface NewsCardProps {
   lng: "en" | "uk";
 }
 
-function SetTagColor(tag: string) {
+export function SetTagColor(tag: string) {
   const tagsColors: Record<string, string> = {
     Фестивалі: "bg-[#D6E7EE]",
     Проекти: "bg-[#97CADB]",

@@ -13,8 +13,8 @@ const NewsList = ({ lng }: { lng: "en" | "uk" }) => {
       {!isLoading && data && (
         <div
           className="grid grid-cols-1 
-                            lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
-                            md:grid-cols-2 md:my-16 md:gap-x-4"
+                    lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
+                    md:grid-cols-2 md:my-16 md:gap-x-4"
         >
           {data.news.map((news) => (
             <NewsCard
