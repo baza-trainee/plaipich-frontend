@@ -6,6 +6,7 @@ import { TbSearch } from "react-icons/tb";
 import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
+import { SearchForm } from "./search-form";
 import { LanguageSwitcher } from "./switchLangBtn";
 
 export const HeaderClient = ({
@@ -60,40 +61,14 @@ export const HeaderClient = ({
           </button>
         )}
         {(openSearch || query !== "") && (
-          <div
+          <SearchForm
             className="relative ml-6 w-[400px] transition-all justify-center"
-            onMouseLeave={close}
-          >
-            <button
-              type="submit"
-              className="text-white absolute left-0 top-1 px-[10px] py-2 border-none"
-              onClick={findResult}
-            >
-              <TbSearch size="24px" color="black" />
-            </button>
-
-            <input
-              type="text"
-              className="block w-full  ps-12 pe-2 text-md py-2 border rounded-lg text-gray-500 focus:outline-[blue]"
-              placeholder={lng === "uk" ? "Пошук" : "Search"}
-              value={query}
-              name="query"
-              onChange={changeInput}
-              autoFocus={openSearch}
-              required
-              autoComplete="on"
-            />
-            {/* <ul className=" absolute left-0 top-12 w-full bg-white text-black">
-              {query && openAutocomplete ? (
-                <li
-                  className="p-2 text-sm font-bold hover:bg-light-blue hover:transition-all hover:cursor-pointer"
-                  onClick={itemClickHandler}
-                >
-                  {query}
-                </li>
-              ) : null}
-            </ul> */}
-          </div>
+            close={close}
+            findResult={findResult}
+            changeInput={changeInput}
+            query={query}
+            lng={lng}
+          />
         )}
         {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>

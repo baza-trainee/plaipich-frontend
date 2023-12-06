@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-import { TbAlignRight, TbSearch, TbX } from "react-icons/tb";
+import React, { ChangeEvent, useState } from "react";
+import { TbAlignRight, TbX } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../index";
 import { NavHeader } from "./header-nav";
+import { SearchForm } from "./search-form";
 import { LanguageSwitcher } from "./switchLangBtn";
 
 export const BurgerMenu = ({
@@ -17,6 +18,17 @@ export const BurgerMenu = ({
   lng: "en" | "uk";
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const changeInput = (e: ChangeEvent) => {
+    const input = e.target as HTMLInputElement;
+    setQuery(input.value);
+  };
+
+  const findResult = (event: any) => {
+    event.preventDefault();
+    console.log(query);
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -37,24 +49,13 @@ export const BurgerMenu = ({
       >
         <div className="container z-10 top-[3px] px-5 md:px-[204px] pt-14 md:pt-[76px] pb-8 text-center">
           <div className="block mx-auto mb-[68px] ">
-            <form className="">
-              <div className="relative mx-auto">
-                <button
-                  type="submit"
-                  className="text-white absolute start-0 top-0 px-2 py-2 border-none"
-                >
-                  <TbSearch size="24px" color="black" />
-                </button>
-
-                <input
-                  type="search"
-                  id="search"
-                  className="block w-full  ps-12 pe-2 text-md py-1  border rounded-lg text-gray-500"
-                  placeholder="Search"
-                  required
-                />
-              </div>
-            </form>
+            <SearchForm
+              findResult={findResult}
+              changeInput={changeInput}
+              query={query}
+              lng={lng}
+              className="relative mx-auto"
+            />
           </div>
           <NavHeader
             lng={lng}
