@@ -11,10 +11,10 @@ const About = ({
 }) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <PlaiAbout />
-      <Mission />
-      <OurTeam lng={params.lng}/>
-      <Partners />
+      <PlaiAbout lng={params.lng} />
+      <Mission lng={params.lng} />
+      <OurTeam lng={params.lng} />
+      <Partners lng={params.lng} />
       <Reports lng={params.lng} />
       <JoinUs backgroundColor="bg-light-blue" lng={params.lng} />
       <Contacts lng={params.lng} />
