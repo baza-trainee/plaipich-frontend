@@ -1,10 +1,12 @@
 "use client";
+
 import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
+import { SearchForm } from "./search-form";
 import { LanguageSwitcher } from "./switchLangBtn";
 
 export const HeaderClient = ({
@@ -14,66 +16,61 @@ export const HeaderClient = ({
   children: React.ReactNode;
   lng: "en" | "uk";
 }) => {
-  const [openSearch, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
 
   const changeInput = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement;
-    console.log(input.value);
-
     setQuery(input.value);
   };
 
-  const open = (event: any) => {
+  const open = () => {
+    setOpenSearch(true);
+  };
+
+  const close = () => {
+    setOpenSearch(false);
+  };
+
+  const findResult = (event: any) => {
     event.preventDefault();
-    setOpen(true);
+    console.log(query);
   };
 
   return (
     <>
-      {!openSearch && (
+      {!openSearch && query === "" && (
         <Link
           href={`/${lng}${NAVIGATION.support}`}
           appearance="linkButtonOrange"
-          className="hidden md:flex "
+          className="hidden w-[198px] md:w-[180px] lg:w-[194px] md:flex justify-center "
         >
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
       <div className="hidden lg:flex items-center">
         {children}
-        <button
-          type="button"
-          className={openSearch ? "hidden" : "border-none py-[8px] px-[35px]"}
-          onClick={open}
-        >
-          <TbSearch size="24px" color="white" />
-        </button>
-        {openSearch && (
-          <div className="relative ml-[50px] w-[380px]">
-            <button
-              type="submit"
-              className="text-white absolute start-0 top-0 px-2 py-2 border-none"
-              onClick={() => {
-                setOpen(false);
-              }}
-            >
-              <TbSearch size="24px" color="black" />
-            </button>
-
-            <input
-              type="text"
-              className="block w-full  ps-12 pe-2 text-md py-1  border rounded-lg text-gray-500"
-              placeholder={lng === "uk" ? "Пошук" : "Search"}
-              value={query}
-              name="query"
-              onChange={changeInput}
-              autoFocus={openSearch}
-              required
-            />
-          </div>
+        {!openSearch && query === "" && (
+          <button
+            type="button"
+            className="border-none py-2 px-[10px] ml-11"
+            onClick={open}
+            onMouseEnter={open}
+          >
+            <TbSearch size="24px" color="white" />
+          </button>
         )}
-        {!openSearch && <LanguageSwitcher lng={lng} />}
+        {(openSearch || query !== "") && (
+          <SearchForm
+            className="relative ml-6 w-[400px] transition-all justify-center"
+            close={close}
+            findResult={findResult}
+            changeInput={changeInput}
+            query={query}
+            lng={lng}
+          />
+        )}
+        {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>
     </>
   );

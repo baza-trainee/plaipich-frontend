@@ -1,8 +1,10 @@
 {
-  "nav-about-us": "About us",
-  "nav-projects": "Projects",
-  "nav-news": "News",
-  "nav-contacts": "Contacts",
+  "nav": {
+  "about-us": "About us",
+  "projects": "Projects",
+  "news": "News",
+  "contacts": "Contacts"
+  },
   "support": "Support",
   "play": "Art association"
 }
