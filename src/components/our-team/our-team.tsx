@@ -30,7 +30,7 @@ export const OurTeam = async ({ lng }: { lng: "en" | "uk" }) => {
 
   return (
     <section className="w-full" id="our-team">
-      <div className="mx-auto max-w-[1440px] px-4 lg:p-[3.875rem] flex flex-col items-center">
+      <div className="mx-auto py-8 lg:pb-[3.875rem] max-w-[1440px] px-4 lg:p-[3.875rem] flex flex-col items-center">
         <h2 className="h1 capitalize text-white pb-9">{t("team-title")}</h2>
         <div className="flex flex-col lg:flex-row items-center gap-y-6 md:gap-y-8 lg:gap-x-8">
           {ourTeamCardsData?.map((card) => {
