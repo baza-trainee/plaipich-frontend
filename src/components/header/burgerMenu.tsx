@@ -6,19 +6,24 @@ import { TbAlignRight, TbSearch, TbX } from "react-icons/tb";
 import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../index";
+import { NavHeader } from "./header-nav";
 import { LanguageSwitcher } from "./switchLangBtn";
 
 export const BurgerMenu = ({
   lng,
-  children,
+  nav,
 }: {
-  children: React.ReactNode;
+  nav: { [key: string]: string };
   lng: "en" | "uk";
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -51,11 +56,17 @@ export const BurgerMenu = ({
               </div>
             </form>
           </div>
-          {children}
+          <NavHeader
+            lng={lng}
+            deviceLg={false}
+            nav={nav}
+            closeMenu={closeMenu}
+          />
           <Link
             href={`/${lng}${NAVIGATION.support}`}
             appearance="linkButtonOrange"
             className=" w-48 px-6 py-4 mb-14 md:hidden flex justify-center items-center mx-auto"
+            onClick={closeMenu}
           >
             {lng === "uk" ? "Підтримати" : "Donate"}
           </Link>
