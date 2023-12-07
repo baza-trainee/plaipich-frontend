@@ -11,10 +11,15 @@ export const Partners = async ({ lng }: { lng: "en" | "uk" }) => {
   return (
     <section className="py-16 w-full text-black bg-white" id="partners">
       <div className="container max-w-desktop">
-        <h2 className="h1 text-center mb-14 normal-case">{t("partners-title")}</h2>
+        <h2 className="h1 text-center mb-14 normal-case">
+          {t("partners-title")}
+        </h2>
         <InfiniteLooper direction="right" speed={10}>
           {partnersData.map((partner) => (
-            <div key={partner.id} className="grid place-items-center w-36 md:w-full">
+            <div
+              key={partner.id}
+              className="grid place-items-center w-36 md:w-full"
+            >
               <Image
                 src={partner.src}
                 alt={partner.alt}

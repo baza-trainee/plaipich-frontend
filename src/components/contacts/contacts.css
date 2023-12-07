@@ -1,7 +1,7 @@
 .circle {
-  @apply rounded-full w-10 h-10 inline-flex justify-center items-center cursor-pointer
+  @apply rounded-full w-10 h-10 inline-flex justify-center items-center cursor-pointer;
 }
 
 .react-icons {
-  @apply h-5 fill-black
+  @apply h-5 fill-black;
 }

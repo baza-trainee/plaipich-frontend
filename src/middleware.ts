@@ -14,7 +14,8 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   let lng;
-  if (req.cookies.has(cookieName)) lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
+  if (req.cookies.has(cookieName))
+    lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
   if (!lng) lng = fallbackLng;
 
@@ -27,12 +28,16 @@ export function middleware(req: NextRequest) {
     !languages.some((loc) => req.nextUrl.pathname.startsWith(`/${loc}`)) &&
     !req.nextUrl.pathname.startsWith("/_next")
   ) {
-    return NextResponse.redirect(new URL(`/${lng}${req.nextUrl.pathname}`, req.url));
+    return NextResponse.redirect(
+      new URL(`/${lng}${req.nextUrl.pathname}`, req.url),
+    );
   }
 
   if (req.headers.has("referer")) {
     const refererUrl = new URL(req.headers.get("referer")!);
-    const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`));
+    const lngInReferer = languages.find((l) =>
+      refererUrl.pathname.startsWith(`/${l}`),
+    );
     const response = NextResponse.next();
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
     return response;

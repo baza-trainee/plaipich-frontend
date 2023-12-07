@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettify": "npx prettier --write \"*/.{ts,tsx,json,md,html}\""
+    "prettify": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

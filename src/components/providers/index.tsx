@@ -8,14 +8,12 @@ const queryClient = new QueryClient({
       refetchOnMount: true,
       refetchOnWindowFocus: false,
       refetchOnReconnect: true,
-    }
-  }
+    },
+  },
 });
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
