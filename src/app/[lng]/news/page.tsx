@@ -2,9 +2,8 @@ import React from "react";
 
 import { useTranslation } from "@/app/i18n";
 import { SetTagColor } from "@/components/news-card/news-card";
-
-import NewsList from "../../../components/news-list/news-list";
-import { Spiral } from "../../../components/spiral/spiral";
+import NewsList from "@/components/news-list/news-list";
+import { Spiral } from "@/components/spiral/spiral";
 
 const badgesData = [
   {
@@ -36,9 +35,9 @@ const News = async ({
 
   return (
     <main className="bg-white text-black ">
-      <section className="py-8 px-4 md:py-16 md:px-8 flex content-center flex-col w-full max-w-[1440px] mx-auto">
+      <section className="py-8 px-4 md:py-16 md:px-8 flex content-center flex-col w-full max-w-desktop mx-auto">
         <div className="pb-8 md:pb-16 lg:pb-20 flex justify-center items-center flex-row">
-          <Spiral className="stroke-[#018ABE] w-[35px] h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
+          <Spiral className="stroke-water-blue w-[35px] h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
           <h1 className="h5 md:h1 lg:h1-bold">{t("title")}</h1>
         </div>
         <div className="flex flex-row justify-between items-center">
