@@ -47,15 +47,15 @@ const config: Config = {
       red: "#C12725",
       orange: "#F06C00",
       background: "#FDFFF7",
-      menthol: "#BEEF9E",
-      volt: "#D2F602",
-      water: "#D6F8FF",
-      amber: "#FFBD00",
       "dark-orange": "#E55000",
       "light-blue": "#BCC7F7",
-      "pink-pearl": "#E5B5CA",
       "dark-blue": "#0A4B70",
-      "yellow-green": "#B9F987",
+      "link-water": "#D6E7EE",
+      "pale-cerulean": "#97CADB",
+      "water-blue": "#018ABE",
+      horizon: "#478BA2",
+      "wine-berry": "#4A2045",
+      "honey-flower": "#54156C",
       gray: {
         100: "#F5F5F5",
         200: "#DCDCDC",
@@ -87,8 +87,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       borderRadius: {
         medium: "3.125rem", // 50px
