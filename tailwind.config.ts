@@ -47,8 +47,6 @@ const config: Config = {
       red: "#C12725",
       orange: "#F06C00",
       background: "#FDFFF7",
-      water: "#D6F8FF",
-      amber: "#FFBD00",
       "dark-orange": "#E55000",
       "light-blue": "#BCC7F7",
       "dark-blue": "#0A4B70",
