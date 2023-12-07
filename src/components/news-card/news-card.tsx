@@ -12,10 +12,10 @@ interface NewsCardProps {
 
 export function SetTagColor(tag: string) {
   const tagsColors: Record<string, string> = {
-    Фестивалі: "bg-[#D6E7EE]",
-    Проекти: "bg-[#97CADB]",
-    Конкурси: "bg-[#018ABE]",
-    Виставки: "bg-[#478BA2]",
+    Фестивалі: "bg-link-water",
+    Проекти: "bg-pale-cerulean",
+    Конкурси: "bg-water-blue",
+    Виставки: "bg-horizon",
   };
   return tagsColors[tag] ?? "bg-transparent";
 }
