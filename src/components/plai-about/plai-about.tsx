@@ -53,7 +53,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           </ul>
         </nav>
       </div>
-      <div className="grid-box">
+      <div className="grid-box md:grid-cols-md md:grid-rows-md lg:grid-rows-lg lg:grid-cols-lg">
         <p className="text-first font-normal text-3 md:text-small-md lg:text-md lg:leading-3">
           <span className="mr-2 font-bold h9 lg:text-xl">Plai</span>
           {t("text-first")}

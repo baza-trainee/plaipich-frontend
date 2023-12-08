@@ -18,7 +18,7 @@ const Home = async ({
   const { t } = await useTranslation(params.lng)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">git 
+    <main className="flex min-h-screen flex-col items-center justify-between">
       <Slider
         lng={params.lng}
         btnOneProject={t("btn-learn-more")}
