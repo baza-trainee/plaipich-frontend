@@ -6,17 +6,17 @@ import { useTranslation } from "@/app/i18n";
 import playMissionImg from "../../../public/images/play-mission.jpg";
 
 interface MissionItem {
-    id: string;
-    title: string;
-    text: string;
+  id: string;
+  title: string;
+  text: string;
 }
 
 export const Mission = async ({ lng }: { lng: "en" | "uk" }) => {
-    const { t } = await useTranslation(lng, "plai-mission");
-    const missionData=t("mission-data", {
+  const { t } = await useTranslation(lng, "plai-mission");
+  const missionData = t("mission-data", {
     returnObjects: true,
-    }) as MissionItem[]
-    
+  }) as MissionItem[];
+
   return (
     <section id="mission" className="py-8 md:py-16 md:pb-0 max-w-[1440px]">
       <h2 className="h1 flex justify-center">{t("title")}</h2>

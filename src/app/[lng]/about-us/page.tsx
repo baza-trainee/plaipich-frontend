@@ -1,6 +1,14 @@
 import React from "react";
 
-import { Contacts, JoinUs, Mission, OurTeam, Partners, PlaiAbout, Reports } from "@/components";
+import {
+  Contacts,
+  JoinUs,
+  Mission,
+  OurTeam,
+  Partners,
+  PlaiAbout,
+  Reports,
+} from "@/components";
 
 const About = ({
   params,

@@ -11,23 +11,22 @@
 .link-button-orange {
   @apply transition-all px-6 py-4 text-base font-semibold leading-2 rounded-large border
         lg:py-4.5 lg:text-md;
-        
 }
 
 .link-button-primary {
   @apply text-white bg-dark-blue border-dark-blue 
   hover:bg-light-blue hover:text-black hover:border-black 
-  active:text-white active:bg-dark-blue active:border-dark-blue     
+  active:text-white active:bg-dark-blue active:border-dark-blue;
 }
 
 .link-button-secondary {
-    @apply text-white border-white
+  @apply text-white border-white
     hover:text-black hover:bg-white
-    active:text-black active:bg-white
+    active:text-black active:bg-white;
 }
 
 .link-button-orange {
   @apply text-white bg-orange border-orange 
   hover:bg-dark-orange hover:border-dark-orange 
-  active:text-white active:bg-orange active:border-orange
+  active:text-white active:bg-orange active:border-orange;
 }

@@ -15,7 +15,9 @@ export const ThemeButton = () => {
   }, []);
 
   if (!mounted) {
-    return <span className="bg-transparent flex justify-center items-center w-10 h-10" />;
+    return (
+      <span className="bg-transparent flex justify-center items-center w-10 h-10" />
+    );
   }
 
   return (

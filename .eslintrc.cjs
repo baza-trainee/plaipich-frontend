@@ -13,7 +13,11 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/no-unresolved": "off",
-    "import/extensions": ["error", "always", { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }],
+    "import/extensions": [
+      "error",
+      "always",
+      { js: "never", jsx: "never", ts: "never", tsx: "never" },
+    ],
     "import/newline-after-import": ["error", { count: 1 }],
     "import/first": ["error"],
   },

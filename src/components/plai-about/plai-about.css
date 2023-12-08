@@ -1,7 +1,7 @@
-.bg-plai{
-@apply w-full h-full object-center object-cover
+.bg-plai {
+  @apply w-full h-full object-center object-cover
 md:h-[900px] md:object-top md:translate-y-[-400px]
-lg:h-full lg:object-bottom lg:translate-y-0  
+lg:h-full lg:object-bottom lg:translate-y-0;
 }
 
 .grid-box {

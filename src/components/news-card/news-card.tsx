@@ -39,7 +39,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className, lng }) => {
         <div className="flex mb-5">
           <span
             className={`text-black py-2 px-4 rounded-large ${SetTagColor(
-              category
+              category,
             )}`}
           >
             {category}

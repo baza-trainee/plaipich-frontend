@@ -43,7 +43,9 @@ export const InfiniteLooper = ({
       setLooperInstances(looperInstances + Math.ceil(parentWidth / width));
     }
     if (widthDeficit) {
-      setLooperInstances(looperInstances + Math.ceil(widthDeficit / instanceWidth) + 1);
+      setLooperInstances(
+        looperInstances + Math.ceil(widthDeficit / instanceWidth) + 1,
+      );
     }
 
     resetAnimation();
