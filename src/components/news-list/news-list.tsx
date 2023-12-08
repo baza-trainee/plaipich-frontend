@@ -21,7 +21,7 @@ const NewsList = ({ lng }: { lng: "en" | "uk" }) => {
               key={news._id}
               newsItem={news}
               lng={lng}
-              className="lg:m-0 mb-10 hover:text-light-blue"
+              className="lg:m-0 mb-10"
             />
           ))}
         </div>
