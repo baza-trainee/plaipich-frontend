@@ -8,7 +8,7 @@ export { JoinUs } from "./join-us/join-us";
 export { Link } from "./link/link";
 export { Loader } from "./loader/loader";
 export { Mission } from "./mission/mission";
-export { NewsList } from "./news-list/news-list";
+export { NewsListMain } from "./news-list-main/news-list-main";
 export { NotFound } from "./not-found/not-found";
 export { OurTeam } from "./our-team/our-team";
 export { Partners } from "./partners/partners";

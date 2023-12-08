@@ -2,7 +2,7 @@ import {
   AboutMain,
   Contacts,
   JoinUs,
-  NewsList,
+  NewsListMain,
   Slider,
 } from "@/components"
 
@@ -25,7 +25,7 @@ const Home = async ({
         btnAllProjects={t("btn-all-projects")}
       />
       <AboutMain lng={params.lng} />
-      <NewsList
+      <NewsListMain
         title={t("title-news")}
         btnText={t("btn-more-news")}
         lng={params.lng}
