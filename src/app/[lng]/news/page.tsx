@@ -69,7 +69,7 @@ const News = async ({
         <NewsList lng={params.lng} />
         <div className="hidden md:flex justify-center">
           <div className="py-2 px-4 mr-1">-</div>
-          <div className="py-2 px-4 border rounded-large mr-1 bg-water-blue text-white">
+          <div className="py-2 px-4 border rounded-large mr-1 bg-dark-blue text-white">
             1
           </div>
           <div className="py-2 px-4 border rounded-large mr-1">2</div>
