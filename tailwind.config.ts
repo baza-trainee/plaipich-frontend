@@ -111,12 +111,12 @@ const config: Config = {
         12.5: "3.125rem", // 50px
       },
       gridTemplateRows: {
-        lg: "100px 10px 110px 300px ",
-        md: `140px 50px 80px 140px 300px`,
+        lg: "90px 170px 353px ",
+        md: `140px 110px 110px 210px 300px`,
       },
       gridTemplateColumns: {
         lg: "530px 420px 305px",
-        md: "35% 10% 50%",
+        md: "33% 63%",
       },
     },
   },

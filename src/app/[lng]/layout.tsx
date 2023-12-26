@@ -55,7 +55,7 @@ export default async function RootLayout({
       <head>
         <title>{t("title")}</title>
         <meta name="description" content={t("description")} />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
         <link rel="alternate" hrefLang="uk" href="http://localhost:3000/uk" />
         <link rel="alternate" hrefLang="en" href="http://localhost:3000/en" />
         <link
