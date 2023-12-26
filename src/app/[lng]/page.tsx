@@ -1,4 +1,10 @@
-import { AboutMain, Contacts, JoinUs, NewsList, Slider } from "@/components";
+import {
+  AboutMain,
+  Contacts,
+  JoinUs,
+  NewsListMain,
+  Slider,
+} from "@/components"
 
 import { useTranslation } from "../i18n";
 
@@ -18,7 +24,7 @@ const Home = async ({
         btnAllProjects={t("btn-all-projects")}
       />
       <AboutMain lng={params.lng} />
-      <NewsList
+      <NewsListMain
         title={t("title-news")}
         btnText={t("btn-more-news")}
         lng={params.lng}

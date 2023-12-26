@@ -4,7 +4,6 @@ import React from "react";
 import { useTranslation } from "@/app/i18n";
 
 import playMissionImg from "../../../public/images/play-mission.jpg";
-// import missionData from "./mission-data";
 
 interface MissionItem {
   id: string;
