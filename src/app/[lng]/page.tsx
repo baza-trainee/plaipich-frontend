@@ -4,7 +4,7 @@ import {
   JoinUs,
   NewsListMain,
   Slider,
-} from "@/components"
+} from "@/components";
 
 import { useTranslation } from "../i18n";
 
