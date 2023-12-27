@@ -1,37 +1,13 @@
 {
-	"reports-title": "Activity Reports",
-	"accordion-data": [
-		{
-			"title": "Report 2022",
-			"content": {
-				"text": "Download the report on the activities of the PO 'Plai Pich' for the year 2022",
-				"url": "https://www.randomacts.org/wp-content/uploads/RA_Annual_Report_2022.pdf"
-			},
-			"id": "0fcfb15"
-		},
-		{
-			"title": "Report 2021",
-			"content": {
-				"text": "Download the report on the activities of the PO 'Plai Pich' for the year 2021",
-				"url": "https://www.randomacts.org/wp-content/uploads/RA_Annual_Report_2022.pdf"
-			},
-			"id": "0fcfb16"
-		},
-		{
-			"title": "Report 2020",
-			"content": {
-				"text": "Download the report on the activities of the PO 'Plai Pich' for the year 2020",
-				"url": "https://www.randomacts.org/wp-content/uploads/RA_Annual_Report_2022.pdf"
-			},
-			"id": "0fcfb17"
-		},
-		{
-			"title": "Report 2019",
-			"content": {
-				"text": "Download the report on the activities of the PO 'Artistic Association 'Play Pich' for the year 2019",
-				"url": "https://www.randomacts.org/wp-content/uploads/RA_Annual_Report_2022.pdf"
-			},
-			"id": "0fcfb18"
-		}
-	]
+  "reports-title": "Reports",
+  "accordion-data": [
+    {
+      "title": "Report 2022",
+      "content": {
+        "text": "Download the report on the activities of the PO 'Plai Pich' for the year 2022",
+        "url": "https://www.randomacts.org/wp-content/uploads/RA_Annual_Report_2022.pdf"
+      },
+      "id": "0fcfb15"
+    }
+  ]
 }
