@@ -80,7 +80,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         />
         <div className="text-third">
           <h5 className="text-5 mb-3"> {t("title-for-list")}</h5>
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-1">
             {list.map((item) => (
               <li key={item} className="item-plai-enemy">
                 <p className="inline-block w-[85%] text-3 font-normal md:text-small-md lg:text-md lg:leading-3">

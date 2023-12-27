@@ -96,7 +96,7 @@ export const Slider = ({
                 />
               </svg>
             </button>
-            <p className="text-base lg:text-md text-center w-[75px] text-link-water">
+            <p className="text-base lg:text-md text-center w-[75px] text-amber">
               {slide} / {data.results}
             </p>
             <button className="border-none fill-gray-200">
