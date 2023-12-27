@@ -1,32 +1,32 @@
-import Image, { StaticImageData } from "next/image"
-import React from "react"
+import Image, { StaticImageData } from "next/image";
+import React from "react";
 
-import OleksandraV from "/public/images/OleksandraV.png"
-import OleksandrS from "/public/images/OleksandrS.png"
-import VolodymirP from "/public/images/VolodymirP.png"
-import { useTranslation } from "@/app/i18n"
+import OleksandraV from "/public/images/OleksandraV.png";
+import OleksandrS from "/public/images/OleksandrS.png";
+import VolodymirP from "/public/images/VolodymirP.png";
+import { useTranslation } from "@/app/i18n";
 
 interface OurTeamCard {
-  name: string
+  name: string;
   content: {
-    title: string
-    cardText: string
-    imageUrl: string
-  }
-  id: string
+    title: string;
+    cardText: string;
+    imageUrl: string;
+  };
+  id: string;
 }
 
 export const OurTeam = async ({ lng }: { lng: "en" | "uk" }) => {
-  const { t } = await useTranslation(lng, "our-team")
+  const { t } = await useTranslation(lng, "our-team");
   const ourTeamCardsData = t("cards-data", {
     returnObjects: true,
-  }) as OurTeamCard[]
+  }) as OurTeamCard[];
 
   const cardsImages = {
     OleksandraV,
     VolodymirP,
     OleksandrS,
-  }
+  };
 
   return (
     <section className="w-full" id="our-team">
@@ -36,9 +36,9 @@ export const OurTeam = async ({ lng }: { lng: "en" | "uk" }) => {
           {ourTeamCardsData?.map((card) => {
             const {
               content: { imageUrl },
-            } = card
+            } = card;
             const image: StaticImageData =
-              cardsImages[imageUrl as keyof typeof cardsImages]
+              cardsImages[imageUrl as keyof typeof cardsImages];
             return (
               <div className="flex flex-col gap-y-2" key={card.id}>
                 <div className="relative opacity-100 group inline-block max-w-[417px] h-[480px] overflow-hidden">
@@ -63,10 +63,10 @@ export const OurTeam = async ({ lng }: { lng: "en" | "uk" }) => {
                   {card.content.title}
                 </p>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

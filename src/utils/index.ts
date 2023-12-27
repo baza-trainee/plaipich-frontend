@@ -1,1 +1,1 @@
-export { formatDate } from './format-date';
+export { formatDate } from "./format-date";

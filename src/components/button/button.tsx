@@ -1,13 +1,13 @@
-import './button.css';
+import "./button.css";
 
-import React from "react"
+import React from "react";
 
 interface ButtonProps {
-  children: React.ReactNode
-  onClick?: () => void
-  disabled?: boolean
-  type: "submit" | "button"
-  className: string
+  children: React.ReactNode;
+  onClick?: () => void;
+  disabled?: boolean;
+  type: "submit" | "button";
+  className: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -22,8 +22,9 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={className}
-      type={type}>
+      type={type}
+    >
       {children}
     </button>
-  )
-}
+  );
+};

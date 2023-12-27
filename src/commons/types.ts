@@ -16,7 +16,7 @@ export interface INews {
   title: string;
   description: string;
   date: Date;
-  category: "Politics"| "Technology"| "Entertainment"| "Sports";
+  category: "Politics" | "Technology" | "Entertainment" | "Sports";
   mainPhoto: string;
   photos: string[];
 }

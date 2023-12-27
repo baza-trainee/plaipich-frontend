@@ -1,4 +1,4 @@
-import { API_URL } from '@/commons/constants';
+import { API_URL } from "@/commons/constants";
 
 export class APIService {
   baseURL: string;
@@ -7,7 +7,7 @@ export class APIService {
 
   constructor(baseURL: string) {
     this.baseURL = baseURL;
-    this.token = '';
+    this.token = "";
   }
 
   setToken = (token: string) => {
@@ -15,27 +15,29 @@ export class APIService {
   };
 
   checkToken = () => {
-    if (this.token !== '') {
+    if (this.token !== "") {
       return {
-        Authorization: `Bearer ${this.token}`
+        Authorization: `Bearer ${this.token}`,
       };
     }
   };
 
   catchError = (status: number) => {
     if (status === 401) {
-      this.setToken('');
+      this.setToken("");
     }
   };
 
   getRequest = (url: string) =>
     fetch(this.baseURL + url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        ...this.checkToken()
-      }
+        ...this.checkToken(),
+      },
     })
-      .then((response) => (response.ok ? response.json() : Promise.reject(response)))
+      .then((response) =>
+        response.ok ? response.json() : Promise.reject(response),
+      )
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
@@ -44,14 +46,16 @@ export class APIService {
 
   postRequest = <Type>({ url, body }: { url: string; body?: Type }) =>
     fetch(this.baseURL + url, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(body),
       headers: {
-        'Content-Type': 'application/json',
-        ...this.checkToken()
-      }
+        "Content-Type": "application/json",
+        ...this.checkToken(),
+      },
     })
-      .then((response) => (response.ok ? response.json() : Promise.reject(response)))
+      .then((response) =>
+        response.ok ? response.json() : Promise.reject(response),
+      )
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
@@ -60,14 +64,16 @@ export class APIService {
 
   patchRequest = <Type>({ url, body }: { url: string; body: Type }) =>
     fetch(this.baseURL + url, {
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify(body),
       headers: {
-        'Content-Type': 'application/json',
-        ...this.checkToken()
-      }
+        "Content-Type": "application/json",
+        ...this.checkToken(),
+      },
     })
-      .then((response) => (response.ok ? response.json() : Promise.reject(response)))
+      .then((response) =>
+        response.ok ? response.json() : Promise.reject(response),
+      )
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
@@ -76,12 +82,14 @@ export class APIService {
 
   deleteRequest = (url: string) =>
     fetch(this.baseURL + url, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        ...this.checkToken()
-      }
+        ...this.checkToken(),
+      },
     })
-      .then((response) => (response.ok ? response.json() : Promise.reject(response)))
+      .then((response) =>
+        response.ok ? response.json() : Promise.reject(response),
+      )
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);

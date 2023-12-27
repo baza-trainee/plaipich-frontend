@@ -26,5 +26,5 @@ export const API_URL = {
 export const QUERY_KEY = {
   PROJECTS: "projects",
   NEWS: "news",
-  USER: "user"
+  USER: "user",
 };

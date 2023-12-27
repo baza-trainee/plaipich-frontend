@@ -43,5 +43,5 @@ export const JoinUs: React.FC<JoinUsProps> = async ({
         </ul>
       </div>
     </section>
-  )
+  );
 };

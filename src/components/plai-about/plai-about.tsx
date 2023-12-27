@@ -16,6 +16,9 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
   const navigation = t("navigation", {
     returnObjects: true,
   }) as { title: string; link: string }[];
+  const list = t("list", {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <section id="about" className="w-full relative bg-white">
@@ -75,9 +78,18 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           height={500}
           className="image-second"
         />
-        <p className="text-3 font-normal md:text-small-md lg:text-md lg:leading-3 text-third">
-          {t("text-third")}
-        </p>
+        <div className="text-third">
+          <h5 className="text-5 mb-3"> {t("title-for-list")}</h5>
+          <ul className="flex flex-col gap-1">
+            {list.map((item) => (
+              <li key={item} className="item-plai-enemy">
+                <p className="inline-block w-[85%] text-3 font-normal md:text-small-md lg:text-md lg:leading-3">
+                  {item}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
         <Image
           src={plai2}
           alt="Plai"
