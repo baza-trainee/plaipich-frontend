@@ -4,28 +4,23 @@
   "mission-data": [
     {
       "id": "01",
-      "title": "Supporting artists:",
-      "text": "We provide resources and platforms for their creativity and development."
+      "text": "Creation and implementation of cultural projects"
     },
     {
       "id": "02",
-      "title": "Promotion of art and cultural heritage:",
-      "text": "We raise awareness of the value of art and heritage among citizens, popularize works of art."
+      "text": "Promotion of modern art and cultural heritage"
     },
     {
       "id": "03",
-      "title": "Involvement of the public in supporting artists:",
-      "text": "We engage the public through charity events, sponsorships and cultural initiatives."
+      "text": "Unification of active figures of the cultural sphere and artists for cooperation and creation of more and more works of art"
     },
     {
       "id": "04",
-      "title": "Innovative and educational projects:",
-      "text": "We develop education and creative skills, implement innovative approaches."
+      "text": "Public involvement and education"
     },
     {
       "id": "05",
-      "title": "Cooperation and international exchange:",
-      "text": "We actively cooperate with artists and organizations at the national and international level to exchange ideas and projects."
+      "text": "Development and promotion of modern culture in the city of Vinnytsia"
     }
   ]
 }
