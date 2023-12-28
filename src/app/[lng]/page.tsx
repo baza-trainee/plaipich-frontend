@@ -22,6 +22,7 @@ const Home = async ({
       <Slider
         btnOneProject={t("btn-learn-more")}
         btnAllProjects={t("btn-all-projects")}
+        lng={params.lng}
       />
       <AboutMain lng={params.lng} />
       <NewsListMain

@@ -21,14 +21,14 @@ export function SetTagColor(tag: string) {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className, lng }) => {
-  const { description, title, category, date, mainPhoto } = newsItem;
+  const { description, title, enTitle, enDescription, category, date, mainPhoto } = newsItem;
   return (
     <article className={`flex flex-col justify-between ${className ?? ""}`}>
       {/* fix: need change h-[416px] */}
       <div className="h-[416px] relative">
         <Image
           src={mainPhoto}
-          alt={title}
+          alt={lng === 'en' ? enTitle: title}
           fill
           className="h-full w-auto object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -46,9 +46,9 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className, lng }) => {
           </span>
         </div>
         <h3 className="h2 normal-case lg:line-clamp-2 md:line-clamp-1">
-          {title}
+          {lng === 'en' ? enTitle: title}
         </h3>
-        <p className="py-3 lg:text-md md:line-clamp-2">{description}</p>
+        <p className="py-3 lg:text-md md:line-clamp-2">{lng === 'en' ? enDescription: description}</p>
         <p className="text-gray-500 pb-[13px] lg:text-md">
           {formatDate({ date, lng })}
         </p>
