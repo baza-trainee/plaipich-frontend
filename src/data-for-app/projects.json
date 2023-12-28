@@ -2,8 +2,23 @@
   {
     "title": "Фестиваль Ticket to the sun",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "enTitle": "Ticket to the sun festival",
+    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "status": "Completed",
-    "poster": "/images/news-pic-2.jpg",
+    "poster": "/hiro.png",
+    "videos": [""],
+    "photos": [""],
+    "locationsCount": "2",
+    "partnersCount": "10",
+    "events": [""]
+  },
+  {
+    "title": "BOOST FOR CULTURE",
+    "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "enTitle": "Ticket to the sun festival",
+    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
+    "status": "Completed",
+    "poster": "/hiro.png",
     "videos": [""],
     "photos": [""],
     "locationsCount": "2",
@@ -13,6 +28,8 @@
   {
     "title": "Фестиваль Ticket to the sun",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "enTitle": "Ticket to the sun festival",
+    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "status": "Completed",
     "poster": "/images/news-pic-2.jpg",
     "videos": [""],
@@ -22,8 +39,10 @@
     "events": [""]
   },
   {
-    "title": "Фестиваль Ticket to the sun",
+    "title": "BOOST FOR CULTURE",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "enTitle": "Ticket to the sun festival",
+    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "status": "Completed",
     "poster": "/images/news-pic-2.jpg",
     "videos": [""],
@@ -33,10 +52,12 @@
     "events": [""]
   },
   {
-    "title": "Фестиваль Ticket to the sun",
-    "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "title": "BOOST FOR CULTURE",
+    "description": "Проект, який дає змогу вчитися на реальних кейсах, отримувати досвід від експертів, розвивати себе, свою мистецьку спільноту та навіть запустити власний культурний продукт, експереминтуючи в напрямках.",
+    "enTitle": "Ticket to the sun festival",
+    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "status": "Completed",
-    "poster": "/images/news-pic-2.jpg",
+    "poster": "/hiro.png",
     "videos": [""],
     "photos": [""],
     "locationsCount": "2",
@@ -46,17 +67,8 @@
   {
     "title": "Фестиваль Ticket to the sun",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
-    "status": "Completed",
-    "poster": "/images/news-pic-2.jpg",
-    "videos": [""],
-    "photos": [""],
-    "locationsCount": "2",
-    "partnersCount": "10",
-    "events": [""]
-  },
-  {
-    "title": "Фестиваль Ticket to the sun",
-    "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
+    "enTitle": "Ticket to the sun festival",
+    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "status": "Completed",
     "poster": "/images/news-pic-2.jpg",
     "videos": [""],
