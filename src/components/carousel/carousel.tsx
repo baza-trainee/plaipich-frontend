@@ -55,7 +55,7 @@ export const Slider = ({
                 <div className="image-box">
                   <Image
                     src={item.poster}
-                    alt={"logo"}
+                    alt={lng === 'en' ? item.enTitle: item.title}
                     width={1000}
                     height={500}
                     className="w-full h-full object-cover"
@@ -64,10 +64,10 @@ export const Slider = ({
                 </div>
                 <div className="flex flex-col justify-center lg:justify-start content-center px-4 md:px-0 md:w-[45%] lg:flex-row lg:flex-wrap">
                   <h1 className="h1 w-full mb-2 text-left text-link-water">
-                    {item.title.toUpperCase()}
+                    {lng === 'en' ? item.enTitle.toUpperCase(): item.title.toUpperCase()}
                   </h1>
                   <p className="text-left w-full text-base mb-8 md:mb-5 md:text-md lg:text-lg font-sans font-regular  line-clamp-6">
-                    {item.description}
+                    {lng === 'en' ? item.enDescription:item.description}
                   </p>
                   <Link
                     href={`${NAVIGATION.project}id=${item._id}`}
