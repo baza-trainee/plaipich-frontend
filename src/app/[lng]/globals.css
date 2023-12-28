@@ -92,11 +92,11 @@ h6,
 }
 
 .text-3 {
-  @apply lg:font-semibold font-normal text-base lg:text-lg leading-2;
+  @apply lg:font-semibold font-normal text-base lg:text-lg lg:leading-4 leading-2;
 }
 
 .text-4 {
-  @apply lg:font-normal font-semibold text-small-md lg:text-md leading-2 lg:leading-3;
+  @apply lg:font-normal font-semibold text-small-md lg:text-md leading-2 lg:leading-4;
 }
 
 .text-5 {
@@ -104,7 +104,11 @@ h6,
 }
 
 .text-6 {
-  @apply font-medium leading-2 text-base;
+  @apply font-medium lg:leading-4 leading-2 text-base;
+}
+
+.text-breadcrumb {
+  @apply font-normal text-sm leading-2;
 }
 
 *::-webkit-scrollbar {

@@ -66,7 +66,7 @@ export const Slider = ({
                   <h1 className="h1 w-full mb-2 text-left text-link-water">
                     {item.title.toUpperCase()}
                   </h1>
-                  <p className="text-left w-full text-base mb-8 md:mb-5 md:text-md lg:text-lg font-sans font-regular  line-clamp-4">
+                  <p className="text-left w-full text-base mb-8 md:mb-5 md:text-md lg:text-lg font-sans font-regular  line-clamp-6">
                     {item.description}
                   </p>
                   <Link
@@ -102,7 +102,7 @@ export const Slider = ({
                 />
               </svg>
             </button>
-            <p className="text-base lg:text-md text-center w-[75px] text-link-water">
+            <p className="text-base lg:text-md text-center w-[75px] text-amber">
               {slide} / {data.results}
             </p>
             <button className="border-none fill-gray-200">
