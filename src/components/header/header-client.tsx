@@ -69,7 +69,7 @@ export const HeaderClient = ({
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
-      <div className="hidden lg:flex items-center">
+      <div className="hidden lg:flex items-center relative">
         {children}
         {!openSearch && query === "" && (
           <button
@@ -92,7 +92,7 @@ export const HeaderClient = ({
           />
         )}
         {query && searchList.length > 0 && (
-          <div className="flex flex-col max-w-[450px] p-4 gap-1 absolute top-[90px] right-10 bg-white text-black text-5">
+          <div className="flex flex-col max-w-[400px] p-4 gap-1 absolute top-[50px] right-0 bg-white text-black text-5">
             {searchList.map((item: any) => {
               if (item.status) {
                 return (
