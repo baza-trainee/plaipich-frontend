@@ -19,7 +19,7 @@ export const HeaderClient = ({
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchList, setSearchList] = useState([]);
+  const [searchList, setSearchList]: [any, any] = useState([]);
 
   const { data: projects } = useProjectsList(API_URL.PROJECTS);
   const { data: news } = useNewsList(API_URL.NEWS);
@@ -54,8 +54,8 @@ export const HeaderClient = ({
         item.description.toLowerCase().search(query) !== -1 ||
         item.enDescription.toLowerCase().search(query) !== -1
     );
-    setSearchList([...projectsList, ...newsList]);
-    console.log(projectsList);
+
+    projectsList && newsList && setSearchList([...projectsList, ...newsList]);
   };
 
   return (
@@ -91,9 +91,33 @@ export const HeaderClient = ({
             lng={lng}
           />
         )}
-        {query && searchList.length > 0 && <div>
-        List
-        </div>}
+        {query && searchList.length > 0 && (
+          <div className="flex flex-col max-w-[450px] p-4 gap-1 absolute top-[90px] right-10 bg-white text-black text-5">
+            {searchList.map((item: any) => {
+              if (item.status) {
+                return (
+                  <Link
+                    key={item._id}
+                    href={`${lng}/${NAVIGATION.project}${item._id}`}
+                    className="hover:text-orange transition"
+                  >
+                    {item.title}
+                  </Link>
+                );
+              } else {
+                return (
+                  <Link
+                    key={item._id}
+                    href={`${lng}/${NAVIGATION.oneNew}${item._id}`}
+                    className="hover:text-orange transition"
+                  >
+                    {item.title}
+                  </Link>
+                );
+              }
+            })}
+          </div>
+        )}
         {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>
     </>
