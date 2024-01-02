@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
+import { NAVIGATION } from "@/commons/constants";
 import { INews } from "@/commons/types";
 import { formatDate } from "@/utils";
 
@@ -28,6 +30,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   dateClassName,
 }) => {
   const {
+    _id,
     description,
     title,
     enTitle,
@@ -38,7 +41,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
   } = newsItem;
   return (
     <article className={`flex flex-col justify-between ${className ?? ""}`}>
-      {/* fix: need change h-[416px] */}
+      <Link href={`${lng}/${NAVIGATION.oneNew}${_id}`}>
+            {/* fix: need change h-[416px] */}
       <div className="h-[416px] relative">
         <Image
           src={mainPhoto}
@@ -69,6 +73,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
         </p>
       </div>
       <hr className="border-white mt-5" />
+
+      </Link>
     </article>
   );
 };
