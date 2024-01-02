@@ -3,7 +3,8 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
-import { NAVIGATION } from "@/commons/constants";
+import { API_URL, NAVIGATION } from "@/commons/constants";
+import { useNewsList, useProjectsList } from "@/hooks";
 
 import { Link } from "../link/link";
 import { SearchForm } from "./search-form";
@@ -18,10 +19,14 @@ export const HeaderClient = ({
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
+  const [searchList, setSearchList] = useState([]);
+
+  const { data: projects } = useProjectsList(API_URL.PROJECTS);
+  const { data: news } = useNewsList(API_URL.NEWS);
 
   const changeInput = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement;
-    setQuery(input.value);
+    setQuery(input.value.toLowerCase());
   };
 
   const open = () => {
@@ -34,7 +39,23 @@ export const HeaderClient = ({
 
   const findResult = (event: any) => {
     event.preventDefault();
-    console.log(query);
+    const projectsList = projects?.projects.filter(
+      (item) =>
+        item.title.toLowerCase().search(query) !== -1 ||
+        item.enTitle.toLowerCase().search(query) !== -1 ||
+        item.description.toLowerCase().search(query) !== -1 ||
+        item.enDescription.toLowerCase().search(query) !== -1
+    );
+
+    const newsList = news?.news.filter(
+      (item) =>
+        item.title.toLowerCase().search(query) !== -1 ||
+        item.enTitle.toLowerCase().search(query) !== -1 ||
+        item.description.toLowerCase().search(query) !== -1 ||
+        item.enDescription.toLowerCase().search(query) !== -1
+    );
+    setSearchList([...projectsList, ...newsList]);
+    console.log(projectsList);
   };
 
   return (
@@ -70,6 +91,9 @@ export const HeaderClient = ({
             lng={lng}
           />
         )}
+        {query && searchList.length > 0 && <div>
+        List
+        </div>}
         {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>
     </>
