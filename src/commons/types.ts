@@ -20,7 +20,10 @@ export interface INews {
   enTitle: string;
   enDescription: string;
   date: Date;
-  category: "Politics" | "Technology" | "Entertainment" | "Sports";
+  category: {
+    en: "Announcements"| "Articles"| "Projects"| "Events"| "Personals";
+    uk: "Анонси"| "Статті"| "Проекти"| "Події"| "Персоналії";
+  };
   mainPhoto: string;
   photos: string[];
 }

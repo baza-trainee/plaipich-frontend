@@ -3,7 +3,8 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
-import { NAVIGATION } from "@/commons/constants";
+import { API_URL, NAVIGATION } from "@/commons/constants";
+import { useNewsList, useProjectsList } from "@/hooks";
 
 import { Link } from "../link/link";
 import { SearchForm } from "./search-form";
@@ -18,10 +19,14 @@ export const HeaderClient = ({
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
+  const [searchList, setSearchList]: [any, any] = useState([]);
+
+  const { data: projects } = useProjectsList(API_URL.PROJECTS);
+  const { data: news } = useNewsList(API_URL.NEWS);
 
   const changeInput = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement;
-    setQuery(input.value);
+    setQuery(input.value.toLowerCase());
   };
 
   const open = () => {
@@ -34,7 +39,23 @@ export const HeaderClient = ({
 
   const findResult = (event: any) => {
     event.preventDefault();
-    console.log(query);
+    const projectsList = projects?.projects.filter(
+      (item) =>
+        item.title.toLowerCase().search(query) !== -1 ||
+        item.enTitle.toLowerCase().search(query) !== -1 ||
+        item.description.toLowerCase().search(query) !== -1 ||
+        item.enDescription.toLowerCase().search(query) !== -1
+    );
+
+    const newsList = news?.news.filter(
+      (item) =>
+        item.title.toLowerCase().search(query) !== -1 ||
+        item.enTitle.toLowerCase().search(query) !== -1 ||
+        item.description.toLowerCase().search(query) !== -1 ||
+        item.enDescription.toLowerCase().search(query) !== -1
+    );
+
+    projectsList && newsList && setSearchList([...projectsList, ...newsList]);
   };
 
   return (
@@ -48,7 +69,7 @@ export const HeaderClient = ({
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
-      <div className="hidden lg:flex items-center">
+      <div className="hidden lg:flex items-center relative">
         {children}
         {!openSearch && query === "" && (
           <button
@@ -69,6 +90,33 @@ export const HeaderClient = ({
             query={query}
             lng={lng}
           />
+        )}
+        {query && searchList.length > 0 && (
+          <div className="flex flex-col max-w-[400px] p-4 gap-1 absolute top-[50px] right-0 bg-white text-black text-5">
+            {searchList.map((item: any) => {
+              if (item.status) {
+                return (
+                  <Link
+                    key={item._id}
+                    href={`${lng}/${NAVIGATION.project}${item._id}`}
+                    className="hover:text-orange transition"
+                  >
+                    {item.title}
+                  </Link>
+                );
+              } else {
+                return (
+                  <Link
+                    key={item._id}
+                    href={`${lng}/${NAVIGATION.oneNew}${item._id}`}
+                    className="hover:text-orange transition"
+                  >
+                    {item.title}
+                  </Link>
+                );
+              }
+            })}
+          </div>
         )}
         {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>

@@ -66,14 +66,14 @@ export const Slider = ({
                     {lng === 'en' ? item.enDescription:item.description}
                   </p>
                   <Link
-                    href={`${NAVIGATION.project}id=${item._id}`}
+                    href={`${lng}/${NAVIGATION.project}${item._id}`}
                     appearance="linkButtonPrimary"
                     className="w-full max-w-[300px] mx-auto md:mx-0 mb-3 md:w-[230px] lg:mb-0 md:mr-3 lg:w-[48%]"
                   >
                     <p className="btn-text">{btnOneProject}</p>
                   </Link>
                   <Link
-                    href={NAVIGATION.projects}
+                    href={`${lng}/${NAVIGATION.projects}`}
                     appearance="linkButtonSecondary"
                     className="w-full max-w-[300px] mx-auto md:mx-0 md:w-[230px] lg:w-[48%]"
                   >
@@ -98,7 +98,7 @@ export const Slider = ({
                 />
               </svg>
             </button>
-            <p className="text-base lg:text-md text-center w-[75px] text-amber">
+            <p className="text-base lg:text-md text-center w-[75px] text-orange">
               {slide} / {data.results}
             </p>
             <button className="border-none fill-gray-200">
