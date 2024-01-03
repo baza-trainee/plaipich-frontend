@@ -25,7 +25,12 @@ export const API_URL = {
 
 export const QUERY_KEY = {
   PROJECTS: "projects",
-  ONE_PROJECT:"one-project",
+  ONE_PROJECT: "one-project",
   NEWS: "news",
   USER: "user",
+};
+
+export const category = {
+  enCategory: ["Announcements", "Articles", "Projects", "Events", "Personals"],
+  ukCategory: ["Анонси", "Статті", "Проекти", "Події", "Персоналії"],
 };
