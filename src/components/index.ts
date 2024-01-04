@@ -1,4 +1,5 @@
 export { AboutMain } from "./about-main/about-main";
+export { Accordion } from "./accordion/accordion";
 export { Button } from "./button/button";
 export { Slider } from "./carousel/carousel";
 export { Contacts } from "./contacts/contacts";
@@ -14,4 +15,3 @@ export { Partners } from "./partners/partners";
 export { PlaiAbout } from "./plai-about/plai-about";
 export { Providers } from "./providers";
 export { Reports } from "./reports/reports";
-export { ReportsAccordion } from "./reports/reports-accordion/reports-accordion";
