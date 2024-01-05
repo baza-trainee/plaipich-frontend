@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
@@ -25,9 +25,16 @@ export const HeaderClient = ({
   const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
   const { data: newsList } = useNewsList(API_URL.NEWS);
 
-  const changeInput = (e: ChangeEvent) => {
-    const input = e.target as HTMLInputElement;
-    setQuery(input.value.toLowerCase());
+  const changeInput = (newQuery: string) => {
+    setQuery(newQuery);
+    if (projectsList && newsList) {
+      const result = filterSearchList({
+        projects: projectsList.projects,
+        news: newsList.news,
+        query: newQuery,
+      });
+      result && setSearchList(result);
+  }
   };
 
   const open = () => {
@@ -36,18 +43,6 @@ export const HeaderClient = ({
 
   const close = () => {
     setOpenSearch(false);
-  };
-
-  const findResult = (event: any) => {
-    event.preventDefault();
-    if (projectsList && newsList) {
-      const result = filterSearchList({
-        projects: projectsList.projects,
-        news: newsList.news,
-        query,
-      });
-      result && setSearchList(result);
-    }
   };
 
   return (
@@ -77,7 +72,6 @@ export const HeaderClient = ({
           <SearchForm
             className="relative ml-6 w-[400px] transition-all justify-center"
             close={close}
-            findResult={findResult}
             changeInput={changeInput}
             query={query}
             lng={lng}

@@ -1,7 +1,8 @@
+import { useRouter } from "next/navigation";
 import React, {
-  ChangeEventHandler,
-  FormEventHandler,
-  MouseEventHandler,
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
 } from "react";
 import { TbSearch } from "react-icons/tb";
 
@@ -11,27 +12,48 @@ import { INews, IProject } from "@/commons/types";
 import { Link } from "../link/link";
 
 interface ISearchForm {
-  close?: MouseEventHandler;
+  close?: Function;
   lng: "en" | "uk";
   className: string;
   query: string;
-  findResult: FormEventHandler;
-  changeInput: ChangeEventHandler;
+  changeInput: Function;
   searchList: (INews | IProject)[];
 }
 
 export const SearchForm = ({
   close = () => {},
-  findResult,
   changeInput,
   query,
   lng,
   className,
   searchList,
 }: ISearchForm) => {
+  const router = useRouter();
+
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+  };
+
+  const onChange = (event: ChangeEvent) => {
+    const input = event.target as HTMLInputElement;
+    changeInput(input.value.trim());
+  };
+
+  const onClickLink = (event: MouseEvent) => {
+    event.preventDefault();
+    const link = event.target as HTMLLinkElement;
+    changeInput("");
+    close();
+    router.push(link.href);
+  };
+
+  const onClickClose = () => {
+    close();
+  };
+
   return (
-    <div className={className} onMouseLeave={close}>
-      <form onSubmit={findResult}>
+    <div className={className} onMouseLeave={onClickClose}>
+      <form onSubmit={onSubmit}>
         <button
           type="submit"
           className="text-white absolute left-0 top-1 px-[10px] py-2 border-none"
@@ -45,7 +67,7 @@ export const SearchForm = ({
           placeholder={lng === "uk" ? "Пошук" : "Search"}
           value={query}
           name="query"
-          onChange={changeInput}
+          onChange={onChange}
           autoFocus
           required
           autoComplete="on"
@@ -60,6 +82,7 @@ export const SearchForm = ({
                   key={item._id}
                   href={`/${lng}/${NAVIGATION.project}${item._id}`}
                   className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
+                  onClick={onClickLink}
                 >
                   {item.title}
                 </Link>
@@ -70,6 +93,7 @@ export const SearchForm = ({
                   key={item._id}
                   href={`/${lng}/${NAVIGATION.oneNew}${item._id}`}
                   className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
+                  onClick={onClickLink}
                 >
                   {item.title}
                 </Link>
