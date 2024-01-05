@@ -12,7 +12,9 @@ export const Accordion = ({ title, children }: AccordionProps) => {
   return (
     <Disclosure>
       {function ({ open }) {
-        const titleConditionalClasses = open ? "border-b-transparent" : "border-b-gray-400";
+        const titleConditionalClasses = open
+          ? "border-b-transparent"
+          : "border-b-gray-400";
         return (
           <>
             <Disclosure.Button
@@ -30,7 +32,9 @@ export const Accordion = ({ title, children }: AccordionProps) => {
               />
             </Disclosure.Button>
 
-            <Disclosure.Panel className="py-4 transition-transform">{children}</Disclosure.Panel>
+            <Disclosure.Panel className="py-4 transition-transform">
+              {children}
+            </Disclosure.Panel>
           </>
         );
       }}

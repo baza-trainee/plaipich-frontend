@@ -10,13 +10,13 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-import { useTranslation } from '@/app/i18n'
-import { NAVIGATION } from "@/commons/constants"
+import { useTranslation } from "@/app/i18n";
+import { NAVIGATION } from "@/commons/constants";
 
-import plaipichEvent from "../../../public/images/contacts/plaipich-event.png"
+import plaipichEvent from "../../../public/images/contacts/plaipich-event.png";
 
 export const Contacts = async ({ lng }: { lng: string }) => {
-    const { t } = await useTranslation(lng, 'contacts')
+  const { t } = await useTranslation(lng, "contacts");
 
   return (
     <section
