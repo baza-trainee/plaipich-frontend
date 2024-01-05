@@ -3,7 +3,9 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbAlignRight, TbX } from "react-icons/tb";
 
-import { NAVIGATION } from "@/commons/constants";
+import { API_URL, NAVIGATION } from "@/commons/constants";
+import { useNewsList, useProjectsList } from "@/hooks";
+import { filterSearchList } from "@/utils";
 
 import { Link } from "../index";
 import { NavHeader } from "./header-nav";
@@ -19,6 +21,9 @@ export const BurgerMenu = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [searchList, setSearchList]: [any, any] = useState([]);
+  const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
+  const { data: newsList } = useNewsList(API_URL.NEWS);
 
   const changeInput = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement;
@@ -27,7 +32,14 @@ export const BurgerMenu = ({
 
   const findResult = (event: any) => {
     event.preventDefault();
-    console.log(query);
+    if (projectsList && newsList) {
+      const result = filterSearchList({
+        projects: projectsList.projects,
+        news: newsList.news,
+        query,
+      });
+      result && setSearchList(result);
+    }
   };
 
   const toggleMenu = () => {
@@ -55,6 +67,7 @@ export const BurgerMenu = ({
               query={query}
               lng={lng}
               className="relative mx-auto"
+              searchList={searchList}
             />
           </div>
           <NavHeader

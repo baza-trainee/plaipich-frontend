@@ -5,6 +5,11 @@ import React, {
 } from "react";
 import { TbSearch } from "react-icons/tb";
 
+import { NAVIGATION } from "@/commons/constants";
+import { INews, IProject } from "@/commons/types";
+
+import { Link } from "../link/link";
+
 interface ISearchForm {
   close?: MouseEventHandler;
   lng: "en" | "uk";
@@ -12,6 +17,7 @@ interface ISearchForm {
   query: string;
   findResult: FormEventHandler;
   changeInput: ChangeEventHandler;
+  searchList: (INews | IProject)[];
 }
 
 export const SearchForm = ({
@@ -21,6 +27,7 @@ export const SearchForm = ({
   query,
   lng,
   className,
+  searchList,
 }: ISearchForm) => {
   return (
     <div className={className} onMouseLeave={close}>
@@ -44,16 +51,33 @@ export const SearchForm = ({
           autoComplete="on"
         />
       </form>
-      {/* <ul className=" absolute left-0 top-12 w-full bg-white text-black">
-              {query && openAutocomplete ? (
-                <li
-                  className="p-2 text-sm font-bold hover:bg-light-blue hover:transition-all hover:cursor-pointer"
-                  onClick={itemClickHandler}
+      {query && searchList.length > 0 && (
+        <div className="absolute text-left flex flex-col max-w-[400px] gap-1 top-12 right-0 bg-white text-black text-5">
+          {searchList.map((item: any) => {
+            if (item.status) {
+              return (
+                <Link
+                  key={item._id}
+                  href={`/${lng}/${NAVIGATION.project}${item._id}`}
+                  className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
                 >
-                  {query}
-                </li>
-              ) : null}
-            </ul> */}
+                  {item.title}
+                </Link>
+              );
+            } else {
+              return (
+                <Link
+                  key={item._id}
+                  href={`/${lng}/${NAVIGATION.oneNew}${item._id}`}
+                  className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
+                >
+                  {item.title}
+                </Link>
+              );
+            }
+          })}
+        </div>
+      )}
     </div>
   );
 };
