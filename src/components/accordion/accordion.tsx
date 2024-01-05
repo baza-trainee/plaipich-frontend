@@ -8,17 +8,15 @@ interface AccordionProps {
   children: React.ReactNode;
 }
 
-export const ReportsAccordion = ({ title, children }: AccordionProps) => {
+export const Accordion = ({ title, children }: AccordionProps) => {
   return (
     <Disclosure>
       {function ({ open }) {
-        const titleConditionalClasses = open
-          ? "border-b-transparent"
-          : "border-b-gray-400";
+        const titleConditionalClasses = open ? "border-b-transparent" : "border-b-gray-400";
         return (
           <>
             <Disclosure.Button
-              className={`group/accordion-btn flex transition-none h6 mb-4 last:mb-0 rounded-none w-full normal-case items-center justify-between border border-l-transparent border-r-transparent ${titleConditionalClasses} pr-4 py-6 border-gray-400 hover:text-dark-blue focus:border-l-transparent focus-border-r-transparent focus:outline-orange`}
+              className={`group/accordion-btn flex transition-none h6 mb-4 last:mb-0 rounded-none w-full text-left normal-case items-center justify-between border border-l-transparent border-r-transparent ${titleConditionalClasses} pr-4 py-6 border-gray-400 hover:text-dark-blue focus:border-l-transparent focus-border-r-transparent focus:outline-orange`}
             >
               {title}
               <LuMoveDown
@@ -32,9 +30,7 @@ export const ReportsAccordion = ({ title, children }: AccordionProps) => {
               />
             </Disclosure.Button>
 
-            <Disclosure.Panel className="py-4 transition-transform">
-              {children}
-            </Disclosure.Panel>
+            <Disclosure.Panel className="py-4 transition-transform">{children}</Disclosure.Panel>
           </>
         );
       }}

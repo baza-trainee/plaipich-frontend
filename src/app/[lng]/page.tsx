@@ -20,9 +20,9 @@ const Home = async ({
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Slider
-        lng={params.lng}
         btnOneProject={t("btn-learn-more")}
         btnAllProjects={t("btn-all-projects")}
+        lng={params.lng}
       />
       <AboutMain lng={params.lng} />
       <NewsListMain

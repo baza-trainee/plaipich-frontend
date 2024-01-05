@@ -2,7 +2,7 @@ export const NAVIGATION = {
   main: "/",
   about: "/about-us",
   news: "/news",
-  oneNew: "/new?id=",
+  oneNew: "/one-new?id=",
   project: "/project?id=",
   projects: "/projects",
   support: "/support-us",
@@ -25,6 +25,12 @@ export const API_URL = {
 
 export const QUERY_KEY = {
   PROJECTS: "projects",
+  ONE_PROJECT: "one-project",
   NEWS: "news",
   USER: "user",
+};
+
+export const category = {
+  enCategory: ["Announcements", "Articles", "Projects", "Events", "Personals"],
+  ukCategory: ["Анонси", "Статті", "Проекти", "Події", "Персоналії"],
 };

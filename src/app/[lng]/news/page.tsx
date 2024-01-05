@@ -66,7 +66,7 @@ const News = async ({
             </select>
           </div>
         </div>
-        <NewsList lng={params.lng} />
+        <NewsList lng={params.lng} dateClassName="text-gray-500"/>
         <div className="hidden md:flex justify-center">
           <div className="py-2 px-4 mr-1">-</div>
           <div className="py-2 px-4 border rounded-large mr-1 bg-dark-blue text-white">

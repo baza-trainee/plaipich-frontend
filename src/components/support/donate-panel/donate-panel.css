@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[name="donate-amount"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[name="donate-amount"]:focus::placeholder {
+  color: transparent;
+}
+input[name="donate-amount"]::-webkit-inner-spin-button,
+input[name="donate-amount"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}

@@ -4,7 +4,13 @@ import { useNewsList } from "@/hooks";
 
 import NewsCard from "../news-card/news-card";
 
-const NewsList = ({ lng }: { lng: "en" | "uk" }) => {
+const NewsList = ({
+  lng,
+  dateClassName,
+}: {
+  lng: "en" | "uk";
+  dateClassName: string;
+}) => {
   const { data, isLoading } = useNewsList(API_URL.NEWS);
 
   return (
@@ -22,6 +28,7 @@ const NewsList = ({ lng }: { lng: "en" | "uk" }) => {
               newsItem={news}
               lng={lng}
               className="lg:m-0 mb-10"
+              dateClassName={dateClassName}
             />
           ))}
         </div>

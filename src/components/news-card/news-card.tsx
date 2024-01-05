@@ -1,12 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
+import { NAVIGATION } from "@/commons/constants";
 import { INews } from "@/commons/types";
 import { formatDate } from "@/utils";
 
 interface NewsCardProps {
   newsItem: INews;
   className?: string;
+  dateClassName?: string;
   lng: "en" | "uk";
 }
 
@@ -20,15 +23,30 @@ export function SetTagColor(tag: string) {
   return tagsColors[tag] ?? "bg-transparent";
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className, lng }) => {
-  const { description, title, enTitle, enDescription, category, date, mainPhoto } = newsItem;
+const NewsCard: React.FC<NewsCardProps> = ({
+  newsItem,
+  className,
+  lng,
+  dateClassName,
+}) => {
+  const {
+    _id,
+    description,
+    title,
+    enTitle,
+    enDescription,
+    category,
+    date,
+    mainPhoto,
+  } = newsItem;
   return (
     <article className={`flex flex-col justify-between ${className ?? ""}`}>
-      {/* fix: need change h-[416px] */}
+      <Link href={`/${lng}/${NAVIGATION.oneNew}${_id}`}>
+            {/* fix: need change h-[416px] */}
       <div className="h-[416px] relative">
         <Image
           src={mainPhoto}
-          alt={lng === 'en' ? enTitle: title}
+          alt={lng === "en" ? enTitle : title}
           fill
           className="h-full w-auto object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -38,22 +56,25 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, className, lng }) => {
       <div>
         <div className="flex mb-5">
           <span
-            className={`text-black py-2 px-4 rounded-large ${SetTagColor(
-              category,
-            )}`}
+            className={`text-black py-2 px-4 rounded-large 
+            ${SetTagColor(category.uk)}`}
           >
-            {category}
+            {lng === "en" ? category.en: category.uk}
           </span>
         </div>
         <h3 className="h2 normal-case lg:line-clamp-2 md:line-clamp-1">
-          {lng === 'en' ? enTitle: title}
+          {lng === "en" ? enTitle : title}
         </h3>
-        <p className="py-3 lg:text-md md:line-clamp-2">{lng === 'en' ? enDescription: description}</p>
-        <p className="text-gray-500 pb-[13px] lg:text-md">
+        <p className="my-3 lg:text-md md:line-clamp-2">
+          {lng === "en" ? enDescription : description}
+        </p>
+        <p className={`pb-[13px] lg:text-md ${dateClassName ?? ""}`}>
           {formatDate({ date, lng })}
         </p>
       </div>
       <hr className="border-white mt-5" />
+
+      </Link>
     </article>
   );
 };
