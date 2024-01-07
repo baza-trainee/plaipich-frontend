@@ -21,8 +21,8 @@ export interface INews {
   enDescription: string;
   date: Date;
   category: {
-    en: "Announcements"| "Articles"| "Projects"| "Events"| "Personals";
-    uk: "Анонси"| "Статті"| "Проекти"| "Події"| "Персоналії";
+    en: "Announcements" | "Articles" | "Projects" | "Events" | "Personals";
+    uk: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
   };
   mainPhoto: string;
   photos: string[];
