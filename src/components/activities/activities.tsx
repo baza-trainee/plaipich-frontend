@@ -14,7 +14,7 @@ export const Activities = async ({ lng }: { lng: "en" | "uk" }) => {
     returnObjects: true,
   }) as Activity[];
   return (
-    <section className="pt-[78px] text-black">
+    <section className="pt-14 text-black">
       <div className="container max-w-desktop">
         <h2 className="h1 md:text-left text-center lg:mb-8 mb-12">{t("activities-title")}</h2>
       </div>

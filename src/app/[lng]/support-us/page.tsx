@@ -12,7 +12,7 @@ const SupportUs = async ({
   };
 }) => {
   return (
-    <main className="bg-white text-black py-[116px]">
+    <main className="bg-white text-black md:py-[116px] pt-10 pb-14">
       <Support lng={params.lng} />
       <PaymentDetailsSection lng={params.lng} />
       <Activities lng={params.lng} />

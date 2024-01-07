@@ -20,7 +20,7 @@ export const PaymentDetailsSection = async ({ lng }: { lng: "en" | "uk" }) => {
     returnObjects: true,
   }) as BankTransferAccordionItem[];
   return (
-    <section className="w-full pb-[68px]">
+    <section className="w-full lg:pb-16">
       <div className="container max-w-desktop">
         <Link
           className="link-text self-end px-6 py-4.5 inline-block hover:no-underline transition-colors border border-black focus:outline-dark-blue active:bg-gray-200 rounded-large hover:bg-link-water"
