@@ -32,7 +32,7 @@ export const Accordion = ({ title, children }: AccordionProps) => {
               />
             </Disclosure.Button>
 
-            <Disclosure.Panel className="py-4 transition-transform">
+            <Disclosure.Panel className="py-4 transition-transform last:border-b-gray-400 last:border-transparent last:border">
               {children}
             </Disclosure.Panel>
           </>

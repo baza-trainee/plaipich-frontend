@@ -72,15 +72,16 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           ref={donateInputRef}
           onChange={(e) => setAmount(Number(e.target.value))}
           onKeyDown={formatNumberInput}
+          onFocus={() => setAmount(0)}
           min={MIN_DONATION}
           max={MAX_DONATION}
           placeholder={lng === "en" ? "Other amount, UAH" : "Iнша сума, UAH"}
-          className="w-full block border border-black font-normal lg:font-semibold text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
+          className="w-full block border border-black font-normal lg:font-semibold  mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
         />
       </div>
       <Link
         href={`/donate?amount=${amount}&type=${type}`}
-        className={`w-full bg-dark-orange transition-colors relative hover:bg-orange text-white text-base md:text-md py-3 rounded-large text-center ${
+        className={`w-full bg-dark-orange transition-colors relative hover:bg-orange text-white text-base lg:text-md py-3 rounded-large text-center ${
           INVALID_SUM
             ? "cursor-not-allowed pointer-events-none bg-gray-300"
             : "cursor-pointer pointer-events-auto bg-dark-orange"
