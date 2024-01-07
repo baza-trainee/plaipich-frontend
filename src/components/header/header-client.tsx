@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
+import { INews, IProject } from "@/commons/types";
 import { useNewsList, useProjectsList } from "@/hooks";
 import { filterSearchList } from "@/utils";
 
@@ -20,7 +21,7 @@ export const HeaderClient = ({
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchList, setSearchList]: [any, any] = useState([]);
+  const [searchList, setSearchList] = useState<Array<INews | IProject>>([]);
 
   const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
   const { data: newsList } = useNewsList(API_URL.NEWS);
@@ -34,7 +35,7 @@ export const HeaderClient = ({
         query: newQuery,
       });
       result && setSearchList(result);
-  }
+    }
   };
 
   const open = () => {

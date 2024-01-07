@@ -1,9 +1,5 @@
 import { useRouter } from "next/navigation";
-import React, {
-  ChangeEvent,
-  FormEvent,
-  MouseEvent,
-} from "react";
+import React, { ChangeEvent, FormEvent, MouseEvent } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
@@ -17,7 +13,7 @@ interface ISearchForm {
   className: string;
   query: string;
   changeInput: Function;
-  searchList: (INews | IProject)[];
+  searchList: Array<INews | IProject>;
 }
 
 export const SearchForm = ({
@@ -75,8 +71,8 @@ export const SearchForm = ({
       </form>
       {query && searchList.length > 0 && (
         <div className="absolute text-left flex flex-col max-w-[400px] gap-1 top-12 right-0 bg-white text-black text-5">
-          {searchList.map((item: any) => {
-            if (item.status) {
+          {searchList.map((item) => {
+            if ("status" in item) {
               return (
                 <Link
                   key={item._id}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 import { NAVIGATION } from "@/commons/constants";
 
@@ -13,7 +13,7 @@ export const NavHeader = ({
   lng: "en" | "uk";
   deviceLg: boolean;
   nav: { [key: string]: string };
-  closeMenu?: any;
+  closeMenu?: MouseEventHandler;
 }) => {
   return (
     <nav className="flex items-center mb-10 lg:mb-0">
@@ -21,26 +21,19 @@ export const NavHeader = ({
         className={`w-full lg:gap-x-3 flex flex-col items-center text-small-md lg:text-md ${
           deviceLg && "hidden"
         } lg:flex lg:flex-row`}
+        onClick={closeMenu}
       >
         <li className="py-2 px-[53px] lg:px-[30px] w-full lg:w-40 text-center scale-100 transition-all hover:scale-125">
-          <Link href={`/${lng}${NAVIGATION.about}`} onClick={closeMenu}>
-            {nav["about-us"]}
-          </Link>
+          <Link href={`/${lng}${NAVIGATION.about}`}>{nav["about-us"]}</Link>
         </li>
         <li className="py-2 px-[53px] lg:px-[30px] w-full lg:w-40 text-center scale-100 transition-all hover:scale-125">
-          <Link href={`/${lng}${NAVIGATION.projects}`} onClick={closeMenu}>
-            {nav["projects"]}
-          </Link>
+          <Link href={`/${lng}${NAVIGATION.projects}`}>{nav["projects"]}</Link>
         </li>
         <li className="py-2 px-[53px] lg:px-[30px] w-full lg:w-40 text-center scale-100 transition-all hover:scale-125">
-          <Link href={`/${lng}${NAVIGATION.news}`} onClick={closeMenu}>
-            {nav["news"]}
-          </Link>
+          <Link href={`/${lng}${NAVIGATION.news}`}>{nav["news"]}</Link>
         </li>
         <li className="py-2 px-[53px] lg:px-[30px] w-full lg:w-40 text-center scale-100 transition-all hover:scale-125">
-          <Link href={`/${lng}${NAVIGATION.contacts}`} onClick={closeMenu}>
-            {nav["contacts"]}
-          </Link>
+          <Link href={`/${lng}${NAVIGATION.contacts}`}>{nav["contacts"]}</Link>
         </li>
       </ul>
     </nav>
