@@ -1,10 +1,12 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
+import { INews, IProject } from "@/commons/types";
 import { useNewsList, useProjectsList } from "@/hooks";
+import { filterSearchList } from "@/utils";
 
 import { Link } from "../link/link";
 import { SearchForm } from "./search-form";
@@ -19,14 +21,21 @@ export const HeaderClient = ({
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchList, setSearchList]: [any, any] = useState([]);
+  const [searchList, setSearchList] = useState<Array<INews | IProject>>([]);
 
-  const { data: projects } = useProjectsList(API_URL.PROJECTS);
-  const { data: news } = useNewsList(API_URL.NEWS);
+  const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
+  const { data: newsList } = useNewsList(API_URL.NEWS);
 
-  const changeInput = (e: ChangeEvent) => {
-    const input = e.target as HTMLInputElement;
-    setQuery(input.value.toLowerCase());
+  const changeInput = (newQuery: string) => {
+    setQuery(newQuery);
+    if (projectsList && newsList) {
+      const result = filterSearchList({
+        projects: projectsList.projects,
+        news: newsList.news,
+        query: newQuery,
+      });
+      result && setSearchList(result);
+    }
   };
 
   const open = () => {
@@ -35,27 +44,6 @@ export const HeaderClient = ({
 
   const close = () => {
     setOpenSearch(false);
-  };
-
-  const findResult = (event: any) => {
-    event.preventDefault();
-    const projectsList = projects?.projects.filter(
-      (item) =>
-        item.title.toLowerCase().search(query) !== -1 ||
-        item.enTitle.toLowerCase().search(query) !== -1 ||
-        item.description.toLowerCase().search(query) !== -1 ||
-        item.enDescription.toLowerCase().search(query) !== -1
-    );
-
-    const newsList = news?.news.filter(
-      (item) =>
-        item.title.toLowerCase().search(query) !== -1 ||
-        item.enTitle.toLowerCase().search(query) !== -1 ||
-        item.description.toLowerCase().search(query) !== -1 ||
-        item.enDescription.toLowerCase().search(query) !== -1
-    );
-
-    projectsList && newsList && setSearchList([...projectsList, ...newsList]);
   };
 
   return (
@@ -85,38 +73,11 @@ export const HeaderClient = ({
           <SearchForm
             className="relative ml-6 w-[400px] transition-all justify-center"
             close={close}
-            findResult={findResult}
             changeInput={changeInput}
             query={query}
             lng={lng}
+            searchList={searchList}
           />
-        )}
-        {query && searchList.length > 0 && (
-          <div className="flex flex-col max-w-[400px] p-4 gap-1 absolute top-[50px] right-0 bg-white text-black text-5">
-            {searchList.map((item: any) => {
-              if (item.status) {
-                return (
-                  <Link
-                    key={item._id}
-                    href={`${lng}/${NAVIGATION.project}${item._id}`}
-                    className="hover:text-orange transition"
-                  >
-                    {item.title}
-                  </Link>
-                );
-              } else {
-                return (
-                  <Link
-                    key={item._id}
-                    href={`${lng}/${NAVIGATION.oneNew}${item._id}`}
-                    className="hover:text-orange transition"
-                  >
-                    {item.title}
-                  </Link>
-                );
-              }
-            })}
-          </div>
         )}
         {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>
