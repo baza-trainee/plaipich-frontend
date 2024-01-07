@@ -3,9 +3,9 @@ import React from "react";
 import { useTranslation } from "@/app/i18n";
 import { Link } from "@/components/link/link";
 
-import { ReportsAccordion } from "./reports-accordion/reports-accordion";
+import { Accordion } from "../accordion/accordion";
 
-interface AccordionItem {
+interface ReportsAccordionItem {
   title: string;
   content: {
     text: string;
@@ -18,7 +18,7 @@ export const Reports = async ({ lng }: { lng: "en" | "uk" }) => {
   const { t } = await useTranslation(lng, "reports");
   const accordionData = t("accordion-data", {
     returnObjects: true,
-  }) as AccordionItem[];
+  }) as ReportsAccordionItem[];
 
   return (
     <section id="reports" className="bg-white w-full text-black pb-16">
@@ -27,7 +27,7 @@ export const Reports = async ({ lng }: { lng: "en" | "uk" }) => {
           {t("reports-title")}
         </h2>
         {accordionData?.map((item) => (
-          <ReportsAccordion key={item.id} title={item.title}>
+          <Accordion key={item.id} title={item.title}>
             <p className="text-2">
               <Link
                 appearance="link"
@@ -37,7 +37,7 @@ export const Reports = async ({ lng }: { lng: "en" | "uk" }) => {
                 {item.content.text}
               </Link>
             </p>
-          </ReportsAccordion>
+          </Accordion>
         ))}
       </div>
     </section>

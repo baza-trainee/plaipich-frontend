@@ -1,0 +1,83 @@
+{
+  "support-title": "Support",
+  "support-text": "Help develop and promote contemporary culture in the city of Vinnytsia through projects and personalities of modern art!",
+  "support-payment-title": "Your contribution will help the PLAI organization operate systematically and fulfill its mission!",
+  "support-payment-periodicity": ["Monthly", "One-time"],
+  "support-other-amount-btn": "Other Amount, UAH",
+  "support-apply-btn": "Support",
+  "support-thanks": "Thank you!",
+  "all-reports-btn": "View our reports",
+  "payment-details-title": "Payment Details",
+  "payment-details-accordion-data": [
+    {
+      "id": 1,
+      "title": "Bank Transfer within Ukraine",
+      "details": [
+        {
+          "name": "IBAN",
+          "value": "UA513071230000026007021143140"
+        },
+        {
+          "name": "Recipient",
+          "value": "PUBLIC ORGANIZATION “PLAY PICH”"
+        },
+        {
+          "name": "Recipient Bank",
+          "value": "PJSC «BANK VOSTOK», Vinnytsia"
+        },
+        {
+          "name": "EDRPOU",
+          "value": "44803597"
+        },
+        {
+          "name": "Bank's MFO",
+          "value": "307123"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "For payments from abroad",
+      "details": [
+        {
+          "name": "IBAN",
+          "value": "UA513071230000026007021143140"
+        },
+        {
+          "name": "Recipient",
+          "value": "PUBLIC ORGANIZATION “PLAY PICH”"
+        },
+        {
+          "name": "Recipient Bank",
+          "value": "PJSC 'BANK VOSTOK', Vinnytsia"
+        },
+        {
+          "name": "EDRPOU",
+          "value": "44803597"
+        },
+        {
+          "name": "Bank's MFO",
+          "value": "307123"
+        }
+      ]
+    }
+  ],
+  "activities-title": "PLAI Activities",
+  "activities-data": [
+    {
+      "id": 1,
+      "count": "300+",
+      "text": "projects per year"
+    },
+    {
+      "id": 2,
+      "count": "1000",
+      "text": "viewers"
+    },
+    {
+      "id": 3,
+      "count": "50",
+      "text": "engaged artists and cultural figures"
+    }
+  ]
+}
