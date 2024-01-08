@@ -1,7 +1,23 @@
 import React from "react";
 
-const Support = () => {
-  return <div>Support</div>;
+import { Activities } from "@/components/activities/activities";
+import { PaymentDetailsSection } from "@/components/payment-details-section/payment-details-section";
+import { Support } from "@/components/support/support";
+
+const SupportUs = async ({
+  params,
+}: {
+  params: {
+    lng: "en" | "uk";
+  };
+}) => {
+  return (
+    <main className="bg-white text-black md:py-[116px] pt-10 pb-14">
+      <Support lng={params.lng} />
+      <PaymentDetailsSection lng={params.lng} />
+      <Activities lng={params.lng} />
+    </main>
+  );
 };
 
-export default Support;
+export default SupportUs;
