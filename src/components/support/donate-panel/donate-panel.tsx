@@ -26,7 +26,9 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
         <button
           onClick={() => setType("monthly")}
           className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 py-1 transition-colors ${
-            type === "monthly" ? "border-dark-blue text-dark-blue" : "border-black text-black"
+            type === "monthly"
+              ? "border-dark-blue text-dark-blue"
+              : "border-black text-black"
           }`}
         >
           {lng === "en" ? "Monthly" : "Щомісячно"}
@@ -34,7 +36,9 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
         <button
           onClick={() => setType("one-time")}
           className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 pb-1 transition-colors ${
-            type === "one-time" ? "border-dark-blue text-dark-blue" : "border-black text-black"
+            type === "one-time"
+              ? "border-dark-blue text-dark-blue"
+              : "border-black text-black"
           }`}
         >
           {lng === "en" ? "One-time" : "Разово"}
@@ -42,7 +46,10 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
       </div>
       <div className="flex md:gap-4 gap-1 w-full">
         {donationAmounts.map((donateValue) => {
-          const conditionalStyle = amount === donateValue ? "bg-dark-blue text-white" : "text-black bg-transparent";
+          const conditionalStyle =
+            amount === donateValue
+              ? "bg-dark-blue text-white"
+              : "text-black bg-transparent";
           return (
             <button
               key={donateValue}
@@ -69,7 +76,7 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           min={MIN_DONATION}
           max={MAX_DONATION}
           placeholder={lng === "en" ? "Other amount, UAH" : "Iнша сума, UAH"}
-          className="w-full block border border-black font-normal lg:font-semibold  mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
+          className="w-full block border border-black font-normal lg:font-semibold lg:mb-2 md:mb-0 mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
         />
       </div>
       <Link

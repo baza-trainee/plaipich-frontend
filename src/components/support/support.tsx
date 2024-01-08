@@ -24,14 +24,18 @@ export const Support = async ({ lng }: { lng: "en" | "uk" }) => {
           />
         </div>
         <div className="md:col-start-2 md:col-end-3 flex flex-col lg:gap-y-6 gap-y-3 justify-start items-center">
-          <p className="text-2 text-center md:max-w-3xl max-w-md md:my-2 my-9">{t("support-text")}</p>
+          <p className="text-2 text-center md:max-w-3xl max-w-md md:mt-2 md:mb-0 my-9">
+            {t("support-text")}
+          </p>
           <div className="w-full lg:p-14 md:p-4 p-2 border  flex flex-col items-center grow border-gray-300">
             <div className="max-w-lg md:max-w-xl grow flex flex-col justify-start items-center lg:max-w-full">
               <p className="leading-2 lg:text-lg font-semibold md:text-small-md text-center lg:pb-8 sm:pb-3 pb-0 inline-block">
                 {t("support-payment-title")}
               </p>
               <DonatePanel lng={lng} />
-              <span className="h7 text-lg font-semibold lg:mt-8 md:mt-2 mt-4 inline-block">{t("support-thanks")}</span>
+              <span className="h7 text-lg font-semibold lg:mt-8 md:mt-2 mt-4 inline-block">
+                {t("support-thanks")}
+              </span>
             </div>
           </div>
         </div>
