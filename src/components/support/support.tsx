@@ -24,7 +24,7 @@ export const Support = async ({ lng }: { lng: "en" | "uk" }) => {
           />
         </div>
         <div className="md:col-start-2 md:col-end-3 flex flex-col lg:gap-y-6 gap-y-3 justify-start items-center">
-          <p className="text-2 text-center md:max-w-3xl max-w-md md:my-2 my-9">
+          <p className="text-2 text-center md:max-w-3xl max-w-md md:mt-2 md:mb-0 my-9">
             {t("support-text")}
           </p>
           <div className="w-full lg:p-14 md:p-4 p-2 border  flex flex-col items-center grow border-gray-300">
