@@ -27,7 +27,9 @@ export const NewsListMain = ({
       </div>
 
       {isLoading && <div className="w-full h-[350px]">Loading...</div>}
-      {!isLoading && data && <NewsList lng={lng} dateClassName="text-gray-300"/>}
+      {!isLoading && data && (
+        <NewsList lng={lng} dateClassName="text-gray-300" />
+      )}
       <div className="flex justify-center">
         <Link appearance="linkButtonPrimary" href={NAVIGATION.news}>
           <p className="btn-text">{btnText}</p>

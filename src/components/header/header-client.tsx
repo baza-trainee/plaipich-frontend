@@ -32,7 +32,8 @@ export const HeaderClient = ({
       const result = filterSearchList({
         projects: projectsList.projects,
         news: newsList.news,
-        query: newQuery,
+        query: newQuery.trim(),
+        lng,
       });
       result && setSearchList(result);
     }

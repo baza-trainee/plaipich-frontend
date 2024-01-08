@@ -29,13 +29,16 @@ export const PaymentDetailsSection = async ({ lng }: { lng: "en" | "uk" }) => {
           {t("all-reports-btn")}
           <LuMoveRight className="inline-block ml-2 align-middle" />
         </Link>
-        <h2 className="h2 mb-14 mt-16 text-left">{t("payment-details-title")}</h2>
+        <h2 className="h2 mb-14 mt-16 text-left">
+          {t("payment-details-title")}
+        </h2>
         {paymentAccordionData?.map(({ id, title, details }) => (
           <Accordion key={id} title={title}>
             <ul className="text-2 text-dark-blue">
               {details?.map((detail) => (
                 <li key={detail.name}>
-                  <span className="font-semibold">{detail.name}</span>: {detail.value}
+                  <span className="font-semibold">{detail.name}</span>:{" "}
+                  {detail.value}
                 </li>
               ))}
             </ul>
