@@ -1,0 +1,29 @@
+.carousel .control-next.control-arrow {
+    @apply absolute z-20 top-auto lg:bottom-10 bottom-5 right-0 md:right-1/3 opacity-0 w-[45%] md:w-[15%];
+} 
+
+ .carousel .control-prev.control-arrow {
+    @apply absolute z-20 top-auto lg:bottom-10 bottom-5 left-0 md:left-1/3 opacity-0 w-[45%] md:w-[15%];
+}
+
+.slide-box {
+    @apply w-full h-full max-w-[1440px] m-auto pb-20 flex px-2 md:flex-row-reverse md:pt-10 lg:pb-12 lg:h-[880px];
+}
+
+.image-box {
+    @apply w-[250px] h-[250px] md:w-[704px] md:h-[492px] lg:w-[979px] lg:h-[684px];
+}
+
+.control-box {
+    @apply flex absolute right-0 bottom-5 w-full justify-center items-center md:right-1/3 md:w-1/3 lg:bottom-10;
+}
+.carousel .control-dots {
+    @apply flex w-full gap-2 justify-center
+}
+.carousel .control-dots .dot{
+    @apply w-4 h-4 bg-link-water shadow-none   
+}
+.carousel .control-dots .dot{
+    @apply bg-dark-blue
+
+}
