@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
@@ -24,11 +24,19 @@ export const HeaderClient = ({
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchList, setSearchList]: [any, any] = useState([]);
+  const [searchList, setSearchList] = useState<Array<INews | IProject>>([]);
 
-  const changeInput = (e: ChangeEvent) => {
-    const input = e.target as HTMLInputElement;
-    setQuery(input.value.toLowerCase());
+  const changeInput = (newQuery: string) => {
+    setQuery(newQuery);
+    if (projectsList && newsList) {
+      const result = filterSearchList({
+        projects: projectsList,
+        news: newsList,
+        query: newQuery.trim(),
+        lng,
+      });
+      result && setSearchList(result);
+    }
   };
 
   const open = () => {
@@ -37,18 +45,6 @@ export const HeaderClient = ({
 
   const close = () => {
     setOpenSearch(false);
-  };
-
-  const findResult = (event: any) => {
-    event.preventDefault();
-    if (projectsList && newsList) {
-      const result = filterSearchList({
-        projects: projectsList,
-        news: newsList,
-        query,
-      });
-      result && setSearchList(result);
-    }
   };
 
   return (
@@ -78,40 +74,12 @@ export const HeaderClient = ({
           <SearchForm
             className="relative ml-6 w-[400px] transition-all justify-center"
             close={close}
-            findResult={findResult}
             changeInput={changeInput}
             query={query}
             lng={lng}
             searchList={searchList}
           />
         )}
-        {/* {query && searchList.length > 0 && (
-          <div className="absolute flex flex-col max-w-[400px] gap-1 top-12 right-0 bg-white text-black text-5">
-            {searchList.map((item: any) => {
-              if (item.status) {
-                return (
-                  <Link
-                    key={item._id}
-                    href={`${lng}/${NAVIGATION.project}${item._id}`}
-                    className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
-                  >
-                    {item.title}
-                  </Link>
-                );
-              } else {
-                return (
-                  <Link
-                    key={item._id}
-                    href={`${lng}/${NAVIGATION.oneNew}${item._id}`}
-                    className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
-                  >
-                    {item.title}
-                  </Link>
-                );
-              }
-            })}
-          </div>
-        )} */}
         {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
       </div>
     </>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { TbAlignRight, TbX } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
@@ -27,18 +27,14 @@ export const BurgerMenu = ({
   const [query, setQuery] = useState("");
   const [searchList, setSearchList]: [any, any] = useState([]);
 
-  const changeInput = (e: ChangeEvent) => {
-    const input = e.target as HTMLInputElement;
-    setQuery(input.value);
-  };
-
-  const findResult = (event: any) => {
-    event.preventDefault();
+  const changeInput = (newQuery: string) => {
+    setQuery(newQuery);
     if (projectsList && newsList) {
       const result = filterSearchList({
         projects: projectsList,
         news: newsList,
-        query,
+        query: newQuery.trim(),
+        lng,
       });
       result && setSearchList(result);
     }
@@ -64,7 +60,6 @@ export const BurgerMenu = ({
         <div className="container z-10 top-[3px] px-5 md:px-[204px] pt-14 md:pt-[76px] pb-8 text-center">
           <div className="block mx-auto mb-[68px] ">
             <SearchForm
-              findResult={findResult}
               changeInput={changeInput}
               query={query}
               lng={lng}

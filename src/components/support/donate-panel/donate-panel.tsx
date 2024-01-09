@@ -76,7 +76,7 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           min={MIN_DONATION}
           max={MAX_DONATION}
           placeholder={lng === "en" ? "Other amount, UAH" : "Iнша сума, UAH"}
-          className="w-full block border border-black font-normal lg:font-semibold  mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
+          className="w-full block border border-black font-normal lg:font-semibold lg:mb-2 md:mb-0 mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
         />
       </div>
       <Link

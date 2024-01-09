@@ -1,8 +1,5 @@
-import React, {
-  ChangeEventHandler,
-  FormEventHandler,
-  MouseEventHandler,
-} from "react";
+import { useRouter } from "next/navigation";
+import React, { ChangeEvent, FormEvent, MouseEvent } from "react";
 import { TbSearch } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
@@ -11,27 +8,48 @@ import { INews, IProject } from "@/commons/types";
 import { Link } from "../link/link";
 
 interface ISearchForm {
-  close?: MouseEventHandler;
+  close?: Function;
   lng: "en" | "uk";
   className: string;
   query: string;
-  findResult: FormEventHandler;
-  changeInput: ChangeEventHandler;
-  searchList: (INews | IProject)[];
+  changeInput: Function;
+  searchList: Array<INews | IProject>;
 }
 
 export const SearchForm = ({
   close = () => {},
-  findResult,
   changeInput,
   query,
   lng,
   className,
   searchList,
 }: ISearchForm) => {
+  const router = useRouter();
+
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+  };
+
+  const onChange = (event: ChangeEvent) => {
+    const input = event.target as HTMLInputElement;
+    changeInput(input.value);
+  };
+
+  const onClickLink = (event: MouseEvent) => {
+    event.preventDefault();
+    const link = event.target as HTMLLinkElement;
+    changeInput("");
+    close();
+    router.push(link.href);
+  };
+
+  const onClickClose = () => {
+    close();
+  };
+
   return (
-    <div className={className} onMouseLeave={close}>
-      <form onSubmit={findResult}>
+    <div className={className} onMouseLeave={onClickClose}>
+      <form onSubmit={onSubmit}>
         <button
           type="submit"
           className="text-white absolute left-0 top-1 px-[10px] py-2 border-none"
@@ -45,23 +63,26 @@ export const SearchForm = ({
           placeholder={lng === "uk" ? "Пошук" : "Search"}
           value={query}
           name="query"
-          onChange={changeInput}
+          onChange={onChange}
           autoFocus
           required
-          autoComplete="on"
+          autoComplete="off"
         />
       </form>
       {query && searchList.length > 0 && (
-        <div className="absolute text-left flex flex-col max-w-[400px] gap-1 top-12 right-0 bg-white text-black text-5">
-          {searchList.map((item: any) => {
-            if (item.status) {
+        <div className="absolute text-left flex flex-col max-w-[400px] md:w-[400px] gap-1 top-12 right-0 bg-white text-black text-5">
+          {searchList.map((item) => {
+            if ("status" in item) {
               return (
                 <Link
                   key={item._id}
                   href={`/${lng}/${NAVIGATION.project}${item._id}`}
                   className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
+                  onClick={onClickLink}
                 >
-                  {item.title}
+                  {lng === "en"
+                    ? `Project: ${item.enTitle}`
+                    : `Проект: ${item.title}`}
                 </Link>
               );
             } else {
@@ -70,8 +91,11 @@ export const SearchForm = ({
                   key={item._id}
                   href={`/${lng}/${NAVIGATION.oneNew}${item._id}`}
                   className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
+                  onClick={onClickLink}
                 >
-                  {item.title}
+                  {lng === "en"
+                    ? `New: ${item.enTitle}`
+                    : `Новина: ${item.title}`}
                 </Link>
               );
             }

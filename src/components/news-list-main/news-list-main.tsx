@@ -1,4 +1,3 @@
-// "use client";
 import React from "react";
 
 import { NAVIGATION } from "@/commons/constants";
@@ -16,7 +15,6 @@ export const NewsListMain = async ({
   btnText: string;
   lng: "en" | "uk";
 }) => {
-  // const { data, isLoading } = useNewsList(API_URL.NEWS);
 
   return (
     <section className="lg:p-16 md:px-8 md:py-16 p-7">
