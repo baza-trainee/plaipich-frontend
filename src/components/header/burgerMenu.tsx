@@ -3,9 +3,8 @@
 import React, { useState } from "react";
 import { TbAlignRight, TbX } from "react-icons/tb";
 
-import { API_URL, NAVIGATION } from "@/commons/constants";
+import { NAVIGATION } from "@/commons/constants";
 import { INews, IProject } from "@/commons/types";
-import { useNewsList, useProjectsList } from "@/hooks";
 import { filterSearchList } from "@/utils";
 
 import { Link } from "../index";
@@ -16,27 +15,27 @@ import { LanguageSwitcher } from "./switchLangBtn";
 export const BurgerMenu = ({
   lng,
   nav,
+  projectsList,
+  newsList,
 }: {
+  projectsList: IProject[];
+  newsList: INews[];
   nav: { [key: string]: string };
   lng: "en" | "uk";
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchList, setSearchList] = useState<Array<INews | IProject>>([]);
-  const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
-  const { data: newsList } = useNewsList(API_URL.NEWS);
+  const [searchList, setSearchList]: [any, any] = useState([]);
 
   const changeInput = (newQuery: string) => {
     setQuery(newQuery);
-    if (projectsList && newsList) {
-      const result = filterSearchList({
-        projects: projectsList.projects,
-        news: newsList.news,
-        query: newQuery.trim(),
-        lng,
-      });
-      result && setSearchList(result);
-    }
+    const result = filterSearchList({
+      projects: projectsList,
+      news: newsList,
+      query: newQuery.trim(),
+      lng,
+    });
+    result && setSearchList(result);
   };
 
   const toggleMenu = () => {

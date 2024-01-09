@@ -59,7 +59,7 @@ const News = async ({
           <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
             <div className="text-gray-400 lg:mr-6">{t("sort2")}</div>
             <select name="sort" id="sort">
-              <option value="value1" selected>
+              <option value="value1">
                 датою (спочатку нові)
               </option>
               <option value="value2">датою (спочатку старі)</option>

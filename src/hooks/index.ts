@@ -1,2 +1,2 @@
-export { useNewsList } from "./use-news-list";
-export { useProjectsList } from "./use-projects-list";
+export { useOneNew } from './use-one-new';
+export { useOneProject } from './use-one-project';
