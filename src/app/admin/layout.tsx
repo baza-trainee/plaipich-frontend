@@ -34,12 +34,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
-    <html lang='uk'>
+    <html lang="uk">
       <head>
         <title>Plai Admin</title>
-        <meta name="description" content='Admin panel for Plai' />
+        <meta name="description" content="Admin panel for Plai" />
         <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
       </head>
       <Providers>
