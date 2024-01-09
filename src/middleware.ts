@@ -13,7 +13,7 @@ export const config = {
 };
 
 export function middleware(req: NextRequest) {
-  if (req.nextUrl.pathname === '/admin') {
+  if (req.nextUrl.pathname.includes('/admin')) {
     return;
   }
   let lng;
