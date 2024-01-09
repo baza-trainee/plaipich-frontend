@@ -1,3 +1,4 @@
+import { API_URL } from "@/commons/constants";
 import {
   AboutMain,
   Contacts,
@@ -5,6 +6,7 @@ import {
   NewsListMain,
   Slider,
 } from "@/components";
+import { apiService } from "@/services/api-service";
 
 import { useTranslation } from "../i18n";
 
@@ -15,6 +17,9 @@ const Home = async ({
     lng: "en" | "uk";
   };
 }) => {
+  const {
+    data: { projects },
+  } = await apiService.getRequest(API_URL.PROJECTS);
   const { t } = await useTranslation(params.lng);
 
   return (
@@ -22,6 +27,7 @@ const Home = async ({
       <Slider
         btnOneProject={t("btn-learn-more")}
         btnAllProjects={t("btn-all-projects")}
+        projectsList={projects}
         lng={params.lng}
       />
       <AboutMain lng={params.lng} />

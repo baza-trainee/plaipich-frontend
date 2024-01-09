@@ -3,8 +3,8 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbSearch } from "react-icons/tb";
 
-import { API_URL, NAVIGATION } from "@/commons/constants";
-import { useNewsList, useProjectsList } from "@/hooks";
+import { NAVIGATION } from "@/commons/constants";
+import { INews, IProject } from "@/commons/types";
 import { filterSearchList } from "@/utils";
 
 import { Link } from "../link/link";
@@ -13,17 +13,18 @@ import { LanguageSwitcher } from "./switchLangBtn";
 
 export const HeaderClient = ({
   lng,
+  projectsList,
+  newsList,
   children,
 }: {
   children: React.ReactNode;
+  projectsList: IProject[];
+  newsList: INews[];
   lng: "en" | "uk";
 }) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
   const [searchList, setSearchList]: [any, any] = useState([]);
-
-  const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
-  const { data: newsList } = useNewsList(API_URL.NEWS);
 
   const changeInput = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement;
@@ -42,8 +43,8 @@ export const HeaderClient = ({
     event.preventDefault();
     if (projectsList && newsList) {
       const result = filterSearchList({
-        projects: projectsList.projects,
-        news: newsList.news,
+        projects: projectsList,
+        news: newsList,
         query,
       });
       result && setSearchList(result);

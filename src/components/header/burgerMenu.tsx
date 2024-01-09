@@ -3,8 +3,8 @@
 import React, { ChangeEvent, useState } from "react";
 import { TbAlignRight, TbX } from "react-icons/tb";
 
-import { API_URL, NAVIGATION } from "@/commons/constants";
-import { useNewsList, useProjectsList } from "@/hooks";
+import { NAVIGATION } from "@/commons/constants";
+import { INews, IProject } from "@/commons/types";
 import { filterSearchList } from "@/utils";
 
 import { Link } from "../index";
@@ -15,15 +15,17 @@ import { LanguageSwitcher } from "./switchLangBtn";
 export const BurgerMenu = ({
   lng,
   nav,
+  projectsList,
+  newsList,
 }: {
+  projectsList: IProject[];
+  newsList: INews[];
   nav: { [key: string]: string };
   lng: "en" | "uk";
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [searchList, setSearchList]: [any, any] = useState([]);
-  const { data: projectsList } = useProjectsList(API_URL.PROJECTS);
-  const { data: newsList } = useNewsList(API_URL.NEWS);
 
   const changeInput = (e: ChangeEvent) => {
     const input = e.target as HTMLInputElement;
@@ -34,8 +36,8 @@ export const BurgerMenu = ({
     event.preventDefault();
     if (projectsList && newsList) {
       const result = filterSearchList({
-        projects: projectsList.projects,
-        news: newsList.news,
+        projects: projectsList,
+        news: newsList,
         query,
       });
       result && setSearchList(result);

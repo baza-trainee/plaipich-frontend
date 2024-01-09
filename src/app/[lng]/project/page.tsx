@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 import React from "react";
 
 import { API_URL } from "@/commons/constants";
-import { useOneProject } from "@/hooks/use-one-project";
+import { useOneProject } from "@/hooks";
 
 const OneProject = () => {
   const searchParams = useSearchParams();

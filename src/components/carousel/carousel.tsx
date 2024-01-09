@@ -7,23 +7,23 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
-import { API_URL, NAVIGATION } from "@/commons/constants";
-import { useProjectsList } from "@/hooks";
+import { NAVIGATION } from "@/commons/constants";
+import { IProject } from "@/commons/types";
 
 import { Link } from "../link/link";
-import { Loader } from "../loader/loader";
 
 export const Slider = ({
   btnOneProject,
   btnAllProjects,
+  projectsList,
   lng,
 }: {
   btnOneProject: string;
   btnAllProjects: string;
+  projectsList?: IProject[];
   lng: "en" | "uk";
 }) => {
   const [slide, setSlide] = useState(1);
-  const { data, isLoading } = useProjectsList(API_URL.PROJECTS);
 
   const onChange = (page: number) => {
     if (page === 0) {
@@ -35,13 +35,7 @@ export const Slider = ({
 
   return (
     <section className="relative w-full" id="projects-slider">
-      {isLoading && (
-        <div className="w-full h-[100vh]">
-          <Loader />
-          <p>Lng - {lng}</p>
-        </div>
-      )}
-      {!isLoading && data && (
+      {projectsList && (
         <>
           <Carousel
             showThumbs={false}
@@ -52,7 +46,7 @@ export const Slider = ({
             interval={7000}
             onChange={onChange}
           >
-            {data.projects.map((item) => (
+            {projectsList.map((item) => (
               <div className="slide-box" key={item._id}>
                 <div className="image-box">
                   <Image
@@ -107,7 +101,7 @@ export const Slider = ({
               </svg>
             </button>
             <p className="text-base lg:text-md text-center w-[75px] text-orange">
-              {slide} / {data.results}
+              {slide} / {projectsList.length}
             </p>
             <button className="border-none fill-gray-200">
               <svg

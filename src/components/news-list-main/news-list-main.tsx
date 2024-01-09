@@ -1,14 +1,13 @@
-"use client";
+// "use client";
 import React from "react";
 
-import { API_URL, NAVIGATION } from "@/commons/constants";
-import { useNewsList } from "@/hooks";
+import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
 import NewsList from "../news-list/news-list";
 import { Spiral } from "../spiral/spiral";
 
-export const NewsListMain = ({
+export const NewsListMain = async ({
   title,
   btnText,
   lng,
@@ -17,7 +16,7 @@ export const NewsListMain = ({
   btnText: string;
   lng: "en" | "uk";
 }) => {
-  const { data, isLoading } = useNewsList(API_URL.NEWS);
+  // const { data, isLoading } = useNewsList(API_URL.NEWS);
 
   return (
     <section className="lg:p-16 md:px-8 md:py-16 p-7">
@@ -26,10 +25,8 @@ export const NewsListMain = ({
         <h2 className="lg:h1 h2">{title}</h2>
       </div>
 
-      {isLoading && <div className="w-full h-[350px]">Loading...</div>}
-      {!isLoading && data && (
-        <NewsList lng={lng} dateClassName="text-gray-300" />
-      )}
+      {/* {isLoading && <div className="w-full h-[350px]">Loading...</div>} */}
+      <NewsList lng={lng} dateClassName="text-gray-300" />
       <div className="flex justify-center">
         <Link appearance="linkButtonPrimary" href={NAVIGATION.news}>
           <p className="btn-text">{btnText}</p>
