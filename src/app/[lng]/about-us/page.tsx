@@ -10,13 +10,18 @@ import {
   Reports,
 } from "@/components";
 
-const About = ({
+import { getMissionData } from "../../../../data/db";
+
+const About = async ({
   params,
 }: {
   params: {
     lng: "en" | "uk";
   };
-}) => {
+  }) => {
+  const missionData = await getMissionData()
+  console.log(missionData);
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <PlaiAbout lng={params.lng} />
