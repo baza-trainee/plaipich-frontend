@@ -1,9 +1,12 @@
 import React from "react";
 
 import { useTranslation } from "@/app/i18n";
+import { API_URL } from "@/commons/constants";
+import { INews } from "@/commons/types";
 import { SetTagColor } from "@/components/news-card/news-card";
 import NewsList from "@/components/news-list/news-list";
 import { Spiral } from "@/components/spiral/spiral";
+import { apiService } from "@/services/api-service";
 
 const badgesData = [
   {
@@ -30,7 +33,12 @@ const News = async ({
   params: {
     lng: "en" | "uk";
   };
-}) => {
+  }) => {
+    const {
+    data: { news },
+  // eslint-disable-next-line no-undef
+  }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
+  
   const { t } = await useTranslation(params.lng, "news");
 
   return (
@@ -59,14 +67,14 @@ const News = async ({
           <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
             <div className="text-gray-400 lg:mr-6">{t("sort2")}</div>
             <select name="sort" id="sort">
-              <option value="value1" selected>
+              <option value="value1">
                 датою (спочатку нові)
               </option>
               <option value="value2">датою (спочатку старі)</option>
             </select>
           </div>
         </div>
-        <NewsList lng={params.lng} dateClassName="text-gray-500" />
+        <NewsList lng={params.lng} dateClassName="text-gray-500" newsList={news}/>
         <div className="hidden md:flex justify-center">
           <div className="py-2 px-4 mr-1">-</div>
           <div className="py-2 px-4 border rounded-large mr-1 bg-dark-blue text-white">

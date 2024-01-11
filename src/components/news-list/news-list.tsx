@@ -1,31 +1,34 @@
-"use client";
-import { API_URL } from "@/commons/constants";
-import { useNewsList } from "@/hooks";
+'use client'
+import React from 'react';
+
+import { INews } from "@/commons/types";
 
 import NewsCard from "../news-card/news-card";
 
 const NewsList = ({
   lng,
   dateClassName,
+  newsList
 }: {
   lng: "en" | "uk";
-  dateClassName: string;
-}) => {
-  const { data, isLoading } = useNewsList(API_URL.NEWS);
-
+    dateClassName: string;
+    newsList?: INews[];
+  }) => {
+  
+  // додаси логіку відображення залежно від розміру екрану
+  
   return (
     <>
-      {isLoading && <div className="w-full h-[350px]">Loading...</div>}
-      {!isLoading && data && (
+      {newsList && (
         <div
           className="grid grid-cols-1 
                     lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
                     md:grid-cols-2 md:my-16 md:gap-x-4"
         >
-          {data.news.map((news) => (
+          {newsList.map((item) => (
             <NewsCard
-              key={news._id}
-              newsItem={news}
+              key={item._id}
+              newsItem={item}
               lng={lng}
               className="lg:m-0 mb-10"
               dateClassName={dateClassName}
