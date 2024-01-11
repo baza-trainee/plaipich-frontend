@@ -1,29 +1,31 @@
-import { API_URL } from "@/commons/constants";
+'use client'
+import React from 'react';
+
 import { INews } from "@/commons/types";
-import { apiService } from "@/services/api-service";
 
 import NewsCard from "../news-card/news-card";
 
-const NewsList = async ({
+const NewsList = ({
   lng,
   dateClassName,
+  newsList
 }: {
   lng: "en" | "uk";
-  dateClassName: string;
-}) => {
-  const {
-    data: { news },
-  }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
-
+    dateClassName: string;
+    newsList?: INews[];
+  }) => {
+  
+  // додаси логіку відображення залежно від розміру екрану
+  
   return (
     <>
-      {news && (
+      {newsList && (
         <div
           className="grid grid-cols-1 
                     lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
                     md:grid-cols-2 md:my-16 md:gap-x-4"
         >
-          {news.map((item) => (
+          {newsList.map((item) => (
             <NewsCard
               key={item._id}
               newsItem={item}
