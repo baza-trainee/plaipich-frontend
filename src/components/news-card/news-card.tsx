@@ -9,25 +9,26 @@ import { formatDate } from "@/utils";
 interface NewsCardProps {
   newsItem: INews;
   className?: string;
-  dateClassName?: string;
+  isMain?: boolean;
   lng: "en" | "uk";
 }
 
 export function SetTagColor(tag: string) {
   const tagsColors: Record<string, string> = {
-    Фестивалі: "bg-link-water",
-    Проекти: "bg-pale-cerulean",
-    Конкурси: "bg-water-blue",
-    Виставки: "bg-horizon",
+    Статті: "bg-link-water",
+    Анонси: "bg-pale-cerulean",
+    Події: "bg-water-blue",
+    Проекти: "bg-horizon",
+    Персоналії: "bg-dark-blue/70",
   };
-  return tagsColors[tag] ?? "bg-transparent";
+  return tagsColors[tag] ?? "bg-link-water";
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
   newsItem,
   className,
   lng,
-  dateClassName,
+  isMain,
 }) => {
   const {
     _id,
@@ -68,7 +69,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
           <p className="my-3 lg:text-md md:line-clamp-2">
             {lng === "en" ? enDescription : description}
           </p>
-          <p className={`pb-[13px] lg:text-md ${dateClassName ?? ""}`}>
+          <p
+            className={`pb-[13px] lg:text-md ${
+              isMain ? "text-gray-300" : "text-gray-500"
+            }`}
+          >
             {formatDate({ date, lng })}
           </p>
         </div>
