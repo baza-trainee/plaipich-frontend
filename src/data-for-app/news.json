@@ -1,56 +1,74 @@
 [
   {
-    "category": "Фестивалі",
+    "category": {
+      "en": "Announcements",
+      "uk": "Анонси"
+    },
     "title": "Фестиваль Ticket to the sun",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "17 жовтня",
-    "mainImage": "/images/news-pic-1.jpg"
+    "mainPhoto": "/images/news-pic-1.jpg"
   },
   {
-    "category": "Проекти",
+    "category": {
+      "en": "Articles",
+      "uk": "Статті"
+    },
     "title": "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
     "description": "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "6 жовтня",
-    "mainImage": "/images/news-pic-2.jpg"
+    "mainPhoto": "/images/news-pic-2.jpg"
   },
   {
-    "category": "Конкурси",
+    "category": {
+      "en": "Projects",
+      "uk": "Проекти"
+    },
     "title": "Розіграш унікального кулона “Фенікс/Тризуб",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "2 жовтня",
-    "mainImage": "/images/news-pic-3.jpg"
+    "mainPhoto": "/images/news-pic-3.jpg"
   },
   {
-    "category": "Фестивалі",
+    "category": {
+      "en": "Announcements",
+      "uk": "Анонси"
+    },
     "title": "Фестиваль Ticket to the sun",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для ",
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "17 жовтня",
-    "mainImage": "/images/news-pic-1.jpg"
+    "mainPhoto": "/images/news-pic-1.jpg"
   },
   {
-    "category": "Проекти",
+    "category": {
+      "en": "Events",
+      "uk": "Події"
+    },
     "title": "#Boost_4_culture. В Monтаж відбулася презентація нового проєкту",
     "description": "Унікальна подія відбулась цього тижня у нашому улюбленому просторі Моnтаж де ",
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "6 жовтня",
-    "mainImage": "/images/news-pic-2.jpg"
+    "mainPhoto": "/images/news-pic-2.jpg"
   },
   {
-    "category": "Конкурси",
+    "category": {
+      "en": "Articles",
+      "uk": "Статті"
+    },
     "title": "Розіграш унікального кулона “Фенікс/Тризуб",
     "description": "Розіграш унікальної прикраси з легендарного фестивалю Burning Man для",
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "2 жовтня",
-    "mainImage": "/images/news-pic-3.jpg"
+    "mainPhoto": "/images/news-pic-3.jpg"
   }
 ]
