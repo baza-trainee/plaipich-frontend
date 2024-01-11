@@ -72,9 +72,10 @@ export const SearchForm = ({
       {query && searchList.length > 0 && (
         <div className="absolute text-left flex flex-col max-w-[400px] md:w-[400px] gap-1 top-12 right-0 bg-white text-black text-5">
           {searchList.map((item) => {
-            if ("status" in item) {
+            if ("poster" in item) {
               return (
                 <Link
+                
                   key={item._id}
                   href={`/${lng}/${NAVIGATION.project}${item._id}`}
                   className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"
