@@ -16,10 +16,15 @@ interface NewsCardProps {
 export function SetTagColor(tag: string) {
   const tagsColors: Record<string, string> = {
     Статті: "bg-link-water",
+    Articles: "bg-link-water",
     Анонси: "bg-pale-cerulean",
+    Announcements: "bg-pale-cerulean",
+    Events: "bg-water-blue",
     Події: "bg-water-blue",
     Проекти: "bg-horizon",
+    Projects: "bg-horizon",
     Персоналії: "bg-dark-blue/70",
+    Personnel: "bg-dark-blue/70",
   };
   return tagsColors[tag] ?? "bg-link-water";
 }
@@ -63,7 +68,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               {lng === "en" ? category.en : category.uk}
             </span>
           </div>
-          <h3 className="h2 normal-case lg:line-clamp-2 md:line-clamp-1">
+          <h3 className="h2 normal-case md:line-clamp-1">
             {lng === "en" ? enTitle : title}
           </h3>
           <p className="my-3 lg:text-md md:line-clamp-2">
