@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Contacts, JoinUs, Mission, OneProject } from "@/components";
+import { Contacts, JoinUs, OneProject } from "@/components";
 
 const Project = ({
   params,
@@ -11,9 +11,7 @@ const Project = ({
 }) => {
   return (
     <main>
-      <OneProject lng={params.lng}>
-        <Mission lng={params.lng} />
-      </OneProject>
+      <OneProject lng={params.lng}/>
       <JoinUs backgroundColor="bg-light-blue" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>

@@ -2,15 +2,45 @@ export interface IProject {
   _id: string;
   title: string;
   description: string;
+  status: boolean;
   enTitle: string;
   enDescription: string;
-  status: "Active" | "Completed" | "Planned";
   poster: string;
-  videos: string[];
-  photos: string[];
-  locationsCount: number;
-  partnersCount: number;
-  events: string[];
+  detailDesc?: {
+    start: string;
+    enStart: string;
+    text: string;
+    enText: string;
+    image: string;
+  };
+  mission?: {
+    image: string;
+    title: string;
+    enTitle: string;
+    list: string[];
+    enList: string[];
+  };
+  projectProgram?: {
+    title: string;
+    enTitle: string;
+    list: string[];
+    enList: string[];
+  };
+  support?: {
+    text: string;
+    enText: string;
+    logo: string;
+  };
+  videos?: string[];
+  photos?: string[];
+  locationsCount?: {
+    title: string;
+    enTitle: string;
+    text: string;
+    enText: string;
+    link: string;
+  };
+  partners?: [{ name: string; logo: string; }];
 }
 
 export interface INews {

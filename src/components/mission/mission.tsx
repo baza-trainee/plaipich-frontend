@@ -4,12 +4,12 @@ import React from "react";
 import { Spiral } from "@/components/spiral/spiral";
 
 interface MissionItem {
-  bigTitle: string;
+  bigTitle?: string;
   title: string;
-  list: [string];
-  enBigTitle: string;
+  list: string[];
+  enBigTitle?: string;
   enTitle: string;
-  enList: [string];
+  enList: string[];
   image: string;
 }
 

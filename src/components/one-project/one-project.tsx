@@ -5,6 +5,7 @@ import React from "react";
 import { API_URL } from "@/commons/constants";
 import { useOneProject } from "@/hooks/use-one-project";
 
+import { Mission } from "../mission/mission";
 import { Description } from "./description-project";
 import { Details } from "./details-project";
 import { Gallery } from "./gallery-project";
@@ -15,10 +16,8 @@ import { Program } from "./program-project";
 import { SupportProject } from "./support-project";
 
 export const OneProject = ({
-  children,
   lng,
 }: {
-  children: React.ReactNode;
   lng: "en" | "uk";
 }) => {
   const searchParams = useSearchParams();
@@ -35,13 +34,13 @@ export const OneProject = ({
           <p>{lng==='en'? data?.enTitle: data?.title}</p>
           <Poster />
           <Description />
-          <Details />
-          {children}
-          <SupportProject />
-          <Program />
-          <Gallery />
-          <Location />
-          <PartnersProject />
+          {data?.detailDesc && <Details />}
+          {data?.mission && <Mission lng={lng} missionData={data.mission}/>}
+          {data?.support && <SupportProject />}
+          {data?.projectProgram && <Program />}
+          {data?.photos && data.photos.length > 0 && <Gallery />}
+          {data?.locationsCount && <Location />}
+          {data?.partners && <PartnersProject />}
         </>
       )}
     </div>
