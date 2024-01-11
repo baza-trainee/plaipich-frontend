@@ -20,12 +20,11 @@ const About = async ({
   };
   }) => {
   const missionData = await getMissionData()
-  console.log(missionData);
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <PlaiAbout lng={params.lng} />
-      <Mission lng={params.lng} />
+      <Mission lng={params.lng} missionData={missionData}/>
       <OurTeam lng={params.lng} />
       <Partners lng={params.lng} />
       <Reports lng={params.lng} />
