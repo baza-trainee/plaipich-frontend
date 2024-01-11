@@ -33,7 +33,12 @@
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "2 жовтня",
-    "mainPhoto": "/images/news-pic-3.jpg"
+    "mainPhoto": "/images/news-pic-3.jpg",
+    "photos": [
+      "/images/news-pic-3.jpg",
+      "/images/news-pic-3.jpg",
+      "/images/news-pic-3.jpg"
+    ]
   },
   {
     "category": {
@@ -57,7 +62,12 @@
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "6 жовтня",
-    "mainPhoto": "/images/news-pic-2.jpg"
+    "mainPhoto": "/images/news-pic-2.jpg",
+    "photos": [
+      "/images/news-pic-3.jpg",
+      "/images/news-pic-3.jpg",
+      "/images/news-pic-3.jpg"
+    ]
   },
   {
     "category": {
@@ -69,6 +79,11 @@
     "enTitle": "Ticket to the sun festival",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
     "date": "2 жовтня",
-    "mainPhoto": "/images/news-pic-3.jpg"
+    "mainPhoto": "/images/news-pic-3.jpg",
+    "photos": [
+      "/images/news-pic-3.jpg",
+      "/images/news-pic-3.jpg",
+      "/images/news-pic-3.jpg"
+    ]
   }
 ]

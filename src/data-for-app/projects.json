@@ -40,8 +40,7 @@
       "enText":"The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
       "link":"/"
     },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }],
-    "events": [""]
+    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
   },
   {
     "title": "Boost_4_culture",
@@ -84,8 +83,7 @@
       "enText":"The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
       "link":"/"
     },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }],
-    "events": [""]
+    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
   },
   {
     "title": "Boost_4_culture",
@@ -128,8 +126,7 @@
       "enText":"The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
       "link":"/"
     },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }],
-    "events": [""]
+    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
   },
   {
     "title": "Boost_4_culture",
@@ -172,7 +169,6 @@
       "enText":"The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
       "link":"/"
     },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }],
-    "events": [""]
+    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
   }
 ]
