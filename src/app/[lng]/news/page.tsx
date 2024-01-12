@@ -18,11 +18,9 @@ const News = async ({
   const {
     data: { news }, // eslint-disable-next-line no-undef
   }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
-  const { t } = await useTranslation(params.lng, "news");
 
-  const badgesData = [
-    ...new Set(news.map((item) => item.category[params.lng])),
-  ];
+  const { t } = await useTranslation(params.lng, "news");
+  const badgesData = Array.from(new Set(news.map((item) => item.category[params.lng])));
 
   return (
     <main className="bg-white text-black ">
@@ -55,6 +53,7 @@ const News = async ({
             </select>
           </div>
         </div>
+
         <NewsList isMainPage={false} lng={params.lng} newsList={news} />
 
         <div className="hidden md:flex justify-center">

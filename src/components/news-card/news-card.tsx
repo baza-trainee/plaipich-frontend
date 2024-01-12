@@ -68,14 +68,14 @@ const NewsCard: React.FC<NewsCardProps> = ({
               {lng === "en" ? category.en : category.uk}
             </span>
           </div>
-          <h3 className="h2 normal-case md:line-clamp-1">
+          <h3 className="h14 normal-case md:line-clamp-1">
             {lng === "en" ? enTitle : title}
           </h3>
-          <p className="my-3 lg:text-md md:line-clamp-2">
+          <p className="text-4 my-3 md:line-clamp-2">
             {lng === "en" ? enDescription : description}
           </p>
           <p
-            className={`pb-[13px] lg:text-md ${
+            className={`pb-[13px] text-4 ${
               isMain ? "text-gray-300" : "text-gray-500"
             }`}
           >
