@@ -23,7 +23,11 @@ export const NewsListMain = ({
       </div>
       {children}
       <div className="flex justify-center">
-        <Link appearance="linkButtonPrimary" href={NAVIGATION.news}>
+        <Link
+          appearance="linkButtonSecondary"
+          href={NAVIGATION.news}
+          className="lg:w-[281px] text-center"
+        >
           <p className="btn-text">{btnText}</p>
         </Link>
       </div>
