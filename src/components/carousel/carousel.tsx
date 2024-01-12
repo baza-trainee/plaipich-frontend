@@ -45,6 +45,8 @@ export const Slider = ({
             infiniteLoop
             interval={7000}
             onChange={onChange}
+            preventMovementUntilSwipeScrollTolerance={true}
+            swipeScrollTolerance={50}
           >
             {projectsList.map((item) => (
               <div className="slide-box" key={item._id}>
