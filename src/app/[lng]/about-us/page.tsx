@@ -1,5 +1,6 @@
 import React from "react";
 
+import { getMissionData } from "@/../data/db";
 import {
   Contacts,
   JoinUs,
@@ -9,8 +10,6 @@ import {
   PlaiAbout,
   Reports,
 } from "@/components";
-
-import { getMissionData } from "../../../../data/db";
 
 const About = async ({
   params,

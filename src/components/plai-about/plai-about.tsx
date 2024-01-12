@@ -57,8 +57,8 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         </nav>
       </div>
       <div className="grid-box md:grid-cols-md md:grid-rows-md lg:grid-rows-lg lg:grid-cols-lg">
-        <p className="text-first font-normal text-3 md:text-small-md lg:text-md lg:leading-3">
-          <span className="mr-2 font-bold h9 lg:text-xl">Plai</span>
+        <p className="text-first text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md ">
+          <span className="uppercase mr-2 font-bold text-lg lg:text-xl lg:normal-case">Plai</span>
           {t("text-first")}
         </p>
         <Image
@@ -68,7 +68,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           height={500}
           className="image-first"
         />
-        <p className="text-3 font-normal md:text-small-md lg:text-md lg:leading-3 text-second">
+        <p className="text-second text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md">
           {t("text-second")}
         </p>
         <Image
@@ -79,11 +79,11 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           className="image-second"
         />
         <div className="text-third">
-          <h5 className="text-5 mb-3"> {t("title-for-list")}</h5>
+          <h5 className="text-base font-medium leading-2 mb-3 md:text-small-md md:font-semibold lg:leading-4 lg:text-md"> {t("title-for-list")}</h5>
           <ul className="flex flex-col gap-1">
             {list.map((item) => (
               <li key={item} className="item-plai-enemy">
-                <p className="inline-block w-[85%] text-3 font-normal md:text-small-md lg:text-md lg:leading-3">
+                <p className="inline-block w-[85%] text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md">
                   {item}
                 </p>
               </li>
