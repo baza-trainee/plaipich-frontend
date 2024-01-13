@@ -34,3 +34,31 @@ export const category = {
   enCategory: ["Announcements", "Articles", "Projects", "Events", "Personals"],
   ukCategory: ["Анонси", "Статті", "Проекти", "Події", "Персоналії"],
 };
+
+export const BREADCRUMBS_NAV = [
+  {
+    text: "Головна",
+    enText: "Home",
+    href: NAVIGATION.main,
+  },
+  {
+    text: "Про нас",
+    enText: "About us",
+    href: NAVIGATION.about,
+  },
+  {
+    text: "Новини",
+    enText: "News",
+    href: NAVIGATION.news,
+  },
+  {
+    text: "Проєкти",
+    enText: "Projects",
+    href: NAVIGATION.projects,
+  },
+  {
+    text: "Підтримати",
+    enText: "Support us",
+    href: NAVIGATION.support,
+  },
+];
