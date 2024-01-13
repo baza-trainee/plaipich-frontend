@@ -1,5 +1,5 @@
 import { API_URL } from "@/commons/constants";
-import { INews, IProject } from "@/commons/types";
+import { INews } from "@/commons/types";
 import {
   AboutMain,
   Contacts,
@@ -21,13 +21,10 @@ const Home = async ({
 }) => {
   const {
     data: { projects },
-  }: { data: { projects: IProject[] } } = await apiService.getRequest(
-    API_URL.PROJECTS
-  );
+  } = await apiService.getRequest(API_URL.PROJECTS);
   const {
     data: { news },
   }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
-
   const { t } = await useTranslation(params.lng);
 
   return (
@@ -39,13 +36,10 @@ const Home = async ({
         lng={params.lng}
       />
       <AboutMain lng={params.lng} />
-      <NewsListMain
-        title={t("title-news")}
-        btnText={t("btn-more-news")}
-      >
+      <NewsListMain title={t("title-news")} btnText={t("btn-more-news")}>
         <NewsList
           lng={params.lng}
-          dateClassName="text-gray-300"
+          isMainPage={true}
           newsList={news.slice(0, 6)}
         />
       </NewsListMain>
