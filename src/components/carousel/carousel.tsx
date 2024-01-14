@@ -67,7 +67,9 @@ export const Slider = ({
                       : item.title.toUpperCase()}
                   </h1>
                   <p className="text-left w-full text-base mb-8 md:mb-5 md:text-md lg:text-lg font-sans font-regular  line-clamp-6">
-                    {lng === "en" ? item.enDescription : item.description}
+                    {lng === "en"
+                      ? item.enDescription.replace("**", "")
+                      : item.description.replace("**", "")}
                   </p>
                   <Link
                     href={`${lng}/${NAVIGATION.project}${item._id}`}

@@ -8,6 +8,7 @@ import plai1 from "/public/images/plai-1.jpg";
 import plai2 from "/public/images/plai-2.jpg";
 import plai3 from "/public/images/plai-3.jpg";
 import { useTranslation } from "@/app/i18n";
+import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
 
@@ -32,9 +33,10 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-[450px] py-8">
-        <p className="text-6 mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto px-4 md:px-8">
-          {t("main")} <span className="text-light-blue">{t("about")}</span>
-        </p>
+        <div className="text-breadcrumb mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto px-4 md:px-8">
+          <Link href={`/${lng}${NAVIGATION.main}`}>{t("main")}</Link>
+           <span className="text-light-blue cursor-pointer">{t("about")}</span>
+        </div>
         <h1 className="hidden mb-[150px] lg:mb-[120px] text-small-4xl leading-2 md:block lg:text-4xl lg:leading-4  text-white w-full max-w-[1440px] mx-auto px-8">
           {t("title")}
         </h1>
