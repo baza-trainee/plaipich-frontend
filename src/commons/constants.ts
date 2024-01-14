@@ -57,7 +57,7 @@ export const BREADCRUMBS_NAV = [
     href: NAVIGATION.projects,
   },
   {
-    text: "Підтримати",
+    text: "Сторінка підтримки",
     enText: "Support us",
     href: NAVIGATION.support,
   },

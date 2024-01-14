@@ -8,7 +8,7 @@ import { DonatePanel } from "./donate-panel/donate-panel";
 export const Support = async ({ lng }: { lng: "en" | "uk" }) => {
   const { t } = await useTranslation(lng, "support-us");
   return (
-    <section className="pb-10 lg:pb-16 md:mt-16">
+    <section className="pb-10 lg:pb-16 md:pt-16">
       <div className="container max-w-desktop grid grid-cols-1 lg:grid-cols-[522px,auto] md:grid-cols-[278px,auto] grid-rows-none lg:grid-rows-[80px,auto] md:grid-rows-[36px,auto] gap-x-3 gap-y-2 lg:gap-10 ">
         <h2 className="h1 text-center md:col-start-2 md:col-end-3 uppercase lg:normal-case mb-4.5 md:mb-0">
           {t("support-title")}

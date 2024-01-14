@@ -22,7 +22,7 @@ export const Breadcrumbs = ({
 }: BreadcrumbProps) => {
   const paths = usePathname();
   const pathNames = paths.split("/").slice(2);
-  const mainPage = BREADCRUMBS_NAV[0];
+  const mainPage = BREADCRUMBS_NAV.find((link) => link.href === "/");
   const lastPath = `/${pathNames[pathNames.length - 1]}`;
 
   const findBreadcrumb = (path: string) => {
@@ -58,8 +58,8 @@ export const Breadcrumbs = ({
     <div className="w-full container max-w-desktop">
       <ul className={containerClasses}>
         <li className={listClasses}>
-          <Link href={mainPage.href}>
-            {lng === "en" ? mainPage.enText : mainPage.text}
+          <Link href={mainPage?.href || "/"}>
+            {lng === "en" ? mainPage?.enText : mainPage?.text}
           </Link>
         </li>
         {pathNames.length > 0 && separator}
