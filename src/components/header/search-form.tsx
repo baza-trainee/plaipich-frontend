@@ -75,7 +75,6 @@ export const SearchForm = ({
             if ("poster" in item) {
               return (
                 <Link
-                
                   key={item._id}
                   href={`/${lng}/${NAVIGATION.project}${item._id}`}
                   className="text-sm p-2 font-bold hover:bg-light-blue hover:cursor-pointer transition"

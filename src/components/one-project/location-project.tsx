@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Location = () => {
-  return (
-    <div>Location</div>
-  )
-}
+  return <div>Location</div>;
+};

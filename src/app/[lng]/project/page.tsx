@@ -11,7 +11,7 @@ const Project = ({
 }) => {
   return (
     <main>
-      <OneProject lng={params.lng}/>
+      <OneProject lng={params.lng} />
       <JoinUs backgroundColor="bg-light-blue" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>

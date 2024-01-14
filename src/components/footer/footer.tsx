@@ -23,19 +23,29 @@ export const Footer = async ({ lng }: { lng: string }) => {
             <nav>
               <ul className="md:flex flex-wrap md:w-[340px] text-center md:text-left md:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
                 <li className="md:w-[96px] md:mr-[140px] mb-[24px] md:mb-[30px] hover:text-light-blue">
-                  <Link href={`/${lng}/${NAVIGATION.about}`}>{t("nav-about-us")}</Link>
+                  <Link href={`/${lng}/${NAVIGATION.about}`}>
+                    {t("nav-about-us")}
+                  </Link>
                 </li>
                 <li className="mb-[24px] md:mb-[30px] md:w-[96px] hover:text-light-blue">
-                  <Link href={`/${lng}/${NAVIGATION.news}`}>{t("nav-news")}</Link>
+                  <Link href={`/${lng}/${NAVIGATION.news}`}>
+                    {t("nav-news")}
+                  </Link>
                 </li>
                 <li className="md:w-[96px] md:mr-[140px] mb-[24px] md:mb-[30px] hover:text-light-blue">
-                  <Link href={`/${lng}/${NAVIGATION.projects}`}>{t("nav-projects")}</Link>
+                  <Link href={`/${lng}/${NAVIGATION.projects}`}>
+                    {t("nav-projects")}
+                  </Link>
                 </li>
                 <li className="mb-[24px] md:mb-[30px] md:w-[96px] hover:text-light-blue">
-                  <Link href={`/${lng}/${NAVIGATION.reports}`}>{t("nav-reporting")}</Link>
+                  <Link href={`/${lng}/${NAVIGATION.reports}`}>
+                    {t("nav-reporting")}
+                  </Link>
                 </li>
                 <li className="mb-[24px] md:mb-0 hover:text-light-blue">
-                  <Link href={`/${lng}/${NAVIGATION.contacts}`}>{t("nav-contacts")}</Link>
+                  <Link href={`/${lng}/${NAVIGATION.contacts}`}>
+                    {t("nav-contacts")}
+                  </Link>
                 </li>
               </ul>
             </nav>

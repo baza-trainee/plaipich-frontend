@@ -58,7 +58,9 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
       </div>
       <div className="grid-box md:grid-cols-md md:grid-rows-md lg:grid-rows-lg lg:grid-cols-lg">
         <p className="text-first text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md ">
-          <span className="uppercase mr-2 font-bold text-lg lg:text-xl lg:normal-case">Plai</span>
+          <span className="uppercase mr-2 font-bold text-lg lg:text-xl lg:normal-case">
+            Plai
+          </span>
           {t("text-first")}
         </p>
         <Image
@@ -79,7 +81,10 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           className="image-second"
         />
         <div className="text-third">
-          <h5 className="text-base font-medium leading-2 mb-3 md:text-small-md md:font-semibold lg:leading-4 lg:text-md"> {t("title-for-list")}</h5>
+          <h5 className="text-base font-medium leading-2 mb-3 md:text-small-md md:font-semibold lg:leading-4 lg:text-md">
+            {" "}
+            {t("title-for-list")}
+          </h5>
           <ul className="flex flex-col gap-1">
             {list.map((item) => (
               <li key={item} className="item-plai-enemy">
