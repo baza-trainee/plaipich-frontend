@@ -17,7 +17,11 @@ const SupportUs = async ({
       <Breadcrumbs
         containerClasses="hidden md:block"
         lng={params.lng}
-        separator={<span className="text-gray-400 inline-block px-1">/</span>}
+        separator={
+          <span className="text-gray-400 translate-y-0.5 inline-block px-1">
+            /
+          </span>
+        }
         listClasses="text-breadcrumb inline-block hover:text-dark-blue transition-colors"
         activeClasses="text-dark-blue"
       />
