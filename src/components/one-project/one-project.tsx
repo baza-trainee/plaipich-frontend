@@ -15,11 +15,7 @@ import { Poster } from "./poster-project";
 import { Program } from "./program-project";
 import { SupportProject } from "./support-project";
 
-export const OneProject = ({
-  lng,
-}: {
-  lng: "en" | "uk";
-}) => {
+export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
   const projectId = searchParams.get("id");
   const { data, isLoading } = useOneProject(`${API_URL.PROJECTS}/${projectId}`);
@@ -31,11 +27,11 @@ export const OneProject = ({
         <div>Loading ...</div>
       ) : (
         <>
-          <p>{lng==='en'? data?.enTitle: data?.title}</p>
+          <p>{lng === "en" ? data?.enTitle : data?.title}</p>
           <Poster />
           <Description />
           {data?.detailDesc && <Details />}
-          {data?.mission && <Mission lng={lng} missionData={data.mission}/>}
+          {data?.mission && <Mission lng={lng} missionData={data.mission} />}
           {data?.support && <SupportProject />}
           {data?.projectProgram && <Program />}
           {data?.photos && data.photos.length > 0 && <Gallery />}

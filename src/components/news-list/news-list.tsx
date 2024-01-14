@@ -1,5 +1,5 @@
-'use client'
-import React from 'react';
+"use client";
+import React from "react";
 
 import { INews } from "@/commons/types";
 
@@ -8,15 +8,14 @@ import NewsCard from "../news-card/news-card";
 const NewsList = ({
   lng,
   dateClassName,
-  newsList
+  newsList,
 }: {
   lng: "en" | "uk";
-    dateClassName: string;
-    newsList?: INews[];
-  }) => {
-  
+  dateClassName: string;
+  newsList?: INews[];
+}) => {
   // додаси логіку відображення залежно від розміру екрану
-  
+
   return (
     <>
       {newsList && (
