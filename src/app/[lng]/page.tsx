@@ -1,4 +1,5 @@
 import { API_URL } from "@/commons/constants";
+import { INews, IProject } from "@/commons/types";
 import {
   AboutMain,
   Contacts,
@@ -6,6 +7,7 @@ import {
   NewsListMain,
   Slider,
 } from "@/components";
+import NewsList from "@/components/news-list/news-list";
 import { apiService } from "@/services/api-service";
 
 import { useTranslation } from "../i18n";
@@ -19,7 +21,12 @@ const Home = async ({
 }) => {
   const {
     data: { projects },
-  } = await apiService.getRequest(API_URL.PROJECTS);
+  }: { data: { projects: IProject[] } } = await apiService.getRequest(
+    API_URL.PROJECTS,
+  );
+  const {
+    data: { news },
+  }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
   const { t } = await useTranslation(params.lng);
 
   return (
@@ -31,11 +38,13 @@ const Home = async ({
         lng={params.lng}
       />
       <AboutMain lng={params.lng} />
-      <NewsListMain
-        title={t("title-news")}
-        btnText={t("btn-more-news")}
-        lng={params.lng}
-      />
+      <NewsListMain title={t("title-news")} btnText={t("btn-more-news")}>
+        <NewsList
+          lng={params.lng}
+          isMainPage={true}
+          newsList={news.slice(0, 6)}
+        />
+      </NewsListMain>
       <JoinUs backgroundColor="bg-white" lng={params.lng} />
       <Contacts lng={params.lng} />
     </main>

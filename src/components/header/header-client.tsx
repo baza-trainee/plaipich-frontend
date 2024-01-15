@@ -28,15 +28,13 @@ export const HeaderClient = ({
 
   const changeInput = (newQuery: string) => {
     setQuery(newQuery);
-    if (projectsList && newsList) {
-      const result = filterSearchList({
-        projects: projectsList,
-        news: newsList,
-        query: newQuery.trim(),
-        lng,
-      });
-      result && setSearchList(result);
-    }
+    const result = filterSearchList({
+      projects: projectsList,
+      news: newsList,
+      query: newQuery.trim(),
+      lng,
+    });
+    result && setSearchList(result);
   };
 
   const open = () => {

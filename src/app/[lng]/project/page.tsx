@@ -1,17 +1,21 @@
-"use client";
-import { useSearchParams } from "next/navigation";
 import React from "react";
 
-import { API_URL } from "@/commons/constants";
-import { useOneProject } from "@/hooks";
+import { Contacts, JoinUs, OneProject } from "@/components";
 
-const OneProject = () => {
-  const searchParams = useSearchParams();
-  const projectId = searchParams.get("id");
-  const { data, isLoading } = useOneProject(`${API_URL.PROJECTS}/${projectId}`);
-  console.log(data);
-
-  return <div>{data && !isLoading && <p>{data.enTitle}</p>}</div>;
+const Project = ({
+  params,
+}: {
+  params: {
+    lng: "en" | "uk";
+  };
+}) => {
+  return (
+    <main>
+      <OneProject lng={params.lng} />
+      <JoinUs backgroundColor="bg-light-blue" lng={params.lng} />
+      <Contacts lng={params.lng} />
+    </main>
+  );
 };
 
-export default OneProject;
+export default Project;

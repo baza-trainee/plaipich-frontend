@@ -1,5 +1,6 @@
 import React from "react";
 
+import { getMissionData } from "@/../data/db";
 import {
   Contacts,
   JoinUs,
@@ -10,17 +11,19 @@ import {
   Reports,
 } from "@/components";
 
-const About = ({
+const About = async ({
   params,
 }: {
   params: {
     lng: "en" | "uk";
   };
 }) => {
+  const missionData = await getMissionData();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <PlaiAbout lng={params.lng} />
-      <Mission lng={params.lng} />
+      <Mission lng={params.lng} missionData={missionData} />
       <OurTeam lng={params.lng} />
       <Partners lng={params.lng} />
       <Reports lng={params.lng} />

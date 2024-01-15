@@ -1,37 +1,53 @@
-// "use client";
-import { API_URL } from "@/commons/constants";
-import { INews } from "@/commons/types";
-import { apiService } from "@/services/api-service";
+"use client";
+import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
-import NewsCard from "../news-card/news-card";
+import { INews } from "@/commons/types";
+import NewsCard from "@/components/news-card/news-card";
 
 const NewsList = async ({
   lng,
-  dateClassName,
+  isMainPage,
+  newsList,
 }: {
   lng: "en" | "uk";
-  dateClassName: string;
+  isMainPage?: boolean;
+  newsList?: INews[];
 }) => {
-  const {
-    data: { news },
-  }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768 });
+  const isDesktop = useMediaQuery({ minWidth: 1440 });
+  const [countNew, setCount] = useState(6);
+
+  useEffect(() => {
+    if (isMobile) {
+      setCount(3);
+    }
+
+    if (isTablet) {
+      setCount(4);
+    }
+
+    if (isDesktop) {
+      setCount(6);
+    }
+  }, [isMobile, isTablet, isDesktop]);
 
   return (
     <>
-      {/* {isLoading && <div className="w-full h-[350px]">Loading...</div>} */}
-      {news && (
+      {newsList && (
         <div
           className="grid grid-cols-1 
                     lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
                     md:grid-cols-2 md:my-16 md:gap-x-4"
         >
-          {news.map((item) => (
+          {newsList.slice(0, countNew).map((item) => (
             <NewsCard
               key={item._id}
               newsItem={item}
               lng={lng}
               className="lg:m-0 mb-10"
-              dateClassName={dateClassName}
+              isMain={isMainPage}
             />
           ))}
         </div>

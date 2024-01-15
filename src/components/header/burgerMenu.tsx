@@ -25,19 +25,17 @@ export const BurgerMenu = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchList, setSearchList]: [any, any] = useState([]);
+  const [searchList, setSearchList] = useState<Array<INews | IProject>>([]);
 
   const changeInput = (newQuery: string) => {
     setQuery(newQuery);
-    if (projectsList && newsList) {
-      const result = filterSearchList({
-        projects: projectsList,
-        news: newsList,
-        query: newQuery.trim(),
-        lng,
-      });
-      result && setSearchList(result);
-    }
+    const result = filterSearchList({
+      projects: projectsList,
+      news: newsList,
+      query: newQuery.trim(),
+      lng,
+    });
+    result && setSearchList(result);
   };
 
   const toggleMenu = () => {

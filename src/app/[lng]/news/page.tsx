@@ -1,28 +1,12 @@
 import React from "react";
 
 import { useTranslation } from "@/app/i18n";
+import { API_URL } from "@/commons/constants";
+import { INews } from "@/commons/types";
 import { SetTagColor } from "@/components/news-card/news-card";
 import NewsList from "@/components/news-list/news-list";
 import { Spiral } from "@/components/spiral/spiral";
-
-const badgesData = [
-  {
-    id: "01",
-    title: "Фестивалі",
-  },
-  {
-    id: "02",
-    title: "Проекти",
-  },
-  {
-    id: "03",
-    title: "Конкурси",
-  },
-  {
-    id: "04",
-    title: "Виставки",
-  },
-];
+import { apiService } from "@/services/api-service";
 
 const News = async ({
   params,
@@ -31,7 +15,14 @@ const News = async ({
     lng: "en" | "uk";
   };
 }) => {
+  const {
+    data: { news }, // eslint-disable-next-line no-undef
+  }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
+
   const { t } = await useTranslation(params.lng, "news");
+  const badgesData = Array.from(
+    new Set(news.map((item) => item.category[params.lng])),
+  );
 
   return (
     <main className="bg-white text-black ">
@@ -44,11 +35,11 @@ const News = async ({
           <div className="md:flex hidden">
             {badgesData.map((badge) => (
               <span
-                key={badge.id}
+                key={badge}
                 className={`py-2 px-4 rounded-large mr-6
-                ${SetTagColor(badge.title)}`}
+                ${SetTagColor(badge)}`}
               >
-                {badge.title}
+                {badge}
               </span>
             ))}
           </div>
@@ -59,14 +50,14 @@ const News = async ({
           <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
             <div className="text-gray-400 lg:mr-6">{t("sort2")}</div>
             <select name="sort" id="sort">
-              <option value="value1" selected>
-                датою (спочатку нові)
-              </option>
-              <option value="value2">датою (спочатку старі)</option>
+              <option value="value1">{t("byDateNew")}</option>
+              <option value="value2">{t("byDateOld")}</option>
             </select>
           </div>
         </div>
-        <NewsList lng={params.lng} dateClassName="text-gray-500" />
+
+        <NewsList isMainPage={false} lng={params.lng} newsList={news} />
+
         <div className="hidden md:flex justify-center">
           <div className="py-2 px-4 mr-1">-</div>
           <div className="py-2 px-4 border rounded-large mr-1 bg-dark-blue text-white">
