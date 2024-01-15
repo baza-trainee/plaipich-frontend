@@ -120,7 +120,7 @@ h6,
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply bg-orange rounded;
+  @apply bg-light-blue rounded;
 }
 
 .loader svg path {

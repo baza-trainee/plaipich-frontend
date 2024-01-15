@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import { INews } from "@/commons/types";
 import NewsCard from "@/components/news-card/news-card";
 
-const NewsList = async ({
+const NewsList = ({
   lng,
   isMainPage,
   newsList,
