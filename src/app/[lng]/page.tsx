@@ -22,7 +22,7 @@ const Home = async ({
   const {
     data: { projects },
   }: { data: { projects: IProject[] } } = await apiService.getRequest(
-    API_URL.PROJECTS
+    API_URL.PROJECTS,
   );
   const {
     data: { news },
@@ -39,10 +39,7 @@ const Home = async ({
         lng={params.lng}
       />
       <AboutMain lng={params.lng} />
-      <NewsListMain
-        title={t("title-news")}
-        btnText={t("btn-more-news")}
-      >
+      <NewsListMain title={t("title-news")} btnText={t("btn-more-news")}>
         <NewsList
           lng={params.lng}
           dateClassName="text-gray-300"

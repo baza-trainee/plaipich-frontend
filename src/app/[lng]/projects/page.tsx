@@ -8,7 +8,7 @@ const Projects = async () => {
   const {
     data: { projects },
   }: { data: { projects: IProject[] } } = await apiService.getRequest(
-    API_URL.PROJECTS
+    API_URL.PROJECTS,
   );
 
   return (
