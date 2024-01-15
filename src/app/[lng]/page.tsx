@@ -1,5 +1,5 @@
 import { API_URL } from "@/commons/constants";
-import { INews } from "@/commons/types";
+import { INews, IProject } from "@/commons/types";
 import {
   AboutMain,
   Contacts,
@@ -19,9 +19,11 @@ const Home = async ({
     lng: "en" | "uk";
   };
 }) => {
-  const {
+    const {
     data: { projects },
-  } = await apiService.getRequest(API_URL.PROJECTS);
+  }: { data: { projects: IProject[] } } = await apiService.getRequest(
+    API_URL.PROJECTS,
+  );
   const {
     data: { news },
   }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);

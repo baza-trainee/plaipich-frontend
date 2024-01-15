@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Gallery = () => {
-  return (
-    <div>Gallery</div>
-  )
-}
+  return <div>Gallery</div>;
+};
