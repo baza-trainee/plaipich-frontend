@@ -5,7 +5,7 @@ import { apiService } from "@/services/api-service";
 
 export const useOneNew = (url: string) =>
   useQuery<APP_TYPES.INews>({
-    queryKey: [APP_CONST.QUERY_KEY.NEWS],
+    queryKey: [APP_CONST.QUERY_KEY.NEWS, url],
     queryFn: async () => {
       const result = await apiService.getRequest(url);
       return result;

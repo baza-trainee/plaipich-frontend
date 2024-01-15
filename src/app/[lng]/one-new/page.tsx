@@ -10,7 +10,7 @@ const OneNew = () => {
   const searchParams = useSearchParams();
   const newId = searchParams.get("id");
   const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
-
+  
   return (
     <div className="bg-white text-black">
       {!isLoading && (
