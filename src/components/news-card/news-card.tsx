@@ -68,7 +68,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               {lng === "en" ? category.en : category.uk}
             </span>
           </div>
-          <h3 className="h14 normal-case md:line-clamp-1">
+          <h3 className="h14 normal-case md:h-[60px]">
             {lng === "en" ? enTitle : title}
           </h3>
           <p className="text-4 my-3 md:line-clamp-2">
