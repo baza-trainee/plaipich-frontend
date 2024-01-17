@@ -21,7 +21,7 @@ const Projects = async ({
   const {
     data: { projects },
   }: { data: { projects: IProject[] } } = await apiService.getRequest(
-    API_URL.PROJECTS
+    API_URL.PROJECTS,
   );
 
   const setStatus = (status: boolean) => {
@@ -87,7 +87,7 @@ const Projects = async ({
                   className="link-button-black"
                   href={`/${params.lng}${NAVIGATION.project}${item._id}`}
                 >
-                  {params.lng==='en'?'Learn more': 'Дізнатись більше'}
+                  {params.lng === "en" ? "Learn more" : "Дізнатись більше"}
                   <LuMoveRight className="inline-block ml-2 align-middle" />
                 </Link>
               </div>

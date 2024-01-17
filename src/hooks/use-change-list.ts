@@ -43,12 +43,14 @@ export const useChangeList = ({
       setShowCategory(true);
     }
     if (categoryList.length === 0) {
-      setShowNews(()=> reverse? [...newsList].reverse():newsList);
+      setShowNews(() => (reverse ? [...newsList].reverse() : newsList));
     }
     if (categoryList.length > 0) {
-      setShowNews(() => { 
-        const array = newsList.filter((item) => categoryList.includes(item.category[lng]));
+      setShowNews(() => {
+        const array = newsList.filter((item) =>
+          categoryList.includes(item.category[lng]),
+        );
         return reverse ? array.reverse() : array;
-       } );
+      });
     }
   }, [isMobile, isTablet, isDesktop, categoryList.length, reverse]);
