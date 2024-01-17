@@ -1,20 +1,35 @@
 "use client";
 import React from "react";
+import { useMediaQuery } from "react-responsive";
+
 
 import { INews } from "@/commons/types";
-
-import NewsCard from "../news-card/news-card";
+import NewsCard from "@/components/news-card/news-card";
 
 const NewsList = ({
   lng,
-  dateClassName,
+  isMainPage,
   newsList,
 }: {
   lng: "en" | "uk";
-  dateClassName: string;
+  isMainPage?: boolean;
   newsList?: INews[];
 }) => {
-  // додаси логіку відображення залежно від розміру екрану
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768 });
+  const isDesktop = useMediaQuery({ minWidth: 1440 });
+
+  if (isMobile) {
+    newsList = newsList?.slice(0, 3);
+  }
+
+  if (!isDesktop && isTablet) {
+    newsList = newsList?.slice(0, 4);
+  }
+
+  if (isDesktop) {
+    newsList = newsList?.slice(0, 6);
+  }
 
   return (
     <>
@@ -30,7 +45,7 @@ const NewsList = ({
               newsItem={item}
               lng={lng}
               className="lg:m-0 mb-10"
-              dateClassName={dateClassName}
+              isMain={isMainPage}
             />
           ))}
         </div>

@@ -19,7 +19,7 @@ const Home = async ({
     lng: "en" | "uk";
   };
 }) => {
-  const {
+    const {
     data: { projects },
   }: { data: { projects: IProject[] } } = await apiService.getRequest(
     API_URL.PROJECTS,
@@ -27,7 +27,6 @@ const Home = async ({
   const {
     data: { news },
   }: { data: { news: INews[] } } = await apiService.getRequest(API_URL.NEWS);
-
   const { t } = await useTranslation(params.lng);
 
   return (
@@ -42,7 +41,7 @@ const Home = async ({
       <NewsListMain title={t("title-news")} btnText={t("btn-more-news")}>
         <NewsList
           lng={params.lng}
-          dateClassName="text-gray-300"
+          isMainPage={true}
           newsList={news.slice(0, 6)}
         />
       </NewsListMain>
