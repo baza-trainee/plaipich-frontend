@@ -35,7 +35,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
       <div className="absolute top-0 left-0 w-full h-[450px] py-8">
         <div className="text-breadcrumb mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto px-4 md:px-8">
           <Link href={`/${lng}${NAVIGATION.main}`}>{t("main")}</Link>
-           <span className="text-light-blue cursor-pointer">{t("about")}</span>
+          <span className="text-light-blue cursor-pointer">{t("about")}</span>
         </div>
         <h1 className="hidden mb-[150px] lg:mb-[120px] text-small-4xl leading-2 md:block lg:text-4xl lg:leading-4  text-white w-full max-w-[1440px] mx-auto px-8">
           {t("title")}

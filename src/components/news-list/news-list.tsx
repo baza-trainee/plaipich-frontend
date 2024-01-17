@@ -33,7 +33,7 @@ const NewsList = ({
     setPage(event.selected);
   };
   const badgesData = Array.from(
-    new Set(newsList.map((item) => item.category[lng]))
+    new Set(newsList.map((item) => item.category[lng])),
   );
 
   const changeSort = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,15 +48,15 @@ const NewsList = ({
 
   const closeCategory = () => {
     setShowCategory(false);
-  }
+  };
 
   const openCategory = () => {
     setShowCategory(true);
-  }
+  };
 
   const onChangeSort = (event: ChangeEvent<HTMLSelectElement>) => {
-    setReverse(!event.target.value)
-  }
+    setReverse(!event.target.value);
+  };
 
   useEffect(() => {
     if (isMobile) {
@@ -76,10 +76,10 @@ const NewsList = ({
     }
     if (categoryList.length > 0) {
       setShow(
-        newsList.filter((item) => categoryList.includes(item.category[lng]))
+        newsList.filter((item) => categoryList.includes(item.category[lng])),
       );
       if (reverse) {
-        setShow(prev=>prev.reverse())
+        setShow((prev) => prev.reverse());
       }
     }
   }, [isMobile, isTablet, isDesktop, categoryList.length, reverse]);
@@ -90,9 +90,12 @@ const NewsList = ({
         <div className="flex flex-row justify-between items-center">
           {showCategory && (
             <div className="md:flex md:static fixed top-0 left-0 w-full md:w-1/2 bg-white h-full flex flex-col justify-center items-center">
-                <button className="md:hidden border-none text-md fixed top-[100px] right-[20px]" onClick={closeCategory}>
-                  x
-                </button>
+              <button
+                className="md:hidden border-none text-md fixed top-[100px] right-[20px]"
+                onClick={closeCategory}
+              >
+                x
+              </button>
               <fieldset className="md:flex w-full bg-white h-full flex flex-col md:flex-wrap md:flex-row justify-center lg:justify-start items-center gap-3">
                 {badgesData.map((badge) => (
                   <label
@@ -121,9 +124,13 @@ const NewsList = ({
           >
             <p className="btn-text">{lng === "en" ? "Category ↓" : "Теми ↓"}</p>
           </Button>
-          <button type="button" className="md:hidden border-none btn-text">{lng === "en" ? "Category ↓" : "Сортувати"}</button>
+          <button type="button" className="md:hidden border-none btn-text">
+            {lng === "en" ? "Category ↓" : "Сортувати"}
+          </button>
           <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
-            <div className="text-gray-400 lg:mr-6">{lng === "en" ? "Category ↓" : "Сортувати"}</div>
+            <div className="text-gray-400 lg:mr-6">
+              {lng === "en" ? "Category ↓" : "Сортувати"}
+            </div>
             <select name="sort" id="sort" onChange={onChangeSort}>
               <option value={0}>{lng === "en" ? "Category ↓" : "New"}</option>
               <option value={1}>{lng === "en" ? "Category ↓" : "Old"}</option>

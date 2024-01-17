@@ -41,7 +41,10 @@ export const Contacts = async ({ lng }: { lng: string }) => {
               </a>
             </li>
             <li>
-              <a href={NAVIGATION.instagram} className="circle bg-pale-cerulean">
+              <a
+                href={NAVIGATION.instagram}
+                className="circle bg-pale-cerulean"
+              >
                 <FaInstagram size="20px" color="black" />
               </a>
             </li>

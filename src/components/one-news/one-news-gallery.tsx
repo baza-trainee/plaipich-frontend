@@ -2,7 +2,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./one-news-gallery.css";
 
 import Image from "next/image";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 const Gallery = ({ images }) => {
