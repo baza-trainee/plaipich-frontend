@@ -15,7 +15,7 @@ const SupportUs = async ({
   return (
     <main className="bg-white text-black lg:pb-[116px] md:pt-8 md:pb-[102px] pt-10 pb-14">
       <Breadcrumbs
-        containerClasses="hidden md:block"
+        containerClasses="hidden container md:block"
         lng={params.lng}
         separator={
           <span className="text-gray-400 translate-y-0.5 inline-block px-1">

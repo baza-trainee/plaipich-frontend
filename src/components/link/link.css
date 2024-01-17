@@ -8,7 +8,8 @@
 
 .link-button-primary,
 .link-button-secondary,
-.link-button-orange {
+.link-button-orange,
+.link-button-black {
   @apply transition-all px-6 py-4 text-base font-semibold leading-2 rounded-large border
         lg:py-4.5 lg:text-md;
 }
@@ -17,6 +18,12 @@
   @apply text-white bg-dark-blue border-dark-blue 
   hover:bg-light-blue hover:text-black hover:border-black 
   active:text-white active:bg-dark-blue active:border-dark-blue;
+}
+
+.link-button-black {
+  @apply text-black border-black 
+  hover:text-white hover:bg-black 
+  active:text-black active:bg-white;
 }
 
 .link-button-secondary {

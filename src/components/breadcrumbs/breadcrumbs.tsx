@@ -55,7 +55,7 @@ export const Breadcrumbs = ({
   };
 
   return (
-    <div className="w-full container max-w-desktop">
+    <div className="w-full max-w-desktop">
       <ul className={containerClasses}>
         <li className={listClasses}>
           <Link href={mainPage?.href || "/"}>
