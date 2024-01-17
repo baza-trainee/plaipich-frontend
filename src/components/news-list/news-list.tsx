@@ -1,11 +1,12 @@
 "use client";
 import { usePathname } from "next/navigation";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useMediaQuery } from "react-responsive";
 
 import { INews } from "@/commons/types";
 import NewsCard, { SetTagColor } from "@/components/news-card/news-card";
+import { useChangeList } from "@/hooks";
 
 import { Button } from "..";
 
@@ -21,22 +22,23 @@ const NewsList = ({
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768 });
   const isDesktop = useMediaQuery({ minWidth: 1440 });
-  const [countNew, setCount] = useState(6);
+  const [limit, setLimit] = useState(6);
   const [page, setPage] = useState(0);
   const [reverse, setReverse] = useState(false);
   const [showCategory, setShowCategory] = useState(true);
   const [categoryList, setCategoryList] = useState<string[]>([]);
-  const [newForShow, setShow] = useState<INews[]>([]);
+  const [newForShow, setShowNews] = useState<INews[]>([]);
   const pathName = usePathname();
+
+  const badgesData = Array.from(
+    new Set(newsList.map((item) => item.category[lng]))
+  );
 
   const handlePageClick = (event: { selected: number }) => {
     setPage(event.selected);
   };
-  const badgesData = Array.from(
-    new Set(newsList.map((item) => item.category[lng])),
-  );
 
-  const changeSort = (event: ChangeEvent<HTMLInputElement>) => {
+  const changeFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const current = event.target.id;
     setCategoryList((prev) => {
       if (prev.includes(current)) {
@@ -55,34 +57,22 @@ const NewsList = ({
   };
 
   const onChangeSort = (event: ChangeEvent<HTMLSelectElement>) => {
-    setReverse(!event.target.value);
+    setReverse(event.target.value === "1");
   };
 
-  useEffect(() => {
-    if (isMobile) {
-      setCount(3);
-      showCategory && setShowCategory(false);
-    }
-    if (isTablet) {
-      setCount(4);
-      setShowCategory(true);
-    }
-    if (isDesktop) {
-      setCount(6);
-      setShowCategory(true);
-    }
-    if (categoryList.length === 0) {
-      setShow(newsList);
-    }
-    if (categoryList.length > 0) {
-      setShow(
-        newsList.filter((item) => categoryList.includes(item.category[lng])),
-      );
-      if (reverse) {
-        setShow((prev) => prev.reverse());
-      }
-    }
-  }, [isMobile, isTablet, isDesktop, categoryList.length, reverse]);
+  useChangeList({
+    isMobile,
+    isTablet,
+    isDesktop,
+    categoryList,
+    reverse,
+    setLimit,
+    showCategory,
+    setShowCategory,
+    setShowNews,
+    newsList,
+    lng,
+  });
 
   return (
     <>
@@ -102,7 +92,11 @@ const NewsList = ({
                     key={badge}
                     htmlFor={badge}
                     className={`py-2 px-4 rounded-large mr-6 cursor-pointer
-                ${SetTagColor(badge)}`}
+                ${
+                  categoryList.includes(badge)
+                    ? "bg-black text-white"
+                    : SetTagColor(badge)
+                }`}
                   >
                     {badge}
                     <input
@@ -110,7 +104,7 @@ const NewsList = ({
                       className="hidden"
                       id={badge}
                       name={badge}
-                      onChange={changeSort}
+                      onChange={changeFilter}
                     />
                   </label>
                 ))}
@@ -125,15 +119,19 @@ const NewsList = ({
             <p className="btn-text">{lng === "en" ? "Category ↓" : "Теми ↓"}</p>
           </Button>
           <button type="button" className="md:hidden border-none btn-text">
-            {lng === "en" ? "Category ↓" : "Сортувати"}
+            {lng === "en" ? "Sort" : "Сортувати"}
           </button>
           <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
-            <div className="text-gray-400 lg:mr-6">
-              {lng === "en" ? "Category ↓" : "Сортувати"}
-            </div>
+            <p className="text-gray-400 lg:mr-6">
+              {lng === "en" ? "Sort by" : "Сортувати за"}
+            </p>
             <select name="sort" id="sort" onChange={onChangeSort}>
-              <option value={0}>{lng === "en" ? "Category ↓" : "New"}</option>
-              <option value={1}>{lng === "en" ? "Category ↓" : "Old"}</option>
+              <option value={0}>
+                {lng === "en" ? "new first" : "спочатку нові"}
+              </option>
+              <option value={1}>
+                {lng === "en" ? "old first" : "спочатку старі"}
+              </option>
             </select>
           </div>
         </div>
@@ -144,26 +142,24 @@ const NewsList = ({
                     lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
                     md:grid-cols-2 md:my-16 md:gap-x-4"
         >
-          {newForShow
-            .slice(countNew * page, countNew * (page + 1))
-            .map((item) => (
-              <NewsCard
-                key={item._id}
-                newsItem={item}
-                lng={lng}
-                className="lg:m-0 mb-10"
-                isMain={isMainPage}
-              />
-            ))}
+          {newForShow.slice(limit * page, limit * (page + 1)).map((item) => (
+            <NewsCard
+              key={item._id}
+              newsItem={item}
+              lng={lng}
+              className="lg:m-0 mb-10"
+              isMain={isMainPage}
+            />
+          ))}
         </div>
       )}
-      {newForShow && newForShow.length > countNew && (
+      {newForShow && newForShow.length > limit && (
         <ReactPaginate
           breakLabel="..."
           nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
-          pageCount={Math.ceil(newForShow.length / countNew)}
+          pageCount={Math.ceil(newForShow.length / limit)}
           previousLabel="<"
           renderOnZeroPageCount={null}
           className="flex w-full justify-center items-center gap-[20px] text-md font-medium"
