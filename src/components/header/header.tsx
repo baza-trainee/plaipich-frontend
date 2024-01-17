@@ -23,7 +23,7 @@ export const Header = async ({ lng }: { lng: "en" | "uk" }) => {
   }) as { [key: string]: string };
 
   return (
-    <header className="h-[105px] relative z-10 bg-black top-0 w-[100%] flex text-white border-solid border-b border-white">
+    <header className="h-[105px] fixed md:relative z-10 bg-black top-0 w-[100%] flex text-white border-solid border-b border-white">
       <div className="w-full max-w-[1440px] mx-auto px-10 py-5 flex justify-between items-center md:flex-row-reverse">
         <HeaderClient lng={lng} projectsList={projects} newsList={news}>
           <NavHeader lng={lng} deviceLg={true} nav={navigation} />

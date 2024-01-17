@@ -49,12 +49,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
     <article className={`flex flex-col justify-between ${className ?? ""}`}>
       <Link href={`/${lng}/${NAVIGATION.oneNew}${_id}`}>
         {/* fix: need change h-[416px] */}
-        <div className="h-[416px] relative">
+        <div className="h-[416px]">
           <Image
             src={mainPhoto}
             alt={lng === "en" ? enTitle : title}
-            fill
-            className="h-full w-auto object-cover"
+            className="h-full w-auto"
+            width={1000}
+            height={500}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
