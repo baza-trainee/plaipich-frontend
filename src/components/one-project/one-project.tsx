@@ -22,13 +22,14 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
   console.dir(data);
 
   return (
-    <div>
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
+    <div className="w-full max-w-[1440px] m-auto px-8">
+      {data && !isLoading ? (
         <>
-          <p>{lng === "en" ? data?.enTitle : data?.title}</p>
-          <Poster />
+          <Poster
+            title={lng === "en" ? data.enTitle : data.title}
+            poster={data.poster}
+            status={data.status}
+          />
           <Description />
           {data?.detailDesc && <Details />}
           {data?.mission && <Mission lng={lng} missionData={data.mission} />}
@@ -38,6 +39,8 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
           {data?.locationsCount && <Location />}
           {data?.partners && <PartnersProject />}
         </>
+      ) : (
+        <div>Loading ...</div>
       )}
     </div>
   );

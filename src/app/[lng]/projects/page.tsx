@@ -42,7 +42,7 @@ const Projects = async ({
       <Breadcrumbs
         separator="/"
         lng={params.lng}
-        containerClasses="hidden md:flex gap-1 px-16"
+        containerClasses="hidden md:flex gap-1 px-16 lg:px-8"
         activeClasses="text-dark-blue"
       />
       <h1 className="text-center md:mb-[30px] lg:mb-[80px] font-bold text-2xl md:text-small-3xl lg:text-4xl leading-2 lg:leading-4 max-w-[1440px] text-black">
@@ -52,7 +52,7 @@ const Projects = async ({
         {projects.map((item) => (
           <li
             key={item._id}
-            className="flex flex-col items-center w-full lg:w-[645px] gap-4"
+            className="flex flex-col items-center w-full lg:w-[645px] gap-4 hover:contrast-150 transition-all"
           >
             <div className="w-full lg:h-[415px] overflow-hidden">
               <Image

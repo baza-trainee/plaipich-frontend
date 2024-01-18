@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-button {
+button,
+.btn-orange {
   @apply transition-all inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize
   disabled:cursor-not-allowed;
 }
 
 .btn-text {
-  @apply text-base lg:text-md font-sans leading-2 font-normal lg:font-semibold tracking-normal;
+  @apply text-base bg-transparent lg:text-md font-sans leading-2 font-normal lg:font-semibold tracking-normal;
 }
 
 .btn-primary {
@@ -47,7 +48,7 @@ button {
   @apply text-gray-300;
 }
 
-.btn-orange {
+button.btn-orange {
   @apply text-white bg-orange border-orange
   hover:bg-dark-orange hover:border-dark-orange 
   active:text-white active:bg-orange active:border-orange;
