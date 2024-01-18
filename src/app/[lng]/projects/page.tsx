@@ -26,35 +26,35 @@ const Projects = async ({
 
   const setStatus = (status: boolean) => {
     if (status) {
-      return params.lng === "en" ? "  funded" : "  профінансований";
+      return params.lng === "en" ? "  funded" : "  профінансовано";
     }
     return params.lng === "en" ? "  needs support" : "  потребує підтримки";
   };
 
   const setColorForTitle = () => {
     const colors = ["text-honey-flower", "text-wine-berry", "text-dark-blue"];
-    const randomColor = Math.round(Math.random() * colors.length);
+    const randomColor = Math.ceil(Math.random() * colors.length) - 1;
     return colors[randomColor];
   };
 
   return (
-    <main className="bg-white text-black py-[32px]">
+    <main className="bg-white text-black py-[32px] mt-[100px] md:mt-0">
       <Breadcrumbs
         separator="/"
         lng={params.lng}
-        containerClasses="flex gap-1 container"
+        containerClasses="hidden md:flex gap-1 px-16"
         activeClasses="text-dark-blue"
       />
-      <h1 className="text-center lg:mb-[50px] text-small-4xl leading-2 lg:text-4xl lg:leading-4 max-w-[1440px] text-black">
+      <h1 className="text-center md:mb-[30px] lg:mb-[80px] font-bold text-2xl md:text-small-3xl lg:text-4xl leading-2 lg:leading-4 max-w-[1440px] text-black">
         {t("title")}
       </h1>
-      <ul className="flex flex-wrap">
+      <ul className="max-w-[1440px] m-auto flex flex-wrap gap-4 px-4 gap-4 md:px-8 md:gap-8 lg:gap-12 lg:justify-between">
         {projects.map((item) => (
           <li
             key={item._id}
-            className="flex flex-col items-center w-full lg:w-1/2 gap-6 p-6"
+            className="flex flex-col items-center w-full lg:w-[645px] gap-4"
           >
-            <div className="w-full lg:w-[640px] lg:h-[415px] overflow-hidden">
+            <div className="w-full lg:h-[415px] overflow-hidden">
               <Image
                 src={item.poster}
                 alt={item.enTitle}
@@ -63,28 +63,32 @@ const Projects = async ({
                 className="w-full object-cover object-center"
               />
             </div>
-            <div className="w-full lg:w-[640px] flex flex-col gap-2  items-center">
-              <h3 className={`w-full text-left h3 ${setColorForTitle()}`}>
-                {params.lng === "en" ? item.enTitle : item.title}
+            <div className="w-full flex flex-col gap-4 items-center">
+              <h3
+                className={`w-full text-left text-lg md:text-xl lg:text-3xl leading-3 line-clamp-1 font-bold ${setColorForTitle()}`}
+              >
+                {params.lng === "en"
+                  ? item.enTitle.toUpperCase()
+                  : item.title.toUpperCase()}
               </h3>
-              <p>
+              <p className="text-small-md md:text-md lg:text-lg leading-2 lg:leading-4 line-clamp-8">
                 {params.lng === "en"
                   ? item.enDescription.replace("**", "")
                   : item.description.replace("**", "")}
               </p>
-              <div className="w-full flex flex-wrap items-center justify-center md:justify-between gap-3">
-                <p className="w-full text-center md:w-[300px] md:text-left">
+              <div className="w-full flex flex-wrap items-center justify-center md:justify-between gap-4">
+                <p className="w-full text-center text-lg font-bold leading-2 md:w-[300px] md:text-left">
                   <Spiral
                     className={
                       item.status
-                        ? "stroke-green w-[30px] h-[30px] inline"
-                        : "stroke-red w-[30px] h-[30px] inline"
+                        ? "stroke-green w-[40px] h-[40px] inline"
+                        : "stroke-red w-[40px] h-[40px] inline"
                     }
                   />
                   {setStatus(item.status)}
                 </p>
                 <Link
-                  className="link-button-black"
+                  className="link-button-black min-w-[280px]"
                   href={`/${params.lng}${NAVIGATION.project}${item._id}`}
                 >
                   {params.lng === "en" ? "Learn more" : "Дізнатись більше"}

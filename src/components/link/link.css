@@ -10,7 +10,7 @@
 .link-button-secondary,
 .link-button-orange,
 .link-button-black {
-  @apply transition-all px-6 py-4 text-base font-semibold leading-2 rounded-large border
+  @apply transition-all flex items-center justify-center px-6 py-4 text-base font-semibold leading-2 rounded-large border
         lg:py-4.5 lg:text-md;
 }
 
