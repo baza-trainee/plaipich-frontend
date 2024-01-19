@@ -46,12 +46,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
     mainPhoto,
   } = newsItem;
   return (
-    <article className={`flex flex-col justify-between ${className ?? ""}`}>
+    <div className={`flex flex-col justify-between ${className ?? ""}`}>
       <Link
         href={`/${lng}/${NAVIGATION.oneNew}${_id}`}
-        className="hover:text-light-blue"
+        className={`${
+          isMain ? "hover:text-light-blue" : "hover:text-dark-blue"}`}
       >
-        {/* fix: need change h-[416px] */}
+        
         <div className="h-[416px] relative">
           <Image
             src={mainPhoto}
@@ -87,7 +88,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
         </div>
         <hr className="border-white mt-5" />
       </Link>
-    </article>
+    </div>
   );
 };
 
