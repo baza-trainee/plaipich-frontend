@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import footerSvg from "@/../public/logo.svg";
 import { useTranslation } from "@/app/i18n";
 import { NAVIGATION } from "@/commons/constants";
 
-import footerSvg from "../../../public/footer.svg";
-
-export const Footer = async ({ lng }: { lng: "en" | "uk" }) => {
+export const Footer = async ({ lng }: { lng: string }) => {
   const { t } = await useTranslation(lng, "footer");
   return (
     <footer className="bg-black text-white">
@@ -18,28 +17,28 @@ export const Footer = async ({ lng }: { lng: "en" | "uk" }) => {
             width={674}
             height={280}
             priority
-            className="w-[171px] h-[71px] md:w-[233px] md:h-[97px] lg:w-[337px] lg:h-[140px] mb-[36px] md:mb-[58px] lg:mb-0 mx-auto lg:ml-0"
+            className="w-[165px] h-[90px] md:w-[230px] md:h-[130px] lg:w-[270px] lg:h-[150px] mb-[36px] md:mb-[58px] lg:mb-0 mx-auto lg:ml-0"
           />
           <div className="md:flex md:justify-between lg:gap-[133px]">
             <nav>
               <ul className="md:flex flex-wrap md:w-[340px] text-center md:text-left md:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
                 <li className="md:w-[96px] md:mr-[140px] mb-[24px] md:mb-[30px] hover:text-light-blue">
-                  <Link href={`/${lng}${NAVIGATION.about}`}>
+                  <Link href={`/${lng}/${NAVIGATION.about}`}>
                     {t("nav-about-us")}
                   </Link>
                 </li>
                 <li className="mb-[24px] md:mb-[30px] md:w-[96px] hover:text-light-blue">
-                  <Link href={`/${lng}${NAVIGATION.news}`}>
+                  <Link href={`/${lng}/${NAVIGATION.news}`}>
                     {t("nav-news")}
                   </Link>
                 </li>
                 <li className="md:w-[96px] md:mr-[140px] mb-[24px] md:mb-[30px] hover:text-light-blue">
-                  <Link href={`/${lng}${NAVIGATION.projects}`}>
+                  <Link href={`/${lng}/${NAVIGATION.projects}`}>
                     {t("nav-projects")}
                   </Link>
                 </li>
                 <li className="mb-[24px] md:mb-[30px] md:w-[96px] hover:text-light-blue">
-                  <Link href={`/${lng}${NAVIGATION.reports}`}>
+                  <Link href={`/${lng}/${NAVIGATION.reports}`}>
                     {t("nav-reporting")}
                   </Link>
                 </li>
