@@ -24,7 +24,7 @@ export const PaymentDetailsSection = async ({ lng }: { lng: "en" | "uk" }) => {
       <div className="container max-w-desktop">
         <Link
           className="link-text self-end px-6 py-4.5 inline-block hover:no-underline transition-colors border border-black focus:outline-dark-blue active:bg-gray-200 rounded-large hover:bg-link-water"
-          href={NAVIGATION.about + "#reports"}
+          href={NAVIGATION.reports}
         >
           {t("all-reports-btn")}
           <LuMoveRight className="inline-block ml-2 align-middle" />
@@ -34,7 +34,7 @@ export const PaymentDetailsSection = async ({ lng }: { lng: "en" | "uk" }) => {
         </h2>
         {paymentAccordionData?.map(({ id, title, details }) => (
           <Accordion key={id} title={title}>
-            <ul className="text-2 text-dark-blue">
+            <ul className="text-2 text-dark-blue flex flex-col justify-normal gap-y-4">
               {details?.map((detail) => (
                 <li key={detail.name}>
                   <span className="font-semibold">{detail.name}</span>:{" "}

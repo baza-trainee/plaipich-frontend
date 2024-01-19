@@ -21,14 +21,14 @@ export const Reports = async ({ lng }: { lng: "en" | "uk" }) => {
   }) as ReportsAccordionItem[];
 
   return (
-    <section id="reports" className="bg-white w-full text-black pb-16">
+    <section id="reports" className="bg-white w-full text-black py-16">
       <div className="max-w-desktop container w-full">
-        <h2 className="h1 text-center normal-case mb-[90px]">
+        <h2 className="h1 text-center normal-case mb-10">
           {t("reports-title")}
         </h2>
         {accordionData?.map((item) => (
           <Accordion key={item.id} title={item.title}>
-            <p className="text-2">
+            <p className="text-2 py-4">
               <Link
                 appearance="link"
                 className="text-dark-blue hover:underline"
