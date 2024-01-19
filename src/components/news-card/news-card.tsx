@@ -47,7 +47,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
   } = newsItem;
   return (
     <article className={`flex flex-col justify-between ${className ?? ""}`}>
-      <Link href={`/${lng}/${NAVIGATION.oneNew}${_id}`}>
+      <Link
+        href={`/${lng}/${NAVIGATION.oneNew}${_id}`}
+        className="hover:text-light-blue"
+      >
         {/* fix: need change h-[416px] */}
         <div className="h-[416px] relative">
           <Image
@@ -68,7 +71,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               {lng === "en" ? category.en : category.uk}
             </span>
           </div>
-          <h3 className="h14 normal-case md:line-clamp-1 h-[64px]">
+          <h3 className="h14 normal-case h-[64px]">
             {lng === "en" ? enTitle : title}
           </h3>
           <p className="text-4 my-3 md:line-clamp-2">
