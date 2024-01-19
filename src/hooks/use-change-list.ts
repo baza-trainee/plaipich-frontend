@@ -3,32 +3,30 @@ import { useEffect } from "react";
 import { INews } from "@/commons/types";
 
 type TChangeList = {
-  isMobile: boolean;
-  isTablet: boolean;
-  isDesktop: boolean;
   categoryList: string[];
   reverse: boolean;
-  setLimit: Function;
-  showCategory: boolean;
-  setShowCategory: Function;
   setShowNews: Function;
   newsList: INews[];
   lng: "en" | "uk";
 };
 
-export const useChangeList = ({
+type TMediaRule = {
+  isMobile: boolean;
+  isTablet: boolean;
+  isDesktop: boolean;
+  setLimit: Function;
+  showCategory: boolean;
+  setShowCategory: Function;
+};
+
+export const useMediaRule = ({
   isMobile,
   isTablet,
   isDesktop,
-  categoryList,
-  reverse,
   setLimit,
   showCategory,
   setShowCategory,
-  setShowNews,
-  newsList,
-  lng,
-}: TChangeList) =>
+}: TMediaRule) =>
   useEffect(() => {
     if (isMobile) {
       setLimit(3);
@@ -42,6 +40,16 @@ export const useChangeList = ({
       setLimit(6);
       setShowCategory(true);
     }
+  }, [isMobile, isTablet, isDesktop]);
+
+export const useChangeList = ({
+  categoryList,
+  reverse,
+  setShowNews,
+  newsList,
+  lng,
+}: TChangeList) =>
+  useEffect(() => {
     if (categoryList.length === 0) {
       setShowNews(() => (reverse ? [...newsList].reverse() : newsList));
     }
@@ -53,4 +61,4 @@ export const useChangeList = ({
         return reverse ? array.reverse() : array;
       });
     }
-  }, [isMobile, isTablet, isDesktop, categoryList.length, reverse]);
+  }, [categoryList.length, reverse]);

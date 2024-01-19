@@ -47,8 +47,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
   } = newsItem;
   return (
     <article className={`flex flex-col justify-between ${className ?? ""}`}>
-      <Link href={`/${lng}/${NAVIGATION.oneNew}${_id}`}>
-        {/* fix: need change h-[416px] */}
+      <Link
+        href={`/${lng}/${NAVIGATION.oneNew}${_id}`}
+        className={`${
+          isMain ? "hover:text-light-blue" : "hover:text-dark-blue"
+        }`}
+      >
         <div className="h-[416px]">
           <Image
             src={mainPhoto}

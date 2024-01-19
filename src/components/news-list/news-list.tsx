@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 import { INews } from "@/commons/types";
 import NewsCard, { SetTagColor } from "@/components/news-card/news-card";
-import { useChangeList } from "@/hooks";
+import { useChangeList, useMediaRule } from "@/hooks";
 
 import { Button } from "..";
 
@@ -60,15 +60,18 @@ const NewsList = ({
     setReverse(event.target.value === "1");
   };
 
-  useChangeList({
+  useMediaRule({
     isMobile,
     isTablet,
     isDesktop,
-    categoryList,
-    reverse,
-    setLimit,
     showCategory,
     setShowCategory,
+    setLimit,
+  });
+
+  useChangeList({
+    categoryList,
+    reverse,
     setShowNews,
     newsList,
     lng,
@@ -153,7 +156,7 @@ const NewsList = ({
           ))}
         </div>
       )}
-      {newForShow && newForShow.length > limit && (
+      {newForShow && !isMainPage && (
         <ReactPaginate
           breakLabel="..."
           nextLabel=">"
