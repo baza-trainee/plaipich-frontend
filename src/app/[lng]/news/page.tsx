@@ -21,7 +21,7 @@ const News = async ({
 
   const { t } = await useTranslation(params.lng, "news");
   const badgesData = Array.from(
-    new Set(news.map((item) => item.category[params.lng]))
+    new Set(news.map((item) => item.category[params.lng])),
   );
 
   return (
