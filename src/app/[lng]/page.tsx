@@ -19,7 +19,7 @@ const Home = async ({
     lng: "en" | "uk";
   };
 }) => {
-    const {
+  const {
     data: { projects },
   }: { data: { projects: IProject[] } } = await apiService.getRequest(
     API_URL.PROJECTS,
