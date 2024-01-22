@@ -40,6 +40,7 @@ export const useMediaRule = ({
       setLimit(6);
       setShowCategory(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile, isTablet, isDesktop]);
 
 export const useChangeList = ({
@@ -61,4 +62,5 @@ export const useChangeList = ({
         return reverse ? array.reverse() : array;
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryList.length, reverse]);
