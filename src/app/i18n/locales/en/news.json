@@ -2,5 +2,7 @@
   "title": "News",
   "themes": "Themes",
   "sort": "Sort",
-  "sort2": "Sort to"
+  "sort2": "Sort to",
+  "byDateNew": "by date (first new)",
+  "byDateOld": "by date (old first)"
 }

@@ -8,7 +8,7 @@ import { useOneNew } from "@/hooks";
 const OneNew = () => {
   const searchParams = useSearchParams();
   const newId = searchParams.get("id");
-    const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
+  const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
 
   return <div>{!isLoading && <p>{data?.title}</p>}</div>;
 };

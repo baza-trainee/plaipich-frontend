@@ -40,7 +40,7 @@ export interface IProject {
     enText: string;
     link: string;
   };
-  partners?: [{ name: string; logo: string; }];
+  partners?: [{ name: string; logo: string }];
 }
 
 export interface INews {
