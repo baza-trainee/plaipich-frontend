@@ -29,14 +29,14 @@ export const Contacts = async ({ lng }: { lng: string }) => {
           </h2>
           <a
             className="text-md md:text-xl leading-2"
-            href="mailto:plaipich@gmail.com"
+            href="mailto:plai.ngo.info@gmail.com"
           >
-            plaipich@gmail.com
+            plai.ngo.info@gmail.com
           </a>
           <ul className="flex gap-[1.375rem] lg:gap-12 items-center">
             <li>
               <a
-                href="/"
+                href="https://www.tiktok.com/@plai.pich"
                 className="circle bg-link-water hover:scale-150 transition"
               >
                 <FaTiktok size="20px" color="black" />
@@ -44,7 +44,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             </li>
             <li>
               <a
-                href="/"
+                href="https://www.instagram.com/ngo.plai"
                 className="circle bg-pale-cerulean hover:scale-150 transition"
               >
                 <FaInstagram size="20px" color="black" />
@@ -52,7 +52,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             </li>
             <li>
               <a
-                href="/"
+                href="https://www.facebook.com/ngo.plai"
                 className="circle bg-water-blue hover:scale-150 transition"
               >
                 <FaFacebookF size="20px" color="black" />
@@ -60,7 +60,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             </li>
             <li>
               <a
-                href="/"
+                href="https://t.me/GO_PLAI"
                 className="circle bg-horizon hover:scale-150 transition"
               >
                 <FaTelegramPlane size="20px" color="black" />
@@ -68,7 +68,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             </li>
             <li>
               <a
-                href="/"
+                href="https://www.youtube.com/@plaiUA"
                 className="circle bg-background hover:scale-150 transition"
               >
                 <FaYoutube size="20px" color="black" />
