@@ -35,27 +35,42 @@ export const Contacts = async ({ lng }: { lng: string }) => {
           </a>
           <ul className="flex gap-[1.375rem] lg:gap-12 items-center">
             <li>
-              <a href="/" className="circle bg-link-water">
+              <a
+                href="/"
+                className="circle bg-link-water hover:scale-150 transition"
+              >
                 <FaTiktok size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-pale-cerulean">
+              <a
+                href="/"
+                className="circle bg-pale-cerulean hover:scale-150 transition"
+              >
                 <FaInstagram size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-water-blue">
+              <a
+                href="/"
+                className="circle bg-water-blue hover:scale-150 transition"
+              >
                 <FaFacebookF size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-horizon">
+              <a
+                href="/"
+                className="circle bg-horizon hover:scale-150 transition"
+              >
                 <FaTelegramPlane size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href="/" className="circle bg-background">
+              <a
+                href="/"
+                className="circle bg-background hover:scale-150 transition"
+              >
                 <FaYoutube size="20px" color="black" />
               </a>
             </li>

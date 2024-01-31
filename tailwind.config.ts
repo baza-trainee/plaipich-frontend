@@ -57,7 +57,7 @@ const config: Config = {
       horizon: "#478BA2",
       "wine-berry": "#4A2045",
       "honey-flower": "#54156C",
-      "new": "#4CB9DE",
+      new: "#4CB9DE",
       gray: {
         100: "#F5F5F5",
         200: "#DCDCDC",
