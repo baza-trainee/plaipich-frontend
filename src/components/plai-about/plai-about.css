@@ -5,41 +5,30 @@ lg:h-full lg:object-bottom lg:translate-y-0;
 }
 
 .grid-box {
-  @apply mx-auto max-w-[1440px] px-4 py-8 gap-4 flex flex-col justify-between items-center text-black
-    md:grid md:px-8 md:gap-5;
+  @apply mx-auto max-w-[1440px] px-4 py-8 gap-4 flex flex-col justify-around items-center text-black
+    lg:grid md:px-8 md:gap-5;
 }
 
 .text-first {
-  @apply md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2
-lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-2 lg:p-0;
+  @apply lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-2 lg:p-0;
 }
 
 .text-second {
-  @apply md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4
-lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:col-end-4;
+  @apply lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:col-end-3;
 }
 
 .text-third {
-  @apply md:col-start-2 md:col-end-3 md:row-start-4 md:row-end-5
-lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-4;
+  @apply lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-3;
 }
 
 .image-first {
-  @apply w-full min-h-[200px] object-center
-md:h-full md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-5
+  @apply w-full h-[200px] object-center object-cover md:h-[325px]
 lg:h-full lg:row-start-2 lg:row-end-4 lg:col-start-1 lg:col-end-2;
 }
 
 .image-second {
-  @apply w-full min-h-[200px] max-h-[300px] object-center
-md:h-full md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-3
-lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-3 lg:max-h-[500px];
-}
-
-.image-third {
-  @apply w-full min-h-[200px] object-center
-md:col-start-1 md:col-end-3 md:row-start-5 md:row-end-6 md:h-[300px]
-lg:row-start-3 lg:row-end-4 lg:col-start-3 lg:col-end-4 lg:h-full;
+  @apply w-full h-[200px] object-center object-cover md:h-[325px]
+lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-3 lg:h-full;
 }
 
 .item-plai-enemy {

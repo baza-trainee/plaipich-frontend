@@ -3,10 +3,9 @@ import "./plai-about.css";
 import Image from "next/image";
 import React from "react";
 
+import plai1 from "/public/about-1.webp";
+import plai2 from "/public/about-2.webp";
 import bgPlai from "/public/images/bg-plai.jpg";
-import plai1 from "/public/images/plai-1.jpg";
-import plai2 from "/public/images/plai-2.jpg";
-import plai3 from "/public/images/plai-3.jpg";
 import { useTranslation } from "@/app/i18n";
 
 import { Link } from "../link/link";
@@ -71,13 +70,6 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         <p className="text-3 font-normal md:text-small-md lg:text-md lg:leading-3 text-second">
           {t("text-second")}
         </p>
-        <Image
-          src={plai3}
-          alt="Plai"
-          width={700}
-          height={500}
-          className="image-second"
-        />
         <div className="text-third">
           <h5 className="text-5 mb-3"> {t("title-for-list")}</h5>
           <ul className="flex flex-col gap-1">
@@ -95,7 +87,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           alt="Plai"
           width={700}
           height={500}
-          className="image-third"
+          className="image-second"
         />
       </div>
     </section>
