@@ -44,7 +44,7 @@ const config: Config = {
       transparent: "transparent",
       amber: "#FFBD00",
       black: "#090909",
-      white: "#FFFFFF",
+      white: "#FCFCFC",
       red: "#C12725",
       orange: "#F06C00",
       background: "#FDFFF7",
