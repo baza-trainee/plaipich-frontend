@@ -26,17 +26,29 @@ export const JoinUs: React.FC<JoinUsProps> = async ({
         </div>
         <ul className="flex items-center gap-6 flex-col lg:flex-row justify-center lg:justify-start">
           <li className="listItemStyles">
-            <Link href="/" className="linkBaseStyles ">
+            <Link
+              href="https://forms.gle/JiwAhfvSAbdftfqt5"
+              target="_blank"
+              className="linkBaseStyles "
+            >
               {t("partner")}
             </Link>
           </li>
           <li className="listItemStyles">
-            <Link href="/" className="linkBaseStyles">
+            <Link
+              href="https://forms.gle/unjhmgQGNtjNnymJ9"
+              target="_blank"
+              className="linkBaseStyles"
+            >
               {t("member")}
             </Link>
           </li>
           <li className="listItemStyles">
-            <Link href="/" className="linkBaseStyles">
+            <Link
+              href="https://forms.gle/7gnTWqdPT4EqQJQ66"
+              target="_blank"
+              className="linkBaseStyles"
+            >
               {t("artist")}
             </Link>
           </li>
