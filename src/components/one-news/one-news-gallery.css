@@ -1,9 +1,9 @@
 .leftArrowBtn {
-    @apply absolute hidden top-[228px] lg:top-[324px] md:flex md:left-4 w-[36px] h-[36px] rounded-[50%] bg-light-blue border border-dark-blue z-10;
+    @apply absolute hidden top-[228px] lg:top-[324px] md:flex md:left-4 w-[40px] h-[40px] rounded-[50%] bg-dark-blue  z-10;
 }
 
 .rightArrowBtn {
-    @apply absolute hidden top-[228px] lg:top-[324px] md:flex md:right-4 w-[36px] h-[36px] rounded-[50%] bg-light-blue border border-dark-blue z-10;
+    @apply absolute hidden top-[228px] lg:top-[324px] md:flex md:right-4 w-[40px] h-[40px] rounded-[50%] bg-dark-blue  z-10;
 }
 
 .image-gallery-slides {

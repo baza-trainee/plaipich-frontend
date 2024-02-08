@@ -2,7 +2,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "./one-news-gallery.css";
 
 import React from "react";
-import { TbArrowLeft, TbArrowRight } from "react-icons/tb";
+import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import ImageGallery from "react-image-gallery";
 import { useMediaQuery } from "react-responsive";
 
@@ -25,8 +25,8 @@ const Gallery = ({ images }) => {
             showBullets={isMobile}
             autoPlay={isMobile}
             slideInterval={2000}
-            renderLeftNav={(onClick) => (<button onClick={onClick} className="leftArrowBtn"><TbArrowLeft size="24px" color="#0A4B70" /></button>)}
-            renderRightNav={(onClick) =>(<button onClick={onClick} className="rightArrowBtn"><TbArrowRight size="24px" color="#0A4B70"/></button>)}
+            renderLeftNav={(onClick) => (<button onClick={onClick} className="leftArrowBtn"><BsArrowLeftCircle size="33px" color="#fff" /></button>)}
+            renderRightNav={(onClick) =>(<button onClick={onClick} className="rightArrowBtn"><BsArrowRightCircle size="33px" color="#fff"/></button>)}
             thumbnailPosition={(isDesktop && "right") || (isTablet && "bottom")||(isMobile && "bottom")}     
         />
         
