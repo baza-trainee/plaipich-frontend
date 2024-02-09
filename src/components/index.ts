@@ -25,3 +25,4 @@ export { Partners } from "./partners/partners";
 export { PlaiAbout } from "./plai-about/plai-about";
 export { Providers } from "./providers";
 export { Reports } from "./reports/reports";
+export { ScrollUp } from "./scroll-up/scroll-up";
