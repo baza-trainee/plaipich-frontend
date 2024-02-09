@@ -4,7 +4,7 @@ import { dir } from "i18next";
 import localFont from "next/font/local";
 import React from "react";
 
-import { Footer, Header, Providers } from "@/components";
+import { Footer, Header, Providers, ScrollUp } from "@/components";
 
 import { useTranslation } from "../i18n";
 import { languages } from "../i18n/settings";
@@ -69,6 +69,7 @@ export default async function RootLayout({
           <Header lng={params.lng} />
           {children}
           <Footer lng={params.lng} />
+          <ScrollUp />
         </body>
       </Providers>
     </html>
