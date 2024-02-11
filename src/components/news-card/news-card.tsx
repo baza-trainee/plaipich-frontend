@@ -50,9 +50,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
       <Link
         href={`/${lng}/${NAVIGATION.oneNew}${_id}`}
         className={`${
-          isMain ? "hover:text-light-blue" : "hover:text-dark-blue"}`}
+          isMain ? "hover:text-light-blue" : "hover:text-dark-blue"
+        }`}
       >
-        
         <div className="h-[416px] relative">
           <Image
             src={mainPhoto}
