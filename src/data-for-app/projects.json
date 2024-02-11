@@ -1,55 +1,63 @@
 [
   {
     "title": "Boost_4_culture",
-    "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
+    "description": "Мета проекту** підтримка та професійний розвиток митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
     "enTitle": "Boost_4_culture",
-    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
+    "enDescription": "The goal of the project** is support and professional development of artists, cultural managers, organizations and communities of creative directions.",
     "status": true,
-    "poster": "/hiro.png",
+    "poster": "https://i.gyazo.com/c1f76a606bfa60fa4c9f1d6adf841f4e.png",
     "detailDesc": {
-      "start": "#Boost_4_Culture —",
-      "enStart": "#Boost_4_Culture —",
-      "text": "проєкт за підтримки ІСАР Єднання в межах програми USAID «Ініціатива секторальної підтримки громадянського суспільства», що спрямований на підтримку та професійний розвиток митців, культурних менеджерів, організацій та спільнот креативних напрямків. Проєкт реалізується громадською організацією «Мистецьке об’єднання «ПЛАЙ» протягом року у місті Вінниця — з жовтня 2023 року по липень 2024 року.  Протягом року релоковані та локальні культурні організації та спільноти, митці, менеджери культури, представники секторальних інституцій, креативного бізнесу, медіа будуть вчитися на реальних кейсах, отримувати досвід від практикуючих фахівців, підвищувати свою організаційну спроможність, стратегувати та планувати діяльність, підвищувати рівень знань та вмінь за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф. Культура розвивається попри все в умовах війни. Переосмислює, пропонує зміни, необхідні для майбутнього країни та суспільства. Ми хочемо створити умови для згуртованості культурного сектору через навчання, експерименти, партнерство й мережування. ",
-      "enText": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
-      "image": "/hiro.png"
+      "start": "#Boost_4_Culture",
+      "enStart": "#Boost_4_Culture",
+      "text": [
+        "проєкт за підтримки ІСАР Єднання в межах програми USAID «Ініціатива секторальної підтримки громадянського суспільства», що спрямований на підтримку та професійний розвиток митців, культурних менеджерів, організацій та спільнот креативних напрямків.\nПроєкт реалізується громадською організацією «Мистецьке об’єднання «ПЛАЙ» протягом року у місті Вінниця — з жовтня 2023 року по липень 2024 року.",
+        "Протягом року релоковані та локальні культурні організації та спільноти, митці, менеджери культури, представники секторальних інституцій, креативного бізнесу, медіа будуть вчитися на реальних кейсах, отримувати досвід від практикуючих фахівців, підвищувати свою організаційну спроможність, стратегувати та планувати діяльність, підвищувати рівень знань та вмінь за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф.",
+        "Культура розвивається попри все в умовах війни. Переосмислює, пропонує зміни, необхідні для майбутнього країни та суспільства. Ми хочемо створити умови для згуртованості культурного сектору через навчання, експерименти, партнерство й мережування."
+      ],
+      "enText": [
+        "a project supported by ISAR Yednannia within the framework of the USAID program 'Civil Society Sectoral Support Initiative', aimed at the support and professional development of artists, cultural managers, organizations and communities of creative directions.\nThe project is implemented by the public organization 'Art Association 'PLAY' during the year in the city of Vinnytsia — from October 2023 to July 2024.",
+        "During the year, relocated and local cultural organizations and communities, artists, cultural managers, representatives of sectoral institutions, creative business, media will learn from real cases, gain experience from practitioners, increase their organizational capacity, strategize and plan activities, increase the level of knowledge and skills in the following areas: cultural management, performance, visual art, cinematography.",
+        "Culture develops despite everything in the conditions of war. Rethinks, proposes changes necessary for the future of the country and society. We want to create conditions for the cohesion of the cultural sector through learning, experimentation, partnership and networking."
+      ],
+      "image": [
+        "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+        "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
+      ]
     },
     "mission": {
-      "image": "/hiro.png",
-      "title": "Місія",
+      "image": "https://i.gyazo.com/a7906693b0f3614b8ec8efb7975c5865.png",
+      "title": "Місія #Boost_4_Culture",
       "list": [
-        "Розвиток сфери культурної індустрії в Україні та світі (зокрема, в умовах децентралізації на локальному рівні);"
+        "Розвиток сфери культурної індустрії в Україні та світі (зокрема, в умовах децентралізації на локальному рівні).",
+        "Ефективне управління культурними проєктами і/або організаціями, фінансове планування, залучення донорів та пошук партнерів.",
+        "Зовнішні та внутрішні комунікації, маркетинг та брендинг, вплив якісних комунікацій на проєкт.",
+        "Стратегування та довгострокове планування.",
+        "Мережування, обмін думками, досвідами та практиками.",
+        "Налагодження діалогу з органами місцевого самоврядування."
       ],
-      "enTitle": "Mission",
-      "enList": ["A project that allows you to learn from real cases"]
+      "enTitle": "Mission #Boost_4_Culture",
+      "enList": [
+        "Development of the sphere of cultural industry in Ukraine and the world (in particular, in conditions of decentralization at the local level).",
+        "Effective management of cultural projects and/or organizations, financial planning, attraction of donors and search for partners.",
+        "External and internal communications, marketing and branding, the impact of quality communications on the project.",
+        "Strategy and long-term planning.",
+        "Networking, exchange of ideas, experiences and practices.",
+        "Establishing dialogue with local self-government bodies."
+      ]
     },
     "projectProgram": {
       "title": "У програмі проєкту:",
       "enTitle": "In the project program:",
-      "list": [
-        "4 резиденції раз на 2 місяці (тривалістю 2-5 днів), що сприятимуть навчанню учасників проєкту спільно з кураторами за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф у партнерстві з  ГО «ІНША ОСВІТА», PORT AGENCY, MŌN та іншими представниками секторів культури;"
-      ],
-      "enList": [
-        "4 residencies every 2 months (duration 2-5 days), which will contribute to the training of project participants together with curators in the following areas: cultural management, performance, visual art, cinematography in partnership with the NGO 'INSHA OSVITA', PORT AGENCY, MŌN and other representatives sectors of culture;"
-      ]
+      "text": "10 тематичних освітніх модулів/лекцій раз на місяць (теорія+практика) із запрошеними експертами в партнерстві з ГО «ІНША ОСВІТА»;\n4 резиденції раз на 2 місяці (тривалістю 2-5 днів), що сприятимуть навчанню учасників проєкту спільно з кураторами за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф у партнерстві з  ГО «ІНША ОСВІТА», PORT AGENCY, MŌN та іншими представниками секторів культури;\n5 культурних нетворкінгових подій за участі митців/організацій із різних регіонів України для взаємодії, обміну досвідом, популяризації сучасної української культури.\n#Boost_4_Culture також включає створення відеокурсу лекцій із відкритим доступом на платформі youtube після завершення проєкту. Створення мистецького каталогу, у якому зафіксуємо успішний досвід учасників, ініціатив та проєктів, коментарі лекторів, світлини різних етапів реалізації. Інформаційний супровід проєкту із залученням медійної підтримки партнерів. Протягом проекту буде можливість вільного доступу для роботи, реалізації ініціатив та проведення подій у культурному просторі «ПІЧ».",
+      "enText": "10 thematic educational modules/lectures once a month (theory + practice) with invited experts in partnership with the NGO 'INSHA OSVITA';\n4 residencies every 2 months (lasting 2-5 days), which will contribute to the training of project participants together with curators in the following areas: cultural management, performance, visual art, cinematography in partnership with the NGO 'INSHA OSVITA', PORT AGENCY, MŌN and others by representatives of cultural sectors;\n5 cultural networking events with the participation of artists/organizations from different regions of Ukraine for interaction, exchange of experience, popularization of modern Ukrainian culture.\n#Boost_4_Culture also includes the creation of a video course of lectures with open access on the youtube platform after the completion of the project. Creation of an art catalog in which we will record the successful experience of participants, initiatives and projects, lecturers' comments, photos of various stages of implementation. Information support of the project involving media support of partners. During the project, there will be the possibility of free access for work, implementation of initiatives and holding events in the cultural space 'PICH'."
     },
-    "support": {
-      "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
-      "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
-      "logo": "/hiro.png"
-    },
-    "videos": [""],
-    "photos": ["/hiro.png"],
-    "locationsCount": {
-      "title": "Як знайти простір ПІЧ?",
-      "enTitile": "How to find the IF space?",
-      "text": "Культурний простір ПІЧ знаходиться за адресою: вулиця Сковороди 25 (колишня вул. Пушкіна), м. Вінниця.",
-      "enText": "The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
-      "link": "/"
-    },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
+    "partners": [
+      { "name": "Partners", "logo": "/images/news-pic-2jpg" },
+      { "name": "Partners", "logo": "/images/news-pic-2jpg" }
+    ]
   },
   {
-    "title": "Boost_4_culture",
+    "title": "Культурний простір ПІЧ",
     "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
     "enTitle": "Boost_4_culture",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
@@ -71,16 +79,6 @@
       "enTitle": "Mission",
       "enList": ["A project that allows you to learn from real cases"]
     },
-    "projectProgram": {
-      "title": "У програмі проєкту:",
-      "enTitle": "In the project program:",
-      "list": [
-        "4 резиденції раз на 2 місяці (тривалістю 2-5 днів), що сприятимуть навчанню учасників проєкту спільно з кураторами за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф у партнерстві з  ГО «ІНША ОСВІТА», PORT AGENCY, MŌN та іншими представниками секторів культури;"
-      ],
-      "enList": [
-        "4 residencies every 2 months (duration 2-5 days), which will contribute to the training of project participants together with curators in the following areas: cultural management, performance, visual art, cinematography in partnership with the NGO 'INSHA OSVITA', PORT AGENCY, MŌN and other representatives sectors of culture;"
-      ]
-    },
     "support": {
       "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
       "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
@@ -94,15 +92,14 @@
       "text": "Культурний простір ПІЧ знаходиться за адресою: вулиця Сковороди 25 (колишня вул. Пушкіна), м. Вінниця.",
       "enText": "The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
       "link": "/"
-    },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
+    }
   },
   {
-    "title": "Boost_4_culture",
+    "title": "Ticket to the sun",
     "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
     "enTitle": "Boost_4_culture",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
-    "status": true,
+    "status": false,
     "poster": "/hiro.png",
     "detailDesc": {
       "start": "#Boost_4_Culture —",
@@ -111,47 +108,20 @@
       "enText": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
       "image": "/hiro.png"
     },
-    "mission": {
-      "image": "/hiro.png",
-      "title": "Місія",
-      "list": [
-        "Розвиток сфери культурної індустрії в Україні та світі (зокрема, в умовах децентралізації на локальному рівні);"
-      ],
-      "enTitle": "Mission",
-      "enList": ["A project that allows you to learn from real cases"]
-    },
-    "projectProgram": {
-      "title": "У програмі проєкту:",
-      "enTitle": "In the project program:",
-      "list": [
-        "4 резиденції раз на 2 місяці (тривалістю 2-5 днів), що сприятимуть навчанню учасників проєкту спільно з кураторами за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф у партнерстві з  ГО «ІНША ОСВІТА», PORT AGENCY, MŌN та іншими представниками секторів культури;"
-      ],
-      "enList": [
-        "4 residencies every 2 months (duration 2-5 days), which will contribute to the training of project participants together with curators in the following areas: cultural management, performance, visual art, cinematography in partnership with the NGO 'INSHA OSVITA', PORT AGENCY, MŌN and other representatives sectors of culture;"
-      ]
-    },
     "support": {
       "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
       "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
       "logo": "/hiro.png"
     },
     "videos": [""],
-    "photos": ["/hiro.png"],
-    "locationsCount": {
-      "title": "Як знайти простір ПІЧ?",
-      "enTitile": "How to find the IF space?",
-      "text": "Культурний простір ПІЧ знаходиться за адресою: вулиця Сковороди 25 (колишня вул. Пушкіна), м. Вінниця.",
-      "enText": "The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
-      "link": "/"
-    },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
+    "photos": ["/hiro.png"]
   },
   {
-    "title": "Boost_4_culture",
+    "title": "Air fest Vinnytsia",
     "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
     "enTitle": "Boost_4_culture",
     "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
-    "status": true,
+    "status": false,
     "poster": "/hiro.png",
     "detailDesc": {
       "start": "#Boost_4_Culture —",
@@ -160,39 +130,12 @@
       "enText": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
       "image": "/hiro.png"
     },
-    "mission": {
-      "image": "/hiro.png",
-      "title": "Місія",
-      "list": [
-        "Розвиток сфери культурної індустрії в Україні та світі (зокрема, в умовах децентралізації на локальному рівні);"
-      ],
-      "enTitle": "Mission",
-      "enList": ["A project that allows you to learn from real cases"]
-    },
-    "projectProgram": {
-      "title": "У програмі проєкту:",
-      "enTitle": "In the project program:",
-      "list": [
-        "4 резиденції раз на 2 місяці (тривалістю 2-5 днів), що сприятимуть навчанню учасників проєкту спільно з кураторами за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф у партнерстві з  ГО «ІНША ОСВІТА», PORT AGENCY, MŌN та іншими представниками секторів культури;"
-      ],
-      "enList": [
-        "4 residencies every 2 months (duration 2-5 days), which will contribute to the training of project participants together with curators in the following areas: cultural management, performance, visual art, cinematography in partnership with the NGO 'INSHA OSVITA', PORT AGENCY, MŌN and other representatives sectors of culture;"
-      ]
-    },
     "support": {
       "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
       "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
       "logo": "/hiro.png"
     },
     "videos": [""],
-    "photos": ["/hiro.png"],
-    "locationsCount": {
-      "title": "Як знайти простір ПІЧ?",
-      "enTitile": "How to find the IF space?",
-      "text": "Культурний простір ПІЧ знаходиться за адресою: вулиця Сковороди 25 (колишня вул. Пушкіна), м. Вінниця.",
-      "enText": "The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
-      "link": "/"
-    },
-    "partners": [{ "name": "Partners", "logo": "/images/news-pic-2jpg" }]
+    "photos": ["/hiro.png"]
   }
 ]
