@@ -12,11 +12,11 @@ const TextWithImage = ({
 }) => {
   return (
     <div
-      className={`block lg:flex justify-between items-center mb-4 ${
+      className={`block lg:flex justify-between items-center lg:mb-4 ${
         !title && "flex-row-reverse"
       }`}
     >
-      <p className="py-4 md:py-8 lg:py-0 lg:w-[755px] lg:text-justify">
+      <p className="py-4 lg:py-0 lg:w-[755px] lg:text-justify">
         {title && <span className="hidden lg:block h1">{title}</span>}
         {text}
       </p>
@@ -78,7 +78,7 @@ export const Details = ({
             />
           ))}
         {textWithoutImage() && (
-          <p className="text-justify">{textWithoutImage()}</p>
+          <p className="text-justify mt-4 lg:mt-0">{textWithoutImage()}</p>
         )}
       </div>
     </section>
