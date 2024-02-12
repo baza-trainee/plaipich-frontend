@@ -23,21 +23,20 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
 
   return (
     <div>
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
+      {!isLoading && data ? (
         <>
-          <p>{lng === "en" ? data?.enTitle : data?.title}</p>
           <Poster />
           <Description />
-          {data?.detailDesc && <Details />}
-          {data?.mission && <Mission lng={lng} missionData={data.mission} />}
-          {data?.support && <SupportProject />}
-          {data?.projectProgram && <Program />}
-          {data?.photos && data.photos.length > 0 && <Gallery />}
-          {data?.locationsCount && <Location />}
-          {data?.partners && <PartnersProject />}
+          {data.detailDesc && <Details lng={lng} details={data.detailDesc}/>}
+          {data.mission && <Mission lng={lng} missionData={data.mission} />}
+          {data.support && <SupportProject />}
+          {data.projectProgram && <Program />}
+          {data.photos && data.photos.length > 0 && <Gallery />}
+          {data.locationsCount && <Location />}
+          {data.partners && <PartnersProject />}
         </>
+      ) : (
+        <div>Loading ...</div>
       )}
     </div>
   );
