@@ -32,7 +32,9 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
             status={data.status}
             lng={lng}
           />
-          <Description />
+          <Description
+            description={lng === "en" ? data.enDescription : data.description}
+          />
           {data.detailDesc && <Details lng={lng} details={data.detailDesc} />}
           {data.mission?.image && (
             <Mission lng={lng} missionData={data.mission} />

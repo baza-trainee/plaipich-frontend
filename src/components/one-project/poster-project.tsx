@@ -29,7 +29,7 @@ export const Poster = ({
         />
       </div>
       <div className="flex-1 flex flex-col justify-center items-start pt-4 md:p-12 gap-16">
-        <h1 className="text-small-3xl text-center md:text-left lg:text-4xl lg:leading-4 font-bold max-w-[450px] uppercase">
+        <h1 className="text-small-3xl text-link-water text-center md:text-left lg:text-4xl lg:leading-4 font-bold max-w-[450px] uppercase">
           {title}
         </h1>
         {!status && (
