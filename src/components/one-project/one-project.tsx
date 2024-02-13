@@ -26,15 +26,22 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
     <div>
       {!isLoading && data ? (
         <>
-          <Poster />
-          <Description />
+          <Poster
+            title={lng === "en" ? data.enTitle : data.title}
+            poster={data.poster}
+            status={data.status}
+            lng={lng}
+          />
+          <Description
+            description={lng === "en" ? data.enDescription : data.description}
+          />
           {data.detailDesc && <Details lng={lng} details={data.detailDesc} />}
           {data.mission?.image && (
             <Mission lng={lng} missionData={data.mission} />
           )}
           {data.projectProgram?.title && <Program />}
           {data.locationsCount && <Location />}
-          {data.partners && <PartnersProject />}
+          {data.partners && data.partners.length > 0 && <PartnersProject />}
           {data.support && <SupportProject />}
           {data.photos && data.photos.length > 0 && <Gallery />}
         </>

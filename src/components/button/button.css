@@ -2,19 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-button {
-  @apply transition-all inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize
-  disabled:cursor-not-allowed;
+button,
+.btn-orange {
+  @apply transition-all inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize disabled:cursor-not-allowed;
 }
 
 .btn-text {
-  @apply text-base lg:text-md font-sans leading-2 font-normal lg:font-semibold tracking-normal;
+  @apply text-base bg-transparent lg:text-md font-sans leading-2 font-normal lg:font-semibold tracking-normal;
 }
 
 .btn-primary {
-  @apply text-white bg-dark-blue border-dark-blue
-  hover:bg-light-blue hover:text-black  hover:border-black 
-  active:text-white active:bg-dark-blue active:border-dark-blue;
+  @apply text-white bg-dark-blue border-dark-blue hover:bg-light-blue hover:text-black hover:border-black active:text-white active:bg-dark-blue active:border-dark-blue;
 }
 
 .btn-primary:disabled {
@@ -22,29 +20,27 @@ button {
 }
 
 .btn-secondary {
-  @apply text-white border-white 
-  hover:text-black hover:bg-white 
-  active:text-black active:bg-white;
+  @apply text-white border-white hover:text-black hover:bg-white active:text-black active:bg-white;
 }
 
 .btn-secondary:disabled {
   @apply border-gray-300 text-gray-300;
 }
 
+.btn-secondary-dark-bg {
+  @apply text-white border-white hover:text-black hover:bg-white active:text-black active:bg-white;
+}
+
 .btn-transparent {
-  @apply text-black bg-transparent border-transparent 
-  hover:bg-gray-100 hover:border-gray-100 
-  active:border-transparent active:bg-transparent;
+  @apply text-black bg-transparent border-transparent hover:bg-gray-100 hover:border-gray-100 active:border-transparent active:bg-transparent;
 }
 
 .btn-transparent:disabled {
   @apply text-gray-300;
 }
 
-.btn-orange {
-  @apply text-white bg-orange border-orange
-  hover:bg-dark-orange hover:border-dark-orange 
-  active:text-white active:bg-orange active:border-orange;
+button.btn-orange {
+  @apply text-white bg-orange border-orange hover:bg-dark-orange hover:border-dark-orange active:text-white active:bg-orange active:border-orange;
 }
 
 .btn-orange:disabled {
