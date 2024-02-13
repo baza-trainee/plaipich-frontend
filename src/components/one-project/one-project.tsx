@@ -26,7 +26,12 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
     <div>
       {!isLoading && data ? (
         <>
-          <Poster />
+          <Poster
+            title={lng === "en" ? data.enTitle : data.title}
+            poster={data.poster}
+            status={data.status}
+            lng={lng}
+          />
           <Description />
           {data.detailDesc && <Details lng={lng} details={data.detailDesc} />}
           {data.mission?.image && (
@@ -34,7 +39,7 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
           )}
           {data.projectProgram?.title && <Program />}
           {data.locationsCount && <Location />}
-          {data.partners && <PartnersProject />}
+          {data.partners && data.partners.length > 0 && <PartnersProject />}
           {data.support && <SupportProject />}
           {data.photos && data.photos.length > 0 && <Gallery />}
         </>
