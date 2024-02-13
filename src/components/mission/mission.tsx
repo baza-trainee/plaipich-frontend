@@ -23,7 +23,10 @@ export const Mission = ({
   const missionList = lng === "en" ? missionData.enList : missionData.list;
 
   return (
-    <section id="mission" className="py-8 md:py-16 md:pb-0 max-w-[1440px]">
+    <section
+      id="mission"
+      className="py-8 md:py-16 md:pb-0 max-w-[1440px] mx-auto"
+    >
       {missionData.bigTitle && (
         <div className="flex justify-center items-center flex-row">
           <Spiral className="stroke-link-water w-[26px] h-[21px] md:w-[32px] md:h-[26px] lg:w-[76px] lg:h-[61px] mr-4 md:mr-6" />
@@ -33,8 +36,11 @@ export const Mission = ({
         </div>
       )}
       <div
-        className="px-4 py-8 md:p-8 lg:p-16
-      lg:gap-8 lg:grid lg:grid-rows-none lg:grid-cols-2 lg:row-start-2"
+        className={`lg:gap-8 lg:grid lg:grid-rows-none lg:grid-cols-2 lg:row-start-2 ${
+          missionData.bigTitle
+            ? "px-4 py-8 md:p-8 lg:p-16"
+            : "px-4 md:px-8 lg:px-4"
+        }`}
       >
         <div className="md:pb-8 lg:pb-0">
           <h2 className="md:w-3/4 lg:h1 h2 normal-case">
