@@ -9,7 +9,7 @@ const config: Config = {
   darkMode: "class",
   theme: {
     screens: {
-      lg: "1440px",
+      lg: "1280px",
       md: "768px",
       sm: "320px",
     },
