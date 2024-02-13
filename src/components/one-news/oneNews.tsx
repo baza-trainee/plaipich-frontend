@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import { TbArrowLeft } from "react-icons/tb";
-import { useMediaQuery } from "react-responsive";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
 import { useOneNew } from "@/hooks/use-one-new";
@@ -18,11 +17,9 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
   const newId = searchParams.get("id");
   const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
-  const isDesktop = useMediaQuery({ minWidth: 1440 });
-
-  // const formatDescription = (description: string) => {
-  //   description.split(/( \n)/).filter((str, ind) => ind % 2 === 0);
-  // }
+  
+  const formatDescription = (description: string) => 
+    description.split(/( \n)/).filter((str, ind) => ind % 2 === 0);
 
   return (
     <section className="container pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8">
@@ -31,9 +28,8 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
       ) : (
         <>
           {data && (
-            <>
-              {isDesktop && (
-                <ul className="flex gap-1 text-sm leading-4 mb-10 w-full max-w-[1440px]">
+            <>             
+                <ul className="hidden lg:flex gap-1 text-sm leading-4 mb-10 w-full max-w-[1440px]">
                   <li className=" inline-block">
                     <Link href={`/${lng}/${NAVIGATION.main}`}>
                       {lng === "en" ? "Home" : "Головна"}{" "}
@@ -57,9 +53,8 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                     </Link>
                   </li>
                 </ul>
-              )}
-
-              <p
+             
+                <p
                 className={`inline-block py-2 px-4 rounded-medium mb-5 h-[40px] text-base text-center leading-4
                 ${SetTagColor(data.category.en)}`}
               >
@@ -80,48 +75,22 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                   </h2>
                   <p className=" text-gray-500 text-base leading-2 md:text-md font-normal mb-5">
                     {formatDate({ date: data.date, lng })}
-                  </p>
+                    </p>
 
-                  <p className=" text-base leading-4 first-line:font-semibold font-normal mb-8 md:mb-5 lg:pr-5">
-                    {lng === "en" ? data.enDescription : data.description}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laborum veritatis sequi molestias, quas a ducimus aut
-                    asperiores. In, quae veritatis incidunt architecto, eveniet
-                    voluptatem facere atque natus explicabo sunt aperiam?
-                    Officia debitis rem ex quis nobis accusantium expedita,
-                    veritatis nisi similique provident vitae aliquam quisquam
-                    nulla quos voluptate aperiam blanditiis, quasi alias, ut
-                    corrupti maxime dolore! Id, distinctio eius! Maxime.
-                    Incidunt voluptate dicta non impedit omnis! Quo quasi
-                    repudiandae qui ea nobis nesciunt, tempore fugit distinctio
-                    consequuntur nulla. Similique eos aliquid omnis laudantium
-                    dolore id officiis consequatur reprehenderit temporibus
-                    quos. Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Placeat suscipit modi eius quia. Incidunt nostrum
-                    ducimus officia perspiciatis accusamus quo cupiditate sequi
-                    numquam eligendi doloremque exercitationem aliquam ratione,
-                    beatae facere? Omnis qui quidem vitae quam modi est error,
-                    labore cum officia mollitia sed dignissimos excepturi
-                    necessitatibus sequi laudantium ex, maiores eum explicabo
-                    dicta a. Repellendus quos hic temporibus incidunt nemo.
-                    Voluptates voluptatibus dolor maxime mollitia, omnis nisi
-                    sapiente deleniti autem consectetur ab iure nemo voluptatem
-                    quae minima consequatur vel pariatur deserunt doloribus
-                    cumque, dicta consequuntur odio? Ut, reprehenderit quidem?
-                    Qui? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Neque voluptatum odit molestias veniam aliquid
-                    provident suscipit nam vero repellat at repellendus natus
-                    cum sed blanditiis, corrupti accusantium! Illo, alias
-                    aspernatur. Odit delectus excepturi quam, dignissimos et
-                    distinctio minima. Dolorem modi id itaque a expedita,
-                    temporibus et dolor nam recusandae odio, aut obcaecati
-                    numquam neque assumenda fuga sequi fugit! Totam, rerum.
-                    Magnam voluptatem repudiandae error vero nesciunt, cum
-                    aspernatur iure. Quidem voluptatibus officia perspiciatis
-                    beatae reprehenderit necessitatibus aut id, ducimus hic
-                    minus dolore esse, asperiores laudantium inventore,
-                    voluptatem incidunt vel explicabo.
+                    <div>                     
+                      {lng === "en" ?
+                        formatDescription(data.enDescription).map((str, ind) => (
+                        <p className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${ind===0 ? "font-semibold" : "font-normal"}`} key={ind+str[0]}>
+                    {str}
+                    
                   </p>
+                      )) :
+                        formatDescription(data.description).map((str, ind) => (
+                        <p className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${ind===0 ? "font-semibold" : "font-normal"}`} key={ind+str[0]}>
+                    {str}                    
+                  </p>
+                      ))}
+                    </div>                  
                 </div>
               </div>
               {data.photos.length != 0 && (
