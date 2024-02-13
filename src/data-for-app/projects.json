@@ -58,45 +58,59 @@
   },
   {
     "title": "Культурний простір ПІЧ",
-    "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
-    "enTitle": "Boost_4_culture",
-    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
-    "status": true,
-    "poster": "/hiro.png",
+    "description": "Піч ** це культурний простір, точка зборки, штаб, місце об’єднання активних діячів культурної сфери життя, та створення унікального локального контенту, поєднуючи різні напрями мистецтва.",
+    "enTitle": "Cultural space PICH",
+    "enDescription": "Pich ** it is a cultural space, an assembly point, a headquarters, a place to unite active figures in the cultural sphere of life, and to create unique local content, combining different areas of art.",
+    "status": false,
+    "poster": "https://i.gyazo.com/3fbf03302ee25327e24f69c39f718592.png",
     "detailDesc": {
-      "start": "#Boost_4_Culture",
-      "enStart": "#Boost_4_Culture",
+      "start": "Основним принципом простору ПІЧ є",
+      "enStart": "The basic principle of the IF space is",
       "text": [
-        "проєкт за підтримки ІСАР Єднання в межах програми USAID «Ініціатива секторальної підтримки громадянського суспільства», що спрямований на підтримку та професійний розвиток митців, культурних менеджерів, організацій та спільнот креативних напрямків.\nПроєкт реалізується громадською організацією «Мистецьке об’єднання «ПЛАЙ» протягом року у місті Вінниця — з жовтня 2023 року по липень 2024 року.",
-        "Протягом року релоковані та локальні культурні організації та спільноти, митці, менеджери культури, представники секторальних інституцій, креативного бізнесу, медіа будуть вчитися на реальних кейсах, отримувати досвід від практикуючих фахівців, підвищувати свою організаційну спроможність, стратегувати та планувати діяльність, підвищувати рівень знань та вмінь за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф.",
-        "Культура розвивається попри все в умовах війни. Переосмислює, пропонує зміни, необхідні для майбутнього країни та суспільства. Ми хочемо створити умови для згуртованості культурного сектору через навчання, експерименти, партнерство й мережування."
+        "“даха-браха”, тобто давати і приймати. Ділитись творчістю, досвідом, знаннями та отримувати натомість зворотній зв’язок, новий мистецький продукт.",
+        "Незалежний культурний простір “ПІЧ” створено під час пандемії у 2020 році. Мультифункціональне, камерне, атмосферне приміщення у середмісті Вінниці для взаємодії та колаборації митців, реалізації культурних подій, освітніх та медіа проектів. \n Культура розвивається попри все в умовах війни. Переосмислює, пропонує зміни, необхідні для майбутнього країни та суспільства. Ми хочемо створити умови для згуртованості культурного сектору через навчання, експерименти, партнерство й мережування."
       ],
       "enText": [
-        "a project supported by ISAR Yednannia within the framework of the USAID program 'Civil Society Sectoral Support Initiative', aimed at the support and professional development of artists, cultural managers, organizations and communities of creative directions.\nThe project is implemented by the public organization 'Art Association 'PLAY' during the year in the city of Vinnytsia — from October 2023 to July 2024.",
+        "'daha-braha', i.e. to give and receive. To share creativity, experience, knowledge and receive feedback, a new artistic product in return.",
         "During the year, relocated and local cultural organizations and communities, artists, cultural managers, representatives of sectoral institutions, creative business, media will learn from real cases, gain experience from practitioners, increase their organizational capacity, strategize and plan activities, increase the level of knowledge and skills in the following areas: cultural management, performance, visual art, cinematography.",
-        "Culture develops despite everything in the conditions of war. Rethinks, proposes changes necessary for the future of the country and society. We want to create conditions for the cohesion of the cultural sector through learning, experimentation, partnership and networking."
+        "The independent cultural space 'PICH' was created during the pandemic in 2020. A multifunctional, chambered, atmospheric space in the center of Vinnytsia for the interaction and collaboration of artists, the realization of cultural events, educational and media projects. \n Culture develops despite everything in the conditions of war. Rethinks , offers the changes needed for the future of the country and society. We want to create conditions for the cohesion of the cultural sector through learning, experimentation, partnership and networking."
       ],
       "image": [
-        "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
-        "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
+        "https://i.gyazo.com/577f631e43234dae2e1e880cba211a0e.png",
+        "https://i.gyazo.com/fc726723bc7c94534f950daa6d4a1fff.png"
       ]
     },
     "mission": {
-      "image": "/hiro.png",
-      "title": "Місія",
+      "image": "https://i.gyazo.com/86dda1c63504e73f929f8c7b0f1ed880.png",
+      "title": "Місія простору ПІЧ",
       "list": [
-        "Розвиток сфери культурної індустрії в Україні та світі (зокрема, в умовах децентралізації на локальному рівні);"
+        "Створюючи мистецькі провокаційні колаборації та акції підтримувати живий “вогонь”, щоб він зігрівав людей, давав їм надію на відродження нової, власної, автентичної, актуальної культури.",
+        "Створювати умови для проектів які надихатимуть звичайних жителів міста творити, себе, своє оточення, та, власне впливати на духовність міста."
       ],
-      "enTitle": "Mission",
-      "enList": ["A project that allows you to learn from real cases"]
+      "enTitle": "The mission of the PICH space",
+      "enList": [
+        "By creating provocative artistic collaborations and actions, maintain a living 'fire' so that it warms people, gives them hope for the revival of a new, own, authentic, relevant culture.",
+        "To create conditions for projects that will inspire ordinary residents of the city to create themselves, their environment, and actually influence the spirituality of the city."
+      ]
     },
     "support": {
       "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
-      "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
-      "logo": "/hiro.png"
+      "enText": "Join the support of the project 'PICH'. Your contribution will help us develop the cultural industry of Ukraine.",
+      "logo": "https://i.gyazo.com/32fa5288776c00685821884d1a059b49.png"
     },
     "videos": [""],
-    "photos": ["/hiro.png"],
+    "photos": [
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
+    ],
     "locationsCount": {
       "title": "Як знайти простір ПІЧ?",
       "enTitile": "How to find the IF space?",
@@ -107,68 +121,81 @@
   },
   {
     "title": "Ticket to the sun",
-    "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
-    "enTitle": "Boost_4_culture",
-    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
+    "description": "Ticket to the sun ** унікальний формат мистецьких вихідних на території дитячого санаторію ім. Коцюбинського у Вінниці (Територія SUN), придуманий та втілений у життя ГО «Мистецьке об’єднання “Plai”» у взаємодії з міською владою, бізнесом та громадою.",
+    "enTitle": "Ticket to the sun",
+    "enDescription": "Ticket to the sun ** the unique format of the artistic weekend on the territory of the children's sanatorium named after Kotsyubinsky Street in Vinnytsia (SUN Territory), conceived and implemented by the NGO 'Plai Art Association' in cooperation with the city government, business and community.",
     "status": false,
-    "poster": "/hiro.png",
+    "poster": "https://i.gyazo.com/58cb84c6aec740de1e6d0fe551ded7f4.png",
     "detailDesc": {
-      "start": "#Boost_4_Culture",
-      "enStart": "#Boost_4_Culture",
+      "start": "Територія SUN",
+      "enStart": "Territory SUN",
       "text": [
-        "проєкт за підтримки ІСАР Єднання в межах програми USAID «Ініціатива секторальної підтримки громадянського суспільства», що спрямований на підтримку та професійний розвиток митців, культурних менеджерів, організацій та спільнот креативних напрямків.\nПроєкт реалізується громадською організацією «Мистецьке об’єднання «ПЛАЙ» протягом року у місті Вінниця — з жовтня 2023 року по липень 2024 року.",
-        "Протягом року релоковані та локальні культурні організації та спільноти, митці, менеджери культури, представники секторальних інституцій, креативного бізнесу, медіа будуть вчитися на реальних кейсах, отримувати досвід від практикуючих фахівців, підвищувати свою організаційну спроможність, стратегувати та планувати діяльність, підвищувати рівень знань та вмінь за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф.",
-        "Культура розвивається попри все в умовах війни. Переосмислює, пропонує зміни, необхідні для майбутнього країни та суспільства. Ми хочемо створити умови для згуртованості культурного сектору через навчання, експерименти, партнерство й мережування."
+        "територія закинутого та занедбаного санаторію у районі Старого міста на межі міста та лісу. \n Локація підібрана ідеально — туди можна легко доїхати на міському транспорті, але водночас відчути себе поза межами Вінниці."
       ],
       "enText": [
-        "a project supported by ISAR Yednannia within the framework of the USAID program 'Civil Society Sectoral Support Initiative', aimed at the support and professional development of artists, cultural managers, organizations and communities of creative directions.\nThe project is implemented by the public organization 'Art Association 'PLAY' during the year in the city of Vinnytsia — from October 2023 to July 2024.",
-        "During the year, relocated and local cultural organizations and communities, artists, cultural managers, representatives of sectoral institutions, creative business, media will learn from real cases, gain experience from practitioners, increase their organizational capacity, strategize and plan activities, increase the level of knowledge and skills in the following areas: cultural management, performance, visual art, cinematography.",
-        "Culture develops despite everything in the conditions of war. Rethinks, proposes changes necessary for the future of the country and society. We want to create conditions for the cohesion of the cultural sector through learning, experimentation, partnership and networking."
+        "the territory of an abandoned and abandoned sanatorium in the Old Town district on the border between the city and the forest. \n The location is perfectly chosen - you can easily get there by public transport, but at the same time feel like you are outside Vinnytsia."
       ],
-      "image": [
-        "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
-        "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
-      ]
+      "image": ["https://i.gyazo.com/a019509dbd97cecfe2acfca1b9bef097.png"]
     },
     "support": {
-      "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
-      "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
-      "logo": "/hiro.png"
+      "text": "Приєднайтеся до підтримки проєкту “Ticket to the SUN” Ваш внесок допоможе нам розвивати культурну індустрію України.",
+      "enText": "Join in supporting the 'Ticket to the SUN' project. Your contribution will help us develop the cultural industry of Ukraine.",
+      "logo": "https://i.gyazo.com/45d74f8925008b3b4540177b3b8ae263.png"
     },
     "videos": [""],
-    "photos": ["/hiro.png"]
+    "photos": [
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
+    ]
   },
   {
     "title": "Air fest Vinnytsia",
-    "description": "Boost_4_culture має за мету підтримати та професійно розвивати митців, культурних менеджерів, організацій та спільнот креативних напрямків.",
-    "enTitle": "Boost_4_culture",
-    "enDescription": "A project that allows you to learn from real cases, get experience from experts, develop yourself, your artistic community and even launch your own cultural product, experimenting in directions.",
+    "description": "AIR fest ** це платформа для взаємодії локальних кураторів задля створення та презентації культурних продуктів виготовлених у Вінниці.",
+    "enTitle": "Air fest Vinnytsia",
+    "enDescription": "AIR fest ** is a platform for the interaction of local curators for the creation and presentation of cultural products made in Vinnytsia.",
     "status": false,
-    "poster": "/hiro.png",
+    "poster": "https://i.gyazo.com/37596dc858ea6019f85b13acef6d2b2a.png",
     "detailDesc": {
-      "start": "#Boost_4_Culture",
-      "enStart": "#Boost_4_Culture",
+      "start": "Air fest Vinnytsia",
+      "enStart": "Air fest Vinnytsia",
       "text": [
-        "проєкт за підтримки ІСАР Єднання в межах програми USAID «Ініціатива секторальної підтримки громадянського суспільства», що спрямований на підтримку та професійний розвиток митців, культурних менеджерів, організацій та спільнот креативних напрямків.\nПроєкт реалізується громадською організацією «Мистецьке об’єднання «ПЛАЙ» протягом року у місті Вінниця — з жовтня 2023 року по липень 2024 року.",
-        "Протягом року релоковані та локальні культурні організації та спільноти, митці, менеджери культури, представники секторальних інституцій, креативного бізнесу, медіа будуть вчитися на реальних кейсах, отримувати досвід від практикуючих фахівців, підвищувати свою організаційну спроможність, стратегувати та планувати діяльність, підвищувати рівень знань та вмінь за напрямками: культурний менеджмент, перформанс, візуальне мистецтво, кінематограф.",
-        "Культура розвивається попри все в умовах війни. Переосмислює, пропонує зміни, необхідні для майбутнього країни та суспільства. Ми хочемо створити умови для згуртованості культурного сектору через навчання, експерименти, партнерство й мережування."
+        "це співпраця великої кількості потужних креативних людей. Художники, музиканти, перформери, поети, актори, режисери, кіношники, культурні драйвери, мислителі, діджеї, медіа артисти, розробники новітніх технологій – коло дуже велике і всіх не ідентифікуєш. Але спільне у всіх – це рух творчості у грудях та думках, а також готовність діяти. \n Кожен, хто доєднується до фестивалю, створює свою частину великого світу AIR Fest Vinnytsia, привносить свої вміння в одне спільне творче середовище. ",
+        "Цього року основною локацією фестивалю стане територія колишнього кінотеатру 'Росія' (тепер 'Європейський дім') – і знову все перетвориться у сюрреалістичну магію, де ніколи не знаєш, чого очікувати за кутом і ніби постійно подорожуєш між вимірами різних реальностей.\n Програма мультидисциплінарного фестивалю:театральна, перформативна, візуальна, музична, освітня. "
       ],
       "enText": [
-        "a project supported by ISAR Yednannia within the framework of the USAID program 'Civil Society Sectoral Support Initiative', aimed at the support and professional development of artists, cultural managers, organizations and communities of creative directions.\nThe project is implemented by the public organization 'Art Association 'PLAY' during the year in the city of Vinnytsia — from October 2023 to July 2024.",
-        "During the year, relocated and local cultural organizations and communities, artists, cultural managers, representatives of sectoral institutions, creative business, media will learn from real cases, gain experience from practitioners, increase their organizational capacity, strategize and plan activities, increase the level of knowledge and skills in the following areas: cultural management, performance, visual art, cinematography.",
-        "Culture develops despite everything in the conditions of war. Rethinks, proposes changes necessary for the future of the country and society. We want to create conditions for the cohesion of the cultural sector through learning, experimentation, partnership and networking."
+        "it is a collaboration of a large number of powerful creative people. Artists, musicians, performers, poets, actors, directors, filmmakers, cultural drivers, thinkers, DJs, media artists, developers of the latest technologies - the circle is very large and you cannot identify them all. But what everyone has in common is the movement of creativity in the chest and thoughts, as well as the readiness to act. \n Everyone who joins the festival creates his part of the big world of AIR Fest Vinnytsia, brings his skills to one common creative environment.",
+        "This year, the main location of the festival will be the territory of the former 'European House' - and once again everything will turn into surreal magic, where you never know what to expect around the corner and as if you are constantly traveling between the dimensions of different realities.\n Program multidisciplinary festival: theatrical, performative, visual, musical, educational."
       ],
       "image": [
-        "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
-        "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
+        "https://i.gyazo.com/b6bb5786ddc572a1e6e3829889c08239.png",
+        "https://i.gyazo.com/42c062b46d6b0ef2389f0e04f4af8415.png"
       ]
     },
     "support": {
-      "text": "Приєднайтеся до підтримки проєкту “Культурний простір ПІЧ”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
-      "enText": "Join the support of the project 'Cultural space of the MIC'. Your contribution will help us develop the cultural industry of Ukraine.",
-      "logo": "/hiro.png"
+      "text": "Приєднайтеся до підтримки проєкту “AIR fest”. Ваш внесок допоможе нам розвивати культурну індустрію України.",
+      "enText": "Join in supporting the AIR fest project. Your contribution will help us develop the cultural industry of Ukraine.",
+      "logo": "https://i.gyazo.com/530a1b38ba7525ebb5ed613e69e96651.png"
     },
     "videos": [""],
-    "photos": ["/hiro.png"]
+    "photos": [
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png",
+      "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
+      "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
+    ]
   }
 ]
