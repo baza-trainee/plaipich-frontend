@@ -56,7 +56,7 @@ export const HeaderClient = ({
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
-      <div className="hidden lg:flex items-center relative">
+      <div className="hidden lg:flex items-center flex-1 relative">
         {children}
         {!openSearch && query === "" && (
           <button

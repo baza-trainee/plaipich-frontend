@@ -51,17 +51,23 @@ export const Footer = async ({ lng }: { lng: string }) => {
             </nav>
             <ul className="text-center md:text-start text-[18px] lg:text-md leading-3">
               <li className="underline mb-[24px] md:mb-[22px] hover:text-light-blue">
-                <Link href="#">{t("privacy-policy")}</Link>
+                <Link target="_blank" href="/Police_Plai.pdf">
+                  {t("privacy-policy")}
+                </Link>
               </li>
               <li className="underline mb-[24px] md:mb-0 hover:text-light-blue">
-                <Link href="#">{t("terms-of-use")}</Link>
+                <Link target="_blank" href="/Rules_Plai.pdf">
+                  {t("terms-of-use")}
+                </Link>
               </li>
             </ul>
           </div>
         </div>
-        <p className="lg:mx-[12px] mt-[52px] lg:mt-[26px] text-center lg:text-start text-base leading-3">
-          {t("footer-baza-trainee")}
-        </p>
+        <a href="https://baza-trainee.tech/ua" target="_blank">
+          <p className="lg:mx-[12px] mt-[52px] lg:mt-[26px] text-center lg:text-start text-base leading-3">
+            {t("footer-baza-trainee")}
+          </p>
+        </a>
       </div>
     </footer>
   );

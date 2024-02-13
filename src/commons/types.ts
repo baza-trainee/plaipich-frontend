@@ -9,9 +9,9 @@ export interface IProject {
   detailDesc?: {
     start: string;
     enStart: string;
-    text: string;
-    enText: string;
-    image: string;
+    text: string[];
+    enText: string[];
+    image: string[];
   };
   mission?: {
     image: string;
