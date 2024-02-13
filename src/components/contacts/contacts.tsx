@@ -37,6 +37,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             <li>
               <a
                 href="https://www.tiktok.com/@plai.pich"
+                target="_blank"
                 className="circle bg-link-water hover:scale-150 transition"
               >
                 <FaTiktok size="20px" color="black" />
@@ -45,6 +46,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             <li>
               <a
                 href="https://www.instagram.com/ngo.plai"
+                target="_blank"
                 className="circle bg-pale-cerulean hover:scale-150 transition"
               >
                 <FaInstagram size="20px" color="black" />
@@ -53,6 +55,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             <li>
               <a
                 href="https://www.facebook.com/ngo.plai"
+                target="_blank"
                 className="circle bg-water-blue hover:scale-150 transition"
               >
                 <FaFacebookF size="20px" color="black" />
@@ -61,6 +64,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             <li>
               <a
                 href="https://t.me/GO_PLAI"
+                target="_blank"
                 className="circle bg-horizon hover:scale-150 transition"
               >
                 <FaTelegramPlane size="20px" color="black" />
@@ -69,6 +73,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             <li>
               <a
                 href="https://www.youtube.com/@plaiUA"
+                target="_blank"
                 className="circle bg-background hover:scale-150 transition"
               >
                 <FaYoutube size="20px" color="black" />
