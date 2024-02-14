@@ -16,7 +16,7 @@ const NewsList = ({
 }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768 });
-  const isDesktop = useMediaQuery({ minWidth: 1440 });
+  const isDesktop = useMediaQuery({ minWidth: 1280 });
 
   if (isMobile) {
     newsList = newsList?.slice(0, 3);
