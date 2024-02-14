@@ -52,7 +52,7 @@ export interface INews {
   date: Date;
   category: {
     en: "Announcements" | "Articles" | "Projects" | "Events" | "Personals";
-    uk: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
+    uk: "Анонси" | "Статті" | "Проєкти" | "Події" | "Персоналії";
   };
   mainPhoto: string;
   photos: string[];
