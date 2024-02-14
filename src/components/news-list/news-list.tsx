@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React, { ChangeEvent, useState } from "react";
-import ReactPaginate from "react-paginate";
 import { useMediaQuery } from "react-responsive";
 
 import { INews } from "@/commons/types";
@@ -9,6 +8,7 @@ import NewsCard, { SetTagColor } from "@/components/news-card/news-card";
 import { useChangeList, useMediaRule } from "@/hooks";
 
 import { Button } from "..";
+import { CircularPagination } from "../pagination/pagination";
 
 const NewsList = ({
   lng,
@@ -23,7 +23,7 @@ const NewsList = ({
   const isTablet = useMediaQuery({ minWidth: 768 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const [limit, setLimit] = useState(6);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [reverse, setReverse] = useState(false);
   const [showCategory, setShowCategory] = useState(true);
   const [categoryList, setCategoryList] = useState<string[]>([]);
@@ -33,10 +33,6 @@ const NewsList = ({
   const badgesData = Array.from(
     new Set(newsList.map((item) => item.category[lng])),
   );
-
-  const handlePageClick = (event: { selected: number }) => {
-    setPage(event.selected);
-  };
 
   const changeFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const current = event.target.id;
@@ -147,7 +143,7 @@ const NewsList = ({
                     lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10
                     md:grid-cols-2 md:my-8 md:gap-x-4"
         >
-          {newForShow.slice(limit * page, limit * (page + 1)).map((item) => (
+          {newForShow.slice(limit * (page-1), limit * (page)).map((item) => (
             <NewsCard
               key={item._id}
               newsItem={item}
@@ -159,19 +155,7 @@ const NewsList = ({
         </div>
       )}
       {newForShow && !isMainPage && (
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={Math.ceil(newForShow.length / limit)}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-          className="flex w-full justify-center items-center gap-[20px] text-md font-medium"
-          pageLinkClassName="w-[52px] h-[52px] flex justify-center items-center rounded-full border border-horizon"
-          activeLinkClassName="bg-horizon text-white"
-          disabledClassName="opacity-40"
-        />
+        <CircularPagination pages={Math.ceil(newForShow.length / limit)} page={page} setPage={setPage} />
       )}
     </>
   );
