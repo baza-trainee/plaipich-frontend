@@ -87,7 +87,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {formatDate({ date, lng })}
           </p>
         </div>
-        <hr className="border-white mt-5" />
+        <hr className="border mt-5" />
       </Link>
     </div>
   );
