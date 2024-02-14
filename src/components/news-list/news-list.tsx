@@ -84,7 +84,7 @@ const NewsList = ({
           {showCategory && (
             <div className="md:flex md:static fixed top-0 left-0 w-full md:w-1/2 bg-white h-full flex flex-col justify-center items-center">
               <button
-                className="md:hidden border-none text-md fixed top-[100px] right-[20px]"
+                className="md:hidden border-none text-md fixed top-[120px] right-[20px]"
                 onClick={closeCategory}
               >
                 x
@@ -121,14 +121,16 @@ const NewsList = ({
           >
             <p className="btn-text">{lng === "en" ? "Category ↓" : "Теми ↓"}</p>
           </Button>
-          <button type="button" className="md:hidden border-none btn-text">
-            {lng === "en" ? "Sort" : "Сортувати"}
-          </button>
-          <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
-            <p className="text-gray-400 lg:mr-6">
+          <div className="flex flex-col lg:flex-row lg:items-center md:items-end text-5">
+            <p className="text-base lg:text-md text-gray-400 lg:mr-6 py-1 px-4">
               {lng === "en" ? "Sort by" : "Сортувати за"}
             </p>
-            <select name="sort" id="sort" onChange={onChangeSort}>
+            <select
+              name="sort"
+              id="sort"
+              className="px-2 focus:outline-transparent"
+              onChange={onChangeSort}
+            >
               <option value={0}>
                 {lng === "en" ? "new first" : "спочатку нові"}
               </option>
@@ -142,8 +144,8 @@ const NewsList = ({
       {newForShow && (
         <div
           className="grid grid-cols-1 
-                    lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
-                    md:grid-cols-2 md:my-16 md:gap-x-4"
+                    lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10
+                    md:grid-cols-2 md:my-8 md:gap-x-4"
         >
           {newForShow.slice(limit * page, limit * (page + 1)).map((item) => (
             <NewsCard
