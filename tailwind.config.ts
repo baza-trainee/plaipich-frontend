@@ -116,7 +116,7 @@ const config: Config = {
         lg: "90px 170px 353px ",
       },
       gridTemplateColumns: {
-        lg: "530px 755px",
+        lg: "500px 725px",
       },
     },
   },

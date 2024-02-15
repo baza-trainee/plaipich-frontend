@@ -28,7 +28,7 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             {t("title")}
           </h2>
           <a
-            className="text-md md:text-xl leading-2"
+            className="text-md md:text-xl leading-2 hover:text-pale-cerulean transition"
             href="mailto:plai.ngo.info@gmail.com"
           >
             plai.ngo.info@gmail.com

@@ -7,7 +7,7 @@
 }
 
 .image-gallery-slides {
-  @apply w-[250px] h-[250px] md:w-full md:h-[492px] lg:w-full lg:h-full;
+  @apply w-[250px] h-[250px] md:w-full md:h-[492px] lg:w-full lg:h-[680px];
 }
 
 .image-gallery-slide-wrapper.image-gallery-thumbnails-right {
