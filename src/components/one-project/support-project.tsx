@@ -26,19 +26,20 @@ export const SupportProject = ({
           </p>
 
           <Button type="button"
-            className=" btn-orange md:min-w-[250px] w-full md:w-0 btn-text">
+            className=" btn-orange md:min-w-[250px] w-full md:w-0 max-w-[350px] btn-text">
             {buttonText}
           </Button>
         </div>
 
-        <Image
-          src={logo}
-          alt={title}
-          width={415}
-          height={380}
-          className="hidden md:block"
-        />
-
+        <div className="hidden md:block md:min-w-[224px]">
+          <Image
+            src={logo}
+            alt={title}
+            width={415}
+            height={380}
+            className="w-full h-full object-contain"
+          />
+        </div>
       </div>
     </section>
   );
