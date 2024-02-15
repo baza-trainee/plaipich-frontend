@@ -21,7 +21,7 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   return (
     <section className="container pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8">
       {isLoading ? (
-        <Loader/>
+        <Loader />
       ) : (
         <>
           {data && (
@@ -75,7 +75,7 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
 
                   <div>
                     {formatText(
-                      lng === "en" ? data.enDescription : data.description
+                      lng === "en" ? data.enDescription : data.description,
                     ).map((str, ind) => (
                       <p
                         className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${
