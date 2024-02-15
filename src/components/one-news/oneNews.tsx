@@ -9,7 +9,7 @@ import { API_URL, NAVIGATION } from "@/commons/constants";
 import { useOneNew } from "@/hooks/use-one-new";
 import { formatDate, formatText } from "@/utils";
 
-import { Link } from "../index";
+import { Link, Loader } from "../index";
 import { SetTagColor } from "../news-card/news-card";
 import Gallery from "./one-news-gallery";
 
@@ -21,7 +21,7 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   return (
     <section className="container pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8">
       {isLoading ? (
-        <div>Loading.......</div>
+        <Loader/>
       ) : (
         <>
           {data && (
