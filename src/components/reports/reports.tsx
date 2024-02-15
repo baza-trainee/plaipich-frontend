@@ -33,6 +33,8 @@ export const Reports = async ({ lng }: { lng: "en" | "uk" }) => {
                 appearance="link"
                 className="text-dark-blue hover:underline"
                 href={item.content.url}
+                target="_blank"
+                download
               >
                 {item.content.text}
               </Link>

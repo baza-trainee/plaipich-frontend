@@ -1,57 +1,33 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-image-gallery/styles/css/image-gallery.css";
 import "./one-news-gallery.css";
 
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { Carousel } from "react-responsive-carousel";
+import React from "react";
+import ImageGallery from "react-image-gallery";
+import { useMediaQuery } from "react-responsive";
 
-const Gallery = ({ images }) => {
-  const [isMobile, setIsMobile] = useState(true);
+const Gallery = ({ images }: { images: string[] }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 1280 });
 
-  useEffect(() => {
-    const updateMediaQuery = () => {
-      setIsMobile(window.matchMedia("(max-width:640px)").matches);
-    };
-    updateMediaQuery();
-    window.addEventListener("resize", updateMediaQuery);
-    return () => {
-      window.removeEventListener("resize", updateMediaQuery);
-    };
-  }, []);
-
-  //     const getThumb = (images) => {
-  //         images.map(item => {
-  //     return <Image src={item.thumbnail}/>
-  // })}
+  const imgArr = images.map((path) => ({
+    original: path,
+    thumbnail: path,
+  }));
 
   return (
-    <div className="text-black">
-      <Carousel
-        showThumbs={!isMobile}
-        thumbPosition={isMobile ? "none" : "right"}
-        showIndicators={isMobile}
-        showStatus={false}
-        centerMode={isMobile}
-        autoPlay
-        infiniteLoop
-        interval={7000}
-      >
-        {images.map((item) => (
-          <div className="slide-box" key={item._id}>
-            <div className="image-box">
-              <Image
-                src={item.original}
-                alt={item.descr}
-                width={1000}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-          </div>
-        ))}
-      </Carousel>
-    </div>
+    <ImageGallery
+      items={imgArr}
+      showIndex={false}
+      showPlayButton={false}
+      showFullscreenButton={false}
+      showThumbnails={!isMobile}
+      showBullets={isMobile}
+      autoPlay={isMobile}
+      slideInterval={2000}
+      // renderLeftNav={(onClick:MouseEventHandler) => (<button onClick={onClick} className="leftArrowBtn"><BsArrowLeftCircle size="33px" color="#fff" /></button>)}
+      // renderRightNav={(onClick:MouseEventHandler) =>(<button onClick={onClick} className="rightArrowBtn"><BsArrowRightCircle size="33px" color="#fff"/></button>)}
+      thumbnailPosition={(isDesktop && "right") || "bottom"}
+    />
   );
 };
 export default Gallery;

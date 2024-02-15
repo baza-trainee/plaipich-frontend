@@ -1,0 +1,56 @@
+.preloader-1 svg {
+  overflow: visible;
+  width: 100px;
+  height: 150px;
+}
+
+.preloader-1 svg g {
+  animation: preloader-1-slide 2s linear infinite;
+}
+
+.preloader-1 svg g:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.preloader-1 svg g:nth-child(2) path {
+  animation-delay: 0.5s;
+  stroke-dasharray: 0px 158px;
+  stroke-dashoffset: 1px;
+}
+
+.preloader-1 svg path {
+  stroke: url(#gradient);
+  stroke-width: 30px;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 0 157px;
+  stroke-dashoffset: 0;
+  animation: preloader-1-escalade 2s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+}
+
+@keyframes preloader-1-slide {
+  0% {
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes preloader-1-escalade {
+  0% {
+    stroke-dasharray: 0 157px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 156px 157px;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dasharray: 156px 157px;
+    stroke-dashoffset: -156px;
+  }
+}

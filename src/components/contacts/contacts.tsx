@@ -11,7 +11,6 @@ import {
 } from "react-icons/fa";
 
 import { useTranslation } from "@/app/i18n";
-import { NAVIGATION } from "@/commons/constants";
 
 import plaipichEvent from "../../../public/images/contacts/plaipich-event.png";
 
@@ -29,37 +28,54 @@ export const Contacts = async ({ lng }: { lng: string }) => {
             {t("title")}
           </h2>
           <a
-            className="text-md md:text-xl leading-2"
-            href="mailto:plaipich@gmail.com"
+            className="text-md md:text-xl leading-2 hover:text-pale-cerulean transition"
+            href="mailto:plai.ngo.info@gmail.com"
           >
-            plaipich@gmail.com
+            plai.ngo.info@gmail.com
           </a>
           <ul className="flex gap-[1.375rem] lg:gap-12 items-center">
             <li>
-              <a href={NAVIGATION.tiktok} className="circle bg-link-water">
+              <a
+                href="https://www.tiktok.com/@plai.pich"
+                target="_blank"
+                className="circle bg-link-water hover:scale-150 transition"
+              >
                 <FaTiktok size="20px" color="black" />
               </a>
             </li>
             <li>
               <a
-                href={NAVIGATION.instagram}
-                className="circle bg-pale-cerulean"
+                href="https://www.instagram.com/ngo.plai"
+                target="_blank"
+                className="circle bg-pale-cerulean hover:scale-150 transition"
               >
                 <FaInstagram size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href={NAVIGATION.facebook} className="circle bg-water-blue">
+              <a
+                href="https://www.facebook.com/ngo.plai"
+                target="_blank"
+                className="circle bg-water-blue hover:scale-150 transition"
+              >
                 <FaFacebookF size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href={NAVIGATION.telegram} className="circle bg-horizon">
+              <a
+                href="https://t.me/GO_PLAI"
+                target="_blank"
+                className="circle bg-horizon hover:scale-150 transition"
+              >
                 <FaTelegramPlane size="20px" color="black" />
               </a>
             </li>
             <li>
-              <a href={NAVIGATION.youtube} className="circle bg-background">
+              <a
+                href="https://www.youtube.com/@plaiUA"
+                target="_blank"
+                className="circle bg-background hover:scale-150 transition"
+              >
                 <FaYoutube size="20px" color="black" />
               </a>
             </li>

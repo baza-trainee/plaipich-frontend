@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React, { ChangeEvent, useState } from "react";
-import ReactPaginate from "react-paginate";
 import { useMediaQuery } from "react-responsive";
 
 import { INews } from "@/commons/types";
@@ -9,6 +8,7 @@ import NewsCard, { SetTagColor } from "@/components/news-card/news-card";
 import { useChangeList, useMediaRule } from "@/hooks";
 
 import { Button } from "..";
+import { CircularPagination } from "../pagination/pagination";
 
 const NewsList = ({
   lng,
@@ -21,9 +21,9 @@ const NewsList = ({
 }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768 });
-  const isDesktop = useMediaQuery({ minWidth: 1440 });
+  const isDesktop = useMediaQuery({ minWidth: 1280 });
   const [limit, setLimit] = useState(6);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [reverse, setReverse] = useState(false);
   const [showCategory, setShowCategory] = useState(true);
   const [categoryList, setCategoryList] = useState<string[]>([]);
@@ -33,10 +33,6 @@ const NewsList = ({
   const badgesData = Array.from(
     new Set(newsList.map((item) => item.category[lng])),
   );
-
-  const handlePageClick = (event: { selected: number }) => {
-    setPage(event.selected);
-  };
 
   const changeFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const current = event.target.id;
@@ -84,7 +80,7 @@ const NewsList = ({
           {showCategory && (
             <div className="md:flex md:static fixed top-0 left-0 w-full md:w-1/2 bg-white h-full flex flex-col justify-center items-center">
               <button
-                className="md:hidden border-none text-md fixed top-[100px] right-[20px]"
+                className="md:hidden border-none text-md fixed top-[120px] right-[20px]"
                 onClick={closeCategory}
               >
                 x
@@ -121,14 +117,16 @@ const NewsList = ({
           >
             <p className="btn-text">{lng === "en" ? "Category ↓" : "Теми ↓"}</p>
           </Button>
-          <button type="button" className="md:hidden border-none btn-text">
-            {lng === "en" ? "Sort" : "Сортувати"}
-          </button>
-          <div className="hidden md:flex md:flex-col lg:flex-row lg:items-center md:items-end text-5">
-            <p className="text-gray-400 lg:mr-6">
+          <div className="flex flex-col lg:flex-row lg:items-center md:items-end text-5">
+            <p className="text-base lg:text-md text-gray-400 lg:mr-6 py-1 px-4">
               {lng === "en" ? "Sort by" : "Сортувати за"}
             </p>
-            <select name="sort" id="sort" onChange={onChangeSort}>
+            <select
+              name="sort"
+              id="sort"
+              className="px-2 focus:outline-transparent"
+              onChange={onChangeSort}
+            >
               <option value={0}>
                 {lng === "en" ? "new first" : "спочатку нові"}
               </option>
@@ -142,10 +140,10 @@ const NewsList = ({
       {newForShow && (
         <div
           className="grid grid-cols-1 
-                    lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10 lg:my-[76px]
-                    md:grid-cols-2 md:my-16 md:gap-x-4"
+                    lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10
+                    md:grid-cols-2 md:my-8 md:gap-x-4"
         >
-          {newForShow.slice(limit * page, limit * (page + 1)).map((item) => (
+          {newForShow.slice(limit * (page-1), limit * (page)).map((item) => (
             <NewsCard
               key={item._id}
               newsItem={item}
@@ -157,19 +155,7 @@ const NewsList = ({
         </div>
       )}
       {newForShow && !isMainPage && (
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={Math.ceil(newForShow.length / limit)}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-          className="flex w-full justify-center items-center gap-[20px] text-md font-medium"
-          pageLinkClassName="w-[52px] h-[52px] flex justify-center items-center rounded-full border border-horizon"
-          activeLinkClassName="bg-horizon text-white"
-          disabledClassName="opacity-40"
-        />
+        <CircularPagination pages={Math.ceil(newForShow.length / limit)} page={page} setPage={setPage} />
       )}
     </>
   );

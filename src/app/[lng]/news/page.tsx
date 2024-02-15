@@ -22,15 +22,15 @@ const News = async ({
   const { t } = await useTranslation(params.lng, "news");
 
   return (
-    <main className="bg-white text-black ">
-      <section className="py-8 px-4 mt-[100px] md:mt-0 lg:mt-0 md:py-16 md:px-8 flex content-center flex-col w-full max-w-desktop mx-auto">
-        <Breadcrumbs
-          separator="/"
-          containerClasses="flex gap-1 m-0 p-0"
-          activeClasses="text-dark-blue"
-          lng={params.lng}
-        />
-        <div className="pb-8 md:pb-16 lg:pb-20 flex justify-center items-center flex-row">
+    <main className="bg-white text-black">
+      <Breadcrumbs
+        separator="/"
+        containerClasses="hidden lg:flex gap-1 pt-4"
+        activeClasses="text-dark-blue"
+        lng={params.lng}
+      />
+      <section className="py-16 px-4 lg:pt-8 md:px-8 flex content-center flex-col w-full max-w-desktop mx-auto">
+        <div className="pb-8 md:pb-16 flex justify-center items-center flex-row">
           <Spiral className="stroke-water-blue w-[35px] h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
           <h1 className="h5 md:h1 lg:h1-bold">{t("title")}</h1>
         </div>

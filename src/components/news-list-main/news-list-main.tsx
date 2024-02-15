@@ -16,7 +16,7 @@ export const NewsListMain = async ({
 }) => {
   return (
     <section className="max-w-desktop lg:p-16 md:px-8 md:py-16 p-7 w-full">
-      <div className="flex content-center justify-center">
+      <div className="flex content-center justify-center md:pb-8">
         <Spiral className="stroke-link-water w-[35px] h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
         <h2 className="lg:h1 h2">{title}</h2>
       </div>

@@ -9,7 +9,7 @@ const config: Config = {
   darkMode: "class",
   theme: {
     screens: {
-      lg: "1440px",
+      lg: "1280px",
       md: "768px",
       sm: "320px",
     },
@@ -44,10 +44,9 @@ const config: Config = {
       transparent: "transparent",
       amber: "#FFBD00",
       black: "#090909",
-      white: "#FFFFFF",
+      white: "#FCFCFC",
       red: "#C12725",
       orange: "#F06C00",
-      green: "#27AE60",
       background: "#FDFFF7",
       "dark-orange": "#E55000",
       "light-blue": "#BCC7F7",
@@ -58,7 +57,7 @@ const config: Config = {
       horizon: "#478BA2",
       "wine-berry": "#4A2045",
       "honey-flower": "#54156C",
-      "new": "#4CB9DE",
+      new: "#4CB9DE",
       gray: {
         100: "#F5F5F5",
         200: "#DCDCDC",
@@ -115,11 +114,9 @@ const config: Config = {
       },
       gridTemplateRows: {
         lg: "90px 170px 353px ",
-        md: `140px 110px 110px 210px 300px`,
       },
       gridTemplateColumns: {
-        lg: "530px 420px 305px",
-        md: "33% 63%",
+        lg: "500px 725px",
       },
     },
   },

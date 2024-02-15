@@ -46,7 +46,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
     mainPhoto,
   } = newsItem;
   return (
-    <article className={`flex flex-col justify-between ${className ?? ""}`}>
+    <div className={`flex flex-col justify-between ${className ?? ""}`}>
       <Link
         href={`/${lng}/${NAVIGATION.oneNew}${_id}`}
         className={`${
@@ -57,13 +57,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
           <Image
             src={mainPhoto}
             alt={lng === "en" ? enTitle : title}
-            className="h-full w-auto"
-            width={1000}
-            height={500}
+            width={500}
+            height={600}
+            className="h-full w-full object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <hr className="border-white mt-7 mb-5" />
+        <hr className={`mt-7 mb-5 border`} />
         <div>
           <div className="flex mb-5">
             <span
@@ -73,10 +73,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
               {lng === "en" ? category.en : category.uk}
             </span>
           </div>
-          <h3 className="h14 normal-case md:h-[60px]">
+          <h3 className="h14 normal-case h-[64px]">
             {lng === "en" ? enTitle : title}
           </h3>
-          <p className="text-4 my-3 md:line-clamp-2">
+          <p className="text-4 my-3 line-clamp-2">
             {lng === "en" ? enDescription : description}
           </p>
           <p
@@ -87,9 +87,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {formatDate({ date, lng })}
           </p>
         </div>
-        <hr className="border-white mt-5" />
+        <hr className="border mt-5" />
       </Link>
-    </article>
+    </div>
   );
 };
 

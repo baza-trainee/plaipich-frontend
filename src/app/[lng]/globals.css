@@ -123,10 +123,6 @@ h6,
   @apply bg-light-blue rounded;
 }
 
-.loader svg path {
-  @apply fill-black stroke-orange;
-}
-
 input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;

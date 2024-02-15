@@ -3,12 +3,10 @@ import "./plai-about.css";
 import Image from "next/image";
 import React from "react";
 
+import plai1 from "/public/about-1.webp";
+import plai2 from "/public/about-2.webp";
 import bgPlai from "/public/images/bg-plai.jpg";
-import plai1 from "/public/images/plai-1.jpg";
-import plai2 from "/public/images/plai-2.jpg";
-import plai3 from "/public/images/plai-3.jpg";
 import { useTranslation } from "@/app/i18n";
-import { NAVIGATION } from "@/commons/constants";
 
 import { Link } from "../link/link";
 
@@ -33,10 +31,9 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-[450px] py-8">
-        <div className="text-breadcrumb mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto px-4 md:px-8">
-          <Link href={`/${lng}${NAVIGATION.main}`}>{t("main")}</Link>
-          <span className="text-light-blue cursor-pointer">{t("about")}</span>
-        </div>
+        <p className="text-6 mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto px-4 md:px-8">
+          {t("main")} <span className="text-light-blue">{t("about")}</span>
+        </p>
         <h1 className="hidden mb-[150px] lg:mb-[120px] text-small-4xl leading-2 md:block lg:text-4xl lg:leading-4  text-white w-full max-w-[1440px] mx-auto px-8">
           {t("title")}
         </h1>
@@ -58,11 +55,9 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           </ul>
         </nav>
       </div>
-      <div className="grid-box md:grid-cols-md md:grid-rows-md lg:grid-rows-lg lg:grid-cols-lg">
-        <p className="text-first text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md ">
-          <span className="uppercase mr-2 font-bold text-lg lg:text-xl lg:normal-case">
-            Plai
-          </span>
+      <div className="grid-box lg:grid-rows-lg lg:grid-cols-lg">
+        <p className="text-first font-normal text-3 md:text-small-md lg:text-md lg:leading-3">
+          <span className="mr-2 font-bold h9 lg:text-xl">Plai</span>
           {t("text-first")}
         </p>
         <Image
@@ -72,25 +67,15 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           height={500}
           className="image-first"
         />
-        <p className="text-second text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md">
+        <p className="text-3 font-normal md:text-small-md lg:text-md lg:leading-3 text-second">
           {t("text-second")}
         </p>
-        <Image
-          src={plai3}
-          alt="Plai"
-          width={700}
-          height={500}
-          className="image-second"
-        />
         <div className="text-third">
-          <h5 className="text-base font-medium leading-2 mb-3 md:text-small-md md:font-semibold lg:leading-4 lg:text-md">
-            {" "}
-            {t("title-for-list")}
-          </h5>
+          <h5 className="text-5 mb-3"> {t("title-for-list")}</h5>
           <ul className="flex flex-col gap-1">
             {list.map((item) => (
               <li key={item} className="item-plai-enemy">
-                <p className="inline-block w-[85%] text-base font-normal leading-2 md:text-small-md lg:leading-4 lg:text-md">
+                <p className="inline-block w-[85%] text-3 font-normal md:text-small-md lg:text-md lg:leading-3">
                   {item}
                 </p>
               </li>
@@ -102,7 +87,7 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
           alt="Plai"
           width={700}
           height={500}
-          className="image-third"
+          className="image-second"
         />
       </div>
     </section>
