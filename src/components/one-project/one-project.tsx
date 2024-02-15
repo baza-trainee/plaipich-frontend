@@ -42,7 +42,12 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
           {data.projectProgram?.title && <Program />}
           {data.locationsCount && <Location />}
           {data.partners && data.partners.length > 0 && <PartnersProject />}
-          {data.support && <SupportProject />}
+          {data.support && <SupportProject
+            title={lng === "en" ? "Support us" : "Підтримай нас"}
+            text={lng === "en" ? data.support.enText : data.support.text}
+            buttonText={lng === "en" ? "Support project" : "Підтримати проект"}
+            logo={data.support.logo}
+          />}
           {data.photos && data.photos.length > 0 && <Gallery />}
         </>
       ) : (
