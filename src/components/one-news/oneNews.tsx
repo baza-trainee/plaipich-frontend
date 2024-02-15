@@ -7,7 +7,7 @@ import { TbArrowLeft } from "react-icons/tb";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
 import { useOneNew } from "@/hooks/use-one-new";
-import { formatDate } from "@/utils";
+import { formatDate, formatText } from "@/utils";
 
 import { Link } from "../index";
 import { SetTagColor } from "../news-card/news-card";
@@ -17,9 +17,6 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
   const newId = searchParams.get("id");
   const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
-  
-  const formatDescription = (description: string) => 
-    description.split(/( \n)/).filter((str, ind) => ind % 2 === 0);
 
   return (
     <section className="container pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8">
@@ -28,33 +25,32 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
       ) : (
         <>
           {data && (
-            <>             
-                <ul className="hidden lg:flex gap-1 text-sm leading-4 mb-10 w-full max-w-[1440px]">
-                  <li className=" inline-block">
-                    <Link href={`/${lng}/${NAVIGATION.main}`}>
-                      {lng === "en" ? "Home" : "Головна"}{" "}
-                    </Link>
-                  </li>
-                  <li>/</li>
-                  <li className=" inline-block">
-                    <Link href={`/${lng}/${NAVIGATION.news}`}>
-                      {" "}
-                      {lng === "en" ? "News" : "Новини"}
-                    </Link>
-                  </li>
-                  <li>/</li>
-                  <li className=" inline-block">
-                    <Link
-                      href={`/${lng}/${NAVIGATION.oneNew}`}
-                      className=" text-dark-blue"
-                    >
-                      {" "}
-                      {lng === "en" ? data.enTitle : data.title}
-                    </Link>
-                  </li>
-                </ul>
-             
-                <p
+            <>
+              <ul className="hidden lg:flex gap-1 text-sm leading-4 mb-10 w-full max-w-[1440px]">
+                <li className=" inline-block">
+                  <Link href={`/${lng}/${NAVIGATION.main}`}>
+                    {lng === "en" ? "Home" : "Головна"}{" "}
+                  </Link>
+                </li>
+                <li>/</li>
+                <li className=" inline-block">
+                  <Link href={`/${lng}/${NAVIGATION.news}`}>
+                    {" "}
+                    {lng === "en" ? "News" : "Новини"}
+                  </Link>
+                </li>
+                <li>/</li>
+                <li className=" inline-block">
+                  <Link
+                    href={`/${lng}/${NAVIGATION.oneNew}`}
+                    className=" text-dark-blue"
+                  >
+                    {lng === "en" ? data.enTitle : data.title}
+                  </Link>
+                </li>
+              </ul>
+
+              <p
                 className={`inline-block py-2 px-4 rounded-medium mb-5 h-[40px] text-base text-center leading-4
                 ${SetTagColor(data.category.en)}`}
               >
@@ -75,22 +71,22 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                   </h2>
                   <p className=" text-gray-500 text-base leading-2 md:text-md font-normal mb-5">
                     {formatDate({ date: data.date, lng })}
-                    </p>
+                  </p>
 
-                    <div>                     
-                      {lng === "en" ?
-                        formatDescription(data.enDescription).map((str, ind) => (
-                        <p className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${ind===0 ? "font-semibold" : "font-normal"}`} key={ind+str[0]}>
-                    {str}
-                    
-                  </p>
-                      )) :
-                        formatDescription(data.description).map((str, ind) => (
-                        <p className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${ind===0 ? "font-semibold" : "font-normal"}`} key={ind+str[0]}>
-                    {str}                    
-                  </p>
-                      ))}
-                    </div>                  
+                  <div>
+                    {formatText(
+                      lng === "en" ? data.enDescription : data.description
+                    ).map((str, ind) => (
+                      <p
+                        className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${
+                          ind === 0 ? "font-semibold" : "font-normal"
+                        }`}
+                        key={ind + str[0]}
+                      >
+                        {str}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
               {data.photos.length != 0 && (
@@ -98,10 +94,13 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                   <Gallery images={data.photos} />
                 </div>
               )}
-              <Link href={`/${lng}/${NAVIGATION.news}`} className="inline-flex gap-2 px-6 py-4 md:text-md">
-          <TbArrowLeft size="24px" color="black" />
-          {lng === "en" ? "back" : "назад"}
-        </Link>
+              <Link
+                href={`/${lng}/${NAVIGATION.news}`}
+                className="inline-flex gap-2 px-6 py-4 md:text-md"
+              >
+                <TbArrowLeft size="24px" color="black" />
+                {lng === "en" ? "back" : "назад"}
+              </Link>
             </>
           )}
         </>
