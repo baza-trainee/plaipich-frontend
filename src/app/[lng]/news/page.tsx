@@ -29,7 +29,7 @@ const News = async ({
         activeClasses="text-dark-blue"
         lng={params.lng}
       />
-      <section className="py-16 px-4 lg:pt-8 md:px-8 flex content-center flex-col w-full max-w-desktop mx-auto">
+      <section className="py-16 px-4 lg:pt-8 md:px-8 flex content-center flex-col w-full max-w-desktop mx-auto lg:px-16">
         <div className="pb-8 md:pb-16 flex justify-center items-center flex-row">
           <Spiral className="stroke-water-blue w-[35px] h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
           <h1 className="h5 md:h1 lg:h1-bold">{t("title")}</h1>

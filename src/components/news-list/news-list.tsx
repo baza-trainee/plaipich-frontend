@@ -85,7 +85,7 @@ const NewsList = ({
               >
                 x
               </button>
-              <fieldset className="md:flex w-full bg-white h-full flex flex-col md:flex-wrap md:flex-row justify-center lg:justify-start items-center gap-3">
+              <fieldset className="md:flex w-full bg-white h-full flex flex-col md:flex-wrap md:flex-row justify-center lg:justify-start items-center gap-2">
                 {badgesData.map((badge) => (
                   <label
                     key={badge}
