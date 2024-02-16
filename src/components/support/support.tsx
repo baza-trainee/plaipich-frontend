@@ -9,20 +9,19 @@ export const Support = async ({ lng }: { lng: "en" | "uk" }) => {
   const { t } = await useTranslation(lng, "support-us");
   return (
     <section className="pb-10 lg:pb-16 md:pt-16">
-      <div className="container max-w-desktop grid grid-cols-1 lg:grid-cols-[522px,auto] md:grid-cols-[278px,auto] grid-rows-none lg:grid-rows-[80px,auto] md:grid-rows-[36px,auto] gap-x-3 gap-y-2 lg:gap-10 ">
+      <div className="container relative max-w-desktop grid grid-cols-1 lg:grid-cols-[522px,auto] md:grid-cols-[278px,auto] grid-rows-none lg:grid-rows-[80px,auto] md:grid-rows-[36px,auto] gap-x-3 gap-y-2 md:gap-x-5 lg:gap-x-8">
         <h2 className="h1 text-center md:col-start-2 md:col-end-3 uppercase lg:normal-case mb-4.5 md:mb-0">
           {t("support-title")}
         </h2>
-        <div className="lg:w-[522px] md:row-start-1 md:row-end-3 lg:min-w-[522px] md:min-w-[278px] min-w-full lg:h-[757px] md:w-[278px] md:min-h-[474px] w-full h-[365px] relative self-start">
-          <Image
-            fill
-            src="/support-us.jpg"
-            className="object-cover object-center md:max-w-full max-w-[288px] !left-1/2 !-translate-x-1/2 md:left-auto md:translate-x-0"
-            sizes="(max-width: 768px) 288w, (max-width: 1400px) 50vw, 33vw"
-            priority
-            alt="Chair"
-          />
-        </div>
+        <Image
+          width={522}
+          height={757}
+          src="/support-us.jpg"
+          className="object-cover object-center lg:max-h-[757px] md:max-w-full md:min-h-full max-w-[288px] max-h-[365px] md:row-start-1 md:row-end-3 md:place-self-start place-self-center"
+          sizes="(max-width: 768px) 288w, (max-width: 1400px) 50vw, 33vw"
+          priority
+          alt="Chair"
+        />
         <div className="md:col-start-2 md:col-end-3 flex flex-col lg:gap-y-6 gap-y-3 justify-start items-center">
           <p className="text-2 text-center md:max-w-3xl max-w-md md:mt-2 md:mb-0 my-9">
             {t("support-text")}
