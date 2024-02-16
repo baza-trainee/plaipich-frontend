@@ -69,7 +69,7 @@ export const Details = ({
 
   return (
     <section className="bg-white w-full text-base md:text-small-md lg:text-lg lg:leading-4 font-normal text-black">
-      <div className="max-w-[1440px] mx-auto px-4 py-8 md:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 py-8 md:px-8 lg:p-16">
         <h2 className="font-bold text-2xl md:text-small-3xl leading-2 lg:hidden">
           {enLng ? enStart : start}
         </h2>

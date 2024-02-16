@@ -18,7 +18,7 @@ export const Program = ({
 }) => {
   const { title, enTitle, list, enList, image } = program;
   return (
-    <section className="lg:items-center hidden md:flex flex-col lg:flex-row lg:flex-wrap gap-6 justify-between w-full max-w-[1440px] mx-auto p-8 lg:py-16 mt-8 text-small-md lg:text-lg">
+    <section className="hidden md:flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-6 justify-between w-full max-w-[1440px] mx-auto p-8 lg:p-16 mt-8 text-small-md lg:text-lg">
       <div className="lg:w-[570px] flex-1">
         <h4 className="font-bold text-small-3xl mb-6 lg:text-4xl">
           {lng === "en" ? enTitle : title}
