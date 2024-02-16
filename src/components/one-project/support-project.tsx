@@ -16,7 +16,6 @@ export const SupportProject = ({
   return (
     <section id="support-project" className="bg-white text-black">
       <div className="md:flex max-w-[1440px] mx-auto px-4 md:p-8 md:gap-4 lg:px-16 lg:py-20 py-16">
-
         <div className="md:pr-4 lg:pr-8  my-auto md:w-2/3">
           <h2 className="h2 md:text-small-3xl lg:text-4xl lg:leading-4 pb-6">
             {title}
@@ -25,8 +24,10 @@ export const SupportProject = ({
             {text}
           </p>
 
-          <Button type="button"
-            className=" btn-orange md:min-w-[250px] w-full mx-auto md:m-0 block max-w-[350px] btn-text">
+          <Button
+            type="button"
+            className=" btn-orange md:min-w-[250px] w-full mx-auto md:m-0 block max-w-[350px] btn-text"
+          >
             {buttonText}
           </Button>
         </div>

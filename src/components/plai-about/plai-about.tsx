@@ -8,6 +8,7 @@ import plai2 from "/public/about-2.webp";
 import bgPlai from "/public/images/bg-plai.jpg";
 import { useTranslation } from "@/app/i18n";
 
+import { Breadcrumbs } from "../breadcrumbs/breadcrumbs";
 import { Link } from "../link/link";
 
 export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
@@ -31,13 +32,16 @@ export const PlaiAbout = async ({ lng }: { lng: "en" | "uk" }) => {
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-[450px] py-8">
-        <p className="text-6 mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto px-4 md:px-8">
-          {t("main")} <span className="text-light-blue">{t("about")}</span>
-        </p>
-        <h1 className="hidden mb-[150px] lg:mb-[120px] text-small-4xl leading-2 md:block lg:text-4xl lg:leading-4  text-white w-full max-w-[1440px] mx-auto px-8">
+        <Breadcrumbs
+          separator={"/"}
+          lng={lng}
+          containerClasses="flex gap-2 mb-12 md:mb-[100px] w-full max-w-[1440px] mx-auto"
+          activeClasses="text-light-blue"
+        />
+        <h1 className="hidden mb-[150px] lg:mb-[120px] text-small-4xl leading-2 md:block lg:text-4xl lg:leading-4 text-white w-full max-w-[1440px] mx-auto px-8 lg:px-16">
           {t("title")}
         </h1>
-        <nav className="w-full m-0 max-w-[1440px] mx-auto md:px-8 flex flex-col justify-center">
+        <nav className="w-full m-0 max-w-[1440px] mx-auto md:px-8 lg:px-16 flex flex-col justify-center">
           <ul className="flex flex-col md:flex-row gap-4 lg:gap-6 justify-center md:justify-start items-center">
             {navigation.map((item, i) => (
               <li key={item.title}>
