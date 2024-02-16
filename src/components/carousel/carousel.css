@@ -8,14 +8,14 @@
 
 .slide-box {
   @apply w-full h-full max-w-[1440px] m-auto pb-20
-  md:flex md:justify-center md:flex-row-reverse md:gap-10 md:pt-10 md:px-8
-  lg:pb-12  lg:h-[880px];
+  md:flex md:justify-center md:flex-row-reverse md:gap-8 md:pt-10 md:px-8
+  lg:pb-12  lg:h-[880px] lg:px-16;
 }
 
 .image-box {
   @apply w-full h-[350px] mb-5 
   md:mb-0 md:w-1/2 md:h-[420px] 
-  lg:w-[730px] lg:h-[730px];
+  lg:w-[720px] lg:h-[720px];
 }
 
 .control-box {
