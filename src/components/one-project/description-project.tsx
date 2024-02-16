@@ -9,7 +9,7 @@ export const Description = ({ description }: { description: string }) => {
         <span className="flex-1 font-bold text-2xl md:text-small-3xl lg:text-4xl">
           {sideText}
         </span>
-        <span className="w-full md:w-2/3 lg:w-[1025px]">{mainText}</span>
+        <span className="w-full md:w-2/3">{mainText}</span>
       </p>
     </section>
   );

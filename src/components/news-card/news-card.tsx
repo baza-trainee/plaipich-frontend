@@ -53,16 +53,17 @@ const NewsCard: React.FC<NewsCardProps> = ({
           isMain ? "hover:text-light-blue" : "hover:text-dark-blue"
         }`}
       >
-        <div className="h-[416px] relative">
+        <div className="h-[416px]">
           <Image
             src={mainPhoto}
             alt={lng === "en" ? enTitle : title}
-            fill
-            className="h-full w-auto object-cover"
+            width={500}
+            height={600}
+            className="h-full w-full object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <hr className="border-white mt-7 mb-5" />
+        <hr className={`mt-7 mb-5 border`} />
         <div>
           <div className="flex mb-5">
             <span
@@ -75,7 +76,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
           <h3 className="h14 normal-case h-[64px]">
             {lng === "en" ? enTitle : title}
           </h3>
-          <p className="text-4 my-3 md:line-clamp-2">
+          <p className="text-4 my-3 line-clamp-2">
             {lng === "en" ? enDescription : description}
           </p>
           <p
@@ -86,7 +87,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             {formatDate({ date, lng })}
           </p>
         </div>
-        <hr className="border-white mt-5" />
+        <hr className="border mt-5" />
       </Link>
     </div>
   );

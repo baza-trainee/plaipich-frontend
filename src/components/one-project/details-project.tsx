@@ -12,7 +12,7 @@ const TextWithImage = ({
 }) => {
   return (
     <div
-      className={`block lg:flex justify-between items-center lg:mb-4 ${
+      className={`block lg:flex lg:gap-8 justify-between items-center lg:mb-4 ${
         !title && "flex-row-reverse"
       }`}
     >
