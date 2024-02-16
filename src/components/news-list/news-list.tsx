@@ -143,7 +143,7 @@ const NewsList = ({
                     lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 mt-10
                     md:grid-cols-2 md:my-8 md:gap-x-4"
         >
-          {newForShow.slice(limit * (page-1), limit * (page)).map((item) => (
+          {newForShow.slice(limit * (page - 1), limit * page).map((item) => (
             <NewsCard
               key={item._id}
               newsItem={item}
@@ -155,7 +155,11 @@ const NewsList = ({
         </div>
       )}
       {newForShow && !isMainPage && (
-        <CircularPagination pages={Math.ceil(newForShow.length / limit)} page={page} setPage={setPage} />
+        <CircularPagination
+          pages={Math.ceil(newForShow.length / limit)}
+          page={page}
+          setPage={setPage}
+        />
       )}
     </>
   );
