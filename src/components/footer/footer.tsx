@@ -10,7 +10,7 @@ export const Footer = async ({ lng }: { lng: string }) => {
   return (
     <footer className="w-full max-w-[1440px] py-[19px] md:px-[32px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
       <div className="w-full flex flex-col flex-wrap md:flex-row items-center justify-center md:items-start lg:flex-nowrap lg:justify-between">
-        <div className="w-full flex justify-center lg:w-[270px]">
+        <div className="w-full flex justify-center lg:w-[300px] px-4">
           <Image
             src={footerSvg}
             alt="Логотип ГО Plai"
