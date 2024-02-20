@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { LuMoveRight } from 'react-icons/lu';
 
 import { useTranslation } from '@/app/i18n';
 import { API_URL } from '@/commons/constants';
@@ -23,9 +24,9 @@ const Projects = async ({
   // console.log(Projects, projects);
 
   return (
-    <main className="w-full max-w-[1440px] mx-auto text-black bg-white">
-      <p className="mt-[32px] text-6 mb-[24px] md:mb-[32px] lg:mb-[40px] mx-auto px-4 md:px-8">
-        {t('main')} <span className="text-light-blue">{t('projects')}</span>
+    <main className="w-full mx-auto text-black bg-white pt-[32px] pb-[30px]">
+      <p className="text-6 mb-[24px] md:mb-[32px] lg:mb-[40px] mx-auto px-4 md:px-8 max-w-[1440px] invisible lg:visible">
+        {t('main')} <span className="text-dark-blue">{t('projects')}</span>
       </p>
       <div className="flex justify-center items-baseline mb-[24px] md:mb-[40px] lg:mb-[62px]">
         <Spiral className="stroke-water-blue w-[26px] h-[21px] md:w-[35px] md:h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
@@ -33,25 +34,36 @@ const Projects = async ({
           {t('title')}
         </h1>
       </div>
-      <div className="flex flex-wrap gap-[29px] justify-center">
+      <div className="flex flex-wrap gap-[30px] justify-center max-w-[1440px] mx-auto">
         {projects.map((item) => (
-          <div key={item._id} className="w-[645px]">
+          <div key={item._id} className="w-[641px]">
             <Image
               alt={item.title}
               src={item.poster}
-              width={645}
+              width={641}
               height={411}
               className="h-[411px] object-cover mb-[16px] lg:mb-[20px]"
             />
-            <h2 className="uppercase mb-[16px] text-xl lg:text-3xl font-bold text-wine-berry">{item.title}</h2>
-            <p className="mb-[16px] lg:mb-[20px]">{item.description}</p>
-            <div className="flex justify-between items-center">
-              <div className="flex justify-center items-center">
-                <Spiral className="stroke-water-blue w-[35px] h-[27px] lg:w-[40px] lg:h-[32px] mr-3 lg:mr-4" />
-                {item.status === true ? <p>Профінансовано</p> : <p>Потребує підтримки</p>}
-              </div>
+            <h2 className="uppercase lg:normal-case mb-[16px] text-xl lg:text-3xl font-bold text-wine-berry h-[64px] lg:h-[96px]">
+              {item.title}
+            </h2>
+            <p className="mb-[16px] lg:mb-[20px] h-[190px]">{item.description}</p>
+            <div className="flex justify-between items-center mb-[30px]">
+              {item.status === true ? (
+                <div className="flex justify-center items-center">
+                  <Spiral className="stroke-green w-[35px] h-[27px] lg:w-[40px] lg:h-[32px] mr-3 lg:mr-4" />
+                  <p className="font-bold">Профінансовано</p>
+                </div>
+              ) : (
+                <div className="flex justify-center items-center">
+                  <Spiral className="stroke-red w-[35px] h-[27px] lg:w-[40px] lg:h-[32px] mr-3 lg:mr-4" />
+                  <p className="font-bold">Потребує підтримки</p>
+                </div>
+              )}
+
               <Button type="button" className="py-[18px] px-[24px]">
-                Дізнатись більше
+                <p className="font-bold">Дізнатись більше</p>
+                <LuMoveRight className="w-[24px] h-[24px]" />
               </Button>
             </div>
             {/* <h2>{item.enTitle}</h2>
