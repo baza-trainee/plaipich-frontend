@@ -39,7 +39,9 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
           {data.mission?.image && (
             <Mission lng={lng} missionData={data.mission} />
           )}
-          {data.projectProgram?.title && <Program />}
+          {data.projectProgram?.title && (
+            <Program program={data.projectProgram} lng={lng} />
+          )}
           {data.locationsCount && <Location />}
           {data.partners && data.partners.length > 0 && <PartnersProject />}
           {data.support && (

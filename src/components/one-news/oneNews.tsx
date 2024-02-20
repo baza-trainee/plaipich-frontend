@@ -7,9 +7,9 @@ import { TbArrowLeft } from "react-icons/tb";
 
 import { API_URL, NAVIGATION } from "@/commons/constants";
 import { useOneNew } from "@/hooks/use-one-new";
-import { formatDate } from "@/utils";
+import { formatDate, formatText } from "@/utils";
 
-import { Link } from "../index";
+import { Link, Loader } from "../index";
 import { SetTagColor } from "../news-card/news-card";
 import Gallery from "./one-news-gallery";
 
@@ -18,13 +18,10 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   const newId = searchParams.get("id");
   const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
 
-  const formatDescription = (description: string) =>
-    description.split(/( \n)/).filter((str, ind) => ind % 2 === 0);
-
   return (
     <section className="container pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8">
       {isLoading ? (
-        <div>Loading.......</div>
+        <Loader />
       ) : (
         <>
           {data && (
@@ -48,7 +45,6 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                     href={`/${lng}/${NAVIGATION.oneNew}`}
                     className=" text-dark-blue"
                   >
-                    {" "}
                     {lng === "en" ? data.enTitle : data.title}
                   </Link>
                 </li>
@@ -78,29 +74,18 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                   </p>
 
                   <div>
-                    {lng === "en"
-                      ? formatDescription(data.enDescription).map(
-                          (str, ind) => (
-                            <p
-                              className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${
-                                ind === 0 ? "font-semibold" : "font-normal"
-                              }`}
-                              key={ind + str[0]}
-                            >
-                              {str}
-                            </p>
-                          ),
-                        )
-                      : formatDescription(data.description).map((str, ind) => (
-                          <p
-                            className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${
-                              ind === 0 ? "font-semibold" : "font-normal"
-                            }`}
-                            key={ind + str[0]}
-                          >
-                            {str}
-                          </p>
-                        ))}
+                    {formatText(
+                      lng === "en" ? data.enDescription : data.description,
+                    ).map((str, ind) => (
+                      <p
+                        className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${
+                          ind === 0 ? "font-semibold" : "font-normal"
+                        }`}
+                        key={ind + str[0]}
+                      >
+                        {str}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>

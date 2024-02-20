@@ -25,6 +25,7 @@ export interface IProject {
     enTitle: string;
     list: string[];
     enList: string[];
+    image: string;
   };
   support?: {
     text: string;

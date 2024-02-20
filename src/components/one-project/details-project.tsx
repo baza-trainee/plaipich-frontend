@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
+import { formatText } from "@/utils";
+
 const TextWithImage = ({
   text,
   image,
@@ -16,9 +18,11 @@ const TextWithImage = ({
         !title && "flex-row-reverse"
       }`}
     >
-      <p className="py-4 lg:py-0 lg:w-[755px] lg:text-justify">
+      <p className="py-4 lg:py-0 lg:w-[755px] lg:text-justify flex flex-col gap-2">
         {title && <span className="hidden lg:block h1">{title}</span>}
-        {text}
+        {formatText(text).map((string) => (
+          <span key={string.slice(0, 10)}>{string}</span>
+        ))}
       </p>
       <div className="w-full lg:w-[530px] lg:h-[370px]">
         <Image
@@ -54,6 +58,7 @@ export const Details = ({
     if (exist) {
       return enLng ? enText[image.length] : text[image.length];
     }
+    return "";
   };
 
   const setTitleForDesc = (ind: number) => {
@@ -64,7 +69,7 @@ export const Details = ({
 
   return (
     <section className="bg-white w-full text-base md:text-small-md lg:text-lg lg:leading-4 font-normal text-black">
-      <div className="max-w-[1440px] mx-auto px-4 py-8 md:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 py-8 md:px-8 lg:p-16">
         <h2 className="font-bold text-2xl md:text-small-3xl leading-2 lg:hidden">
           {enLng ? enStart : start}
         </h2>
@@ -77,8 +82,12 @@ export const Details = ({
               title={setTitleForDesc(ind)}
             />
           ))}
-        {textWithoutImage() && (
-          <p className="text-justify mt-4 lg:mt-0">{textWithoutImage()}</p>
+        {textWithoutImage() !== "" && (
+          <p className="text-justify mt-4 lg:mt-0 flex flex-col gap-2">
+            {formatText(textWithoutImage()).map((string) => (
+              <span key={string.slice(0, 10)}>{string}</span>
+            ))}
+          </p>
         )}
       </div>
     </section>

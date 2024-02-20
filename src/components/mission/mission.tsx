@@ -39,7 +39,7 @@ export const Mission = ({
         className={`lg:gap-8 lg:grid lg:grid-rows-none lg:grid-cols-2 lg:row-start-2 ${
           missionData.bigTitle
             ? "px-4 py-8 md:p-8 lg:p-16"
-            : "px-4 md:px-8 lg:px-4"
+            : "px-4 py-8 md:p-8 lg:px-16"
         }`}
       >
         <div className="md:pb-8 lg:pb-0">
@@ -62,14 +62,16 @@ export const Mission = ({
             ))}
           </div>
         </div>
-        <Image
-          src={missionData.image}
-          width={700}
-          height={1000}
-          alt="Our mission picture"
-          loading="lazy"
-          className="mx-auto lg:order-first md:block hidden"
-        />
+        <div className="mx-auto lg:order-first md:block hidden">
+          <Image
+            src={missionData.image}
+            width={700}
+            height={1000}
+            alt="Our mission picture"
+            loading="lazy"
+            className="block w-full h-full object-cover"
+          />
+        </div>
       </div>
     </section>
   );
