@@ -10,8 +10,7 @@ export const CircularPagination = ({
   pages: number;
   page: number;
   setPage: Function;
-    }) => {
-    
+}) => {
   const next = () => {
     if (page === pages) return;
     setPage(page + 1);
@@ -52,7 +51,7 @@ export const CircularPagination = ({
           <p key={"a1"}>...</p>,
           PageButton(page, true),
           <p key={"a2"}>...</p>,
-          PageButton(pages, false)
+          PageButton(pages, false),
         );
       } else {
         [1, 2].includes(page)
@@ -60,13 +59,13 @@ export const CircularPagination = ({
               PageButton(1, page === 1),
               PageButton(2, page === 2),
               <p key={"a1"}>...</p>,
-              PageButton(pages, pages === page)
+              PageButton(pages, pages === page),
             )
           : btnPages.push(
               PageButton(1, page === 1),
               <p key={"a1"}>...</p>,
               PageButton(pages - 1, page === pages - 1),
-              PageButton(pages, page === pages)
+              PageButton(pages, page === pages),
             );
       }
     } else {
@@ -86,7 +85,9 @@ export const CircularPagination = ({
       >
         <GrFormPrevious size="2em" />
       </button>
-      <div className="flex justify-between items-center gap-4">{getPages(pages, page)}</div>
+      <div className="flex justify-between items-center gap-4">
+        {getPages(pages, page)}
+      </div>
       <button
         className="border-none disabled:opacity-50"
         onClick={next}

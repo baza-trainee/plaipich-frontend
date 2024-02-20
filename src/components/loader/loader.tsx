@@ -2,7 +2,7 @@ import "./loader.css";
 
 export const Loader = () => {
   return (
-    <div className="w-full h-full min-h-[50vh] flex flex-col justify-center items-center flex-1">
+    <div className="w-full h-full min-h-[100vh] flex flex-col justify-center items-center flex-1">
       <div className="preloader-1">
         <svg>
           <g>
