@@ -49,7 +49,7 @@ export const OurTeam = async ({ lng }: { lng: "en" | "uk" }) => {
                     </p>
                   </div>
                 </div>
-                <p className="text-lg text-center md:font-semibold font-bold leading-2 text-light-blue whitespace-pre-wrap">
+                <p className="text-lg text-center md:font-semibold font-bold leading-2 text-link-water whitespace-pre-wrap">
                   {card.name}
                 </p>
               </div>
