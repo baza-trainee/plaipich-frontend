@@ -43,7 +43,9 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
             <Program program={data.projectProgram} lng={lng} />
           )}
           {data.locationsCount && <Location />}
-          {data.partners && data.partners.length > 0 && <PartnersProject />}
+          {data.partners && data.partners.length > 0 && (
+            <PartnersProject partners={data.partners} lng={lng} />
+          )}
           {data.support && (
             <SupportProject
               title={lng === "en" ? "Support us" : "Підтримай нас"}
