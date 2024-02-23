@@ -5,8 +5,8 @@ lg:h-full lg:object-bottom lg:translate-y-0;
 }
 
 .grid-box {
-  @apply mx-auto max-w-[1440px] px-4 py-8 gap-4 flex flex-col justify-around items-center text-black
-    lg:grid md:px-8 md:gap-5;
+  @apply mx-auto max-w-[1440px] overflow-hidden px-4 py-8 gap-4 flex flex-col justify-around items-center text-black
+    lg:grid md:px-8 justify-between lg:px-16;
 }
 
 .text-first {

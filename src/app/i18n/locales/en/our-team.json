@@ -6,7 +6,7 @@
       "content": {
         "title": "President of NGO 'Artistic Association 'Plai'",
         "cardText": "Cultural and project manager, civic activist, President of NGO 'Artistic Association 'Plai', founder of the art space 'Pich', director of festivals 'Air Fest', 'Ticket to the Sun'",
-        "imageUrl": "OleksandraV"
+        "imageUrl": "/images/OleksandraV.png"
       },
       "id": "01"
     },
@@ -15,7 +15,7 @@
       "content": {
         "title": "Vice President of NGO 'Artistic Association 'Plai'",
         "cardText": "Cultural and project manager, civic activist, Vice President of NGO 'Artistic Association 'Plai', co-founder of the art space 'Pich', program director of festivals 'Air Fest', 'Ticket to the Sun'",
-        "imageUrl": "VolodymirP"
+        "imageUrl": "/images/VolodymirP.png"
       },
       "id": "02"
     },
@@ -24,9 +24,27 @@
       "content": {
         "title": "Vice President of NGO 'Artistic Association 'Plai'",
         "cardText": "Actor, member of NGO 'Artistic Association 'Plai', co-founder and art director of the art space 'Pich', theatrical curator of festivals 'Air Fest', 'Ticket to the Sun'",
-        "imageUrl": "OleksandrS"
+        "imageUrl": "/images/OleksandrS.png"
       },
       "id": "03"
+    },
+    {
+      "name": "Iryna Babenko",
+      "content": {
+        "title": "",
+        "cardText": "Communicator of projects of the organization 'Artistic Association 'PLAY', cultural space 'PICH', target specialist.",
+        "imageUrl": "/images/IrynaB.png"
+      },
+      "id": "04"
+    },
+    {
+      "name": "Inna Sivak",
+      "content": {
+        "title": "",
+        "cardText": "Designer of projects of the organization 'Art Association 'PLAY', administrator of the art space 'PICH' and the art shop.",
+        "imageUrl": "/images/InnaS.png"
+      },
+      "id": "05"
     }
   ]
 }

@@ -1,0 +1,19 @@
+.item-0 {
+  @apply lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:col-end-4;
+}
+
+.item-1 {
+  @apply lg:row-start-1 lg:row-end-2 lg:col-start-4 lg:col-end-6;
+}
+
+.item-2 {
+  @apply lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-3;
+}
+
+.item-3 {
+  @apply lg:row-start-2 lg:row-end-3 lg:col-start-3 lg:col-end-5;
+}
+
+.item-4 {
+  @apply lg:row-start-2 lg:row-end-3 lg:col-start-5 lg:col-end-7;
+}

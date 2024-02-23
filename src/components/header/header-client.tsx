@@ -56,7 +56,7 @@ export const HeaderClient = ({
           {lng === "uk" ? "Підтримати" : "Donate"}
         </Link>
       )}
-      <div className="hidden lg:flex items-center relative">
+      <div className="hidden lg:flex items-center lg:justify-between flex-1 relative">
         {children}
         {!openSearch && query === "" && (
           <button
@@ -70,7 +70,7 @@ export const HeaderClient = ({
         )}
         {(openSearch || query !== "") && (
           <SearchForm
-            className="relative ml-6 w-[400px] transition-all justify-center"
+            className="relative ml-6 w-[400px] lg:w-0 lg:flex-1 transition-all justify-center"
             close={close}
             changeInput={changeInput}
             query={query}
