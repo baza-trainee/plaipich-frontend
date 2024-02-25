@@ -118,9 +118,9 @@
       "https://i.gyazo.com/93299d373bc9b7134fffb771a3245ef4.png",
       "https://i.gyazo.com/626b4cbd91ed970ba2a86b954e4522a1.png"
     ],
-    "locationsCount": {
+    "location": {
       "title": "Як знайти простір ПІЧ?",
-      "enTitile": "How to find the IF space?",
+      "enTitle": "How to find the IF space?",
       "text": "Культурний простір ПІЧ знаходиться за адресою: вулиця Сковороди 25 (колишня вул. Пушкіна), м. Вінниця.",
       "enText": "The cultural space of the PIC is located at: 25 Skovorody Street (former Pushkin Street), Vinnytsia.",
       "link": "/"
