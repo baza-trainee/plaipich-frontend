@@ -23,6 +23,7 @@ export { SupportProject } from "./one-project/support-project";
 export { OurTeam } from "./our-team/our-team";
 export { Partners } from "./partners/partners";
 export { PlaiAbout } from "./plai-about/plai-about";
+export { ProjectsList } from "./projects-list/projects-list";
 export { Providers } from "./providers";
 export { Reports } from "./reports/reports";
 export { ScrollUp } from "./scroll-up/scroll-up";
