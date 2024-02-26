@@ -8,7 +8,7 @@ import { NAVIGATION } from "@/commons/constants";
 export const Footer = async ({ lng }: { lng: string }) => {
   const { t } = await useTranslation(lng, "footer");
   return (
-    <footer className="w-full max-w-[1440px] py-[19px] md:px-[32px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px]">
+    <footer className="w-full max-w-[1440px] py-[19px] md:px-[32px] lg:px-[62px] lg:pt-[40px] lg:pb-[17px] mx-auto">
       <div className="w-full flex flex-col flex-wrap md:flex-row items-center justify-center md:items-start lg:flex-nowrap lg:justify-between">
         <div className="w-full flex justify-center lg:w-[300px] px-4">
           <Image
@@ -21,7 +21,7 @@ export const Footer = async ({ lng }: { lng: string }) => {
           />
         </div>
         <nav className="md:w-[280px] lg:w-[350px]">
-          <ul className="w-full flex flex-col flex-wrap gap-y-[20px] md:flex-row md:gap-y-[30px] md:justify-stretch md:gap-x-[80px] text-center md:text-left md:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
+          <ul className="w-full flex flex-col flex-wrap gap-y-[20px] md:flex-row md:gap-y-[30px] md:gap-x-[80px] text-center md:text-left md:justify-between text-[18px] lg:text-md leading-2 lg:leading-1 lg:font-medium">
             <li className="w-[96px] hover:text-light-blue">
               <Link href={`/${lng}/${NAVIGATION.about}`}>
                 {t("nav-about-us")}
