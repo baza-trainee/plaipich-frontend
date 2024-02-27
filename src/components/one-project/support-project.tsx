@@ -1,17 +1,20 @@
 import Image from "next/image";
 
 import { Button } from "..";
+import { DonateAction } from "../donate-action/donate-action";
 
 export const SupportProject = ({
   title,
   text,
   buttonText,
   logo,
+  project
 }: {
   title: string;
   text: string;
   buttonText: string;
   logo: string;
+    project: string;
 }) => {
   return (
     <section id="support-project" className="bg-white text-black">
@@ -23,13 +26,14 @@ export const SupportProject = ({
           <p className="text-base md:text-small-md lg:text-xl lg:leading-4 pb-8">
             {text}
           </p>
-
-          <Button
-            type="button"
-            className=" btn-orange md:min-w-[250px] w-full mx-auto md:m-0 block max-w-[350px] btn-text"
-          >
-            {buttonText}
-          </Button>
+          <DonateAction amount="2" title={project}>
+            <Button
+              type="submit"
+              className=" btn-orange md:min-w-[250px] w-full mx-auto md:m-0 block max-w-[350px] btn-text"
+            >
+              {buttonText}
+            </Button>
+          </DonateAction>
         </div>
 
         <div className="hidden md:block md:flex-1">

@@ -48,6 +48,7 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
           )}
           {data.support && (
             <SupportProject
+              project={data.enTitle}
               title={lng === "en" ? "Support us" : "Підтримай нас"}
               text={lng === "en" ? data.support.enText : data.support.text}
               buttonText={
