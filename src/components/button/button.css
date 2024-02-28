@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 button,
-.btn-orange {
-  @apply transition-all inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid capitalize disabled:cursor-not-allowed;
+.btn-orange,
+.btn-primary {
+  @apply transition-all inline-flex px-6 py-4.5 justify-center items-center rounded-large gap-2 border border-solid disabled:cursor-not-allowed;
 }
 
 .btn-text {

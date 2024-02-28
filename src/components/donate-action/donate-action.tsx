@@ -5,12 +5,12 @@ const secret = process.env.NEXT_PUBLIC_MERCHANT_SECRET_KEY;
 
 export const DonateAction = ({
   children,
-    amount,
-  title
+  amount,
+  title,
 }: {
   children: ReactNode;
-        amount: string;
-        title: string;
+  amount: string;
+  title: string;
 }) => {
   const randomNumber = Math.random() * 1000;
 

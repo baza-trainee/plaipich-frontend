@@ -4,11 +4,11 @@ import "./donate-panel.css";
 
 import React, { useRef, useState } from "react";
 
-import { Link } from "@/components/link/link";
+import { DonateAction } from "@/components/donate-action/donate-action";
 
 export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
   const [amount, setAmount] = useState<number>(0);
-  const [type, setType] = useState<"monthly" | "one-time">("monthly");
+  const [type, setType] = useState<"monthly" | "one-time">("one-time");
   const donateInputRef = useRef<HTMLInputElement>(null);
 
   const donationAmounts = [50, 200, 500];
@@ -21,18 +21,8 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
   };
 
   return (
-    <div className="w-full lg:gap-y-4 gap-y-3 flex flex-col justify-start items-center h15">
+    <div className="w-full lg:gap-y-4 gap-y-3 flex flex-col justify-start h15">
       <div className="flex w-full">
-        <button
-          onClick={() => setType("monthly")}
-          className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 py-1 transition-colors ${
-            type === "monthly"
-              ? "border-dark-blue text-dark-blue"
-              : "border-black text-black"
-          }`}
-        >
-          {lng === "en" ? "Monthly" : "Щомісячно"}
-        </button>
         <button
           onClick={() => setType("one-time")}
           className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 pb-1 transition-colors ${
@@ -42,6 +32,16 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           }`}
         >
           {lng === "en" ? "One-time" : "Разово"}
+        </button>
+        <button
+          onClick={() => setType("monthly")}
+          className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 py-1 transition-colors ${
+            type === "monthly"
+              ? "border-dark-blue text-dark-blue"
+              : "border-black text-black"
+          }`}
+        >
+          {lng === "en" ? "Monthly" : "Щомісячно"}
         </button>
       </div>
       <div className="flex md:gap-4 gap-1 w-full">
@@ -79,17 +79,19 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           className="w-full block border border-black font-normal lg:font-semibold lg:mb-2 md:mb-0 mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
         />
       </div>
-      <Link
-        href={`/donate?amount=${amount}&type=${type}`}
-        className={`w-full bg-dark-orange transition-colors relative hover:bg-orange text-white text-base lg:text-md py-3 rounded-large text-center ${
-          INVALID_SUM
-            ? "cursor-not-allowed pointer-events-none bg-gray-300"
-            : "cursor-pointer pointer-events-auto bg-dark-orange"
-        }`}
-        tabIndex={INVALID_SUM ? -1 : 0}
-      >
-        {lng === "en" ? "Support" : "Підтримати"}
-      </Link>
+      <DonateAction amount={`${amount}`} title="Plai">
+        <button
+          type="submit"
+          className={`w-full bg-dark-orange transition-colors relative hover:bg-orange text-white text-base lg:text-md py-3 rounded-large text-center ${
+            INVALID_SUM
+              ? "cursor-not-allowed pointer-events-none bg-gray-300"
+              : "cursor-pointer pointer-events-auto bg-dark-orange"
+          }`}
+          tabIndex={INVALID_SUM ? -1 : 0}
+        >
+          {lng === "en" ? "Support" : "Підтримати"}
+        </button>
+      </DonateAction>
     </div>
   );
 };
