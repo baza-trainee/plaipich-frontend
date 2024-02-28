@@ -8,7 +8,7 @@ import { DonateAction } from "@/components/donate-action/donate-action";
 
 export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
   const [amount, setAmount] = useState<number>(0);
-  const [type, setType] = useState<"monthly" | "one-time">("one-time");
+  const [regular, setRegular] = useState(false);
   const donateInputRef = useRef<HTMLInputElement>(null);
 
   const donationAmounts = [50, 200, 500];
@@ -24,9 +24,9 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
     <div className="w-full lg:gap-y-4 gap-y-3 flex flex-col justify-start h15">
       <div className="flex w-full">
         <button
-          onClick={() => setType("one-time")}
+          onClick={() => setRegular(false)}
           className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 pb-1 transition-colors ${
-            type === "one-time"
+            !regular
               ? "border-dark-blue text-dark-blue"
               : "border-black text-black"
           }`}
@@ -34,9 +34,9 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           {lng === "en" ? "One-time" : "Разово"}
         </button>
         <button
-          onClick={() => setType("monthly")}
+          onClick={() => setRegular(true)}
           className={`text-center border-l-0 border-r-0 border-t-0 border-b-2 rounded-none w-full text-md lg:py-3 py-1 transition-colors ${
-            type === "monthly"
+            regular
               ? "border-dark-blue text-dark-blue"
               : "border-black text-black"
           }`}
@@ -79,7 +79,7 @@ export const DonatePanel = ({ lng }: { lng: "en" | "uk" }) => {
           className="w-full block border border-black font-normal lg:font-semibold lg:mb-2 md:mb-0 mb-2 text-center p-2 text-md transition-colors placeholder:text-black cursor-pointer rounded-large relative"
         />
       </div>
-      <DonateAction amount={`${amount}`} title="Plai">
+      <DonateAction amount={`${amount}`} title="Plai" regular={regular}>
         <button
           type="submit"
           className={`w-full bg-dark-orange transition-colors relative hover:bg-orange text-white text-base lg:text-md py-3 rounded-large text-center ${
