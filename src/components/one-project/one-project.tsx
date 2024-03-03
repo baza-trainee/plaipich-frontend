@@ -68,7 +68,20 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
               {data.projectProgram?.title && (
                 <Program program={data.projectProgram} lng={lng} />
               )}
-              {data.locationsCount && <Location />}
+              {data.location && (
+                <Location
+                  title={
+                    lng === "en" ? data.location.enTitle : data.location.title
+                  }
+                  text={
+                    lng === "en" ? data.location.enText : data.location.text
+                  }
+                  link={data.location.link}
+                  btnText={
+                    lng === "en" ? "Find us on the map" : "Знайди нас на карті"
+                  }
+                />
+              )}
               {data.partners && data.partners.length > 0 && (
                 <PartnersProject partners={data.partners} lng={lng} />
               )}
