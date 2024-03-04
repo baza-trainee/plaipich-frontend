@@ -54,7 +54,13 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
               logo={data.support.logo}
             />
           )}
-          {data.photos && data.photos.length > 0 && <Gallery />}
+          {data.photos && data.photos.length > 0 && (
+            <Gallery
+              title={lng === "en" ? "Gallery" : "Галерея"}
+              photos={data.photos}
+              videos={data.videos}
+            />
+          )}
         </>
       ) : (
         <Loader />
