@@ -27,7 +27,7 @@ export const ScrollUp = () => {
 
   return (
     <button
-      className={`opacity-50 p-1 text-2xl md:text-[60px] transition hover:opacity-100 hover:animate-bounce text-white bg-new fixed bottom-3 right-5 ${
+      className={`opacity-50 p-1 text-2xl md:text-[60px] transition hover:opacity-100 hover:animate-bounce text-white bg-new fixed z-20 bottom-3 right-5 ${
         showButton ? "block" : "hidden"
       }`}
       onClick={scrollToTop}
