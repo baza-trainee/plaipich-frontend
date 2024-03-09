@@ -1,7 +1,9 @@
-import React from "react";
+import { AddNews } from "@/components/admin-components/add-news/add-news";
 
 const New = () => {
-  return <div>New</div>;
+  return (
+      <AddNews />
+   );
 };
 
 export default New;
