@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.admin label {
+  @apply text-base text-black flex flex-col;
+}
+
+.admin input {
+  @apply w-full rounded text-base text-black p-2 border border-gray-500 focus:outline-black;
+}
+
+.admin textarea {
+  @apply w-full rounded text-base text-black p-2 border border-gray-500 focus:outline-black;
+}

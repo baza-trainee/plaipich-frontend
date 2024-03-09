@@ -1,7 +1,10 @@
+import "./globals.css";
+
 import localFont from "next/font/local";
 import React from "react";
 
 import { Providers } from "@/components";
+import { Logo } from "@/components/header/logo";
 
 const fixel = localFont({
   src: [
@@ -42,8 +45,26 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
       </head>
       <Providers>
-        <body className={`${fixel.variable} font-sans bg-black text-white`}>
-          {children}
+        <body
+          className={`${fixel.variable} font-sans bg-black text-white flex admin`}
+        >
+          <header className="w-1/4 min-h-screen flex justify-end py-8">
+            <div className="w-[275px] px-4 flex flex-col gap-5">
+              <Logo lng="uk" />
+              <ul className="mb-auto">
+                <li>h</li>
+                <li>h</li>
+                <li>h</li>
+                <li>h</li>
+                <li>h</li>
+                <li>h</li>
+              </ul>
+              <button className="">Вихід</button>
+            </div>
+          </header>
+          <div className="w-3/4 bg-white text-black py-8">
+            <div className="max-w-[1150px] px-8">{children}</div>
+          </div>
         </body>
       </Providers>
     </html>
