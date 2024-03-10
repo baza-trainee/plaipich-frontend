@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
 import React from "react";
