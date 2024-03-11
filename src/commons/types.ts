@@ -34,7 +34,7 @@ export interface IProject {
   };
   videos?: string[];
   photos?: string[];
-  locationsCount?: {
+  location?: {
     title: string;
     enTitle: string;
     text: string;
