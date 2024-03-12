@@ -28,15 +28,16 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
     return (
         <section className={` p-4 bg-gray-200 text-black ${className ?? ''}`}>
-
-            <h1 className="h7 ">Додати новий запис</h1>
+            <div className="p-[1em] bg-white mb-[1em]">
+                <h1 className="h7 ">Додати новий запис</h1>
+            </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
 
                 <div className="grid grid-cols-3 gap-4 mb-[1em] ">
                     <div className="rounded-lg p-[1em] bg-white flex flex-col justify-between">
                         <p className="text-5">Категорія</p>
-                        <label className=" ">Обрати категорію{' '}
+                        <label className="text-6 ">Обрати категорію{' '}
                             <select
                                 placeholder="Обирати зі списку"
                                 {...register("category", { required: true })}
@@ -52,7 +53,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                     </div>
 
                     <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between ">
-                        <label className="">Дата публікації{' '}
+                        <label className="text-6 ">Дата публікації{' '}
                         </label>
                         <input placeholder="{date}"
                             type="date"
@@ -72,15 +73,15 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
                 <div className="mb-[1em] rounded-lg bg-white p-[1em] grid grid-cols-2 gap-4">
 
-                    <h3>Укр версія</h3>
-                    <h3>Англ версія</h3>
+                    <h3 className="h15">Українська версія запису</h3>
+                    <h3 className="h15">Англійська версія запису</h3>
 
-                    <label className="">Додати заголовок*{' '}
+                    <label className="text-6 ">Додати заголовок*{' '}
                         <input placeholder="Введіть заголовок"
                             {...register("title", { required: true })}
                             className="rounded-sm border-2 p-2 " />
                     </label>
-                    <label className="">Додати заголовок англійською мовою*{' '}
+                    <label className="text-6 ">Додати заголовок англійською мовою*{' '}
                         <input placeholder="Введіть заголовок"
                             {...register("titleEn", { required: true })}
                             className="rounded-sm border-2 p-2 " />
@@ -94,7 +95,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                     </label> */}
 
                     <div className="col-span-2">
-                        <p>Додати зображення*</p>
+                        <p className="text-6 ">Додати зображення*</p>
                         <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
                             <div className="flex flex-col items-center justify-center text-dark-blue">
                                 <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
@@ -104,13 +105,13 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                         </label>
                     </div>
 
-                    <label className="">Додати лід до публікації*{' '}
+                    <label className="text-6 ">Додати лід до публікації*{' '}
                         <textarea
                             rows={3}
                             {...register("lid", { required: true })}
                             className="rounded-sm border-2 p-2 " />
                     </label>
-                    <label className="">Додати лід до публікації англійською мовою*{' '}
+                    <label className="text-6 ">Додати лід до публікації англійською мовою*{' '}
                         <textarea
                             rows={3}
                             {...register("lidEn", { required: true })}
@@ -119,13 +120,13 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
                     <p className="px-32 col-span-2 text-black/75 text-sm">Лід виконує функцію першого абзацу. Лід завжди виділений жирним шрифтом. Також, він виконує функцію анонсу статті (короткий зміст) на головній сторінці</p>
 
-                    <label className=" ">Додати текст до публікації*{' '}
+                    <label className="text-6  ">Додати текст до публікації*{' '}
                         <textarea
                             rows={4}
                             {...register("text", { required: true })}
                             className="rounded-sm border-2 p-2" />
                     </label>
-                    <label className=" ">Додати текст до публікації англійською мовою*{' '}
+                    <label className="text-6  ">Додати текст до публікації англійською мовою*{' '}
                         <textarea
                             rows={4}
                             {...register("textEn", { required: true })}
@@ -140,7 +141,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                     </label> */}
 
                     <div className="col-span-2">
-                        <p>Додати медіа</p>
+                        <p className="text-6 ">Додати медіа</p>
                         <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
                             <div className="flex flex-col items-center justify-center text-dark-blue">
                                 <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
