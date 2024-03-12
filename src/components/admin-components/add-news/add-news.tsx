@@ -28,8 +28,11 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
     return (
         <section className={` p-4 bg-gray-200 text-black ${className ?? ''}`}>
-            <div className="p-[1em] bg-white mb-[1em]">
+            <div className="p-[1em] bg-white mb-[1em] flex justify-between">
                 <h1 className="h7 ">Додати новий запис</h1>
+                <button
+                    className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white "
+                    type="submit">Опублікувати</button>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
@@ -118,7 +121,8 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                             className="rounded-sm border-2 p-2 " />
                     </label>
 
-                    <p className="px-32 col-span-2 text-black/75 text-sm">Лід виконує функцію першого абзацу. Лід завжди виділений жирним шрифтом. Також, він виконує функцію анонсу статті (короткий зміст) на головній сторінці</p>
+                    <p className="px-32 col-span-2 text-black/75 text-sm">
+                        <span className="text-red font-extrabold">Червоний текст серед сторінки 1й раз зверне на себе увагу, потім - буде дратувати і поступово виїдати очи тому, хто за постійно додає новини. Для збільшення єфекту пропоную зробити ще й жирним :-/</span> Лід виконує функцію першого абзацу. Лід завжди виділений жирним шрифтом. Також, він виконує функцію анонсу статті (короткий зміст) на головній сторінці</p>
 
                     <label className="text-6  ">Додати текст до публікації*{' '}
                         <textarea
@@ -165,10 +169,6 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                     </div> */}
 
                 </div>
-
-                <button
-                    className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white mx-auto"
-                    type="submit">Опублікувати</button>
 
             </form>
         </section>
