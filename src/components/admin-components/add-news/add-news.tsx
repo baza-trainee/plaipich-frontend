@@ -27,7 +27,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
     } = useForm<FormData>()
 
     return (
-        <section className={` p-4 bg-gray-200 text-black ${className??''}`}>
+        <section className={` p-4 bg-gray-200 text-black ${className ?? ''}`}>
 
             <h1 className="h7 ">Додати новий запис</h1>
 
@@ -86,13 +86,23 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                             className="rounded-sm border-2 p-2 " />
                     </label>
 
-                    <label className="col-span-2 ">Додати зображення*{' '}
+                    {/* <label className="col-span-2 ">Додати зображення*{' '}
                         <input
                             type="file"
-                            placeholder="+ Додати зображення, Максимальний розмір файлу 2 МБ."
                             {...register("titleImg", { required: true })}
                             className="rounded-sm border-dashed border-2 p-2" />
-                    </label>
+                    </label> */}
+
+                    <div className="col-span-2">
+                        <p>Додати зображення*</p>
+                        <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
+                            <div className="flex flex-col items-center justify-center text-dark-blue">
+                                <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
+                                <p>Додати зображення</p>
+                            </div>
+                            <input type="file" className="hidden" {...register("titleImg", { required: true })} />
+                        </label>
+                    </div>
 
                     <label className="">Додати лід до публікації*{' '}
                         <textarea
@@ -107,7 +117,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                             className="rounded-sm border-2 p-2 " />
                     </label>
 
-                    <p className="col-span-2 text-red text-sm">Лід виконує функцію першого абзацу. Лід завжди виділений жирним шрифтом. Також, він виконує функцію анонсу статті (короткий зміст) на головній сторінці</p>
+                    <p className="px-32 col-span-2 text-black/75 text-sm">Лід виконує функцію першого абзацу. Лід завжди виділений жирним шрифтом. Також, він виконує функцію анонсу статті (короткий зміст) на головній сторінці</p>
 
                     <label className=" ">Додати текст до публікації*{' '}
                         <textarea
@@ -122,13 +132,36 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                             className="rounded-sm border-2 p-2" />
                     </label>
 
-                    <label className="col-span-2 ">Додати медіа{' '}
+                    {/* <label className="col-span-2 ">Додати медіа{' '}
                         <input
                             type="file"
-                            placeholder="+ Додати зображення, Максимальний розмір файлу 2 МБ."
                             {...register("media", { required: false })}
                             className="rounded-sm border-dashed border-2 p-2" />
-                    </label>
+                    </label> */}
+
+                    <div className="col-span-2">
+                        <p>Додати медіа</p>
+                        <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
+                            <div className="flex flex-col items-center justify-center text-dark-blue">
+                                <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
+                                <p>Додати зображення</p>
+                            </div>
+                            <input type="file" className="hidden" {...register("media", { required: false })} />
+                        </label>
+                    </div>
+
+                    {/* <div className="col-span-2 flex items-center justify-center w-full">
+                        <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                </svg>
+                                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                            </div>
+                            <input type="file" className="hidden" />
+                        </label>
+                    </div> */}
 
                 </div>
 
