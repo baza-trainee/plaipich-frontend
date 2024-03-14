@@ -12,16 +12,30 @@ const AllNews = async () => {
   );
 
   return (
-    <section>
-      <div>
-        <h2>Новини</h2>
-        <Link href={"admin/add-new"}>Додати новину</Link>
+    <section className="flex flex-col gap-4">
+      <div className="flex justify-between items-center">
+        <h2 className="font-semibold text-2xl">Новини</h2>
+        <Link
+          className="transition-all px-6 py-4 rounded-large border text-white bg-dark-blue border-dark-blue hover:bg-light-blue hover:text-black hover:border-black active:text-white active:bg-dark-blue active:border-dark-blue"
+          href={"admin/add-new"}
+        >
+          Додати новину
+        </Link>
       </div>
-      <div>
-        <select name="category" id=""></select>
-        <select name="state" id=""></select>
-        <select name="date" id=""></select>
-        <input type="text" placeholder="Пошук" />
+      <div className="flex gap-8">
+        <select className="w-[150px] p-2" name="category" id="">
+          <option value="">Категорії</option>
+          {APP_CONST.category.ukCategory.map((item) => (
+            <option key={item} value={item}>{item}</option>
+          ))}
+        </select>
+        <select className="w-[150px] p-2" name="state" id="">
+          <option value="">Стан</option>
+        </select>
+        <select className="w-[150px] p-2" name="date" id="">
+          <option value="">Дата</option>
+        </select>
+        <input className="flex-1" type="text" placeholder="Пошук" />
       </div>
       <div className="w-full">
         <ul className="w-full flex flex-col text-base border border-gray-500">
