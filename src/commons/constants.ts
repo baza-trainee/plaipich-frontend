@@ -8,10 +8,10 @@ export const NAVIGATION = {
   support: "/support-us",
   reports: "/about-us#reports",
   contacts: "#contacts",
-  facebook: "https://www.facebook.com/pich.livestudio/",
-  tiktok: "",
-  instagram: "https://www.instagram.com/plai.pich/",
-  telegram: "",
+  facebook: "https://www.facebook.com/ngo.plai",
+  tiktok: "https://www.tiktok.com/@plai.pich",
+  instagram: "https://www.instagram.com/ngo.plai",
+  telegram: "https://t.me/GO_PLAI",
   youtube: "https://www.youtube.com/@plaiUA",
 };
 
