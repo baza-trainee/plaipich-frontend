@@ -35,8 +35,10 @@ const fixel = localFont({
 });
 
 const adminNavigation = [
-  { text: "Новини", link: "admin/add-new" },
-  { text: "Проєкти", link: "admin/add-project" },
+  { text: "Новини", link: "/admin/all-news" },
+  { text: "Додати новину", link: "/admin/add-new" },
+  { text: "Проєкти", link: "/dataadmin/all-projects" },
+  { text: "Додати проєкт", link: "/admin/add-project" },
   { text: "Про нас", link: "/" },
   { text: "Контакти", link: "/" },
   { text: "Звіти", link: "/" },
@@ -56,7 +58,7 @@ export default async function AdminLayout({
       </head>
       <Providers>
         <body className={`${fixel.variable} font-sans admin`}>
-          <header className="fixed top-0 left-0 h-screen w-1/4 bg-black text-white flex justify-end py-8">
+          <header className="fixed top-0 left-0 h-screen w-1/4 bg-black text-base text-white flex justify-end py-8">
             <div className="w-[275px] px-4 flex flex-col gap-5">
               <Logo lng="uk" />
               <ul className="flex flex-col gap-4 mt-16 mb-auto">
