@@ -28,6 +28,7 @@ export const QUERY_KEY = {
   ONE_PROJECT: "one-project",
   NEWS: "news",
   USER: "user",
+  ADD_NEWS: "add-news",
 };
 
 export const category = {

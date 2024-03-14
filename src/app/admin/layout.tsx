@@ -62,7 +62,7 @@ export default async function RootLayout({
               <button className="">Вихід</button>
             </div>
           </header>
-          <div className="w-3/4 bg-white text-black py-8">
+          <div className="w-3/4 bg-gray-200 text-black py-8">
             <div className="max-w-[1150px] px-8">{children}</div>
           </div>
         </body>
