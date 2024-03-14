@@ -1,6 +1,7 @@
 import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
+import Link from "next/link";
 import React from "react";
 
 import { Providers } from "@/components";
@@ -32,7 +33,15 @@ const fixel = localFont({
   variable: "--font-fixel",
 });
 
-export default async function RootLayout({
+const adminNavigation = [
+  {text:"Новини", link:'admin/add-new'},
+  {text:"Проєкти", link:'admin/add-project'},
+  {text:"Про нас", link:'/'},
+  {text:"Контакти", link:'/'},
+  {text:"Звіти", link:'/'}
+]
+
+export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -51,15 +60,10 @@ export default async function RootLayout({
           <header className="w-1/4 min-h-screen flex justify-end py-8">
             <div className="w-[275px] px-4 flex flex-col gap-5">
               <Logo lng="uk" />
-              <ul className="mb-auto">
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
+              <ul className="flex flex-col gap-4 mt-16">
+                {adminNavigation.map(({text, link}) => (<li key={text} className="hover:text-horizon transition"><Link href={link}>{ text }</Link></li>))}
               </ul>
-              <button className="">Вихід</button>
+              <button className="fixed bottom-16 p-4 border-none hover:text-horizon transition">Вихід</button>
             </div>
           </header>
           <div className="w-3/4 bg-gray-200 text-black py-8">
