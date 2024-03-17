@@ -41,7 +41,7 @@ export class APIService {
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
-        throw new Error(error.statusText);
+        // throw new Error(error.statusText);
       });
 
   postRequest = <Type>({ url, body }: { url: string; body?: Type }) =>
@@ -59,7 +59,7 @@ export class APIService {
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
-        throw new Error(error.statusText);
+        // throw new Error(error.statusText);
       });
 
   patchRequest = <Type>({ url, body }: { url: string; body: Type }) =>
@@ -77,7 +77,7 @@ export class APIService {
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
-        throw new Error(error.statusText);
+        // throw new Error(error.statusText);
       });
 
   deleteRequest = (url: string) =>
@@ -93,7 +93,7 @@ export class APIService {
       .then((data) => data)
       .catch((error) => {
         this.catchError(error.status);
-        throw new Error(error.statusText);
+        // throw new Error(error.statusText);
       });
 }
 

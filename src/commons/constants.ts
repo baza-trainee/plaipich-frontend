@@ -1,3 +1,5 @@
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+
 export const NAVIGATION = {
   main: "/",
   about: "/about-us",
@@ -16,11 +18,10 @@ export const NAVIGATION = {
 };
 
 export const API_URL = {
-  BASE: "https://privatcontacts.onrender.com/api",
-  USER: "/user",
-  NEWS: "/news",
-  PROJECTS: "/projects",
-  EVENTS: "/events",
+  BASE: baseUrl,
+  USER: "/api/user",
+  NEWS: "/api/news",
+  PROJECTS: "/api/projects",
 };
 
 export const QUERY_KEY = {
