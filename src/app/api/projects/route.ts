@@ -4,7 +4,10 @@ import Projects from "@/../database/models/projects-model";
 export const GET = async () => {
   try {
     await connectToDB();
-    const projects = await Projects.find();
+    const projects = await Projects.find(
+      {},
+      { poster: 1, title: 1, enTitle: 1, description: 1, enDescription: 1, status: 1 }
+    ).sort("-createdAt -updatedAt");
 
     return new Response(
       JSON.stringify({
