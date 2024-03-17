@@ -47,7 +47,7 @@ const projectsSchema = new mongoose.Schema({
   locations: {
     title: { type: String },
     enTitle: { type: String },
-    text: { type: String},
+    text: { type: String },
     enText: { type: String },
     link: { type: String },
   },

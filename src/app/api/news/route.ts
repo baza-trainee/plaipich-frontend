@@ -11,7 +11,7 @@ export const GET = async () => {
         results: news.length,
         data: { news },
       }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     return new Response("Fail!", { status: 500 });

@@ -12,7 +12,7 @@ export const GET = async () => {
         results: projects.length,
         data: { projects },
       }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     return new Response("Fail!", { status: 500 });

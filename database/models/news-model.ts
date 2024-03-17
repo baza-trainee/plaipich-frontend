@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { APP_CONST } from '@/commons'
+import { APP_CONST } from "@/commons";
 
 const { category } = APP_CONST;
 
