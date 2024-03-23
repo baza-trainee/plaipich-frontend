@@ -21,6 +21,7 @@ export const API_URL = {
   BASE: baseUrl,
   USER: "/api/user",
   NEWS: "/api/news",
+  ADD_NEWS: "/api/add-news",
   PROJECTS: "/api/projects",
 };
 
