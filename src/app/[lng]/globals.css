@@ -137,10 +137,14 @@ input[type="number"]::-webkit-outer-spin-button {
   @apply text-base text-black flex flex-col;
 }
 
-.admin input {
-  @apply w-full rounded text-base text-black p-2 border border-gray-500 focus:outline-black;
+.admin input, .admin select {
+  @apply rounded text-base text-black p-2 border border-gray-500 focus:outline-black;
 }
 
 .admin textarea {
   @apply w-full rounded text-base text-black p-2 border border-gray-500 focus:outline-black;
+}
+
+.list p {
+  @apply text-base;
 }
