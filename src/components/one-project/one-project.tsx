@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
 import { API_URL } from "@/commons/constants";
 import { useOneProject } from "@/hooks/use-one-project";
@@ -10,6 +10,7 @@ import { Mission } from "../mission/mission";
 import { NotFound } from "../not-found/not-found";
 import { Description } from "./description-project";
 import { Details } from "./details-project";
+import { DonateModal } from "./donate-modal";
 import { Gallery } from "./gallery-project";
 import { Location } from "./location-project";
 import { PartnersProject } from "./partners-project";
@@ -20,25 +21,42 @@ import { SupportProject } from "./support-project";
 export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
   const projectId = searchParams.get("id");
-  const { data, isLoading, isError } = useOneProject(
+  const [openDonateModal, setOpenModal] = useState(false);
+  const { data, isLoading, error } = useOneProject(
     `${API_URL.PROJECTS}/${projectId}`,
   );
-  console.dir(data);
+
+  const openModal = () => {
+    setOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setOpenModal(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div>
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {isLoading && <Loader />}
+
+      {!isLoading && data && (
         <>
-          {" "}
-          {!isError && data ? (
+          {data.support?.text && openDonateModal && (
+            <DonateModal
+              text={lng === "en" ? data.support.enText : data.support.text}
+              lng={lng}
+              closeModal={closeModal}
+            />
+          )}
+
+          {!openDonateModal && (
             <>
               <Poster
                 title={lng === "en" ? data.enTitle : data.title}
                 poster={data.poster}
                 status={data.status}
                 lng={lng}
+                openModal={openModal}
               />
               <Description
                 description={
@@ -62,7 +80,8 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
                   text={
                     lng === "en" ? data.location.enText : data.location.text
                   }
-                  link={
+                  link={data.location.link}
+                  btnText={
                     lng === "en" ? "Find us on the map" : "Знайди нас на карті"
                   }
                 />
@@ -78,6 +97,7 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
                     lng === "en" ? "Support project" : "Підтримати проект"
                   }
                   logo={data.support.logo}
+                  openModal={openModal}
                 />
               )}
               {data.photos && data.photos.length > 0 && (
@@ -88,11 +108,10 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
                 />
               )}
             </>
-          ) : (
-            <NotFound lng={lng} />
           )}
         </>
       )}
+      {!isLoading && error && <NotFound lng={lng} />}
     </div>
   );
 };

@@ -7,12 +7,18 @@ export const SupportProject = ({
   text,
   buttonText,
   logo,
+  openModal,
 }: {
   title: string;
   text: string;
   buttonText: string;
   logo: string;
+  openModal: Function;
 }) => {
+  const onClickDonateBtn = () => {
+    openModal();
+  };
+
   return (
     <section id="support-project" className="bg-white text-black">
       <div className="md:flex max-w-[1440px] mx-auto px-4 md:p-8 md:gap-4 lg:px-16 lg:py-20 py-16">
@@ -23,10 +29,10 @@ export const SupportProject = ({
           <p className="text-base md:text-small-md lg:text-xl lg:leading-4 pb-8">
             {text}
           </p>
-
           <Button
             type="button"
             className=" btn-orange md:min-w-[250px] w-full mx-auto md:m-0 block max-w-[350px] btn-text"
+            onClick={onClickDonateBtn}
           >
             {buttonText}
           </Button>

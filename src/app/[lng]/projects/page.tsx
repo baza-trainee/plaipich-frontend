@@ -30,8 +30,8 @@ const Projects = async ({
         containerClasses="hidden md:flex gap-1 px-16 lg:px-8"
         activeClasses="text-dark-blue"
       />
-      <div className="flex justify-center items-baseline">
-        <Spiral className="stroke-water-blue w-[26px] h-[21px] md:w-[35px] md:h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
+      <div className="flex justify-center items-center">
+        <Spiral className="stroke-water-blue w-[26px] h-[26px] md:w-[35px] md:h-[35px] lg:w-[76px] lg:h-[76px] mr-3 lg:mr-4" />
         <h1 className="text-2xl md:text-small-3xl leading-2 lg:text-4xl lg:leading-4 font-bold">
           {t("title")}
         </h1>

@@ -10,12 +10,18 @@ export const Poster = ({
   poster,
   status,
   lng,
+  openModal,
 }: {
   title: string;
   poster: string;
   status: boolean;
   lng: "en" | "uk";
+  openModal: Function;
 }) => {
+  const onClickDonateBtn = () => {
+    openModal();
+  };
+
   return (
     <section
       id="poster"
@@ -51,6 +57,7 @@ export const Poster = ({
           <Button
             type="button"
             className="hidden md:block btn-orange min-w-[250px]"
+            onClick={onClickDonateBtn}
           >
             <p className="btn-text">
               {lng === "en" ? "Support project" : "Підтримати проект"}
