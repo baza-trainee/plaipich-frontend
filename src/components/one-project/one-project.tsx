@@ -7,6 +7,7 @@ import { useOneProject } from "@/hooks/use-one-project";
 
 import { Loader } from "../loader/loader";
 import { Mission } from "../mission/mission";
+import { NotFound } from "../not-found/not-found";
 import { Description } from "./description-project";
 import { Details } from "./details-project";
 import { DonateModal } from "./donate-modal";
@@ -21,7 +22,9 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
   const projectId = searchParams.get("id");
   const [openDonateModal, setOpenModal] = useState(false);
-  const { data, isLoading } = useOneProject(`${API_URL.PROJECTS}/${projectId}`);
+  const { data, isLoading, error } = useOneProject(
+    `${API_URL.PROJECTS}/${projectId}`
+  );
 
   const openModal = () => {
     setOpenModal(true);
@@ -34,7 +37,9 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
 
   return (
     <div>
-      {!isLoading && data ? (
+      {isLoading && <Loader />}
+
+      {!isLoading && data && (
         <>
           {data.support?.text && openDonateModal && (
             <DonateModal
@@ -106,9 +111,8 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
             </>
           )}
         </>
-      ) : (
-        <Loader />
       )}
+      {!isLoading && error && <NotFound lng={lng} />}
     </div>
   );
 };

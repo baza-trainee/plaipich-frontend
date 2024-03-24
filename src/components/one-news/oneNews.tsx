@@ -9,17 +9,22 @@ import { API_URL, NAVIGATION } from "@/commons/constants";
 import { useOneNew } from "@/hooks/use-one-new";
 import { formatDate, formatText } from "@/utils";
 
-import { Link, Loader } from "../index";
+import { Link, Loader, NotFound } from "../index";
 import { SetTagColor } from "../news-card/news-card";
 import Gallery from "./one-news-gallery";
 
 const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
   const newId = searchParams.get("id");
-  const { data, isLoading } = useOneNew(`${API_URL.NEWS}/${newId}`);
+  const { data, isLoading, isError } = useOneNew(`${API_URL.NEWS}/${newId}`);
 
   return (
-    <section className="container pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8">
+    <section
+      className={`pt-[31px] pb-11 md:pt-[39px] md:pb-8 lg:pb-[62px] lg:pt-8 ${
+        isError ? "bg-black text-white" : "container"
+      }`}
+    >
+      {isError && <NotFound lng={lng} />}
       {isLoading ? (
         <Loader />
       ) : (
