@@ -23,7 +23,7 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
   const projectId = searchParams.get("id");
   const [openDonateModal, setOpenModal] = useState(false);
   const { data, isLoading, error } = useOneProject(
-    `${API_URL.PROJECTS}/${projectId}`
+    `${API_URL.PROJECTS}/${projectId}`,
   );
 
   const openModal = () => {
@@ -46,7 +46,6 @@ export const OneProject = ({ lng }: { lng: "en" | "uk" }) => {
               text={lng === "en" ? data.support.enText : data.support.text}
               lng={lng}
               closeModal={closeModal}
-              title={data.enTitle}
             />
           )}
 
