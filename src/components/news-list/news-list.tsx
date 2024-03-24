@@ -32,7 +32,7 @@ const NewsList = ({
   const pathName = usePathname();
 
   const badgesData = Array.from(
-    new Set(newsList.map((item) => item.category[lng]))
+    new Set(newsList.map((item) => item.category[lng])),
   );
 
   const changeFilter = (event: ChangeEvent<HTMLInputElement>) => {

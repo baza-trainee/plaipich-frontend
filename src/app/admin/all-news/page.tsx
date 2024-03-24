@@ -8,7 +8,7 @@ const AllNews = async () => {
   const {
     data: { news }, // eslint-disable-next-line no-undef
   }: { data: { news: APP_TYPES.INews[] } } = await apiService.getRequest(
-    APP_CONST.API_URL.NEWS
+    APP_CONST.API_URL.NEWS,
   );
 
   return (
@@ -26,7 +26,9 @@ const AllNews = async () => {
         <select className="w-[150px]" name="category" id="">
           <option value="">Категорії</option>
           {APP_CONST.category.ukCategory.map((item) => (
-            <option key={item} value={item}>{item}</option>
+            <option key={item} value={item}>
+              {item}
+            </option>
           ))}
         </select>
         <select className="w-[150px]" name="state" id="">

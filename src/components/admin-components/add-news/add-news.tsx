@@ -1,11 +1,12 @@
 "use client";
-// import Image from "next/image";
-import { ChangeEvent } from "react";
+import Image from "next/image";
+import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { category } from "@/commons/constants";
 import { INews } from "@/commons/types";
 import { useAddNews } from "@/hooks/use-add-news";
+import { upload } from "@/utils";
 
 export type FormData = {
   title: string;
@@ -21,7 +22,7 @@ export type FormData = {
 };
 
 export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
-  // const [files, setFiles] = useState<string[]>();
+  const [image, setImage] = useState<string[]>([]);
   const { mutate: addNews } = useAddNews();
 
   function onSubmit(data: FormData) {
@@ -30,12 +31,10 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
       date,
       lid,
       lidEn,
-      media,
       text,
       textEn,
       title,
       titleEn,
-      titleImg,
     } = data;
 
     const indCategory = category.ukCategory.indexOf(currentCategory);
@@ -56,25 +55,26 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
         en: enCategory,
         uk: currentCategory,
       },
-      mainPhoto: titleImg,
-      photos: media,
+      mainPhoto: image[0],
+      photos: image.slice(1),
     };
 
     addNews({ body });
-    // sendEmail(data);
   }
 
   const { register, handleSubmit } = useForm<FormData>();
 
-  const { onChange, name } = register("titleImg", { required: true });
-
   const addPictures = (event: ChangeEvent) => {
-    // const element = event.target as HTMLInputElement;
-    // console.log(element.files[0]);
-
-    // setFiles([element.value]);
-    onChange(event);
+    const element = event.target as HTMLInputElement;
+    if (element.files) {
+      const urlImage = upload(element.files[0]);
+      urlImage.then((url) => {
+        setImage((prev) => [...prev, url]);
+      });
+    }
   };
+
+  console.log(image);
 
   return (
     <section className={` p-4 bg-gray-200 text-black ${className ?? ""}`}>
@@ -165,23 +165,29 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
           </label>
 
           <div className="col-span-2">
-            {/* {!!files?.length && (
-              <Image src={files[0]} alt={"poster"} width={500} height={300} />
-            )} */}
             <p className="text-6 ">Додати зображення*</p>
-            <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
-              <div className="flex flex-col items-center justify-center text-dark-blue">
-                <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
-                <p>Додати зображення</p>
-              </div>
-              <input
-                type="file"
-                className="hidden"
-                onChange={addPictures}
-                name={name}
-                // {...register("titleImg", { required: true })}
+            {image && image[0] ? (
+              <Image
+                src={image[0]}
+                alt={"poster"}
+                width={500}
+                height={300}
+                className="w-full h-48 object-cover"
               />
-            </label>
+            ) : (
+              <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
+                <div className="flex flex-col items-center justify-center text-dark-blue">
+                  <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
+                  <p>Додати зображення</p>
+                </div>
+                <input
+                  type="file"
+                  className="hidden"
+                  onChange={addPictures}
+                  name="titleImg"
+                />
+              </label>
+            )}
           </div>
 
           <label className="text-6 ">
@@ -226,6 +232,24 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
           <div className="col-span-2">
             <p className="text-6 ">Додати медіа</p>
+            {image && image.length > 1 && (
+              <div className="flex flex-wrap gap-4 justify-center mb-2">
+                {image.map((item, ind) => {
+                  if (ind !== 0) {
+                    return (
+                      <Image
+                        src={item}
+                        key={item}
+                        alt={"poster"}
+                        width={500}
+                        height={300}
+                        className="w-64 h-48 object-cover"
+                      />
+                    );
+                  }
+                })}
+              </div>
+            )}
             <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
               <div className="flex flex-col items-center justify-center text-dark-blue">
                 <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
@@ -234,7 +258,8 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               <input
                 type="file"
                 className="hidden"
-                {...register("media", { required: false })}
+                name="media"
+                onChange={addPictures}
               />
             </label>
           </div>

@@ -29,6 +29,7 @@ export const QUERY_KEY = {
   NEWS: "news",
   USER: "user",
   ADD_NEWS: "add-news",
+  ADD_IMAGE: "add-image",
 };
 
 export const category = {
