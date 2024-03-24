@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React, { ChangeEvent, useState } from "react";
+import { IoClose } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
 
 import { INews } from "@/commons/types";
@@ -31,7 +32,7 @@ const NewsList = ({
   const pathName = usePathname();
 
   const badgesData = Array.from(
-    new Set(newsList.map((item) => item.category[lng])),
+    new Set(newsList.map((item) => item.category[lng]))
   );
 
   const changeFilter = (event: ChangeEvent<HTMLInputElement>) => {
@@ -90,14 +91,12 @@ const NewsList = ({
                   <label
                     key={badge}
                     htmlFor={badge}
-                    className={`py-2 px-4 rounded-large mr-6 cursor-pointer
-                ${
-                  categoryList.includes(badge)
-                    ? "bg-black text-white"
-                    : SetTagColor(badge)
-                }`}
+                    className={`py-2 px-4 rounded-large mr-6 flex gap-2 items-center cursor-pointer
+                    ${SetTagColor(badge)}
+                ${categoryList.includes(badge) && "border-black border-2"}`}
                   >
                     {badge}
+                    {categoryList.includes(badge) && <IoClose />}
                     <input
                       type="checkbox"
                       className="hidden"

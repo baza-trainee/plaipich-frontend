@@ -56,7 +56,9 @@ export const ProjectsList = ({
               {lng === "en" ? item.enTitle : item.title}
             </h2>
             <p className="mb-[16px] lg:mb-[20px] lg:min-h-[135px] overflow-hidden line-clamp-4">
-              {lng === "en" ? item.enDescription : item.description}
+              {lng === "en"
+                      ? item.enDescription.replace("**", "")
+                      : item.description.replace("**", "")}
             </p>
 
             <div className="w-full flex flex-wrap items-center justify-center md:justify-between gap-4">
