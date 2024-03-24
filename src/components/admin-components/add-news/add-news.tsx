@@ -69,8 +69,8 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
   const { onChange, name } = register("titleImg", { required: true });
 
   const addPictures = (event: ChangeEvent) => {
-    const element = event.target as HTMLInputElement;
-    console.log(element.files[0]);
+    // const element = event.target as HTMLInputElement;
+    // console.log(element.files[0]);
 
     // setFiles([element.value]);
     onChange(event);

@@ -5,6 +5,7 @@ import "../one-news/one-news-gallery.css";
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaExpandArrowsAlt } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import ImageGallery from "react-image-gallery";
 import { useMediaQuery } from "react-responsive";
 
@@ -42,7 +43,7 @@ export const Gallery = ({ title, photos, videos }: GalleryProps) => {
           <Spiral className="stroke-link-water w-[35px] h-[27px] lg:w-[76px] lg:h-[61px] mr-3 lg:mr-4" />
           <h2 className="h1">{title}</h2>
         </div>
-        <div>
+        <div className="w-2/3 mx-auto">
           {videos?.map((video, index) => (
             <VideoPlayer key={index} url={video} />
           ))}
@@ -63,9 +64,9 @@ export const Gallery = ({ title, photos, videos }: GalleryProps) => {
             />
             <button
               onClick={close}
-              className="absolute top-2 right-2 text-white border-none p-2"
+              className="absolute top-1 right-2 text-white border-none p-2"
             >
-              X
+              <IoClose />
             </button>
           </div>
         ) : (
