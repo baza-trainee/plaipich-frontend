@@ -1,5 +1,11 @@
 "use client";
+// import Image from "next/image";
+import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
+
+import { category } from "@/commons/constants";
+import { INews } from "@/commons/types";
+import { useAddNews } from "@/hooks/use-add-news";
 
 export type FormData = {
   title: string;
@@ -9,18 +15,66 @@ export type FormData = {
   lidEn: string;
   text: string;
   textEn: string;
-  media: string;
-  category: string;
+  media: string[];
+  category: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
   date: string;
 };
 
 export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
+  // const [files, setFiles] = useState<string[]>();
+  const { mutate: addNews } = useAddNews();
+
   function onSubmit(data: FormData) {
-    console.log(data);
+    const {
+      category: currentCategory,
+      date,
+      lid,
+      lidEn,
+      media,
+      text,
+      textEn,
+      title,
+      titleEn,
+      titleImg,
+    } = data;
+
+    const indCategory = category.ukCategory.indexOf(currentCategory);
+    const enCategory = category.enCategory[indCategory] as
+      | "Announcements"
+      | "Articles"
+      | "Projects"
+      | "Events"
+      | "Personals";
+
+    const body: INews = {
+      title,
+      description: `${lid} \n ${text}`,
+      enTitle: titleEn,
+      enDescription: `${lidEn} \n ${textEn}`,
+      date: new Date(date),
+      category: {
+        en: enCategory,
+        uk: currentCategory,
+      },
+      mainPhoto: titleImg,
+      photos: media,
+    };
+
+    addNews({ body });
     // sendEmail(data);
   }
 
   const { register, handleSubmit } = useForm<FormData>();
+
+  const { onChange, name } = register("titleImg", { required: true });
+
+  const addPictures = (event: ChangeEvent) => {
+    const element = event.target as HTMLInputElement;
+    console.log(element.files[0]);
+
+    // setFiles([element.value]);
+    onChange(event);
+  };
 
   return (
     <section className={` p-4 bg-gray-200 text-black ${className ?? ""}`}>
@@ -48,11 +102,11 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                 <option disabled value="alien">
                   Обирати зі списку
                 </option>
-                <option value="alien">alien</option>
-                <option value="human">human</option>
-                <option value="cat">cat</option>
-                <option value="dog">dog</option>
-                <option value="other">other</option>
+                {category.ukCategory.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
               </select>
             </label>
           </div>
@@ -95,7 +149,8 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати заголовок*{" "}
             <input
               placeholder="Введіть заголовок"
-              {...register("title", { required: true })}
+              type="text"
+              {...register("title", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
           </label>
@@ -103,19 +158,16 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати заголовок англійською мовою*{" "}
             <input
               placeholder="Введіть заголовок"
-              {...register("titleEn", { required: true })}
+              type="text"
+              {...register("titleEn", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
           </label>
 
-          {/* <label className="col-span-2 ">Додати зображення*{' '}
-                        <input
-                            type="file"
-                            {...register("titleImg", { required: true })}
-                            className="rounded-sm border-dashed border-2 p-2" />
-                    </label> */}
-
           <div className="col-span-2">
+            {/* {!!files?.length && (
+              <Image src={files[0]} alt={"poster"} width={500} height={300} />
+            )} */}
             <p className="text-6 ">Додати зображення*</p>
             <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
               <div className="flex flex-col items-center justify-center text-dark-blue">
@@ -125,7 +177,9 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               <input
                 type="file"
                 className="hidden"
-                {...register("titleImg", { required: true })}
+                onChange={addPictures}
+                name={name}
+                // {...register("titleImg", { required: true })}
               />
             </label>
           </div>
@@ -147,12 +201,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             />
           </label>
 
-          <p className="px-32 col-span-2 text-black/75 text-sm">
-            <span className="text-red font-extrabold">
-              Червоний текст серед сторінки 1й раз зверне на себе увагу, потім -
-              буде дратувати і поступово виїдати очи тому, хто за постійно додає
-              новини. Для збільшення єфекту пропоную зробити ще й жирним :-/
-            </span>{" "}
+          <p className="px-32 col-span-2 text-black/75 text-sm text-red font-medium">
             Лід виконує функцію першого абзацу. Лід завжди виділений жирним
             шрифтом. Також, він виконує функцію анонсу статті (короткий зміст)
             на головній сторінці
@@ -175,13 +224,6 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             />
           </label>
 
-          {/* <label className="col-span-2 ">Додати медіа{' '}
-                        <input
-                            type="file"
-                            {...register("media", { required: false })}
-                            className="rounded-sm border-dashed border-2 p-2" />
-                    </label> */}
-
           <div className="col-span-2">
             <p className="text-6 ">Додати медіа</p>
             <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
@@ -196,19 +238,6 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               />
             </label>
           </div>
-
-          {/* <div className="col-span-2 flex items-center justify-center w-full">
-                        <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                </svg>
-                                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                            </div>
-                            <input type="file" className="hidden" />
-                        </label>
-                    </div> */}
         </div>
       </form>
     </section>
