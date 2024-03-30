@@ -17,7 +17,7 @@ export const NAVIGATION = {
 
 export const API_URL = {
   BASE: "https://privatcontacts.onrender.com/api",
-  USER: "/user",
+  USER: "/users",
   NEWS: "/news",
   PROJECTS: "/projects",
   EVENTS: "/events",
