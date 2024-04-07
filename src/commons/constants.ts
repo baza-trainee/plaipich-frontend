@@ -16,8 +16,8 @@ export const NAVIGATION = {
 };
 
 export const API_URL = {
-  BASE: "https://privatcontacts.onrender.com/api",
-  USER: "/users",
+  BASE: "https://plaipich-backend.onrender.com/api",
+  USER: "/user",
   NEWS: "/news",
   PROJECTS: "/projects",
   EVENTS: "/events",

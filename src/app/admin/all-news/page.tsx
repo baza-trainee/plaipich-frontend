@@ -5,6 +5,7 @@ import { APP_CONST, APP_TYPES } from "@/commons";
 import { apiService } from "@/services/api-service";
 
 const AllNews = async () => {
+  try {
   const {
     data: { news }, // eslint-disable-next-line no-undef
   }: { data: { news: APP_TYPES.INews[] } } = await apiService.getRequest(
@@ -12,7 +13,7 @@ const AllNews = async () => {
   );
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col min-h-screen py-8 gap-4">
       <div className="flex justify-between items-center">
         <h2 className="font-semibold text-2xl">Новини</h2>
         <Link
@@ -68,6 +69,9 @@ const AllNews = async () => {
       </div>
     </section>
   );
+  } catch (error) {
+    return (<p>Error</p>)
+  }
 };
 
 export default AllNews;

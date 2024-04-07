@@ -1,7 +1,7 @@
 "use client";
+import { useQueryClient } from '@tanstack/react-query';
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IoExitOutline } from "react-icons/io5";
 
 import { APP_CONST } from "@/commons";
@@ -9,10 +9,8 @@ import { Logo } from "@/components/header/logo";
 import { apiService } from "@/services/api-service";
 import { localStorageServices } from "@/services/local-storage";
 
-const SideBar = () => {
-  const router = useRouter();
-  const pathName = usePathname();
-  const [isUser, setUser] = useState(false);
+const SideBar = ({ children, isUser }: { children: React.ReactNode; isUser: boolean; }) => {
+  const queryClient = useQueryClient();
 
   const adminNavigation = [
     { text: "Новини", link: "/admin/all-news" },
@@ -25,50 +23,40 @@ const SideBar = () => {
   ];
 
   const logOff = () => {
+    queryClient.setQueryData([APP_CONST.QUERY_KEY.USER], () => ({}));
     localStorageServices.clearLocal();
     apiService.setToken("");
-    setUser(false);
   };
 
-  useEffect(() => {
-    const token: string | undefined = localStorageServices.getTokenFromLocal();
-
-    if (token) {
-      apiService.setToken(token);
-      apiService
-        .getRequest(APP_CONST.API_URL.USER)
-        .then(() => {
-          setUser(true);
-          router.replace("/admin/all-news");
-        })
-        .catch(() => {
-          setUser(false);
-        });
-    }
-  }, [pathName]);
-
   return (
-    <div className="w-[275px] px-4 flex flex-col gap-5">
-      <Logo lng="uk" />
-      {isUser && (
-        <>
-          <ul className="flex flex-col gap-4 mt-16 mb-auto">
-            {adminNavigation.map(({ text, link }) => (
-              <li key={text} className="hover:text-horizon transition">
-                <Link href={link}>{text}</Link>
-              </li>
-            ))}
-          </ul>
-          <button
-            className="flex gap-2 w-fit px-4 text-base items-center justify-start border-none hover:text-horizon transition"
-            onClick={logOff}
-          >
-            <IoExitOutline size={"2em"} />
-            <span>Вихід</span>
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <header className="fixed top-0 left-0 h-screen w-1/4 bg-black text-base text-white flex justify-end py-8">
+        <div className="w-[275px] px-4 flex flex-col gap-5">
+          <Logo lng="uk" />
+          {isUser && (
+            <>
+              <ul className="flex flex-col gap-4 mt-16 mb-auto">
+                {adminNavigation.map(({ text, link }) => (
+                  <li key={text} className="hover:text-horizon transition">
+                    <Link href={link}>{text}</Link>
+                  </li>
+                ))}
+              </ul>
+              <button
+                className="flex gap-2 w-fit px-4 text-base items-center justify-start border-none hover:text-horizon transition"
+                onClick={logOff}
+              >
+                <IoExitOutline size={"2em"} />
+                <span>Вихід</span>
+              </button>
+            </>
+          )}
+        </div>
+      </header>
+      <div className="w-3/4 min-h-screen ml-auto bg-gray-200 text-black flex flex-col justify-center items-center">
+        <div className="max-w-[1150px] px-8">{children}</div>
+      </div>
+    </>
   );
 };
 

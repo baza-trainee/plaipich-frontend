@@ -1,10 +1,14 @@
+"use client";
 import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 import { Providers } from "@/components";
 import SideBar from "@/components/admin-components/side-bar/SideBar";
+import { useIsUser } from "@/hooks";
+import { localStorageServices } from "@/services/local-storage";
 
 const fixel = localFont({
   src: [
@@ -32,11 +36,32 @@ const fixel = localFont({
   variable: "--font-fixel",
 });
 
-export default async function AdminLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+  const [token, setToken] = useState<string>();
+  const { isUser } = useIsUser(token||'');
+
+  useEffect(() => {
+    const newToken = localStorageServices.getTokenFromLocal();
+    console.log(newToken);
+
+    if (newToken && token !== newToken) {
+      setToken(newToken);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isUser) {
+      router.push("/admin/all-news");
+    } else {
+      router.push("/admin");
+    }
+  }, [isUser]);
+
   return (
     <html lang="uk">
       <head>
@@ -46,12 +71,7 @@ export default async function AdminLayout({
       </head>
       <Providers>
         <body className={`${fixel.variable} font-sans admin`}>
-          <header className="fixed top-0 left-0 h-screen w-1/4 bg-black text-base text-white flex justify-end py-8">
-            <SideBar />
-          </header>
-          <div className="w-3/4 ml-auto bg-gray-200 text-black py-8">
-            <div className="max-w-[1150px] px-8">{children}</div>
-          </div>
+          <SideBar isUser={isUser}>{children}</SideBar>
         </body>
       </Providers>
     </html>

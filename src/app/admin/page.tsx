@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { APP_CONST } from "@/commons";
 import { apiService } from "@/services/api-service";
@@ -8,7 +8,6 @@ import { localStorageServices } from "@/services/local-storage";
 
 const Admin = () => {
   const router = useRouter();
-  const [isUser, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -37,7 +36,7 @@ const Admin = () => {
         .then((user) => {
           localStorageServices.setTokenToLocal(user.token);
           apiService.setToken(user.token);
-          setUser(true);
+          router.push("/admin/all-news");
         })
         .catch(() => {
           setError(true);
@@ -45,14 +44,8 @@ const Admin = () => {
     }
   };
 
-  useEffect(() => {
-    if (isUser) {
-      router.push("/admin/all-news");
-    }
-  }, [isUser]);
-
   return (
-    <div className="w-[450px] min-h-screen mx-auto flex flex-col justify-center">
+    <div className="w-[450px] mx-auto flex flex-col justify-center">
       <h2 className="w-full font-bold text-3xl mb-2 text-center">Вхід</h2>
       <p className="w-full mb-8 text-center text-small-md text-gray-700">
         З поверненням! Будь ласка, введіть свої дані.
