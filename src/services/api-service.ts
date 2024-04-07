@@ -40,7 +40,6 @@ export class APIService {
       )
       .then((data) => data)
       .catch((error) => {
-        this.catchError(error.status);
         throw new Error(error.statusText);
       });
 

@@ -8,14 +8,14 @@
   ],
   "main": "Main / ",
   "about": "About us",
-  "title": "About Plai",
-  "text-first": "- a cultural organization in Vinnytsia. Our team has been creating art events, projects and festivals of contemporary art since 2019.",
-  "text-second": "They find a response among people who try to create modern art and strive to develop the city. We also opened the independent cultural space 'Pich', which is a place that embodies our mission.",
-  "title-for-list": "Our main enemies are:",
+  "title": "Plai",
+  "text-first": "is a cultural organisation based in Vinnytsia. Our team has been organising artistic events, projects and festivals of contemporary art since 2019.",
+  "text-second": "They resonate with people that create contemporary art and strive to help develop the city. We also opened an independent artistic space 'PICH', which is an embodiment of our mission.",
+  "title-for-list": "Our main enemies are: ",
   "list": [
-    "copied, or stolen, trivial and shoddy, totalitarian creativity;",
-    "inertia and lack of initiative of activity;",
-    "artificial, or deliberate and idealess self-expression;",
-    "limitation and selectivity of modern art."
+    "copied or stolen, trivial, “soviet”, totalitarian art; ",
+    "limitations and selectivity of contemporary art;",
+    "artificial or intentional, idealess self-expression;",
+    "passiveness and lack of initiative in action."
   ]
 }

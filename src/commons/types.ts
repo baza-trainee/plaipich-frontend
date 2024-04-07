@@ -45,7 +45,7 @@ export interface IProject {
 }
 
 export interface INews {
-  _id: string;
+  _id?: string;
   title: string;
   description: string;
   enTitle: string;

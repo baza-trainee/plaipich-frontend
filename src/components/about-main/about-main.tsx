@@ -21,7 +21,7 @@ export const AboutMain = async ({ lng }: { lng: "en" | "uk" }) => {
         </div>
 
         <Link
-          className="link-text self-end px-6 py-4.5 hover:no-underline transition-colors border border-transparent focus:outline-black active:bg-gray-200 rounded-large hover:bg-gray-100"
+          className="link-text self-end px-6 py-4.5 hover:border-black hover:no-underline transition-colors border border-transparent focus:outline-black active:bg-gray-200 rounded-large hover:bg-gray-100"
           href={NAVIGATION.about}
         >
           {t("link")}

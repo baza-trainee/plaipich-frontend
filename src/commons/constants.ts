@@ -8,15 +8,15 @@ export const NAVIGATION = {
   support: "/support-us",
   reports: "/about-us#reports",
   contacts: "#contacts",
-  facebook: "https://www.facebook.com/pich.livestudio/",
-  tiktok: "",
-  instagram: "https://www.instagram.com/plai.pich/",
-  telegram: "",
+  facebook: "https://www.facebook.com/ngo.plai",
+  tiktok: "https://www.tiktok.com/@plai.pich",
+  instagram: "https://www.instagram.com/ngo.plai",
+  telegram: "https://t.me/GO_PLAI",
   youtube: "https://www.youtube.com/@plaiUA",
 };
 
 export const API_URL = {
-  BASE: "https://privatcontacts.onrender.com/api",
+  BASE: "https://plaipich-backend.onrender.com/api",
   USER: "/user",
   NEWS: "/news",
   PROJECTS: "/projects",
@@ -28,6 +28,8 @@ export const QUERY_KEY = {
   ONE_PROJECT: "one-project",
   NEWS: "news",
   USER: "user",
+  ADD_NEWS: "add-news",
+  ADD_IMAGE: "add-image",
 };
 
 export const category = {

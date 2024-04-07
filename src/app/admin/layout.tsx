@@ -1,10 +1,14 @@
+"use client";
 import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 import { Providers } from "@/components";
-import { Logo } from "@/components/header/logo";
+import SideBar from "@/components/admin-components/side-bar/SideBar";
+import { useIsUser } from "@/hooks";
+import { localStorageServices } from "@/services/local-storage";
 
 const fixel = localFont({
   src: [
@@ -32,11 +36,32 @@ const fixel = localFont({
   variable: "--font-fixel",
 });
 
-export default async function RootLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+  const [token, setToken] = useState<string>();
+  const { isUser } = useIsUser(token||'');
+
+  useEffect(() => {
+    const newToken = localStorageServices.getTokenFromLocal();
+    console.log(newToken);
+
+    if (newToken && token !== newToken) {
+      setToken(newToken);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isUser) {
+      router.push("/admin/all-news");
+    } else {
+      router.push("/admin");
+    }
+  }, [isUser]);
+
   return (
     <html lang="uk">
       <head>
@@ -45,26 +70,8 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
       </head>
       <Providers>
-        <body
-          className={`${fixel.variable} font-sans bg-black text-white flex admin`}
-        >
-          <header className="w-1/4 min-h-screen flex justify-end py-8">
-            <div className="w-[275px] px-4 flex flex-col gap-5">
-              <Logo lng="uk" />
-              <ul className="mb-auto">
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-                <li>h</li>
-              </ul>
-              <button className="">Вихід</button>
-            </div>
-          </header>
-          <div className="w-3/4 bg-white text-black py-8">
-            <div className="max-w-[1150px] px-8">{children}</div>
-          </div>
+        <body className={`${fixel.variable} font-sans admin`}>
+          <SideBar isUser={isUser}>{children}</SideBar>
         </body>
       </Providers>
     </html>
