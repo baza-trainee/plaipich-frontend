@@ -101,7 +101,7 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                 </div>
               )}
               <Link
-                href={`/${lng}/${NAVIGATION.news}`}
+                href=''
                 onClick={() => router.back()}
                 className="inline-flex gap-2 px-6 py-4 md:text-md"
               >
