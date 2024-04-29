@@ -20,11 +20,16 @@ export type FormData = {
 
 export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
   const [images, setImages] = useState<string[]>([]);
+  const [poster, setPoster] = useState<string>();
 
   const addImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
       setImages((prev) => [...prev, data])
     );
+  };
+
+  const addPoster = (event: any) => {
+    upload(event?.target.files[0]).then((data) => setPoster(data));
   };
 
   function onSubmit(data: FormData) {
@@ -124,10 +129,10 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
           <div className="col-span-2">
             <p className="text-6 ">Додати зображення*</p>
-            {images[0] ? (
+            {poster ? (
               <>
                 <Image
-                  src={images[0]}
+                  src={poster}
                   alt="poster"
                   width={1000}
                   height={500}
@@ -140,7 +145,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                   <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
                   <p>Додати зображення</p>
                 </div>
-                <input type="file" className="hidden" onChange={addImages} />
+                <input type="file" className="hidden" onChange={addPoster} />
               </label>
             )}
           </div>
@@ -189,19 +194,17 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             <p className="text-6 ">Додати зображення*</p>
             {images.length > 1 && (
               <>
-                {images.map((image, ind) => {
-                  if (ind !== 0) {
-                    return (
-                      <Image
-                        src={images[ind]}
-                        key={image}
-                        alt="poster"
-                        width={1000}
-                        height={500}
-                        className="w-full h-48 border-2 border-dashed rounded-lg object-contain"
-                      />
-                    );
-                  }
+                {images.map((image) => {
+                  return (
+                    <Image
+                      src={image}
+                      key={image}
+                      alt="poster"
+                      width={1000}
+                      height={500}
+                      className="w-full h-48 border-2 border-dashed rounded-lg object-contain"
+                    />
+                  );
                 })}
               </>
             )}
