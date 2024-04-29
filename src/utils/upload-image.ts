@@ -5,7 +5,7 @@ export const upload = (file: any) => {
 
   formData.append("imagedata", file, {
     filename: file.originalname,
-  });
+  } as any);
   if (secret) {
     formData.append("access_token", secret);
   }
@@ -15,7 +15,7 @@ export const upload = (file: any) => {
     body: formData,
   })
     .then((response) =>
-      response.ok ? response.json() : Promise.reject(response),
+      response.ok ? response.json() : Promise.reject(response)
     )
     .then((data) => {
       return data.url;
