@@ -40,7 +40,8 @@ export class APIService {
       )
       .then((data) => data)
       .catch((error) => {
-        throw new Error(error.statusText);
+        const currentError =  new Error(error.statusText)
+        throw currentError;
       });
 
   postRequest = <Type>({ url, body }: { url: string; body?: Type }) =>

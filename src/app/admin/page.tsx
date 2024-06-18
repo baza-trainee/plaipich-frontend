@@ -6,6 +6,8 @@ import { APP_CONST } from "@/commons";
 import { apiService } from "@/services/api-service";
 import { localStorageServices } from "@/services/local-storage";
 
+const admin = process.env.NEXT_PUBLIC_EMAIL_ADMIN;
+
 const Admin = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -25,7 +27,7 @@ const Admin = () => {
   };
 
   const checkUser = () => {
-    if (email !== "goPlai2024@gmail.com") {
+    if (email !== admin) {
       setError(true);
     } else {
       apiService
