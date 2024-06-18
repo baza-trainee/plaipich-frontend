@@ -2,12 +2,11 @@
 import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
-import { useRouter } from "next/navigation";
+import { usePathname,useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 import { Providers } from "@/components";
 import SideBar from "@/components/admin-components/side-bar/SideBar";
-import { useIsUser } from "@/hooks";
 import { localStorageServices } from "@/services/local-storage";
 
 const fixel = localFont({
@@ -42,25 +41,24 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const [token, setToken] = useState<string>();
-  const { isUser } = useIsUser(token||'');
+  const pathName = usePathname();
+  const [isUser, setIsUser] = useState(false);
 
+  const lodOut = () => {
+    setIsUser(false);
+    router.push("/admin");
+  };
+  
   useEffect(() => {
     const newToken = localStorageServices.getTokenFromLocal();
-    console.log(newToken);
 
-    if (newToken && token !== newToken) {
-      setToken(newToken);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isUser) {
+    if (newToken) {
+      setIsUser(true);
       router.push("/admin/all-news");
     } else {
       router.push("/admin");
     }
-  }, [isUser]);
+  }, []);
 
   return (
     <html lang="uk">
@@ -71,7 +69,9 @@ export default function AdminLayout({
       </head>
       <Providers>
         <body className={`${fixel.variable} font-sans admin`}>
-          <SideBar isUser={isUser}>{children}</SideBar>
+          <SideBar isUser={isUser || pathName !== '/admin'} logOutUser={lodOut}>
+            {children}
+          </SideBar>
         </body>
       </Providers>
     </html>
