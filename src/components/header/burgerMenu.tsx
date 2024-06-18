@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { TbAlignRight, TbX } from "react-icons/tb";
+import { TbAlignRight, TbSearch,TbX } from "react-icons/tb";
 
 import { NAVIGATION } from "@/commons/constants";
 import { INews, IProject } from "@/commons/types";
@@ -25,6 +25,7 @@ export const BurgerMenu = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [openSearch, setOpenSearch] = useState(false);
   const [searchList, setSearchList] = useState<Array<INews | IProject>>([]);
 
   const changeInput = (newQuery: string) => {
@@ -46,6 +47,14 @@ export const BurgerMenu = ({
     setIsOpen(false);
   };
 
+  const open = () => {
+    setOpenSearch(true);
+  };
+
+  const close = () => {
+    setOpenSearch(false);
+  };
+
   return (
     <div className="lg:hidden">
       <div
@@ -56,7 +65,7 @@ export const BurgerMenu = ({
         }`}
       >
         <div className="container z-10 top-[3px] px-5 md:px-[204px] pt-14 md:pt-[76px] pb-8 text-center">
-          <div className="block mx-auto mb-[68px] ">
+          <div className="hidden md:block mx-auto mb-[68px] ">
             <SearchForm
               changeInput={changeInput}
               query={query}
@@ -79,7 +88,33 @@ export const BurgerMenu = ({
           >
             {lng === "uk" ? "Підтримати" : "Donate"}
           </Link>
-          <LanguageSwitcher lng={lng} />
+
+          <div className=" flex items-center flex-1  justify-center md:hidden">
+            {!openSearch && query === "" && (
+              <button
+                type="button"
+                className="border-none py-2 px-[35px]"
+                onClick={open}
+                onMouseEnter={open}
+              >
+                <TbSearch size="24px" color="white" />
+              </button>
+            )}
+            {(openSearch || query !== "") && (
+              <SearchForm
+                className="relative w-full transition-all justify-center"
+                close={close}
+                changeInput={changeInput}
+                query={query}
+                lng={lng}
+                searchList={searchList}
+              />
+            )}
+            {!openSearch && query === "" && <LanguageSwitcher lng={lng} />}
+          </div>
+          <div className="hidden md:block mt-[62px]">
+            <LanguageSwitcher lng={lng} />
+          </div>
         </div>
       </div>
       <button
