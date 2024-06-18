@@ -1,17 +1,22 @@
 "use client";
-import { useQueryClient } from '@tanstack/react-query';
 import Link from "next/link";
 import React from "react";
 import { IoExitOutline } from "react-icons/io5";
 
-import { APP_CONST } from "@/commons";
+// import { APP_CONST } from "@/commons";
 import { Logo } from "@/components/header/logo";
 import { apiService } from "@/services/api-service";
 import { localStorageServices } from "@/services/local-storage";
 
-const SideBar = ({ children, isUser }: { children: React.ReactNode; isUser: boolean; }) => {
-  const queryClient = useQueryClient();
-
+const SideBar = ({
+  children,
+  isUser,
+  logOutUser
+}: {
+  children: React.ReactNode;
+  isUser: boolean;
+  logOutUser: () => void;
+}) => {
   const adminNavigation = [
     { text: "Новини", link: "/admin/all-news" },
     { text: "Додати новину", link: "/admin/add-new" },
@@ -23,7 +28,7 @@ const SideBar = ({ children, isUser }: { children: React.ReactNode; isUser: bool
   ];
 
   const logOff = () => {
-    queryClient.setQueryData([APP_CONST.QUERY_KEY.USER], () => ({}));
+    logOutUser();
     localStorageServices.clearLocal();
     apiService.setToken("");
   };
