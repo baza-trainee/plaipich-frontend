@@ -21,6 +21,7 @@ export const API_URL = {
   NEWS: "/news",
   PROJECTS: "/projects",
   EVENTS: "/events",
+  FORGOT_PASSWORD: "/reset-password",
 };
 
 export const QUERY_KEY = {
