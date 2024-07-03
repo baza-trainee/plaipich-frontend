@@ -57,4 +57,5 @@ export interface INews {
   };
   mainPhoto: string;
   photos: string[];
+  publicStatus: boolean;
 }
