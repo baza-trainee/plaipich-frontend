@@ -3,6 +3,7 @@ export interface IProject {
   title: string;
   description: string;
   status: boolean;
+  publicStatus: boolean;
   enTitle: string;
   enDescription: string;
   poster: string;

@@ -11,7 +11,7 @@ import { localStorageServices } from "@/services/local-storage";
 const SideBar = ({
   children,
   isUser,
-  logOutUser
+  logOutUser,
 }: {
   children: React.ReactNode;
   isUser: boolean;
@@ -20,7 +20,7 @@ const SideBar = ({
   const adminNavigation = [
     { text: "Новини", link: "/admin/all-news" },
     { text: "Додати новину", link: "/admin/add-new" },
-    { text: "Проєкти", link: "/dataadmin/all-projects" },
+    { text: "Проєкти", link: "/admin/all-projects" },
     { text: "Додати проєкт", link: "/admin/add-project" },
     { text: "Про нас", link: "/" },
     { text: "Контакти", link: "/" },
@@ -59,7 +59,7 @@ const SideBar = ({
         </div>
       </header>
       <div className="w-3/4 min-h-screen ml-auto bg-gray-200 text-black flex flex-col justify-center items-center">
-        <div className="max-w-[1150px] px-8">{children}</div>
+        <div className="w-full max-w-[1150px] px-8">{children}</div>
       </div>
     </>
   );

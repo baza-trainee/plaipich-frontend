@@ -2,13 +2,13 @@
 import React, { ChangeEvent, useState } from "react";
 import { HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
 
-import { APP_CONST, APP_TYPES } from "@/commons";
+import { APP_TYPES } from "@/commons";
 
 const getFilteredListBySearch = ({
   list,
   search,
 }: {
-  list: APP_TYPES.INews[];
+  list: APP_TYPES.IProject[];
   search: string;
 }) =>
   search
@@ -19,36 +19,42 @@ const getFilteredListBySearch = ({
 
 const getFilteredList = ({
   list,
-  category,
+  publicStatus,
   status,
   increasing,
 }: {
-  list: APP_TYPES.INews[];
-  category: string | undefined;
+  list: APP_TYPES.IProject[];
+  publicStatus: string;
   status: string;
   increasing: boolean;
-}): APP_TYPES.INews[] => {
+}): APP_TYPES.IProject[] => {
   const newList =
-    status !== "" || category
-      ? list.filter((item) =>
-          category
-            ? (status === "" || `${item.publicStatus}` === status) &&
-              item.category.uk === category
-            : `${item.publicStatus}` === status
-        )
+    status !== "" || publicStatus !== ""
+      ? list.filter((item) => {
+          if (status === "") {
+            return `${item.publicStatus}` === publicStatus;
+          }
+          if (publicStatus === "") {
+            return `${item.status}` === status;
+          }
+          return (
+            `${item.publicStatus}` === publicStatus &&
+            `${item.status}` === status
+          );
+        })
       : list;
   return increasing ? newList : [...newList].reverse();
 };
 
-const AdminNews = ({ list }: { list: APP_TYPES.INews[] }) => {
-  const [category, setCategory] = useState<string>();
+const AdminProjects = ({ list }: { list: APP_TYPES.IProject[] }) => {
+  const [publicStatus, setPublicStatus] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const [increasing, setIncreasing] = useState(true);
   const [search, setSearch] = useState("");
 
-  const changeCategory = (event: ChangeEvent) => {
-    const currentCategory = event.target as HTMLSelectElement;
-    setCategory(currentCategory.value);
+  const changePublicStatus = (event: ChangeEvent) => {
+    const currentPublicStatus = event.target as HTMLSelectElement;
+    setPublicStatus(currentPublicStatus.value);
   };
 
   const changeStatus = (event: ChangeEvent) => {
@@ -73,15 +79,12 @@ const AdminNews = ({ list }: { list: APP_TYPES.INews[] }) => {
   return (
     <>
       <div className="w-full flex gap-5">
-        <select className="w-1/5" name="category" onChange={changeCategory}>
-          <option value="">Категорії</option>
-          {APP_CONST.category.ukCategory.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
+        <select className="w-1/5" name="category" onChange={changeStatus}>
+          <option value="">Статус</option>
+          <option value="true">Профінансований</option>
+          <option value="false">Потребує фінансування</option>
         </select>
-        <select className="w-1/5" name="state" onChange={changeStatus}>
+        <select className="w-1/5" name="state" onChange={changePublicStatus}>
           <option value="">Стан</option>
           <option value="true">Опубліковані</option>
           <option value="false">Чернетки</option>
@@ -102,15 +105,14 @@ const AdminNews = ({ list }: { list: APP_TYPES.INews[] }) => {
       <div className="w-full">
         <ul className="w-full flex flex-col text-base border border-gray-500 list">
           <li className="w-full flex border-b border-gray-500 bg-light-blue">
-            <p className="w-2/6 p-2 border-r border-gray-500">Заголовок</p>
-            <p className="w-1/6 p-2 border-r border-gray-500">Стан</p>
-            <p className="w-1/6 p-2 border-r border-gray-500">Категорія</p>
-            <p className="w-1/6 p-2 border-r border-gray-500">Дата</p>
-            <p className="w-1/6 p-2">Вид./Ред.</p>
+            <p className="w-2/5 p-2 border-r border-gray-500">Заголовок</p>
+            <p className="w-1/5 p-2 border-r border-gray-500">Стан</p>
+            <p className="w-1/5 p-2 border-r border-gray-500">Статус</p>
+            <p className="w-1/5 p-2">Вид./Ред.</p>
           </li>
           {getFilteredList({
             list: getFilteredListBySearch({ list, search }),
-            category,
+            publicStatus,
             status,
             increasing,
           }).map((item) => (
@@ -118,17 +120,14 @@ const AdminNews = ({ list }: { list: APP_TYPES.INews[] }) => {
               key={item._id}
               className="w-full flex border-b border-gray-500 bg-white hover:text-dark-blue hover:bg-gray-200"
             >
-              <p className="w-2/6 p-2 border-r border-gray-500">{item.title}</p>
-              <p className="w-1/6 p-2 border-r border-gray-500">
+              <p className="w-2/5 p-2 border-r border-gray-500">{item.title}</p>
+              <p className="w-1/5 p-2 border-r border-gray-500">
                 {item.publicStatus ? "Опубліковано" : "Чернетка"}
               </p>
-              <p className="w-1/6 p-2 border-r border-gray-500">
-                {item.category.uk}
+              <p className="w-1/5 p-2 border-r border-gray-500">
+                {item.status ? "Профінансований" : "Потребує фінансування"}
               </p>
-              <p className="w-1/6 p-2 border-r border-gray-500">
-                {item.date.toLocaleString().slice(0, 10)}
-              </p>
-              <div className="w-1/6 p-2 flex justify-center items-center gap-2">
+              <div className="w-1/5 p-2 flex justify-center items-center gap-2">
                 <button className="border-none px-2">
                   <HiOutlineTrash size="1.2em" />
                 </button>
@@ -144,4 +143,4 @@ const AdminNews = ({ list }: { list: APP_TYPES.INews[] }) => {
   );
 };
 
-export default AdminNews;
+export default AdminProjects;
