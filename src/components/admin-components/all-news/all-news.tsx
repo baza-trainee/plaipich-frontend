@@ -117,7 +117,7 @@ const AdminNews = ({ list }: { list: APP_TYPES.INews[] }) => {
           }).map((item) => (
             <li
               key={item._id}
-              className="w-full flex border-b border-gray-500 bg-white hover:text-dark-blue hover:bg-gray-200"
+              className="w-full flex border-b border-gray-500 bg-white"
             >
               <NewsCard item={item} />
             </li>

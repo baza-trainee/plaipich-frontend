@@ -1,10 +1,16 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { APP_CONST } from "@/commons";
+import { category } from "@/commons/constants";
+import { INews } from "@/commons/types";
+import { apiService } from "@/services/api-service";
 import { upload } from "@/utils";
+
+import PreviewNews from "./preview-news";
 
 export type FormData = {
   title: string;
@@ -15,11 +21,44 @@ export type FormData = {
   text: string;
   textEn: string;
   media: string;
-  category: string;
-  date: string;
+  category: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
+  date: Date;
+};
+
+const createNews = ({
+  data,
+  poster,
+  images,
+}: {
+  data: FormData;
+  poster?: string;
+  images: string[];
+}): INews => {
+  const enCategoryIndex = category.ukCategory.findIndex(
+    (item) => data.category === item,
+  );
+  const news = {
+    title: data.title,
+    description: `${data.lid}\n${data.text}`,
+    enTitle: data.titleEn,
+    enDescription: `${data.lidEn}\n${data.textEn}`,
+    date: data.date,
+    category: {
+      en: category.enCategory[enCategoryIndex],
+      uk: data.category,
+    },
+    mainPhoto: poster || "",
+    photos: images,
+    publicStatus: false,
+  };
+
+  return news;
 };
 
 export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
+  const router = useRouter();
+  const [preview, setPreview] = useState<INews | null>(null);
+  const [openPreview, setOpen] = useState(false);
   const [images, setImages] = useState<string[]>([]);
   const [poster, setPoster] = useState<string>();
 
@@ -33,10 +72,21 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
     upload(event?.target.files[0]).then((data) => setPoster(data));
   };
 
-  function onSubmit(data: FormData) {
-    console.log(data);
-    // sendEmail(data);
-  }
+  const onSubmit = async (data: FormData) => {
+    if (!poster) {
+      return;
+    }
+    const news = createNews({ data, poster, images });
+    setPreview(news);
+  };
+
+  const saveNews = async () => {
+    await apiService.postRequest({
+      url: APP_CONST.API_URL.NEWS,
+      body: preview,
+    });
+    router.push("/admin/all-news");
+  };
 
   const { register, handleSubmit } = useForm<FormData>();
 
@@ -52,7 +102,12 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
+      <form
+        onSubmit={handleSubmit((data) => {
+          onSubmit(data);
+        })}
+        className="flex flex-col "
+      >
         <div className="grid grid-cols-3 gap-4 mb-[1em] ">
           <div className="rounded-lg p-[1em] bg-white flex flex-col justify-between">
             <p className="text-5">Категорія</p>
@@ -89,12 +144,16 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               <button
                 type="submit"
                 className=" font-semibold px-[1em] py-[0.5em] border border-black"
+                onClick={() => {
+                  setOpen(true);
+                }}
               >
                 Переглянути
               </button>
               <button
-                type="button"
+                type="submit"
                 className=" font-semibold px-[1em] py-[0.5em] "
+                onClick={saveNews}
               >
                 Зберегти
               </button>
@@ -216,6 +275,14 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
           </div>
         </div>
       </form>
+      {openPreview && (
+        <PreviewNews
+          data={preview}
+          close={() => {
+            setOpen(false);
+          }}
+        />
+      )}
     </section>
   );
 };

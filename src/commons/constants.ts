@@ -33,7 +33,10 @@ export const QUERY_KEY = {
   ADD_IMAGE: "add-image",
 };
 
-export const category = {
+export const category: {
+  enCategory: ["Announcements", "Articles", "Projects", "Events", "Personals"];
+  ukCategory: ["Анонси", "Статті", "Проекти", "Події", "Персоналії"];
+} = {
   enCategory: ["Announcements", "Articles", "Projects", "Events", "Personals"],
   ukCategory: ["Анонси", "Статті", "Проекти", "Події", "Персоналії"],
 };

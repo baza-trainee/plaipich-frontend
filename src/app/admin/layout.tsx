@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 
 import { Providers } from "@/components";
 import SideBar from "@/components/admin-components/side-bar/SideBar";
+import { apiService } from "@/services/api-service";
 import { localStorageServices } from "@/services/local-storage";
 
 const fixel = localFont({
@@ -51,6 +52,7 @@ export default function AdminLayout({
 
   useEffect(() => {
     const newToken = localStorageServices.getTokenFromLocal();
+    apiService.setToken(newToken);
 
     if (newToken) {
       setIsUser(true);
