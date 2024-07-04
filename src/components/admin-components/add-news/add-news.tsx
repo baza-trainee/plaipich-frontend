@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 import { APP_CONST } from "@/commons";
 import { category } from "@/commons/constants";
@@ -35,7 +36,7 @@ const createNews = ({
   images: string[];
 }): INews => {
   const enCategoryIndex = category.ukCategory.findIndex(
-    (item) => data.category === item,
+    (item) => data.category === item
   );
   const news = {
     title: data.title,
@@ -64,7 +65,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
   const addImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
-      setImages((prev) => [...prev, data]),
+      setImages((prev) => [...prev, data])
     );
   };
 
@@ -74,18 +75,25 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
   const onSubmit = async (data: FormData) => {
     if (!poster) {
+      toast("щось пішло не так", { type: "error" });
       return;
     }
     const news = createNews({ data, poster, images });
     setPreview(news);
   };
 
-  const saveNews = async () => {
-    await apiService.postRequest({
-      url: APP_CONST.API_URL.NEWS,
-      body: preview,
-    });
-    router.push("/admin/all-news");
+  const saveNews = () => {
+    apiService
+      .postRequest({
+        url: APP_CONST.API_URL.NEWS,
+        body: preview,
+      })
+      .then(() => {
+        router.push("/admin/all-news");
+      })
+      .catch(() => {
+        toast("щось пішло не так");
+      });
   };
 
   const { register, handleSubmit } = useForm<FormData>();
