@@ -1,8 +1,9 @@
 "use client";
 import React, { ChangeEvent, useState } from "react";
-import { HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
 
 import { APP_TYPES } from "@/commons";
+
+import ProjectCard from "./project-card";
 
 const getFilteredListBySearch = ({
   list,
@@ -13,7 +14,7 @@ const getFilteredListBySearch = ({
 }) =>
   search
     ? list.filter(
-        (item) => item.title.toLowerCase().search(search.toLowerCase()) !== -1
+        (item) => item.title.toLowerCase().search(search.toLowerCase()) !== -1,
       )
     : list;
 
@@ -120,21 +121,7 @@ const AdminProjects = ({ list }: { list: APP_TYPES.IProject[] }) => {
               key={item._id}
               className="w-full flex border-b border-gray-500 bg-white hover:text-dark-blue hover:bg-gray-200"
             >
-              <p className="w-2/5 p-2 border-r border-gray-500">{item.title}</p>
-              <p className="w-1/5 p-2 border-r border-gray-500">
-                {item.publicStatus ? "Опубліковано" : "Чернетка"}
-              </p>
-              <p className="w-1/5 p-2 border-r border-gray-500">
-                {item.status ? "Профінансований" : "Потребує фінансування"}
-              </p>
-              <div className="w-1/5 p-2 flex justify-center items-center gap-2">
-                <button className="border-none px-2">
-                  <HiOutlineTrash size="1.2em" />
-                </button>
-                <button className="border-none px-2">
-                  <HiOutlinePencil size="1.2em" />
-                </button>
-              </div>
+              <ProjectCard item={item} />
             </li>
           ))}
         </ul>

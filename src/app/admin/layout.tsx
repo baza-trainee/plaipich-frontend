@@ -2,7 +2,7 @@
 import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
-import { usePathname,useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 import { Providers } from "@/components";
@@ -48,7 +48,7 @@ export default function AdminLayout({
     setIsUser(false);
     router.push("/admin");
   };
-  
+
   useEffect(() => {
     const newToken = localStorageServices.getTokenFromLocal();
 
@@ -69,7 +69,7 @@ export default function AdminLayout({
       </head>
       <Providers>
         <body className={`${fixel.variable} font-sans admin`}>
-          <SideBar isUser={isUser || pathName !== '/admin'} logOutUser={lodOut}>
+          <SideBar isUser={isUser || pathName !== "/admin"} logOutUser={lodOut}>
             {children}
           </SideBar>
         </body>

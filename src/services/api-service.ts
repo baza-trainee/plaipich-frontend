@@ -40,7 +40,7 @@ export class APIService {
       )
       .then((data) => data)
       .catch((error) => {
-        const currentError =  new Error(error.statusText)
+        const currentError = new Error(error.statusText);
         throw currentError;
       });
 

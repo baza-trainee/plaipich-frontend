@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { APP_CONST } from "@/commons";
 import { upload } from "@/utils";
 
 export type FormData = {
@@ -24,7 +25,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
   const addImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
-      setImages((prev) => [...prev, data])
+      setImages((prev) => [...prev, data]),
     );
   };
 
@@ -62,14 +63,11 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                 {...register("category", { required: true })}
                 className="rounded-sm border-2 p-2"
               >
-                <option disabled value="alien">
-                  Обирати зі списку
-                </option>
-                <option value="alien">alien</option>
-                <option value="human">human</option>
-                <option value="cat">cat</option>
-                <option value="dog">dog</option>
-                <option value="other">other</option>
+                {APP_CONST.category.ukCategory.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
               </select>
             </label>
           </div>
@@ -95,7 +93,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
                 Переглянути
               </button>
               <button
-                type="submit"
+                type="button"
                 className=" font-semibold px-[1em] py-[0.5em] "
               >
                 Зберегти
