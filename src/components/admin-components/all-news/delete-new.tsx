@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 import { APP_CONST } from "@/commons";
 import { Button } from "@/components/button/button";
@@ -15,19 +16,27 @@ const DeleteModal = ({
   type: "news" | "projects";
   close: () => void;
 }) => {
+  const [deleted, setDeleted] = useState(false);
   const deleteNew = (id: string) => {
-    apiService
-      .deleteRequest(
-        `${
-          type === "news" ? APP_CONST.API_URL.NEWS : APP_CONST.API_URL.PROJECTS
-        }/${id}`,
-      )
-      .then(() => {
-        close();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (!deleted) {
+      apiService
+        .deleteRequest(
+          `${
+            type === "news"
+              ? APP_CONST.API_URL.NEWS
+              : APP_CONST.API_URL.PROJECTS
+          }/${id}`,
+        )
+        .then(() => {
+          toast("Видалили!", { type: "success" });
+          setDeleted(true);
+          close();
+          window.location.reload();
+        })
+        .catch(() => {
+          toast("Щось пішло не так", { type: "error" });
+        });
+    }
   };
 
   return (

@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -36,7 +35,7 @@ const createNews = ({
   images: string[];
 }): INews => {
   const enCategoryIndex = category.ukCategory.findIndex(
-    (item) => data.category === item
+    (item) => data.category === item,
   );
   const news = {
     title: data.title,
@@ -56,8 +55,7 @@ const createNews = ({
   return news;
 };
 
-export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
-  const router = useRouter();
+export const AddNews = ({ news }: { news?: INews }) => {
   const [preview, setPreview] = useState<INews | null>(null);
   const [openPreview, setOpen] = useState(false);
   const [images, setImages] = useState<string[]>([]);
@@ -65,7 +63,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
   const addImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
-      setImages((prev) => [...prev, data])
+      setImages((prev) => [...prev, data]),
     );
   };
 
@@ -73,38 +71,65 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
     upload(event?.target.files[0]).then((data) => setPoster(data));
   };
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = (data: FormData) => {
     if (!poster) {
-      toast("щось пішло не так", { type: "error" });
+      toast("Додайте основне фото!", { type: "error" });
       return;
     }
     const news = createNews({ data, poster, images });
+
+    if (preview) {
+      apiService
+        .patchRequest({
+          url: `${APP_CONST.API_URL.NEWS}/${news._id}`,
+          body: news,
+        })
+        .then(() => {
+          toast("Збережено!", { type: "success" });
+        })
+        .catch(() => {
+          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
+        });
+    } else {
+      apiService
+        .postRequest({
+          url: APP_CONST.API_URL.NEWS,
+          body: news,
+        })
+        .then(() => {
+          toast("Збережено!", { type: "success" });
+        })
+        .catch(() => {
+          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
+        });
+    }
     setPreview(news);
   };
 
-  const saveNews = () => {
-    apiService
-      .postRequest({
-        url: APP_CONST.API_URL.NEWS,
-        body: preview,
-      })
-      .then(() => {
-        router.push("/admin/all-news");
-      })
-      .catch(() => {
-        toast("щось пішло не так");
-      });
+  const previewNews = () => {
+    setOpen(true);
   };
 
   const { register, handleSubmit } = useForm<FormData>();
 
+  useEffect(() => {
+    if (news) {
+      setPoster(news.mainPhoto);
+      setImages(news.photos);
+      setPreview(news);
+    }
+  }, []);
+
   return (
-    <section className={` p-4 bg-gray-200 text-black ${className ?? ""}`}>
+    <section className="p-4 bg-gray-200 text-black">
       <div className="p-[1em] bg-white mb-[1em] flex justify-between">
-        <h1 className="h7 ">Додати новий запис</h1>
+        <h1 className="h7 ">
+          {news ? "Редагувати запис" : "Додати новий запис"}
+        </h1>
         <button
-          className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white "
+          className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white disabled:opacity-10 disabled:bg-dark-blue"
           type="submit"
+          disabled={!preview}
         >
           Опублікувати
         </button>
@@ -123,6 +148,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               Обрати категорію{" "}
               <select
                 placeholder="Обирати зі списку"
+                defaultValue={news?.category.uk}
                 {...register("category", { required: true })}
                 className="rounded-sm border-2 p-2"
               >
@@ -134,36 +160,37 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               </select>
             </label>
           </div>
-
           <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between ">
             <label className="text-6 ">Дата публікації </label>
             <input
               placeholder="{date}"
               type="date"
-              defaultValue={new Date().toISOString().substring(0, 10)}
+              defaultValue={
+                news
+                  ? new Date(news?.date as Date).toISOString().substring(0, 10)
+                  : new Date().toISOString().substring(0, 10)
+              }
               {...register("date", { required: false })}
               className="rounded-sm border-2 p-2"
             />
           </div>
-
           <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between">
             <p className="text-5 ">Запис</p>
             <div className="flex justify-between">
               <button
-                type="submit"
-                className=" font-semibold px-[1em] py-[0.5em] border border-black"
-                onClick={() => {
-                  setOpen(true);
-                }}
+                type="button"
+                className=" font-semibold px-[1em] py-[0.5em] disabled:opacity-10 disabled:bg-dark-blue"
+                disabled={!preview}
+                onClick={previewNews}
               >
                 Переглянути
               </button>
               <button
                 type="submit"
-                className=" font-semibold px-[1em] py-[0.5em] "
-                onClick={saveNews}
+                className="font-semibold px-[1em] py-[0.5em] border border-black disabled:opacity-10 disabled:bg-dark-blue"
+                disabled={!poster}
               >
-                Зберегти
+                {preview ? "Змінити" : "Зберегти"}
               </button>
             </div>
           </div>
@@ -178,6 +205,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             <input
               placeholder="Введіть заголовок"
               type="text"
+              defaultValue={news?.title}
               {...register("title", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
@@ -187,6 +215,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             <input
               placeholder="Введіть заголовок"
               type="text"
+              defaultValue={news?.enTitle}
               {...register("titleEn", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
@@ -219,6 +248,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати лід до публікації*{" "}
             <textarea
               rows={3}
+              defaultValue={news?.description.split(/(\n)/)[0]}
               {...register("lid", { required: true })}
               className="rounded-sm border-2 p-2 "
             />
@@ -227,6 +257,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати лід до публікації англійською мовою*{" "}
             <textarea
               rows={3}
+              defaultValue={news?.enDescription.split(/(\n)/)[0]}
               {...register("lidEn", { required: true })}
               className="rounded-sm border-2 p-2 "
             />
@@ -242,6 +273,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати текст до публікації*{" "}
             <textarea
               rows={4}
+              defaultValue={news?.description.split(/(\n)/)[0].slice(1)}
               {...register("text", { required: true })}
               className="rounded-sm border-2 p-2"
             />
@@ -250,6 +282,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати текст до публікації англійською мовою*{" "}
             <textarea
               rows={4}
+              defaultValue={news?.enDescription.split(/(\n)/)[0].slice(1)}
               {...register("textEn", { required: true })}
               className="rounded-sm border-2 p-2"
             />

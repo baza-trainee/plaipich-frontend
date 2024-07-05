@@ -4,6 +4,7 @@ import "../[lng]/globals.css";
 import localFont from "next/font/local";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 import { Providers } from "@/components";
 import SideBar from "@/components/admin-components/side-bar/SideBar";
@@ -74,6 +75,18 @@ export default function AdminLayout({
           <SideBar isUser={isUser || pathName !== "/admin"} logOutUser={lodOut}>
             {children}
           </SideBar>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </body>
       </Providers>
     </html>

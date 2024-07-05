@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
 
@@ -28,12 +29,12 @@ const NewsCard = ({ item }: { item: INews }) => {
         >
           <HiOutlineTrash size="1.2em" />
         </button>
-        <button
+        <Link
           className="border-none px-2 hover:text-green hover:scale-125"
-          onClick={() => {}}
+          href={`/admin/update-news/${item._id}`}
         >
           <HiOutlinePencil size="1.2em" />
-        </button>
+        </Link>
       </div>
       {openModal && (
         <DeleteModal
