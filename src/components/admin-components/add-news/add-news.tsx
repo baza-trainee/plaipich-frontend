@@ -81,7 +81,7 @@ export const AddNews = ({ news }: { news?: INews }) => {
     if (preview) {
       apiService
         .patchRequest({
-          url: `${APP_CONST.API_URL.NEWS}/${news._id}`,
+          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
           body: news,
         })
         .then(() => {
@@ -96,14 +96,33 @@ export const AddNews = ({ news }: { news?: INews }) => {
           url: APP_CONST.API_URL.NEWS,
           body: news,
         })
-        .then(() => {
+        .then((data) => {
           toast("Збережено!", { type: "success" });
+          news._id = data._id;
         })
         .catch(() => {
           toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
         });
     }
     setPreview(news);
+  };
+
+  const publicNews = () => {
+    if (preview) {
+      apiService
+        .patchRequest({
+          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
+          body: { ...news, publicStatus: true },
+        })
+        .then(() => {
+          toast("Опубліковано!", { type: "success" });
+        })
+        .catch(() => {
+          toast("Не вдалося опублікувати! Спробуйте пізніше!", {
+            type: "error",
+          });
+        });
+    }
   };
 
   const previewNews = () => {
@@ -130,6 +149,7 @@ export const AddNews = ({ news }: { news?: INews }) => {
           className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white disabled:opacity-10 disabled:bg-dark-blue"
           type="submit"
           disabled={!preview}
+          onClick={publicNews}
         >
           Опублікувати
         </button>
@@ -290,7 +310,7 @@ export const AddNews = ({ news }: { news?: INews }) => {
 
           <div className="col-span-2">
             <p className="text-6 ">Додати зображення*</p>
-            {images.length > 1 && (
+            {images.length > 0 && (
               <>
                 {images.map((image) => {
                   return (
