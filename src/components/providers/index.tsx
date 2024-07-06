@@ -1,4 +1,6 @@
 "use client";
+import "react-toastify/dist/ReactToastify.css";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 

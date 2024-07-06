@@ -10,7 +10,7 @@ const AllNews = async () => {
     const {
       data: { news }, // eslint-disable-next-line no-undef
     }: { data: { news: APP_TYPES.INews[] } } = await apiService.getRequest(
-      `${APP_CONST.API_URL.NEWS}?all=true`
+      `${APP_CONST.API_URL.NEWS}?all=true`,
     );
 
     return (

@@ -2,11 +2,13 @@
 import "../[lng]/globals.css";
 
 import localFont from "next/font/local";
-import { usePathname,useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 import { Providers } from "@/components";
 import SideBar from "@/components/admin-components/side-bar/SideBar";
+import { apiService } from "@/services/api-service";
 import { localStorageServices } from "@/services/local-storage";
 
 const fixel = localFont({
@@ -48,9 +50,10 @@ export default function AdminLayout({
     setIsUser(false);
     router.push("/admin");
   };
-  
+
   useEffect(() => {
     const newToken = localStorageServices.getTokenFromLocal();
+    apiService.setToken(newToken);
 
     if (newToken) {
       setIsUser(true);
@@ -69,9 +72,21 @@ export default function AdminLayout({
       </head>
       <Providers>
         <body className={`${fixel.variable} font-sans admin`}>
-          <SideBar isUser={isUser || pathName !== '/admin'} logOutUser={lodOut}>
+          <SideBar isUser={isUser || pathName !== "/admin"} logOutUser={lodOut}>
             {children}
           </SideBar>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </body>
       </Providers>
     </html>

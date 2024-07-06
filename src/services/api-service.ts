@@ -40,7 +40,7 @@ export class APIService {
       )
       .then((data) => data)
       .catch((error) => {
-        const currentError =  new Error(error.statusText)
+        const currentError = new Error(error.statusText);
         throw currentError;
       });
 
@@ -87,10 +87,7 @@ export class APIService {
         ...this.checkToken(),
       },
     })
-      .then((response) =>
-        response.ok ? response.json() : Promise.reject(response),
-      )
-      .then((data) => data)
+      .then((response) => (response.ok ? "OK" : Promise.reject(response)))
       .catch((error) => {
         this.catchError(error.status);
         throw new Error(error.statusText);

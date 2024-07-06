@@ -1,9 +1,16 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
+import { APP_CONST } from "@/commons";
+import { category } from "@/commons/constants";
+import { INews } from "@/commons/types";
+import { apiService } from "@/services/api-service";
 import { upload } from "@/utils";
+
+import PreviewNews from "./preview-news";
 
 export type FormData = {
   title: string;
@@ -14,17 +21,49 @@ export type FormData = {
   text: string;
   textEn: string;
   media: string;
-  category: string;
-  date: string;
+  category: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
+  date: Date;
 };
 
-export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
+const createNews = ({
+  data,
+  poster,
+  images,
+}: {
+  data: FormData;
+  poster?: string;
+  images: string[];
+}): INews => {
+  const enCategoryIndex = category.ukCategory.findIndex(
+    (item) => data.category === item,
+  );
+  const news = {
+    title: data.title,
+    description: `${data.lid}\n${data.text}`,
+    enTitle: data.titleEn,
+    enDescription: `${data.lidEn}\n${data.textEn}`,
+    date: data.date,
+    category: {
+      en: category.enCategory[enCategoryIndex],
+      uk: data.category,
+    },
+    mainPhoto: poster || "",
+    photos: images,
+    publicStatus: false,
+  };
+
+  return news;
+};
+
+export const AddNews = ({ news }: { news?: INews }) => {
+  const [preview, setPreview] = useState<INews | null>(null);
+  const [openPreview, setOpen] = useState(false);
   const [images, setImages] = useState<string[]>([]);
   const [poster, setPoster] = useState<string>();
 
   const addImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
-      setImages((prev) => [...prev, data])
+      setImages((prev) => [...prev, data]),
     );
   };
 
@@ -32,26 +71,96 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
     upload(event?.target.files[0]).then((data) => setPoster(data));
   };
 
-  function onSubmit(data: FormData) {
-    console.log(data);
-    // sendEmail(data);
-  }
+  const onSubmit = (data: FormData) => {
+    if (!poster) {
+      toast("Додайте основне фото!", { type: "error" });
+      return;
+    }
+    const news = createNews({ data, poster, images });
+
+    if (preview) {
+      apiService
+        .patchRequest({
+          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
+          body: news,
+        })
+        .then(() => {
+          toast("Збережено!", { type: "success" });
+        })
+        .catch(() => {
+          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
+        });
+    } else {
+      apiService
+        .postRequest({
+          url: APP_CONST.API_URL.NEWS,
+          body: news,
+        })
+        .then((data) => {
+          toast("Збережено!", { type: "success" });
+          news._id = data._id;
+        })
+        .catch(() => {
+          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
+        });
+    }
+    setPreview(news);
+  };
+
+  const publicNews = () => {
+    if (preview) {
+      apiService
+        .patchRequest({
+          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
+          body: { ...news, publicStatus: true },
+        })
+        .then(() => {
+          toast("Опубліковано!", { type: "success" });
+        })
+        .catch(() => {
+          toast("Не вдалося опублікувати! Спробуйте пізніше!", {
+            type: "error",
+          });
+        });
+    }
+  };
+
+  const previewNews = () => {
+    setOpen(true);
+  };
 
   const { register, handleSubmit } = useForm<FormData>();
 
+  useEffect(() => {
+    if (news) {
+      setPoster(news.mainPhoto);
+      setImages(news.photos);
+      setPreview(news);
+    }
+  }, []);
+
   return (
-    <section className={` p-4 bg-gray-200 text-black ${className ?? ""}`}>
+    <section className="p-4 bg-gray-200 text-black">
       <div className="p-[1em] bg-white mb-[1em] flex justify-between">
-        <h1 className="h7 ">Додати новий запис</h1>
+        <h1 className="h7 ">
+          {news ? "Редагувати запис" : "Додати новий запис"}
+        </h1>
         <button
-          className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white "
+          className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white disabled:opacity-10 disabled:bg-dark-blue"
           type="submit"
+          disabled={!preview}
+          onClick={publicNews}
         >
           Опублікувати
         </button>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
+      <form
+        onSubmit={handleSubmit((data) => {
+          onSubmit(data);
+        })}
+        className="flex flex-col "
+      >
         <div className="grid grid-cols-3 gap-4 mb-[1em] ">
           <div className="rounded-lg p-[1em] bg-white flex flex-col justify-between">
             <p className="text-5">Категорія</p>
@@ -59,46 +168,49 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
               Обрати категорію{" "}
               <select
                 placeholder="Обирати зі списку"
+                defaultValue={news?.category.uk}
                 {...register("category", { required: true })}
                 className="rounded-sm border-2 p-2"
               >
-                <option disabled value="alien">
-                  Обирати зі списку
-                </option>
-                <option value="alien">alien</option>
-                <option value="human">human</option>
-                <option value="cat">cat</option>
-                <option value="dog">dog</option>
-                <option value="other">other</option>
+                {APP_CONST.category.ukCategory.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
               </select>
             </label>
           </div>
-
           <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between ">
             <label className="text-6 ">Дата публікації </label>
             <input
               placeholder="{date}"
               type="date"
-              defaultValue={new Date().toISOString().substring(0, 10)}
+              defaultValue={
+                news
+                  ? new Date(news?.date as Date).toISOString().substring(0, 10)
+                  : new Date().toISOString().substring(0, 10)
+              }
               {...register("date", { required: false })}
               className="rounded-sm border-2 p-2"
             />
           </div>
-
           <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between">
             <p className="text-5 ">Запис</p>
             <div className="flex justify-between">
               <button
-                type="submit"
-                className=" font-semibold px-[1em] py-[0.5em] border border-black"
+                type="button"
+                className=" font-semibold px-[1em] py-[0.5em] disabled:opacity-10 disabled:bg-dark-blue"
+                disabled={!preview}
+                onClick={previewNews}
               >
                 Переглянути
               </button>
               <button
                 type="submit"
-                className=" font-semibold px-[1em] py-[0.5em] "
+                className="font-semibold px-[1em] py-[0.5em] border border-black disabled:opacity-10 disabled:bg-dark-blue"
+                disabled={!poster}
               >
-                Зберегти
+                {preview ? "Змінити" : "Зберегти"}
               </button>
             </div>
           </div>
@@ -113,6 +225,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             <input
               placeholder="Введіть заголовок"
               type="text"
+              defaultValue={news?.title}
               {...register("title", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
@@ -122,6 +235,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             <input
               placeholder="Введіть заголовок"
               type="text"
+              defaultValue={news?.enTitle}
               {...register("titleEn", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
@@ -154,6 +268,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати лід до публікації*{" "}
             <textarea
               rows={3}
+              defaultValue={news?.description.split(/(\n)/)[0]}
               {...register("lid", { required: true })}
               className="rounded-sm border-2 p-2 "
             />
@@ -162,6 +277,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати лід до публікації англійською мовою*{" "}
             <textarea
               rows={3}
+              defaultValue={news?.enDescription.split(/(\n)/)[0]}
               {...register("lidEn", { required: true })}
               className="rounded-sm border-2 p-2 "
             />
@@ -177,6 +293,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати текст до публікації*{" "}
             <textarea
               rows={4}
+              defaultValue={news?.description.split(/(\n)/)[0].slice(1)}
               {...register("text", { required: true })}
               className="rounded-sm border-2 p-2"
             />
@@ -185,6 +302,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
             Додати текст до публікації англійською мовою*{" "}
             <textarea
               rows={4}
+              defaultValue={news?.enDescription.split(/(\n)/)[0].slice(1)}
               {...register("textEn", { required: true })}
               className="rounded-sm border-2 p-2"
             />
@@ -192,7 +310,7 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
 
           <div className="col-span-2">
             <p className="text-6 ">Додати зображення*</p>
-            {images.length > 1 && (
+            {images.length > 0 && (
               <>
                 {images.map((image) => {
                   return (
@@ -218,6 +336,14 @@ export const AddNews = ({ className }: Readonly<{ className?: string }>) => {
           </div>
         </div>
       </form>
+      {openPreview && (
+        <PreviewNews
+          data={preview}
+          close={() => {
+            setOpen(false);
+          }}
+        />
+      )}
     </section>
   );
 };
