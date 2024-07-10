@@ -2,13 +2,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
 import { APP_CONST } from "@/commons";
 import { IProject } from "@/commons/types";
-import { apiService } from "@/services/api-service";
 import { upload } from "@/utils";
 
+import { changePublicStatus, saveOrUpdateData } from "../utils";
 import { createProject, FormData } from "./create-project";
 import PreviewProject from "./preview-project";
 
@@ -27,7 +26,7 @@ const AddProject = ({ project }: { project?: IProject }) => {
 
   const addDetailImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
-      setDetailImages((prev) => [...prev, data])
+      setDetailImages((prev) => [...prev, data]),
     );
   };
 
@@ -36,57 +35,26 @@ const AddProject = ({ project }: { project?: IProject }) => {
   };
 
   const onSubmit = (data: FormData) => {
-    if (!poster) {
-      toast("Додайте основне фото!", { type: "error" });
-      return;
-    }
-    const project = createProject({ data, poster, detailImages, images });
+    if (poster) {
+      const project = createProject({ data, poster, detailImages, images });
 
-    if (preview) {
-      apiService
-        .patchRequest({
-          url: `${APP_CONST.API_URL.PROJECTS}/${preview._id}`,
-          body: project,
-        })
-        .then((data) => {
-          toast("Збережено!", { type: "success" });
-          setPreview(data);
-        })
-        .catch(() => {
-          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
-        });
-    } else {
-      apiService
-        .postRequest({
-          url: APP_CONST.API_URL.PROJECTS,
-          body: project,
-        })
-        .then((data) => {
-          toast("Збережено!", { type: "success" });
-          project._id = data._id;
-          setPreview(project);
-        })
-        .catch(() => {
-          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
-        });
+      saveOrUpdateData<IProject>({
+        data: project,
+        setPreview,
+        id: preview?._id,
+        url: APP_CONST.API_URL.PROJECTS,
+      });
     }
   };
 
-  const publicProject = () => {
+  const changeProjectPublicStatus = () => {
     if (preview) {
-      apiService
-        .patchRequest({
-          url: `${APP_CONST.API_URL.PROJECTS}/${preview._id}`,
-          body: { ...project, publicStatus: true },
-        })
-        .then(() => {
-          toast("Опубліковано!", { type: "success" });
-        })
-        .catch(() => {
-          toast("Не вдалося опублікувати! Спробуйте пізніше!", {
-            type: "error",
-          });
-        });
+      changePublicStatus<IProject>({
+        preview,
+        url: `${APP_CONST.API_URL.PROJECTS}/${preview._id}`,
+        setPreview,
+        publicStatus: !preview?.publicStatus,
+      });
     }
   };
 
@@ -114,9 +82,9 @@ const AddProject = ({ project }: { project?: IProject }) => {
           className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white disabled:opacity-10 disabled:bg-dark-blue"
           type="submit"
           disabled={!preview}
-          onClick={publicProject}
+          onClick={changeProjectPublicStatus}
         >
-          Опублікувати
+          {preview?.publicStatus ? "Зняти з публікації" : "Опублікувати"}
         </button>
       </div>
 
@@ -144,7 +112,7 @@ const AddProject = ({ project }: { project?: IProject }) => {
           </div>
           <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between">
             <p className="text-5 ">Запис</p>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-4">
               <button
                 type="button"
                 className=" font-semibold px-[1em] py-[0.5em] disabled:opacity-10 disabled:bg-dark-blue"

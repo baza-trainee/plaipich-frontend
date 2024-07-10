@@ -2,58 +2,17 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
 import { APP_CONST } from "@/commons";
-import { category } from "@/commons/constants";
 import { INews } from "@/commons/types";
-import { apiService } from "@/services/api-service";
+import {
+  changePublicStatus,
+  saveOrUpdateData,
+} from "@/components/admin-components/utils";
 import { upload } from "@/utils";
 
+import { createNews, FormData } from "./create-news";
 import PreviewNews from "./preview-news";
-
-export type FormData = {
-  title: string;
-  titleEn: string;
-  titleImg: string;
-  lid: string;
-  lidEn: string;
-  text: string;
-  textEn: string;
-  media: string;
-  category: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
-  date: Date;
-};
-
-const createNews = ({
-  data,
-  poster,
-  images,
-}: {
-  data: FormData;
-  poster?: string;
-  images: string[];
-}): INews => {
-  const enCategoryIndex = category.ukCategory.findIndex(
-    (item) => data.category === item,
-  );
-  const news = {
-    title: data.title,
-    description: `${data.lid}\n${data.text}`,
-    enTitle: data.titleEn,
-    enDescription: `${data.lidEn}\n${data.textEn}`,
-    date: data.date,
-    category: {
-      en: category.enCategory[enCategoryIndex],
-      uk: data.category,
-    },
-    mainPhoto: poster || "",
-    photos: images,
-    publicStatus: false,
-  };
-
-  return news;
-};
 
 export const AddNews = ({ news }: { news?: INews }) => {
   const [preview, setPreview] = useState<INews | null>(null);
@@ -72,57 +31,29 @@ export const AddNews = ({ news }: { news?: INews }) => {
   };
 
   const onSubmit = (data: FormData) => {
-    if (!poster) {
-      toast("Додайте основне фото!", { type: "error" });
-      return;
-    }
-    const news = createNews({ data, poster, images });
+    const news = createNews({
+      data,
+      poster,
+      images,
+      publicStatus: !!preview?.publicStatus,
+    });
 
-    if (preview) {
-      apiService
-        .patchRequest({
-          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
-          body: news,
-        })
-        .then((data) => {
-          toast("Збережено!", { type: "success" });
-          setPreview(data);
-        })
-        .catch(() => {
-          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
-        });
-    } else {
-      apiService
-        .postRequest({
-          url: APP_CONST.API_URL.NEWS,
-          body: news,
-        })
-        .then((data) => {
-          toast("Збережено!", { type: "success" });
-          news._id = data._id;
-          setPreview(news);
-        })
-        .catch(() => {
-          toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
-        });
-    }
+    saveOrUpdateData<INews>({
+      data: news,
+      url: APP_CONST.API_URL.NEWS,
+      setPreview,
+      id: preview?._id,
+    });
   };
 
-  const publicNews = () => {
+  const changeNewsPublicStatus = () => {
     if (preview) {
-      apiService
-        .patchRequest({
-          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
-          body: { ...news, publicStatus: true },
-        })
-        .then(() => {
-          toast("Опубліковано!", { type: "success" });
-        })
-        .catch(() => {
-          toast("Не вдалося опублікувати! Спробуйте пізніше!", {
-            type: "error",
-          });
-        });
+      changePublicStatus<INews>({
+        preview,
+        url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
+        setPreview,
+        publicStatus: !preview?.publicStatus,
+      });
     }
   };
 
@@ -150,9 +81,9 @@ export const AddNews = ({ news }: { news?: INews }) => {
           className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white disabled:opacity-10 disabled:bg-dark-blue"
           type="submit"
           disabled={!preview}
-          onClick={publicNews}
+          onClick={changeNewsPublicStatus}
         >
-          Опублікувати
+          {preview?.publicStatus ? "Зняти з публікації" : "Опублікувати"}
         </button>
       </div>
 

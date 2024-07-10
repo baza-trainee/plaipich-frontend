@@ -44,7 +44,7 @@ const getFilteredList = ({
           );
         })
       : list;
-  return increasing ? newList : [...newList].reverse();
+  return increasing ? [...newList].reverse() : newList;
 };
 
 const AdminProjects = ({ list }: { list: APP_TYPES.IProject[] }) => {

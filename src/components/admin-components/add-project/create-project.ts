@@ -19,8 +19,8 @@ export const createProject = ({
   poster,
   detailImages,
   images, // missionImage,
-} // projectProgramImage,
-// supportLogo,
+  // projectProgramImage,
+} // supportLogo,
 // photos,
 // partners,
 : {
