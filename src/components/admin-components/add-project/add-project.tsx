@@ -5,65 +5,29 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 import { APP_CONST } from "@/commons";
-import { category } from "@/commons/constants";
-import { INews } from "@/commons/types";
+import { IProject } from "@/commons/types";
 import { apiService } from "@/services/api-service";
 import { upload } from "@/utils";
 
-import PreviewNews from "./preview-news";
+import { createProject, FormData } from "./create-project";
+import PreviewProject from "./preview-project";
 
-export type FormData = {
-  title: string;
-  titleEn: string;
-  titleImg: string;
-  lid: string;
-  lidEn: string;
-  text: string;
-  textEn: string;
-  media: string;
-  category: "Анонси" | "Статті" | "Проекти" | "Події" | "Персоналії";
-  date: Date;
-};
-
-const createNews = ({
-  data,
-  poster,
-  images,
-}: {
-  data: FormData;
-  poster?: string;
-  images: string[];
-}): INews => {
-  const enCategoryIndex = category.ukCategory.findIndex(
-    (item) => data.category === item,
-  );
-  const news = {
-    title: data.title,
-    description: `${data.lid}\n${data.text}`,
-    enTitle: data.titleEn,
-    enDescription: `${data.lidEn}\n${data.textEn}`,
-    date: data.date,
-    category: {
-      en: category.enCategory[enCategoryIndex],
-      uk: data.category,
-    },
-    mainPhoto: poster || "",
-    photos: images,
-    publicStatus: false,
-  };
-
-  return news;
-};
-
-export const AddNews = ({ news }: { news?: INews }) => {
-  const [preview, setPreview] = useState<INews | null>(null);
+const AddProject = ({ project }: { project?: IProject }) => {
+  const [preview, setPreview] = useState<IProject | null>(null);
   const [openPreview, setOpen] = useState(false);
+  const [detailImages, setDetailImages] = useState<string[]>([]);
   const [images, setImages] = useState<string[]>([]);
   const [poster, setPoster] = useState<string>();
 
-  const addImages = (event: any) => {
+  // const addImages = (event: any) => {
+  //   upload(event?.target.files[0]).then((data) =>
+  //     setImages((prev) => [...prev, data]),
+  //   );
+  // };
+
+  const addDetailImages = (event: any) => {
     upload(event?.target.files[0]).then((data) =>
-      setImages((prev) => [...prev, data]),
+      setDetailImages((prev) => [...prev, data])
     );
   };
 
@@ -76,13 +40,13 @@ export const AddNews = ({ news }: { news?: INews }) => {
       toast("Додайте основне фото!", { type: "error" });
       return;
     }
-    const news = createNews({ data, poster, images });
+    const project = createProject({ data, poster, detailImages, images });
 
     if (preview) {
       apiService
         .patchRequest({
-          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
-          body: news,
+          url: `${APP_CONST.API_URL.PROJECTS}/${preview._id}`,
+          body: project,
         })
         .then((data) => {
           toast("Збережено!", { type: "success" });
@@ -94,13 +58,13 @@ export const AddNews = ({ news }: { news?: INews }) => {
     } else {
       apiService
         .postRequest({
-          url: APP_CONST.API_URL.NEWS,
-          body: news,
+          url: APP_CONST.API_URL.PROJECTS,
+          body: project,
         })
         .then((data) => {
           toast("Збережено!", { type: "success" });
-          news._id = data._id;
-          setPreview(news);
+          project._id = data._id;
+          setPreview(project);
         })
         .catch(() => {
           toast("Не вдалося зберегти! Перевірте дані!", { type: "error" });
@@ -108,12 +72,12 @@ export const AddNews = ({ news }: { news?: INews }) => {
     }
   };
 
-  const publicNews = () => {
+  const publicProject = () => {
     if (preview) {
       apiService
         .patchRequest({
-          url: `${APP_CONST.API_URL.NEWS}/${preview._id}`,
-          body: { ...news, publicStatus: true },
+          url: `${APP_CONST.API_URL.PROJECTS}/${preview._id}`,
+          body: { ...project, publicStatus: true },
         })
         .then(() => {
           toast("Опубліковано!", { type: "success" });
@@ -126,17 +90,17 @@ export const AddNews = ({ news }: { news?: INews }) => {
     }
   };
 
-  const previewNews = () => {
+  const previewProject = () => {
     setOpen(true);
   };
 
   const { register, handleSubmit } = useForm<FormData>();
 
   useEffect(() => {
-    if (news) {
-      setPoster(news.mainPhoto);
-      setImages(news.photos);
-      setPreview(news);
+    if (project) {
+      setPoster(project.poster);
+      project.photos && setImages(project.photos);
+      setPreview(project);
     }
   }, []);
 
@@ -144,13 +108,13 @@ export const AddNews = ({ news }: { news?: INews }) => {
     <section className="p-4 bg-gray-200 text-black">
       <div className="p-[1em] bg-white mb-[1em] flex justify-between">
         <h1 className="h7 ">
-          {news ? "Редагувати запис" : "Додати новий запис"}
+          {project ? "Редагувати запис" : "Додати новий проєкт"}
         </h1>
         <button
           className="font-semibold px-[2em] py-[0.5em] bg-dark-blue text-white disabled:opacity-10 disabled:bg-dark-blue"
           type="submit"
           disabled={!preview}
-          onClick={publicNews}
+          onClick={publicProject}
         >
           Опублікувати
         </button>
@@ -162,38 +126,21 @@ export const AddNews = ({ news }: { news?: INews }) => {
         })}
         className="flex flex-col "
       >
-        <div className="grid grid-cols-3 gap-4 mb-[1em] ">
+        <div className="w-full flex justify-between gap-4 mb-[1em] ">
           <div className="rounded-lg p-[1em] bg-white flex flex-col justify-between">
-            <p className="text-5">Категорія</p>
+            <p className="text-5">Статус фінансування проєкту</p>
             <label className="text-6 ">
-              Обрати категорію{" "}
+              Обрати статус
               <select
                 placeholder="Обирати зі списку"
-                defaultValue={news?.category.uk}
-                {...register("category", { required: true })}
+                defaultValue={preview ? `${preview.status}` : "false"}
+                {...register("status", { required: true })}
                 className="rounded-sm border-2 p-2"
               >
-                {APP_CONST.category.ukCategory.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
+                <option value={"false"}>Потребує підтримки</option>
+                <option value={"true"}>Профінансовано</option>
               </select>
             </label>
-          </div>
-          <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between ">
-            <label className="text-6 ">Дата публікації </label>
-            <input
-              placeholder="{date}"
-              type="date"
-              defaultValue={
-                news
-                  ? new Date(news?.date as Date).toISOString().substring(0, 10)
-                  : new Date().toISOString().substring(0, 10)
-              }
-              {...register("date", { required: false })}
-              className="rounded-sm border-2 p-2"
-            />
           </div>
           <div className="rounded-lg bg-white p-[1em] flex flex-col justify-between">
             <p className="text-5 ">Запис</p>
@@ -202,7 +149,7 @@ export const AddNews = ({ news }: { news?: INews }) => {
                 type="button"
                 className=" font-semibold px-[1em] py-[0.5em] disabled:opacity-10 disabled:bg-dark-blue"
                 disabled={!preview}
-                onClick={previewNews}
+                onClick={previewProject}
               >
                 Переглянути
               </button>
@@ -222,22 +169,22 @@ export const AddNews = ({ news }: { news?: INews }) => {
           <h3 className="h15">Англійська версія запису</h3>
 
           <label className="text-6 ">
-            Додати заголовок*{" "}
+            Додати назву проєкту*
             <input
               placeholder="Введіть заголовок"
               type="text"
-              defaultValue={news?.title}
+              defaultValue={project?.title}
               {...register("title", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
           </label>
           <label className="text-6 ">
-            Додати заголовок англійською мовою*{" "}
+            Додати назву проєкту*
             <input
               placeholder="Введіть заголовок"
               type="text"
-              defaultValue={news?.enTitle}
-              {...register("titleEn", { required: true, maxLength: 80 })}
+              defaultValue={project?.enTitle}
+              {...register("enTitle", { required: true, maxLength: 80 })}
               className="rounded-sm border-2 p-2 "
             />
           </label>
@@ -258,58 +205,114 @@ export const AddNews = ({ news }: { news?: INews }) => {
               <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
                 <div className="flex flex-col items-center justify-center text-dark-blue">
                   <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
-                  <p>Додати зображення</p>
+                  <p>Додати зображення*</p>
                 </div>
                 <input type="file" className="hidden" onChange={addPoster} />
               </label>
             )}
           </div>
-
-          <label className="text-6 ">
-            Додати лід до публікації*{" "}
-            <textarea
-              rows={3}
-              defaultValue={news?.description.split(/(\n)/)[0]}
-              {...register("lid", { required: true })}
-              className="rounded-sm border-2 p-2 "
+          <h3 className="col-span-2 text-lg">
+            Короткий опис проєкту (або мета)
+          </h3>
+          <label className="text-6  ">
+            Додати боковий текст до опису*
+            <input
+              defaultValue={project?.description.split("**")[0]}
+              {...register("descStart", { required: true })}
+              className="rounded-sm border-2 p-2"
             />
           </label>
-          <label className="text-6 ">
-            Додати лід до публікації англійською мовою*{" "}
-            <textarea
-              rows={3}
-              defaultValue={news?.enDescription.split(/(\n)/)[0]}
-              {...register("lidEn", { required: true })}
-              className="rounded-sm border-2 p-2 "
+          <label className="text-6  ">
+            Додати боковий текст до опису*
+            <input
+              defaultValue={project?.enDescription.split("**")[0]}
+              {...register("descEnStart", { required: true })}
+              className="rounded-sm border-2 p-2"
             />
           </label>
-
           <p className="px-32 col-span-2 text-red  text-sm">
-            Лід виконує функцію першого абзацу. Лід завжди виділений жирним
-            шрифтом. Також, він виконує функцію анонсу статті (короткий зміст)
-            на головній сторінці
+            Короткий текс, в основному назва проекту, що відображається збоку
+            другої секції.
           </p>
 
           <label className="text-6  ">
-            Додати текст до публікації*{" "}
+            Додати текст до опису*{" "}
             <textarea
               rows={4}
-              defaultValue={news?.description.split(/(\n)/)[0].slice(1)}
-              {...register("text", { required: true })}
+              defaultValue={project?.description.split("**")[1]}
+              {...register("descText", { required: true })}
               className="rounded-sm border-2 p-2"
             />
           </label>
           <label className="text-6  ">
-            Додати текст до публікації англійською мовою*{" "}
+            Додати текст до опису*{" "}
             <textarea
               rows={4}
-              defaultValue={news?.enDescription.split(/(\n)/)[0].slice(1)}
-              {...register("textEn", { required: true })}
+              defaultValue={project?.enDescription.split("**")[1]}
+              {...register("descEnText", { required: true })}
               className="rounded-sm border-2 p-2"
             />
           </label>
+          <h3 className="col-span-2 text-lg">Детальний опис проєкту</h3>
+          <label className="text-6  ">
+            Додати заголовок до опису*
+            <input
+              defaultValue={project?.detailDesc?.start}
+              {...register("detailStart", { required: true })}
+              className="rounded-sm border-2 p-2"
+            />
+          </label>
+          <label className="text-6  ">
+            Додати заголовок до опису*
+            <input
+              defaultValue={project?.detailDesc?.enStart}
+              {...register("detailEnStart", { required: true })}
+              className="rounded-sm border-2 p-2"
+            />
+          </label>
+          <label className="text-6  ">
+            Додати текст до опису*{" "}
+            <textarea
+              rows={4}
+              defaultValue={project?.detailDesc?.text[0]}
+              {...register("detailText", { required: true })}
+              className="rounded-sm border-2 p-2"
+            />
+          </label>
+          <label className="text-6  ">
+            Додати текст до опису*{" "}
+            <textarea
+              rows={4}
+              defaultValue={project?.detailDesc?.enText[0]}
+              {...register("detailEnText", { required: true })}
+              className="rounded-sm border-2 p-2"
+            />
+          </label>
+          {detailImages.length > 0 ? (
+            <>
+              <Image
+                src={detailImages[0]}
+                alt="poster"
+                width={1000}
+                height={500}
+                className="w-full h-48 border-2 border-dashed rounded-lg object-contain"
+              />{" "}
+            </>
+          ) : (
+            <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer">
+              <div className="flex flex-col items-center justify-center text-dark-blue">
+                <span className="-mb-[0.5em] text-[4em] font-bold">+</span>
+                <p>Додати зображення*</p>
+              </div>
+              <input
+                type="file"
+                className="hidden"
+                onChange={addDetailImages}
+              />
+            </label>
+          )}
 
-          <div className="col-span-2">
+          {/* <div className="col-span-2">
             <p className="text-6 ">Додати зображення*</p>
             {images.length > 0 && (
               <>
@@ -334,17 +337,19 @@ export const AddNews = ({ news }: { news?: INews }) => {
               </div>
               <input type="file" className="hidden" onChange={addImages} />
             </label>
-          </div>
+          </div> */}
         </div>
       </form>
       {openPreview && (
-        <PreviewNews
-          data={preview}
-          close={() => {
-            setOpen(false);
-          }}
+        <PreviewProject
+        // data={preview}
+        // close={() => {
+        //   setOpen(false);
+        // }}
         />
       )}
     </section>
   );
 };
+
+export default AddProject;

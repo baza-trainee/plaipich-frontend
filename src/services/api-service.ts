@@ -1,4 +1,8 @@
+import { toast } from "react-toastify";
+
 import { API_URL } from "@/commons/constants";
+
+import { localStorageServices } from "./local-storage";
 
 export class APIService {
   baseURL: string;
@@ -25,6 +29,9 @@ export class APIService {
   catchError = (status: number) => {
     if (status === 401) {
       this.setToken("");
+      localStorageServices.clearLocal();
+      toast("Неавторизований користувач!", { type: "warning" });
+      window.location.href = "/admin";
     }
   };
 
