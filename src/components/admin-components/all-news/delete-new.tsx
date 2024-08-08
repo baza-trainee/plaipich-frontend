@@ -30,11 +30,13 @@ const DeleteModal = ({
         .then(() => {
           toast("Видалили!", { type: "success" });
           setDeleted(true);
-          close();
           window.location.reload();
         })
         .catch(() => {
           toast("Щось пішло не так", { type: "error" });
+        })
+        .finally(() => {
+          close();
         });
     }
   };

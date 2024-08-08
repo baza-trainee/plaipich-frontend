@@ -1,7 +1,9 @@
 import React from "react";
 
+import AddProject from "@/components/admin-components/add-project/add-project";
+
 const Project = () => {
-  return <div>Project</div>;
+  return <AddProject />;
 };
 
 export default Project;
