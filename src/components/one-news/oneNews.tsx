@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useRouter,useSearchParams } from "next/navigation";
 import React from "react";
 import { TbArrowLeft } from "react-icons/tb";
 
@@ -15,6 +15,7 @@ import Gallery from "./one-news-gallery";
 
 const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const newId = searchParams.get("id");
   const { data, isLoading, isError } = useOneNew(`${API_URL.NEWS}/${newId}`);
 
@@ -80,7 +81,7 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
 
                   <div>
                     {formatText(
-                      lng === "en" ? data.enDescription : data.description,
+                      lng === "en" ? data.enDescription : data.description
                     ).map((str, ind) => (
                       <p
                         className={`text-base leading-4 mb-8 md:mb-5 lg:pr-5 ${
@@ -100,7 +101,8 @@ const OneNews = ({ lng }: { lng: "en" | "uk" }) => {
                 </div>
               )}
               <Link
-                href={`/${lng}/${NAVIGATION.news}`}
+                href=''
+                onClick={() => router.back()}
                 className="inline-flex gap-2 px-6 py-4 md:text-md"
               >
                 <TbArrowLeft size="24px" color="black" />
